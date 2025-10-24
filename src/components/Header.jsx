@@ -5,14 +5,7 @@ const Header = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <a href="/" className="flex items-center">
-            {/* AJOUTEZ VOTRE LOGO ICI */}
-            {/* Option 1: Si vous avez un fichier image logo.png dans /public */}
-            {/* <img src="/logo.png" alt="Agence Celexia" className="h-12" /> */}
-
-            {/* Option 2: Texte temporaire (à remplacer par votre logo) */}
-            <span className="text-2xl font-bold text-primary-purple">
-              Agence Celexia
-            </span>
+            <img src="/logo.png" alt="Agence Celexia" className="h-12" />
           </a>
 
           {/* Navigation Simple */}
