@@ -95,7 +95,7 @@ const Home = () => {
           <div className="text-center mt-12 text-white">
             <p className="text-lg mb-2">Vous préférez nous écrire ?</p>
             <p className="text-xl font-semibold">
-              📧 contact@agence-celexia.fr
+              📧 agence.celexia@gmail.com
             </p>
           </div>
         </div>
