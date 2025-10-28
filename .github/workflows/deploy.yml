@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - claude/local-service-ads-site-011CURiGSioj3AQTUabHbBf9
   workflow_dispatch:
 
 permissions:
