@@ -19,6 +19,17 @@ const ROICalculator = () => {
     setShowResults(true);
   };
 
+  const handleContratChange = (e) => {
+    const value = e.target.value;
+    // Si vide, mettre 0
+    if (value === '' || value === '0') {
+      setValeurContrat(0);
+    } else {
+      // Convertir en nombre, ce qui supprime automatiquement les 0 en préfixe
+      setValeurContrat(Number(value));
+    }
+  };
+
   return (
     <div className="max-w-4xl mx-auto">
       <div className="bg-white rounded-2xl shadow-2xl p-4 md:p-8 lg:p-12">
@@ -55,7 +66,7 @@ const ROICalculator = () => {
           <div>
             <label className="flex items-start md:items-center text-sm md:text-base lg:text-lg font-semibold mb-3 md:mb-4">
               <span className="text-xl md:text-2xl mr-2 md:mr-3 flex-shrink-0">📋</span>
-              <span>Sur 10 appels, combien deviennent des devis ?</span>
+              <span>Sur 100 appels, combien deviennent des devis ?</span>
             </label>
             <input
               type="range"
@@ -66,7 +77,7 @@ const ROICalculator = () => {
               className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary-purple"
             />
             <div className="text-center mt-2">
-              <span className="text-2xl md:text-3xl font-bold text-primary-purple">{Math.round(tauxDevis / 10)}</span>
+              <span className="text-2xl md:text-3xl font-bold text-primary-purple">{tauxDevis}</span>
               <span className="text-sm md:text-base text-gray-600 ml-2">devis ({tauxDevis}%)</span>
             </div>
           </div>
@@ -75,7 +86,7 @@ const ROICalculator = () => {
           <div>
             <label className="flex items-start md:items-center text-sm md:text-base lg:text-lg font-semibold mb-3 md:mb-4">
               <span className="text-xl md:text-2xl mr-2 md:mr-3 flex-shrink-0">✅</span>
-              <span>Sur 10 devis, combien deviennent des clients ?</span>
+              <span>Sur 100 devis, combien deviennent des clients ?</span>
             </label>
             <input
               type="range"
@@ -86,7 +97,7 @@ const ROICalculator = () => {
               className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary-purple"
             />
             <div className="text-center mt-2">
-              <span className="text-2xl md:text-3xl font-bold text-primary-purple">{Math.round(tauxClient / 10)}</span>
+              <span className="text-2xl md:text-3xl font-bold text-primary-purple">{tauxClient}</span>
               <span className="text-sm md:text-base text-gray-600 ml-2">clients ({tauxClient}%)</span>
             </div>
           </div>
@@ -101,7 +112,7 @@ const ROICalculator = () => {
               <input
                 type="number"
                 value={valeurContrat}
-                onChange={(e) => setValeurContrat(Number(e.target.value))}
+                onChange={handleContratChange}
                 className="w-full px-4 md:px-6 py-3 md:py-4 text-xl md:text-2xl font-bold text-center border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none"
               />
               <span className="absolute right-4 md:right-6 top-1/2 transform -translate-y-1/2 text-xl md:text-2xl text-gray-600">€</span>
