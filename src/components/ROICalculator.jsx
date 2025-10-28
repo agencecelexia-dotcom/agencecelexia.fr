@@ -111,7 +111,7 @@ const ROICalculator = () => {
             <div className="relative">
               <input
                 type="number"
-                value={valeurContrat}
+                value={valeurContrat || ''}
                 onChange={handleContratChange}
                 className="w-full px-4 md:px-6 py-3 md:py-4 text-xl md:text-2xl font-bold text-center border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none"
               />
