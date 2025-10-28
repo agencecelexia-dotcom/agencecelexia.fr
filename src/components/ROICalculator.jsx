@@ -210,6 +210,84 @@ const ROICalculator = () => {
                     </p>
                   </div>
                 </div>
+
+                {/* Graphique de projection */}
+                <div className="mt-6 bg-gradient-to-br from-purple-50 to-white p-4 md:p-6 rounded-lg border border-purple-200">
+                  <h4 className="font-bold text-base md:text-lg mb-4 text-center text-gray-800">
+                    📊 Évolution de vos bénéfices cumulés
+                  </h4>
+
+                  <div className="relative h-64 md:h-80">
+                    {/* Graphique SVG */}
+                    <svg className="w-full h-full" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid meet">
+                      {/* Grille horizontale */}
+                      <line x1="50" y1="250" x2="580" y2="250" stroke="#E5E7EB" strokeWidth="1"/>
+                      <line x1="50" y1="200" x2="580" y2="200" stroke="#E5E7EB" strokeWidth="1" strokeDasharray="5,5"/>
+                      <line x1="50" y1="150" x2="580" y2="150" stroke="#E5E7EB" strokeWidth="1" strokeDasharray="5,5"/>
+                      <line x1="50" y1="100" x2="580" y2="100" stroke="#E5E7EB" strokeWidth="1" strokeDasharray="5,5"/>
+                      <line x1="50" y1="50" x2="580" y2="50" stroke="#E5E7EB" strokeWidth="1" strokeDasharray="5,5"/>
+
+                      {/* Axe Y */}
+                      <line x1="50" y1="20" x2="50" y2="250" stroke="#9CA3AF" strokeWidth="2"/>
+                      {/* Axe X */}
+                      <line x1="50" y1="250" x2="580" y2="250" stroke="#9CA3AF" strokeWidth="2"/>
+
+                      {/* Labels Y */}
+                      <text x="40" y="255" textAnchor="end" className="text-xs fill-gray-600">0€</text>
+                      <text x="40" y="55" textAnchor="end" className="text-xs fill-gray-600">{Math.round(beneficeNet * 12 / 1000)}k€</text>
+
+                      {/* Barres */}
+                      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((month) => {
+                        const maxValue = beneficeNet * 12;
+                        const currentValue = beneficeNet * month;
+                        const barHeight = (currentValue / maxValue) * 200;
+                        const x = 70 + (month - 1) * 42;
+                        const y = 250 - barHeight;
+
+                        return (
+                          <g key={month}>
+                            {/* Barre */}
+                            <rect
+                              x={x}
+                              y={y}
+                              width="35"
+                              height={barHeight}
+                              fill="#A78BFA"
+                              className="hover:opacity-80 transition-opacity"
+                              rx="4"
+                            />
+                            {/* Label mois */}
+                            <text
+                              x={x + 17.5}
+                              y="270"
+                              textAnchor="middle"
+                              className="text-xs fill-gray-600"
+                              fontSize="11"
+                            >
+                              M{month}
+                            </text>
+                            {/* Valeur au-dessus */}
+                            {month % 3 === 0 && (
+                              <text
+                                x={x + 17.5}
+                                y={y - 5}
+                                textAnchor="middle"
+                                className="text-xs fill-primary-purple font-semibold"
+                                fontSize="10"
+                              >
+                                {Math.round(currentValue / 1000)}k
+                              </text>
+                            )}
+                          </g>
+                        );
+                      })}
+                    </svg>
+                  </div>
+
+                  <p className="text-center text-xs md:text-sm text-gray-600 mt-4">
+                    💰 Bénéfice cumulé total sur 12 mois : <span className="font-bold text-primary-purple text-sm md:text-base">{(beneficeNet * 12).toLocaleString()}€</span>
+                  </p>
+                </div>
               </div>
             </div>
 
