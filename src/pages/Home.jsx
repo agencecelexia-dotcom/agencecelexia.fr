@@ -39,7 +39,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16 lg:mb-20">
             {/* Stat 1 */}
             <div className="bg-white p-6 md:p-8 lg:p-10 rounded-2xl shadow-xl text-center border-2 border-green-500">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-green-600 mb-3 md:mb-4">22€</div>
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-green-600 mb-3 md:mb-4">30€</div>
               <p className="text-base md:text-lg lg:text-xl font-semibold mb-2">Coût moyen par lead</p>
               <p className="text-sm md:text-base text-gray-600">Local Service Ads</p>
               <p className="text-xs md:text-sm text-gray-500 mt-3 md:mt-4">Source: Media Captain, 2025</p>
@@ -55,10 +55,10 @@ const Home = () => {
 
             {/* Stat 3 */}
             <div className="bg-white p-6 md:p-8 lg:p-10 rounded-2xl shadow-xl text-center border-2 border-primary-purple">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-purple mb-3 md:mb-4">74%</div>
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-purple mb-3 md:mb-4">65%</div>
               <p className="text-base md:text-lg lg:text-xl font-semibold mb-2">Économies réalisées</p>
               <p className="text-sm md:text-base text-gray-600">en passant aux LSA</p>
-              <p className="text-xs md:text-sm text-gray-500 mt-3 md:mt-4">Calcul: (85-22)/85</p>
+              <p className="text-xs md:text-sm text-gray-500 mt-3 md:mt-4">Calcul: (85-30)/85</p>
             </div>
           </div>
 
