@@ -21,12 +21,24 @@ const ROICalculator = () => {
 
   const handleContratChange = (e) => {
     const value = e.target.value;
+
     // Si vide, mettre 0
-    if (value === '' || value === '0') {
+    if (value === '') {
       setValeurContrat(0);
+      return;
+    }
+
+    // Filtrer pour garder seulement les chiffres
+    const numericValue = value.replace(/[^0-9]/g, '');
+
+    // Convertir en nombre (supprime automatiquement les zéros en préfixe)
+    const numberValue = parseInt(numericValue, 10);
+
+    // Si c'est un nombre valide, l'utiliser, sinon mettre 0
+    if (!isNaN(numberValue)) {
+      setValeurContrat(numberValue);
     } else {
-      // Convertir en nombre, ce qui supprime automatiquement les 0 en préfixe
-      setValeurContrat(Number(value));
+      setValeurContrat(0);
     }
   };
 
@@ -110,9 +122,11 @@ const ROICalculator = () => {
             </label>
             <div className="relative">
               <input
-                type="number"
-                value={valeurContrat || ''}
+                type="text"
+                inputMode="numeric"
+                value={valeurContrat === 0 ? '' : valeurContrat}
                 onChange={handleContratChange}
+                placeholder="45000"
                 className="w-full px-4 md:px-6 py-3 md:py-4 text-xl md:text-2xl font-bold text-center border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none"
               />
               <span className="absolute right-4 md:right-6 top-1/2 transform -translate-y-1/2 text-xl md:text-2xl text-gray-600">€</span>
