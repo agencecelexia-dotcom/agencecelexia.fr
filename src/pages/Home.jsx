@@ -1,6 +1,22 @@
+import { useEffect } from 'react';
 import ROICalculator from '../components/ROICalculator';
 
 const Home = () => {
+  useEffect(() => {
+    // Charger le script Calendly
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Nettoyer le script lors du démontage
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
     <div className="bg-white">
       {/* HERO - SIMPLE ET CLAIR */}
@@ -86,10 +102,12 @@ const Home = () => {
           </p>
 
           <div className="bg-white rounded-2xl p-4 md:p-6 lg:p-8 shadow-2xl">
-            {/* Calendly inline widget begin */}
-            <div className="calendly-inline-widget" data-url="https://calendly.com/agence-celexia/decouverte" style={{minWidth:'320px',height:'600px'}}></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-            {/* Calendly inline widget end */}
+            {/* Calendly inline widget */}
+            <div
+              className="calendly-inline-widget"
+              data-url="https://calendly.com/agence-celexia/decouverte"
+              style={{minWidth:'320px', height:'600px'}}
+            ></div>
           </div>
 
           <div className="text-center mt-8 md:mt-12 text-white">
