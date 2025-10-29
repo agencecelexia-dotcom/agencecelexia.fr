@@ -11,10 +11,6 @@ const Header = () => {
     scrollToSection('calculateur');
   };
 
-  const handleContactClick = (e) => {
-    e.preventDefault();
-    scrollToSection('contact');
-  };
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -41,12 +37,12 @@ const Header = () => {
                 Calculateur
               </button>
             )}
-            <button
-              onClick={handleContactClick}
+            <Link
+              to="/contact"
               className="bg-primary-purple text-white px-4 py-2 md:px-6 md:py-3 rounded-lg hover:bg-purple-600 transition-colors font-semibold text-sm md:text-base"
             >
               Réserver un appel
-            </button>
+            </Link>
           </div>
         </div>
       </nav>

@@ -103,7 +103,7 @@ const Home = () => {
             Réservez un appel stratégique
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-center mb-8 md:mb-12 text-white/90 px-2">
-            15 minutes pour analyser votre marché et estimer votre potentiel.
+            30 minutes pour analyser votre marché et estimer votre potentiel.
           </p>
 
           <div className="bg-white rounded-2xl p-4 md:p-6 lg:p-8 shadow-2xl">

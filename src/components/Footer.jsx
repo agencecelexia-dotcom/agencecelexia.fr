@@ -4,10 +4,10 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center">
           <h3 className="text-2xl font-bold text-primary-purple mb-4">
-            LSA Calculator
+            Agence Celexia
           </h3>
           <p className="text-gray-300 mb-6">
-            Calculez votre ROI avec Local Service Ads
+            Votre partenaire pour la génération de leads qualifiés
           </p>
           <div className="flex justify-center gap-8 mb-8">
             <a href="#calculateur" className="text-gray-300 hover:text-primary-purple transition-colors">
