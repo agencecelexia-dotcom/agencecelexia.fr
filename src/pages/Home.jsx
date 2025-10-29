@@ -29,12 +29,17 @@ const Home = () => {
           <p className="text-base md:text-xl lg:text-2xl text-gray-600 mb-8 md:mb-12 px-2">
             La publicité qui vous fait payer uniquement quand votre téléphone sonne.
           </p>
-          <a
-            href="#calculateur"
+          <button
+            onClick={() => {
+              const element = document.getElementById('calculateur');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
             className="inline-block bg-primary-purple text-white px-8 md:px-12 py-4 md:py-5 rounded-lg text-lg md:text-xl font-bold hover:bg-purple-600 transition-all shadow-xl"
           >
             Calculer mon ROI →
-          </a>
+          </button>
         </div>
       </section>
 

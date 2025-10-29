@@ -1,10 +1,17 @@
 import { useState } from 'react';
+import { useScrollToSection } from '../utils/scrollToSection';
 
 const About = () => {
   const [openFaq, setOpenFaq] = useState(null);
+  const scrollToSection = useScrollToSection();
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const handleContactClick = (e) => {
+    e.preventDefault();
+    scrollToSection('contact');
   };
 
   const faqs = [
@@ -371,12 +378,12 @@ const About = () => {
             Pas de baratin commercial. Juste une conversation franche entre professionnels.
           </p>
 
-          <a
-            href="#contact"
+          <button
+            onClick={handleContactClick}
             className="inline-block bg-white text-primary-purple px-10 py-5 rounded-lg text-lg md:text-xl font-bold hover:bg-gray-100 transition-all shadow-2xl mb-10"
           >
             Réserver un appel gratuit de 30 minutes
-          </a>
+          </button>
 
           <div className="border-t border-white/30 pt-8">
             <p className="text-base md:text-lg mb-4">

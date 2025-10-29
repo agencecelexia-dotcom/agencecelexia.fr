@@ -294,12 +294,17 @@ const ROICalculator = () => {
             {/* CTA après résultats */}
             <div className="text-center mt-6 md:mt-8">
               <p className="text-base md:text-lg lg:text-xl font-semibold mb-3 md:mb-4">Ces chiffres vous parlent ?</p>
-              <a
-                href="#contact"
-                className="inline-block bg-primary-purple text-white px-6 md:px-10 py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+              <button
+                onClick={() => {
+                  const element = document.getElementById('contact');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
+                className="inline-block bg-primary-purple text-white px-6 md:px-10 py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer"
               >
                 Réserver un audit gratuit de mon marché
-              </a>
+              </button>
               <p className="text-xs md:text-sm text-gray-600 mt-2 md:mt-3">
                 On vous montre le potentiel réel de votre zone
               </p>

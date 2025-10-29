@@ -1,8 +1,20 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useScrollToSection } from '../utils/scrollToSection';
 
 const Header = () => {
   const location = useLocation();
   const isHome = location.pathname === '/';
+  const scrollToSection = useScrollToSection();
+
+  const handleCalculatorClick = (e) => {
+    e.preventDefault();
+    scrollToSection('calculateur');
+  };
+
+  const handleContactClick = (e) => {
+    e.preventDefault();
+    scrollToSection('contact');
+  };
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -22,19 +34,19 @@ const Header = () => {
               À Propos
             </Link>
             {isHome && (
-              <a
-                href="#calculateur"
+              <button
+                onClick={handleCalculatorClick}
                 className="hidden md:block text-dark-gray hover:text-primary-purple transition-colors font-semibold"
               >
                 Calculateur
-              </a>
+              </button>
             )}
-            <a
-              href={isHome ? "#contact" : "/#contact"}
+            <button
+              onClick={handleContactClick}
               className="bg-primary-purple text-white px-4 py-2 md:px-6 md:py-3 rounded-lg hover:bg-purple-600 transition-colors font-semibold text-sm md:text-base"
             >
               Réserver un appel
-            </a>
+            </button>
           </div>
         </div>
       </nav>
