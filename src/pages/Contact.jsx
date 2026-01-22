@@ -2,10 +2,28 @@ import { useEffect } from 'react';
 
 const Contact = () => {
   useEffect(() => {
-    // Charger le script Calendly
+    // Charger le script Cal.com
     const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.src = 'https://app.cal.com/embed/embed.js';
     script.async = true;
+
+    script.onload = () => {
+      // Initialiser Cal.com une fois le script chargé
+      if (window.Cal) {
+        window.Cal("init", "rdv-decouverte-240-appels-an-garantis", {origin:"https://app.cal.com"});
+        window.Cal.ns["rdv-decouverte-240-appels-an-garantis"]("inline", {
+          elementOrSelector:"#my-cal-inline-rdv-decouverte-240-appels-an-garantis-contact",
+          config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+          calLink: "agence-celexia-1qyn93/rdv-decouverte-240-appels-an-garantis",
+        });
+        window.Cal.ns["rdv-decouverte-240-appels-an-garantis"]("ui", {
+          "cssVarsPerTheme":{"light":{"cal-brand":"#5050ff"},"dark":{"cal-brand":"#fafafa"}},
+          "hideEventTypeDetails":false,
+          "layout":"month_view"
+        });
+      }
+    };
+
     document.body.appendChild(script);
 
     return () => {
@@ -113,12 +131,11 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Calendly Widget */}
+          {/* Cal.com Widget */}
           <div className="bg-white rounded-xl shadow-lg overflow-hidden">
             <div
-              className="calendly-inline-widget"
-              data-url="https://calendly.com/agence-celexia/decouverte"
-              style={{minWidth:'320px', height:'700px'}}
+              id="my-cal-inline-rdv-decouverte-240-appels-an-garantis-contact"
+              style={{width:'100%', height:'700px', overflow:'scroll'}}
             ></div>
           </div>
 
