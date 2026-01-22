@@ -52,10 +52,10 @@ const Contact = () => {
       <section className="py-12 md:py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-            Prêt à transformer votre génération de leads ?
+            Développez votre activité d'artisan
           </h1>
-          <p className="text-lg md:text-xl text-gray-700 mb-8">
-            Réservez votre appel découverte de 30 minutes et découvrez comment multiplier vos opportunités commerciales tout en réduisant vos coûts d'acquisition.
+          <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+            Réservez 30 minutes d'échange pour comprendre comment notre système d'acquisition peut générer un flux régulier de clients qualifiés pour votre entreprise.
           </p>
         </div>
       </section>
@@ -64,7 +64,7 @@ const Contact = () => {
       <section className="py-8 px-4">
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6 mb-12">
           {/* Email Card */}
-          <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
+          <div className="bg-white p-8 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-shadow">
             <div className="flex items-center justify-center mb-4">
               <div className="w-16 h-16 bg-primary-purple bg-opacity-10 rounded-full flex items-center justify-center">
                 <svg className="w-8 h-8 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -79,10 +79,13 @@ const Contact = () => {
             >
               agence.celexia@gmail.com
             </a>
+            <p className="text-center text-gray-600 text-sm mt-3">
+              Réponse sous 24h
+            </p>
           </div>
 
           {/* Phone Card */}
-          <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
+          <div className="bg-white p-8 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-shadow">
             <div className="flex items-center justify-center mb-4">
               <div className="w-16 h-16 bg-green-600 bg-opacity-10 rounded-full flex items-center justify-center">
                 <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -97,6 +100,9 @@ const Contact = () => {
             >
               06 51 72 57 56
             </a>
+            <p className="text-center text-gray-600 text-sm mt-3">
+              Lun-Ven 9h-18h
+            </p>
           </div>
         </div>
       </section>
@@ -106,45 +112,51 @@ const Contact = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Réservez votre appel découverte
+              Réservez votre appel stratégique
             </h2>
             <p className="text-gray-700 text-lg mb-6">
-              Un échange sans engagement pour comprendre vos besoins et vous présenter notre approche.
+              Un échange sans engagement pour évaluer ensemble le potentiel de notre solution pour votre entreprise.
             </p>
           </div>
 
           {/* Pourquoi réserver un appel */}
           <div className="bg-gradient-to-br from-purple-50 to-white p-6 md:p-8 rounded-xl mb-8 border border-purple-200">
             <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">
-              Pourquoi réserver un appel ?
+              Ce que nous allons aborder pendant l'appel
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-3xl mb-3">🎯</div>
-                <h4 className="font-bold text-gray-900 mb-2">Analyse personnalisée</h4>
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <span className="text-2xl">🎯</span>
+                </div>
+                <h4 className="font-bold text-gray-900 mb-2">Analyse de votre situation</h4>
                 <p className="text-sm text-gray-600">
-                  Nous étudions votre situation actuelle et vos objectifs spécifiques
+                  Vos objectifs de croissance, votre zone d'intervention, votre positionnement actuel
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-3xl mb-3">💡</div>
-                <h4 className="font-bold text-gray-900 mb-2">Conseils gratuits</h4>
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <span className="text-2xl">💡</span>
+                </div>
+                <h4 className="font-bold text-gray-900 mb-2">Stratégie personnalisée</h4>
                 <p className="text-sm text-gray-600">
-                  Repartez avec des recommandations concrètes pour améliorer votre acquisition
+                  Plan d'action concret adapté à votre métier et à votre marché local
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-3xl mb-3">🤝</div>
-                <h4 className="font-bold text-gray-900 mb-2">Zéro pression</h4>
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <span className="text-2xl">📊</span>
+                </div>
+                <h4 className="font-bold text-gray-900 mb-2">Projection de résultats</h4>
                 <p className="text-sm text-gray-600">
-                  Un simple échange pour voir si nous pouvons vous aider
+                  Estimation réaliste du volume d'appels et du ROI potentiel pour votre activité
                 </p>
               </div>
             </div>
           </div>
 
           {/* Cal.com Widget */}
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
             <div
               id="my-cal-inline-rdv-decouverte-240-appels-an-garantis"
               style={{width:'100%', height:'700px', overflow:'scroll'}}
@@ -153,7 +165,7 @@ const Contact = () => {
 
           {/* Footer note */}
           <p className="text-center text-gray-600 mt-8 text-sm">
-            L'appel dure 30 minutes. Aucun engagement requis.
+            Appel de 30 minutes • Sans engagement • 100% confidentiel
           </p>
         </div>
       </section>
