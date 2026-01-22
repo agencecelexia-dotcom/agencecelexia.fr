@@ -54,7 +54,7 @@ const Home = () => {
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 md:mb-8 text-dark-gray leading-tight">
             Calculez votre ROI avec<br />
-            <span className="text-primary-purple">notre solution</span>
+            <span className="text-primary-purple">notre système publicitaire</span>
           </h1>
           <p className="text-base md:text-xl lg:text-2xl text-gray-600 mb-8 md:mb-12 px-2">
             La publicité qui vous fait payer uniquement quand votre téléphone sonne.
@@ -92,7 +92,7 @@ const Home = () => {
             <div className="bg-white p-6 md:p-8 lg:p-10 rounded-2xl shadow-xl text-center border-2 border-green-500">
               <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-green-600 mb-3 md:mb-4">30€</div>
               <p className="text-base md:text-lg lg:text-xl font-semibold mb-2">Coût moyen par lead</p>
-              <p className="text-sm md:text-base text-gray-600">Avec notre solution</p>
+              <p className="text-sm md:text-base text-gray-600">Avec notre système publicitaire</p>
               <p className="text-xs md:text-sm text-gray-500 mt-3 md:mt-4">Source: Media Captain, 2026</p>
             </div>
 
@@ -108,7 +108,7 @@ const Home = () => {
             <div className="bg-white p-6 md:p-8 lg:p-10 rounded-2xl shadow-xl text-center border-2 border-primary-purple">
               <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-purple mb-3 md:mb-4">65%</div>
               <p className="text-base md:text-lg lg:text-xl font-semibold mb-2">Économies réalisées</p>
-              <p className="text-sm md:text-base text-gray-600">avec notre solution</p>
+              <p className="text-sm md:text-base text-gray-600">avec notre système publicitaire</p>
               <p className="text-xs md:text-sm text-gray-500 mt-3 md:mt-4">Calcul: (85-30)/85</p>
             </div>
           </div>
@@ -119,7 +119,7 @@ const Home = () => {
               Position #1 garantie sur Google
             </p>
             <p className="text-sm md:text-base lg:text-lg text-gray-600">
-              Notre solution s'affiche au-dessus de Google Maps<br className="hidden sm:block" />
+              Notre système publicitaire s'affiche au-dessus de Google Maps<br className="hidden sm:block" />
               <span className="sm:hidden"> </span>et au-dessus des publicités classiques.
             </p>
           </div>
