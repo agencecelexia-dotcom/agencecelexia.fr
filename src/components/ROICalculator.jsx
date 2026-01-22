@@ -118,7 +118,7 @@ const ROICalculator = () => {
           <div>
             <label className="flex items-start md:items-center text-sm md:text-base lg:text-lg font-semibold mb-3 md:mb-4">
               <span className="text-xl md:text-2xl mr-2 md:mr-3 flex-shrink-0">💵</span>
-              <span>Valeur moyenne d'un contrat piscine ?</span>
+              <span>Valeur moyenne d'un contrat ?</span>
             </label>
             <div className="relative">
               <input
