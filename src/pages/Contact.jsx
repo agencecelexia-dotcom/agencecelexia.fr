@@ -2,36 +2,48 @@ import { useEffect } from 'react';
 
 const Contact = () => {
   useEffect(() => {
-    // Charger le script Cal.com
-    const script = document.createElement('script');
-    script.src = 'https://app.cal.com/embed/embed.js';
-    script.async = true;
+    // Fonction Cal.com loader (du code embed officiel)
+    (function (C, A, L) {
+      let p = function (a, ar) { a.q.push(ar); };
+      let d = C.document;
+      C.Cal = C.Cal || function () {
+        let cal = C.Cal;
+        let ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement("script")).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api = function () { p(api, arguments); };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if(typeof namespace === "string"){
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["initNamespace", namespace]);
+          } else p(cal, ar);
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
 
-    script.onload = () => {
-      // Initialiser Cal.com une fois le script chargé
-      if (window.Cal) {
-        window.Cal("init", "rdv-decouverte-240-appels-an-garantis", {origin:"https://app.cal.com"});
-        window.Cal.ns["rdv-decouverte-240-appels-an-garantis"]("inline", {
-          elementOrSelector:"#my-cal-inline-rdv-decouverte-240-appels-an-garantis-contact",
-          config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
-          calLink: "agence-celexia-1qyn93/rdv-decouverte-240-appels-an-garantis",
-        });
-        window.Cal.ns["rdv-decouverte-240-appels-an-garantis"]("ui", {
-          "cssVarsPerTheme":{"light":{"cal-brand":"#5050ff"},"dark":{"cal-brand":"#fafafa"}},
-          "hideEventTypeDetails":false,
-          "layout":"month_view"
-        });
-      }
-    };
+    // Initialisation Cal.com
+    window.Cal("init", "rdv-decouverte-240-appels-an-garantis", {origin:"https://app.cal.com"});
 
-    document.body.appendChild(script);
+    window.Cal.ns["rdv-decouverte-240-appels-an-garantis"]("inline", {
+      elementOrSelector:"#my-cal-inline-rdv-decouverte-240-appels-an-garantis",
+      config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+      calLink: "agence-celexia-1qyn93/rdv-decouverte-240-appels-an-garantis",
+    });
 
-    return () => {
-      // Nettoyer le script lors du démontage
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
+    window.Cal.ns["rdv-decouverte-240-appels-an-garantis"]("ui", {
+      "cssVarsPerTheme":{"light":{"cal-brand":"#5050ff"},"dark":{"cal-brand":"#fafafa"}},
+      "hideEventTypeDetails":false,
+      "layout":"month_view"
+    });
   }, []);
 
   return (
@@ -134,7 +146,7 @@ const Contact = () => {
           {/* Cal.com Widget */}
           <div className="bg-white rounded-xl shadow-lg overflow-hidden">
             <div
-              id="my-cal-inline-rdv-decouverte-240-appels-an-garantis-contact"
+              id="my-cal-inline-rdv-decouverte-240-appels-an-garantis"
               style={{width:'100%', height:'700px', overflow:'scroll'}}
             ></div>
           </div>
