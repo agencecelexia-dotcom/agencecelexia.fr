@@ -261,7 +261,7 @@ function generateContractPDF() {
 
     doc.setFontSize(12);
     doc.setFont('helvetica', 'normal');
-    doc.text('Contrat de Prestation - Google Local Service Ads', pageWidth / 2, 30, { align: 'center' });
+    doc.text('Contrat de Prestation - Génération de Leads', pageWidth / 2, 30, { align: 'center' });
 
     doc.setTextColor(0, 0, 0);
     yPosition = 50;
@@ -303,7 +303,7 @@ function generateContractPDF() {
     addSpace(2);
 
     addText('PRESTATIONS INCLUSES :', 12, 'bold');
-    addText('✓ Configuration complète Google Local Service Ads', 10);
+    addText('✓ Configuration complète de notre système publicitaire', 10);
     addText('✓ Système de collecte d\'avis automatisé', 10);
     addText('✓ Dashboard de suivi de vos leads en temps réel', 10);
     addText('✓ Support prioritaire et accompagnement dédié', 10);
