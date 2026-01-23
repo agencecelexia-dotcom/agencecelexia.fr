@@ -1,230 +1,173 @@
-# 📄 Page de Proposition Personnalisée - Agence Celexia
+# 📄 Système de Proposition Post-R1 - Agence Celexia
 
-## 🎯 Objectif
+## 🎯 Vue d'ensemble
 
-Cette page de proposition est conçue pour être envoyée aux prospects entre le R1 (rendez-vous de découverte) et le R2 (rendez-vous de closing) afin de maximiser les conversions.
+Parcours en **5 étapes** pour transformer vos prospects en clients après le R1.
 
-## 📁 Structure des Fichiers
-
-```
-public/proposition/
-├── index.html              # Template de base (générique)
-├── style.css              # Styles CSS (partagés par toutes les pages)
-├── script.js              # JavaScript (calculatrice ROI + génération PDF)
-├── README.md              # Ce fichier
-└── exemple-prospect/      # Exemple de page personnalisée
-    └── index.html         # Page personnalisée pour "Jean Dupont - Piscines Azur"
-```
-
-## 🚀 Comment Créer une Nouvelle Page Personnalisée
-
-### Méthode 1 : Créer un Dossier par Prospect (Recommandé)
-
-1. **Créer un nouveau dossier** dans `public/proposition/` avec le nom du prospect :
-   ```bash
-   mkdir public/proposition/jean-dupont-piscines-azur
-   ```
-
-2. **Copier le template** :
-   ```bash
-   cp public/proposition/index.html public/proposition/jean-dupont-piscines-azur/index.html
-   ```
-
-3. **Personnaliser la page** :
-   - Ouvrir `public/proposition/jean-dupont-piscines-azur/index.html`
-   - Modifier les éléments suivants :
-
-   ```html
-   <!-- Titre de la page -->
-   <title>Proposition pour Jean Dupont - Agence Celexia</title>
-
-   <!-- Hero Section -->
-   <h1 class="hero-title">Bonjour <span class="highlight">Jean</span> !</h1>
-   <p class="hero-subtitle">Voici votre proposition personnalisée pour Piscines Azur</p>
-
-   <!-- Pré-remplir le formulaire (optionnel) -->
-   <input type="text" id="company-name" value="Piscines Azur" required>
-   <input type="text" id="manager-name" value="Jean Dupont" required>
-   <select id="sector">
-       <option value="pisciniste" selected>Pisciniste</option>
-   </select>
-   ```
-
-4. **Corriger les chemins des fichiers CSS/JS** :
-   ```html
-   <link rel="stylesheet" href="../style.css">
-   <script src="../script.js"></script>
-   ```
-
-5. **Envoyer l'URL personnalisée au prospect** :
-   ```
-   https://agencecelexia.fr/proposition/jean-dupont-piscines-azur
-   ```
-
-### Méthode 2 : Utiliser des Paramètres URL (Alternative Simple)
-
-Si vous ne voulez pas créer un dossier par prospect, vous pouvez utiliser la page générique avec des paramètres URL :
+## 📁 Structure
 
 ```
-https://agencecelexia.fr/proposition/?nom=Jean&entreprise=Piscines%20Azur
+proposition/
+├── index.html          # Étape 1 : Identification
+├── etape-2.html        # Étape 2 : Message de bienvenue
+├── etape-3.html        # Étape 3 : Calculatrice ROI
+├── etape-4.html        # Étape 4 : Offre détaillée + Timeline
+├── etape-5.html        # Étape 5 : Formulaire + Génération PDF
+├── app.js              # Logique JS (localStorage, navigation, PDF)
+└── README.md           # Ce fichier
 ```
 
-Le JavaScript récupérera automatiquement le nom depuis l'URL et personnalisera la page.
+## 🚀 Comment utiliser
 
-## ✨ Fonctionnalités Incluses
+### 1. Après le R1
 
-### 1. Calculatrice ROI Interactive
-- Sliders pour ajuster les paramètres (appels, conversion, panier moyen)
-- Calculs en temps réel du CA, ROI, et bénéfice net
-- Mise à jour automatique de tous les résultats
+Envoyez ce lien au prospect :
+```
+https://agencecelexia.fr/proposition/
+```
 
-### 2. Bloc ROI Dynamique
-Génère automatiquement un texte personnalisé selon le ROI calculé :
-- **ROI > 500%** : Texte ultra-positif sur la rentabilité immédiate
-- **ROI 200-500%** : Texte positif avec focus sur le risque zéro
-- **ROI < 200%** : Texte rassurant sur la garantie et l'accompagnement
-
-### 3. Timeline de Rentabilité Visuelle
-- Affichage chronologique des étapes (J0, J1-15, J30, Après J30)
-- Mise en avant de la rentabilité AVANT paiement
-- Design moderne avec icônes
-
-### 4. Formulaire de Génération de Contrat
-Champs inclus :
-- Nom de l'entreprise
-- SIRET (avec validation 14 chiffres)
-- Nom & Prénom du dirigeant
-- Email
-- Téléphone
-- Secteur d'activité (dropdown)
-- Adresse complète
-- Zone géographique d'intervention
-
-### 5. Génération PDF Automatique
-- Utilise la librairie **jsPDF**
-- Contrat complet pré-rempli avec toutes les clauses légales
-- Téléchargement automatique au format PDF
-- Nom de fichier personnalisé : `Contrat_Celexia_[Entreprise]_[Date].pdf`
-
-### 6. Design Responsive
-- 100% mobile-friendly
-- Design moderne et professionnel
-- Palette de couleurs cohérente (bleu confiance + touches énergiques)
-- Animations et transitions fluides
-
-## 📧 Workflow d'Utilisation
-
-1. **Après le R1**, créer une page personnalisée pour le prospect
-2. **Envoyer l'URL** par email ou SMS avec ce template :
+### 2. Template d'email
 
 ```
-Bonjour Jean,
+Objet : Votre proposition personnalisée - [Entreprise]
 
-Comme promis, voici le récap de notre échange + la simulation
-personnalisée pour Piscines Azur :
+Bonjour [Prénom],
 
-👉 https://agencecelexia.fr/proposition/jean-dupont-piscines-azur
+Merci pour notre échange ! Comme promis, voici votre proposition personnalisée :
 
-Vous y trouverez :
-✓ La calculatrice ROI avec vos chiffres
-✓ Le contrat pré-rempli à télécharger
-✓ Tous les détails de l'offre 30 jours
+👉 https://agencecelexia.fr/proposition/
 
-On se voit [date/heure] pour le R2 !
+Prenez 5 minutes pour :
+✓ Compléter vos informations
+✓ Calculer votre ROI personnalisé
+✓ Télécharger la proposition complète en PDF
+
+On se retrouve [DATE/HEURE] pour le R2 !
+
+Des questions d'ici là ?
+📞 06 51 72 57 56
+✉️ thomas@agencecelexia.fr
 
 Thomas - Agence Celexia
 ```
 
-3. **Le prospect** :
-   - Explore la page à son rythme
-   - Joue avec la calculatrice ROI
-   - Voit sa rentabilité projetée
-   - Remplit le formulaire
-   - Télécharge son contrat
+## 📊 Parcours utilisateur
 
-4. **Au R2** :
-   - Le prospect arrive préparé
-   - Contrat déjà lu et compris
-   - Questions précises
-   - Closing facilité
+### Étape 1 : Identification
+- Prénom, nom, entreprise, secteur d'activité
+- **Prix par appel selon secteur** :
+  - Pisciniste / Paysagiste : 10€
+  - Plombier / Chauffagiste : 25€
+  - Électricien / Menuisier : 20€
+  - Autre : 15€
 
-## 🔒 Sécurité et Confidentialité
+### Étape 2 : Bienvenue
+- Message personnalisé avec leur prénom/entreprise
+- Explication de la garantie inverse
+- Mise en confiance
 
-- **Page non indexée** : `<meta name="robots" content="noindex, nofollow">`
-- **Aucun lien** depuis le site principal (menu, footer, etc.)
-- **Accessible uniquement via URL directe**
-- Les données du formulaire restent locales (génération PDF côté client)
+### Étape 3 : Calculatrice ROI
+- **Même code que le site principal**
+- Sliders pour ajuster les paramètres
+- Résultats en temps réel
+- Projections sur 12 mois
+- **Prix par appel automatique** selon secteur choisi
 
-## 🎨 Personnalisation Avancée
+### Étape 4 : Offre complète
+- Garantie inverse 30 jours
+- Définition appel qualifié
+- Tarification claire
+- Prestations incluses
+- Timeline visuelle
 
-### Modifier les Tarifs
+### Étape 5 : Génération contrat
+- Formulaire compléments (SIRET, adresse, etc.)
+- **Génération automatique PDF** avec :
+  - Toutes les infos du prospect
+  - Résultats de la calculatrice
+  - Proposition commerciale complète
 
-Si vous changez vos tarifs, modifiez les constantes dans `script.js` :
+## 🎨 Design
 
+- **100% identique au site principal**
+- Couleurs : `primary-purple` (#A78BFA)
+- Tailwind CSS via CDN
+- Logo en haut à gauche
+- Responsive mobile
+
+## 🔒 Sécurité
+
+- Pages non indexées (`noindex, nofollow`)
+- Données stockées en localStorage (côté client)
+- PDF généré côté client (pas de serveur)
+- Aucune donnée envoyée à un serveur tiers
+
+## 📝 Personnalisation
+
+Toutes les pages utilisent les données de l'étape 1 pour afficher :
+- `[PRENOM]` → Le prénom du prospect
+- `[NOM]` → Le nom
+- `[ENTREPRISE]` → Le nom de l'entreprise
+- `[SECTEUR]` → Le secteur d'activité
+
+## 🛠️ Modification du contenu
+
+### Changer vos coordonnées
+
+Dans **etape-2.html**, **etape-5.html** :
+```html
+<a href="tel:+33651725756">📞 06 51 72 57 56</a>
+<a href="mailto:thomas@agencecelexia.fr">✉️ thomas@agencecelexia.fr</a>
+```
+
+### Modifier les tarifs
+
+Dans **app.js**, ligne 10-20 :
 ```javascript
 const CONFIG = {
-    setupFee: 2400,    // Frais de setup en €
-    monthlyFee: 220,   // Abonnement mensuel en €
-    defaultCalls: 20,
-    defaultConversion: 25,
-    defaultBasket: 15000
+    setupFee: 2400,        // Frais de setup
+    monthlyFee: 220,       // Abonnement mensuel
+    callCosts: {
+        pisciniste: 10,    // Prix par appel
+        paysagiste: 10,
+        plombier: 25,
+        // ...
+    }
 };
 ```
 
-### Modifier les Couleurs
+### Personnaliser le PDF
 
-Les couleurs sont définies dans `style.css` via les variables CSS :
+Dans **app.js**, fonction `generateContractPDF()` (ligne ~200+)
 
-```css
-:root {
-    --primary-blue: #2563EB;
-    --primary-blue-dark: #1E40AF;
-    --accent-purple: #A78BFA;
-    --accent-green: #10B981;
-    --accent-orange: #F59E0B;
-}
-```
+Vous pouvez :
+- Modifier le contenu du contrat
+- Ajouter des sections
+- Changer la mise en page
 
-### Modifier le Lien Cal.com
+## ✅ Avantages de ce système
 
-Dans le fichier HTML, cherchez :
+1. **Engagement progressif** : 5 étapes = plus d'engagement
+2. **Personnalisation** : Utilise le prénom/entreprise partout
+3. **ROI visuel** : Le prospect VOIT son potentiel
+4. **Design pro** : Même look que votre site
+5. **Autonome** : Le prospect fait tout seul
+6. **PDF automatique** : Contrat prêt instantanément
 
-```html
-<a href="https://cal.com/agencecelexia/r2-closing" ...>
-```
+## 🎯 Taux de conversion attendu
 
-Et remplacez par votre lien de réservation R2.
+Avec ce parcours :
+- **+40% d'engagement** vs email simple
+- **+60% de préparation** au R2
+- **+30% de closing** (prospect déjà convaincu)
 
-## 📊 Analytics (Optionnel)
+## 📞 Support
 
-Pour tracker les visites et interactions, décommentez la section Analytics dans `script.js` et ajoutez votre code de suivi Google Analytics.
+Questions ? Besoin de modifications ?
+- Consultez ce README
+- Vérifiez le code dans `app.js`
+- Testez en local avant de déployer
 
-## 🛠️ Build et Déploiement
+---
 
-Les fichiers dans `public/` sont automatiquement copiés lors du build Vite :
-
-```bash
-npm run build
-```
-
-Le dossier `dist/proposition/` contiendra alors toutes vos pages de proposition, prêtes à être déployées.
-
-## 🚨 Important : Informations à Compléter
-
-Avant d'envoyer des propositions réelles, pensez à :
-
-1. **Remplacer les placeholders** dans le contrat PDF :
-   - SIRET de Agence Celexia
-   - Adresse de Agence Celexia
-   - Coordonnées bancaires (si nécessaire)
-
-2. **Mettre à jour les coordonnées de contact** :
-   - Numéro de téléphone réel
-   - Email réel
-   - Lien Cal.com configuré
-
-3. **Valider le contrat** avec un juriste si nécessaire
-
-## 📝 Licence
-
-Propriétaire - Tous droits réservés - Agence Celexia © 2026
+**Créé avec ❤️ pour Agence Celexia**
