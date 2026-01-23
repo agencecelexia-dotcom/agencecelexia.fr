@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Calculatrice ROI - Agence Celexia</title>
+    <link rel="icon" type="image/png" href="/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-purple': '#A78BFA',
+                        'dark-gray': '#2D2D2D',
+                        'light-gray': '#F5F5F5',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+       .animate-fadeIn {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-light-gray">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="/logo.png" alt="Agence Celexia" class="h-8 md:h-12">
+                </div>
+                <div class="text-sm text-gray-600">
+                    Étape 3/5
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-12 px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Titre personnalisé -->
+            <div class="text-center mb-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-dark-gray mb-4">
+                    <span data-prenom>[Prénom]</span>, combien pourriez-vous gagner ?
+                </h1>
+                <p class="text-lg text-gray-600">
+                    Calculez le retour sur investissement personnalisé pour <strong><span data-entreprise>[Entreprise]</span></strong>
+                </p>
+            </div>
+
+            <!-- Calculatrice (même design que le site principal) -->
+            <div class="bg-white rounded-2xl shadow-2xl p-4 md:p-8 lg:p-12">
+                <div class="space-y-6 md:space-y-8">
+                    <!-- Slider 1 : Appels par mois -->
+                    <div>
+                        <label class="flex items-start md:items-center text-sm md:text-base lg:text-lg font-semibold mb-3 md:mb-4">
+                            <span class="text-xl md:text-2xl mr-2 md:mr-3 flex-shrink-0">📞</span>
+                            <span>Combien d'appels par mois souhaitez-vous recevoir ?</span>
+                        </label>
+                        <input
+                            type="range"
+                            id="appels-slider"
+                            min="10"
+                            max="100"
+                            value="30"
+                            class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary-purple"
+                        />
+                        <div class="text-center mt-2">
+                            <span id="appels-value" class="text-2xl md:text-3xl font-bold text-primary-purple">30</span>
+                            <span class="text-sm md:text-base text-gray-600 ml-2">appels/mois</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider 2 : Taux devis -->
+                    <div>
+                        <label class="flex items-start md:items-center text-sm md:text-base lg:text-lg font-semibold mb-3 md:mb-4">
+                            <span class="text-xl md:text-2xl mr-2 md:mr-3 flex-shrink-0">📋</span>
+                            <span>Sur 100 appels, combien deviennent des devis ?</span>
+                        </label>
+                        <input
+                            type="range"
+                            id="taux-devis-slider"
+                            min="10"
+                            max="100"
+                            value="50"
+                            class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary-purple"
+                        />
+                        <div class="text-center mt-2">
+                            <span id="taux-devis-value" class="text-2xl md:text-3xl font-bold text-primary-purple">50</span>
+                            <span class="text-sm md:text-base text-gray-600 ml-2">devis (<span id="taux-devis-value-2">50</span>%)</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider 3 : Taux client -->
+                    <div>
+                        <label class="flex items-start md:items-center text-sm md:text-base lg:text-lg font-semibold mb-3 md:mb-4">
+                            <span class="text-xl md:text-2xl mr-2 md:mr-3 flex-shrink-0">✅</span>
+                            <span>Sur 100 devis, combien deviennent des clients ?</span>
+                        </label>
+                        <input
+                            type="range"
+                            id="taux-client-slider"
+                            min="10"
+                            max="100"
+                            value="30"
+                            class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary-purple"
+                        />
+                        <div class="text-center mt-2">
+                            <span id="taux-client-value" class="text-2xl md:text-3xl font-bold text-primary-purple">30</span>
+                            <span class="text-sm md:text-base text-gray-600 ml-2">clients (<span id="taux-client-value-2">30</span>%)</span>
+                        </div>
+                    </div>
+
+                    <!-- Input 4 : Valeur contrat -->
+                    <div>
+                        <label class="flex items-start md:items-center text-sm md:text-base lg:text-lg font-semibold mb-3 md:mb-4">
+                            <span class="text-xl md:text-2xl mr-2 md:mr-3 flex-shrink-0">💵</span>
+                            <span>Valeur moyenne d'un contrat ?</span>
+                        </label>
+                        <div class="relative">
+                            <input
+                                type="text"
+                                id="valeur-contrat"
+                                inputMode="numeric"
+                                placeholder="45000"
+                                class="w-full px-4 md:px-6 py-3 md:py-4 text-xl md:text-2xl font-bold text-center border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none"
+                            />
+                            <span class="absolute right-4 md:right-6 top-1/2 transform -translate-y-1/2 text-xl md:text-2xl text-gray-600">€</span>
+                        </div>
+                    </div>
+
+                    <!-- Bouton Calculer -->
+                    <button
+                        id="btn-calculer"
+                        class="w-full bg-primary-purple text-white py-5 rounded-lg text-xl font-bold hover:bg-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+                    >
+                        Calculer mon ROI
+                    </button>
+                </div>
+
+                <!-- Résultats -->
+                <div id="results" class="mt-8 md:mt-12 hidden">
+                    <div class="bg-gradient-to-br from-purple-50 to-white p-4 md:p-6 lg:p-8 rounded-xl border-2 border-primary-purple">
+                        <h3 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center">📊 VOS RÉSULTATS</h3>
+
+                        <p class="text-center text-sm md:text-base lg:text-lg mb-4 md:mb-6 text-gray-700">
+                            Avec <span id="appels-recap" class="font-bold text-primary-purple">30 appels par mois</span> :
+                        </p>
+
+                        <div class="space-y-3 md:space-y-4 mb-6 md:mb-8">
+                            <div class="bg-white p-3 md:p-4 rounded-lg shadow-md flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                                <span class="text-sm md:text-base text-gray-700">💰 Coût total Google :</span>
+                                <span id="cout-total" class="text-lg md:text-xl lg:text-2xl font-bold">900€/mois</span>
+                            </div>
+
+                            <div class="bg-white p-3 md:p-4 rounded-lg shadow-md flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                                <span class="text-sm md:text-base text-gray-700">✅ Clients gagnés :</span>
+                                <span id="nombre-clients" class="text-lg md:text-xl lg:text-2xl font-bold text-green-600">4.5 clients/mois</span>
+                            </div>
+
+                            <div class="bg-white p-3 md:p-4 rounded-lg shadow-md flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                                <span class="text-sm md:text-base text-gray-700">💵 Chiffre d'affaires généré :</span>
+                                <span id="ca-genere" class="text-lg md:text-xl lg:text-2xl font-bold text-blue-600">202 500€/mois</span>
+                            </div>
+
+                            <div class="bg-green-500 text-white p-4 md:p-6 rounded-lg shadow-lg">
+                                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-3 md:mb-2">
+                                    <span class="text-base md:text-lg font-semibold">🚀 Bénéfice net :</span>
+                                    <span id="benefice-net" class="text-2xl md:text-3xl font-bold">201 600€/mois</span>
+                                </div>
+                                <div class="text-center mt-3 md:mt-4 pt-3 md:pt-4 border-t border-white/30">
+                                    <p class="text-xs md:text-sm opacity-90 mb-2">ROI (Retour sur investissement)</p>
+                                    <p id="roi-value" class="text-4xl md:text-5xl font-bold">224x</p>
+                                    <p class="text-xs md:text-sm opacity-90 mt-2">Pour chaque euro dépensé, vous gagnez <span id="roi-value-2">224€</span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projection 12 mois -->
+                        <div class="bg-white p-4 md:p-6 rounded-lg shadow-md">
+                            <h4 class="font-bold text-base md:text-lg mb-3 md:mb-4 text-center">📈 Projection sur 12 mois</h4>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
+                                <div class="text-center p-2 md:p-3 bg-purple-50 rounded-lg">
+                                    <p class="text-xs md:text-sm text-gray-600 mb-1">Mois 1</p>
+                                    <p id="mois-1" class="text-base md:text-lg lg:text-xl font-bold text-primary-purple">
+                                        +201 600€
+                                    </p>
+                                </div>
+                                <div class="text-center p-2 md:p-3 bg-purple-50 rounded-lg">
+                                    <p class="text-xs md:text-sm text-gray-600 mb-1">Mois 3</p>
+                                    <p id="mois-3" class="text-base md:text-lg lg:text-xl font-bold text-primary-purple">
+                                        +604 800€
+                                    </p>
+                                </div>
+                                <div class="text-center p-2 md:p-3 bg-purple-50 rounded-lg">
+                                    <p class="text-xs md:text-sm text-gray-600 mb-1">Mois 6</p>
+                                    <p id="mois-6" class="text-base md:text-lg lg:text-xl font-bold text-primary-purple">
+                                        +1 209 600€
+                                    </p>
+                                </div>
+                                <div class="text-center p-2 md:p-3 bg-purple-50 rounded-lg">
+                                    <p class="text-xs md:text-sm text-gray-600 mb-1">Mois 12</p>
+                                    <p id="mois-12" class="text-base md:text-lg lg:text-xl font-bold text-primary-purple">
+                                        +2 419 200€
+                                    </p>
+                                </div>
+                            </div>
+
+                            <p class="text-center text-xs md:text-sm text-gray-600 mt-4">
+                                💰 Bénéfice cumulé total sur 12 mois : <span id="total-12-mois" class="font-bold text-primary-purple text-sm md:text-base">2 419 200€</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CTA après résultats -->
+                    <div class="text-center mt-6 md:mt-8">
+                        <p class="text-base md:text-lg lg:text-xl font-semibold mb-3 md:mb-4">Ces chiffres vous parlent, <span data-prenom>[Prénom]</span> ?</p>
+                        <button
+                            onclick="window.location.href='etape-4.html'"
+                            class="bg-primary-purple text-white px-6 md:px-10 py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+                        >
+                            Voir l'offre complète →
+                        </button>
+                        <p class="text-xs md:text-sm text-gray-600 mt-2 md:mt-3">
+                            Découvrez comment atteindre ces résultats
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-600">
+            <p>&copy; 2026 Agence Celexia - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        // Vérifier l'accès
+        checkPageAccess(3);
+
+        // Mise à jour des valeurs affichées
+        document.getElementById('appels-slider').addEventListener('input', (e) => {
+            const val = e.target.value;
+            document.getElementById('appels-value').textContent = val;
+        });
+
+        document.getElementById('taux-devis-slider').addEventListener('input', (e) => {
+            const val = e.target.value;
+            document.getElementById('taux-devis-value').textContent = val;
+            document.getElementById('taux-devis-value-2').textContent = val;
+        });
+
+        document.getElementById('taux-client-slider').addEventListener('input', (e) => {
+            const val = e.target.value;
+            document.getElementById('taux-client-value').textContent = val;
+            document.getElementById('taux-client-value-2').textContent = val;
+        });
+    </script>
+</body>
+</html>

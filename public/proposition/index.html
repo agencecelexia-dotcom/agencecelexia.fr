@@ -6,375 +6,191 @@
     <meta name="robots" content="noindex, nofollow">
     <title>Votre Proposition Personnalisée - Agence Celexia</title>
     <link rel="icon" type="image/png" href="/logo.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-purple': '#A78BFA',
+                        'dark-gray': '#2D2D2D',
+                        'light-gray': '#F5F5F5',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
 </head>
-<body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="logo">
-                <img src="/logo.png" alt="Agence Celexia" class="logo-img">
+<body class="bg-light-gray">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="/logo.png" alt="Agence Celexia" class="h-8 md:h-12">
+                </div>
+                <div class="text-sm text-gray-600">
+                    Étape 1/5
+                </div>
             </div>
-            <h1 class="hero-title">Bonjour <span id="prospect-name" class="highlight">!</span></h1>
-            <p class="hero-subtitle">Voici votre proposition personnalisée</p>
-            <div class="hero-offer">
-                <h2>30 jours pour générer 20 appels qualifiés</h2>
-                <p class="guarantee">✓ Garantie satisfait ou remboursé</p>
-            </div>
-        </div>
-    </section>
+        </nav>
+    </header>
 
-    <!-- Calculatrice ROI Interactive -->
-    <section class="calculator-section">
-        <div class="container">
-            <h2 class="section-title">Simulez Votre Retour sur Investissement</h2>
-            <p class="section-subtitle">Ajustez les paramètres selon votre activité pour voir le potentiel de notre système publicitaire</p>
+    <!-- Main Content -->
+    <main class="min-h-screen py-12 px-4">
+        <div class="max-w-2xl mx-auto">
+            <!-- Card -->
+            <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
+                <!-- Icône -->
+                <div class="text-center mb-8">
+                    <div class="inline-block bg-primary-purple/10 p-6 rounded-full mb-4">
+                        <span class="text-6xl">👋</span>
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-dark-gray mb-4">
+                        Bienvenue !
+                    </h1>
+                    <p class="text-lg text-gray-600">
+                        Pour personnaliser votre proposition, j'ai besoin de quelques informations.
+                    </p>
+                </div>
 
-            <div class="calculator-card">
-                <div class="calculator-inputs">
-                    <div class="input-group">
-                        <label for="calls-per-month">
-                            <span class="label-text">Nombre d'appels qualifiés par mois</span>
-                            <span class="label-value" id="calls-value">20</span>
+                <!-- Formulaire -->
+                <form id="identification-form" class="space-y-6">
+                    <!-- Prénom -->
+                    <div>
+                        <label for="prenom" class="block text-lg font-semibold mb-2 text-dark-gray">
+                            <span class="text-2xl mr-2">👤</span>
+                            Votre prénom *
                         </label>
-                        <input type="range" id="calls-per-month" min="10" max="100" value="20" step="5">
-                        <div class="slider-labels">
-                            <span>10</span>
-                            <span>100</span>
-                        </div>
+                        <input
+                            type="text"
+                            id="prenom"
+                            name="prenom"
+                            required
+                            class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
+                            placeholder="Thomas"
+                        >
                     </div>
 
-                    <div class="input-group">
-                        <label for="conversion-rate">
-                            <span class="label-text">Taux de conversion moyen (%)</span>
-                            <span class="label-value" id="conversion-value">25</span>
+                    <!-- Nom -->
+                    <div>
+                        <label for="nom" class="block text-lg font-semibold mb-2 text-dark-gray">
+                            <span class="text-2xl mr-2">👤</span>
+                            Votre nom *
                         </label>
-                        <input type="range" id="conversion-rate" min="5" max="50" value="25" step="5">
-                        <div class="slider-labels">
-                            <span>5%</span>
-                            <span>50%</span>
-                        </div>
+                        <input
+                            type="text"
+                            id="nom"
+                            name="nom"
+                            required
+                            class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
+                            placeholder="Aubigeon"
+                        >
                     </div>
 
-                    <div class="input-group">
-                        <label for="average-basket">
-                            <span class="label-text">Panier moyen (€)</span>
-                            <span class="label-value" id="basket-value">15 000</span>
+                    <!-- Nom de l'entreprise -->
+                    <div>
+                        <label for="entreprise" class="block text-lg font-semibold mb-2 text-dark-gray">
+                            <span class="text-2xl mr-2">🏢</span>
+                            Nom de votre entreprise *
                         </label>
-                        <input type="range" id="average-basket" min="5000" max="50000" value="15000" step="1000">
-                        <div class="slider-labels">
-                            <span>5 000€</span>
-                            <span>50 000€</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="calculator-results">
-                    <div class="result-item result-primary">
-                        <div class="result-label">Chiffre d'affaires mensuel généré</div>
-                        <div class="result-value" id="monthly-revenue">75 000 €</div>
+                        <input
+                            type="text"
+                            id="entreprise"
+                            name="entreprise"
+                            required
+                            class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
+                            placeholder="Piscines Azur"
+                        >
                     </div>
 
-                    <div class="result-item">
-                        <div class="result-label">ROI (Retour sur Investissement)</div>
-                        <div class="result-value highlight" id="roi-percentage">2 777%</div>
-                    </div>
-
-                    <div class="result-item">
-                        <div class="result-label">Bénéfice net après paiement agence</div>
-                        <div class="result-value success" id="net-profit">72 380 €</div>
-                    </div>
-
-                    <div class="result-item result-breakdown">
-                        <div class="breakdown-title">Détail des coûts :</div>
-                        <div class="breakdown-line">
-                            <span>Frais de setup (une fois)</span>
-                            <span>2 400 €</span>
-                        </div>
-                        <div class="breakdown-line">
-                            <span>Abonnement mensuel</span>
-                            <span>220 €</span>
-                        </div>
-                        <div class="breakdown-line total">
-                            <span>Total investi</span>
-                            <span id="total-cost">2 620 €</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bloc ROI Dynamique -->
-    <section class="roi-dynamic">
-        <div class="container">
-            <div class="roi-card" id="roi-dynamic-text">
-                <!-- Le contenu sera généré dynamiquement par JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Timeline de Rentabilité -->
-    <section class="timeline-section">
-        <div class="container">
-            <h2 class="section-title">Votre Timeline de Rentabilité</h2>
-            <p class="section-subtitle">Visualisez comment vous devenez rentable AVANT même de nous payer</p>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="timeline-icon">🚀</div>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Jour 0</h3>
-                        <p>Lancement de votre campagne Google Local Service Ads</p>
-                        <span class="timeline-detail">Configuration complète + CRM Notion + Collecte d'avis</span>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="timeline-icon">📞</div>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Jours 1-15</h3>
-                        <p>Premiers appels qualifiés → Premières ventes → CA généré</p>
-                        <span class="timeline-detail" id="timeline-first-revenue">Vous générez déjà du CA sans avoir rien payé</span>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="timeline-icon">💰</div>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Jour 30</h3>
-                        <p>Objectif atteint : 20 appels qualifiés</p>
-                        <span class="timeline-detail highlight">Vous êtes déjà rentable AVANT de nous payer</span>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="timeline-icon">✅</div>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Après J30</h3>
-                        <p>Premier paiement agence (si objectif atteint)</p>
-                        <span class="timeline-detail">2 400€ setup + 220€/mois - Résiliable à tout moment</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-highlight">
-                <div class="highlight-box">
-                    <div class="highlight-icon">🎯</div>
-                    <div class="highlight-text">
-                        <strong>La garantie qui change tout :</strong>
-                        <p>Si nous n'atteignons pas l'objectif de 20 appels qualifiés en 30 jours, vous ne payez rien. Zéro euro. Aucun risque pour vous.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Offre Détaillée -->
-    <section class="offer-section">
-        <div class="container">
-            <h2 class="section-title">L'Offre Celexia : Garantie Inverse 30 Jours</h2>
-
-            <div class="offer-grid">
-                <div class="offer-card offer-primary">
-                    <h3>🎯 L'Objectif</h3>
-                    <div class="offer-content">
-                        <div class="big-number">20</div>
-                        <p class="offer-description">appels qualifiés garantis en 30 jours</p>
-                    </div>
-                </div>
-
-                <div class="offer-card">
-                    <h3>✓ Qu'est-ce qu'un appel qualifié ?</h3>
-                    <ul class="check-list">
-                        <li>✓ Prospect réel (pas de spam/erreur)</li>
-                        <li>✓ Dans votre zone géographique</li>
-                        <li>✓ Besoin actif (projet en cours ou &lt; 3 mois)</li>
-                        <li>✓ Coordonnées complètes récupérées</li>
-                    </ul>
-                </div>
-
-                <div class="offer-card offer-guarantee">
-                    <h3>💪 Si objectif NON atteint</h3>
-                    <div class="offer-content">
-                        <div class="big-number">0€</div>
-                        <p class="offer-description">Aucun frais. Vous ne payez rien.</p>
-                    </div>
-                </div>
-
-                <div class="offer-card offer-success">
-                    <h3>🎉 Si objectif atteint</h3>
-                    <div class="pricing">
-                        <div class="price-item">
-                            <span class="price-label">Frais de setup (unique)</span>
-                            <span class="price-value">2 400€ TTC</span>
-                        </div>
-                        <div class="price-item">
-                            <span class="price-label">Abonnement mensuel</span>
-                            <span class="price-value">220€/mois TTC</span>
-                        </div>
-                        <p class="price-note">Résiliable à tout moment, sans engagement</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="included-section">
-                <h3>📦 Inclus dans l'offre</h3>
-                <div class="included-grid">
-                    <div class="included-item">
-                        <div class="included-icon">🔧</div>
-                        <div class="included-text">
-                            <strong>Configuration complète Google LSA</strong>
-                            <p>Setup professionnel de votre profil et campagne</p>
-                        </div>
-                    </div>
-                    <div class="included-item">
-                        <div class="included-icon">⭐</div>
-                        <div class="included-text">
-                            <strong>Système de collecte d'avis automatisé</strong>
-                            <p>Génération automatique d'avis Google positifs</p>
-                        </div>
-                    </div>
-                    <div class="included-item">
-                        <div class="included-icon">📊</div>
-                        <div class="included-text">
-                            <strong>CRM Notion personnalisé</strong>
-                            <p>Suivi de tous vos leads en temps réel</p>
-                        </div>
-                    </div>
-                    <div class="included-item">
-                        <div class="included-icon">🤖</div>
-                        <div class="included-text">
-                            <strong>Réponses Google Reviews par IA</strong>
-                            <p>Gestion automatique de votre e-réputation</p>
-                        </div>
-                    </div>
-                    <div class="included-item">
-                        <div class="included-icon">🚀</div>
-                        <div class="included-text">
-                            <strong>Support prioritaire</strong>
-                            <p>Accompagnement dédié tout au long du parcours</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Formulaire de Génération de Contrat -->
-    <section class="contract-section">
-        <div class="container">
-            <h2 class="section-title">Générez Votre Contrat Personnalisé</h2>
-            <p class="section-subtitle">Remplissez vos informations pour obtenir votre contrat pré-rempli en PDF</p>
-
-            <form id="contract-form" class="contract-form">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="company-name">Nom de l'entreprise *</label>
-                        <input type="text" id="company-name" name="company-name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="siret">SIRET *</label>
-                        <input type="text" id="siret" name="siret" required pattern="[0-9]{14}" placeholder="14 chiffres">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="manager-name">Nom & Prénom du dirigeant *</label>
-                        <input type="text" id="manager-name" name="manager-name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Téléphone *</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="06 12 34 56 78">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="sector">Secteur d'activité *</label>
-                        <select id="sector" name="sector" required>
-                            <option value="">Sélectionnez...</option>
-                            <option value="pisciniste">Pisciniste</option>
-                            <option value="paysagiste">Paysagiste</option>
-                            <option value="plombier">Plombier</option>
-                            <option value="electricien">Électricien</option>
-                            <option value="menuisier">Menuisier</option>
-                            <option value="autre">Autre artisan</option>
+                    <!-- Secteur d'activité -->
+                    <div>
+                        <label for="secteur" class="block text-lg font-semibold mb-2 text-dark-gray">
+                            <span class="text-2xl mr-2">🔧</span>
+                            Votre secteur d'activité *
+                        </label>
+                        <select
+                            id="secteur"
+                            name="secteur"
+                            required
+                            class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors bg-white"
+                        >
+                            <option value="">Sélectionnez votre secteur</option>
+                            <option value="pisciniste">Pisciniste (10€/appel)</option>
+                            <option value="paysagiste">Paysagiste (10€/appel)</option>
+                            <option value="plombier">Plombier (25€/appel)</option>
+                            <option value="chauffagiste">Chauffagiste (25€/appel)</option>
+                            <option value="electricien">Électricien (20€/appel)</option>
+                            <option value="menuisier">Menuisier (20€/appel)</option>
+                            <option value="autre">Autre artisan (15€/appel)</option>
                         </select>
+                        <p class="text-sm text-gray-500 mt-2">
+                            💡 Le coût par appel varie selon votre secteur d'activité
+                        </p>
                     </div>
 
-                    <div class="form-group form-group-full">
-                        <label for="address">Adresse complète *</label>
-                        <input type="text" id="address" name="address" required placeholder="Numéro, rue, ville, code postal">
-                    </div>
+                    <!-- Bouton suivant -->
+                    <button
+                        type="submit"
+                        class="w-full bg-primary-purple text-white py-5 rounded-lg text-xl font-bold hover:bg-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl mt-8"
+                    >
+                        Continuer →
+                    </button>
+                </form>
 
-                    <div class="form-group form-group-full">
-                        <label for="service-area">Zone géographique d'intervention *</label>
-                        <input type="text" id="service-area" name="service-area" required placeholder="Ex: Département 34, Montpellier et environs dans un rayon de 30km">
-                    </div>
-                </div>
-
-                <div class="form-consent">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="consent" name="consent" required>
-                        <span>J'accepte les conditions générales de vente et la politique de confidentialité</span>
-                    </label>
-                </div>
-
-                <button type="submit" class="btn-primary btn-large">
-                    📄 Générer mon contrat personnalisé
-                </button>
-            </form>
-        </div>
-    </section>
-
-    <!-- CTA Final -->
-    <section class="cta-final">
-        <div class="container">
-            <h2>Prêt à démarrer ?</h2>
-            <p>Téléchargez votre contrat et on se retrouve lors de notre rendez-vous</p>
-
-            <div class="cta-buttons">
-                <button id="download-contract" class="btn-primary btn-large" disabled>
-                    📥 Télécharger le contrat
-                </button>
+                <!-- Note -->
+                <p class="text-center text-sm text-gray-500 mt-6">
+                    🔒 Vos informations sont confidentielles et ne seront jamais partagées
+                </p>
             </div>
 
-            <div class="contact-info">
-                <p>Des questions ? Contactez-moi :</p>
-                <div class="contact-details">
-                    <a href="tel:+33651725756">📞 06 51 72 57 56</a>
-                    <a href="mailto:thomas@agencecelexia.fr">✉️ thomas@agencecelexia.fr</a>
-                </div>
+            <!-- Rassurance -->
+            <div class="mt-8 text-center">
+                <p class="text-gray-600">
+                    ⏱️ Temps estimé : 5 minutes
+                </p>
             </div>
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
+    <footer class="bg-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-600">
             <p>&copy; 2026 Agence Celexia - Tous droits réservés</p>
-            <p>Spécialiste en génération de leads pour artisans via Google Local Service Ads</p>
+            <p class="text-sm mt-2">Spécialiste en génération de leads pour artisans via Google Local Service Ads</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="script.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Gérer la soumission du formulaire
+        document.getElementById('identification-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                prenom: document.getElementById('prenom').value.trim(),
+                nom: document.getElementById('nom').value.trim(),
+                entreprise: document.getElementById('entreprise').value.trim(),
+                secteur: document.getElementById('secteur').value
+            };
+
+            // Validation
+            if (!formData.prenom || !formData.nom || !formData.entreprise || !formData.secteur) {
+                alert('Veuillez remplir tous les champs obligatoires');
+                return;
+            }
+
+            // Sauvegarder les données
+            saveUserData(formData);
+
+            // Rediriger vers page 2
+            window.location.href = 'etape-2.html';
+        });
+    </script>
 </body>
 </html>
