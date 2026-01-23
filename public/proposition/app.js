@@ -305,9 +305,8 @@ function generateContractPDF() {
     addText('PRESTATIONS INCLUSES :', 12, 'bold');
     addText('✓ Configuration complète Google Local Service Ads', 10);
     addText('✓ Système de collecte d\'avis automatisé', 10);
-    addText('✓ CRM Notion personnalisé', 10);
-    addText('✓ Réponses Google Reviews par IA', 10);
-    addText('✓ Support prioritaire', 10);
+    addText('✓ Dashboard de suivi de vos leads en temps réel', 10);
+    addText('✓ Support prioritaire et accompagnement dédié', 10);
     addSpace(2);
 
     // Résultats calculatrice si disponibles
