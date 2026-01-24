@@ -44,25 +44,25 @@
     <main class="py-12 px-4">
         <div class="max-w-4xl mx-auto">
             <!-- Titre -->
-            <div class="text-center mb-8">
-                <div class="inline-block bg-green-100 p-6 rounded-full mb-4">
-                    <span class="text-6xl">✅</span>
+            <div class="text-center mb-6 md:mb-8">
+                <div class="inline-block bg-green-100 p-4 md:p-6 rounded-full mb-3 md:mb-4">
+                    <span class="text-4xl md:text-6xl">✅</span>
                 </div>
-                <h1 class="text-4xl md:text-5xl font-bold text-dark-gray mb-4">
+                <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold text-dark-gray mb-3 md:mb-4 px-4">
                     Dernière étape, <span class="text-primary-purple" data-prenom>[Prénom]</span> !
                 </h1>
-                <p class="text-xl text-gray-600">
+                <p class="text-base md:text-lg lg:text-xl text-gray-600 px-4">
                     Complétez ces informations pour générer votre proposition personnalisée en PDF
                 </p>
             </div>
 
             <!-- Formulaire -->
-            <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
-                <form id="contract-form" class="space-y-6">
+            <div class="bg-white rounded-2xl shadow-2xl p-4 md:p-8 lg:p-12">
+                <form id="contract-form" class="space-y-4 md:space-y-6">
                     <!-- SIRET -->
                     <div>
-                        <label for="siret" class="block text-lg font-semibold mb-2 text-dark-gray">
-                            <span class="text-2xl mr-2">🏢</span>
+                        <label for="siret" class="block text-base md:text-lg font-semibold mb-2 text-dark-gray">
+                            <span class="text-xl md:text-2xl mr-2">🏢</span>
                             SIRET *
                         </label>
                         <input
@@ -72,16 +72,16 @@
                             required
                             pattern="[0-9]{14}"
                             maxlength="14"
-                            class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
+                            class="w-full px-4 md:px-6 py-3 md:py-4 text-base md:text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
                             placeholder="14 chiffres"
                         >
-                        <p class="text-sm text-gray-500 mt-1">Format : 14 chiffres sans espaces</p>
+                        <p class="text-xs md:text-sm text-gray-500 mt-1">Format : 14 chiffres sans espaces</p>
                     </div>
 
                     <!-- Adresse -->
                     <div>
-                        <label for="adresse" class="block text-lg font-semibold mb-2 text-dark-gray">
-                            <span class="text-2xl mr-2">📍</span>
+                        <label for="adresse" class="block text-base md:text-lg font-semibold mb-2 text-dark-gray">
+                            <span class="text-xl md:text-2xl mr-2">📍</span>
                             Adresse complète *
                         </label>
                         <input
@@ -89,15 +89,15 @@
                             id="adresse"
                             name="adresse"
                             required
-                            class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
+                            class="w-full px-4 md:px-6 py-3 md:py-4 text-base md:text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
                             placeholder="Numéro, rue, ville, code postal"
                         >
                     </div>
 
                     <!-- Zone géographique -->
                     <div>
-                        <label for="zone-geo" class="block text-lg font-semibold mb-2 text-dark-gray">
-                            <span class="text-2xl mr-2">🗺️</span>
+                        <label for="zone-geo" class="block text-base md:text-lg font-semibold mb-2 text-dark-gray">
+                            <span class="text-xl md:text-2xl mr-2">🗺️</span>
                             Zone géographique d'intervention *
                         </label>
                         <input
@@ -105,15 +105,15 @@
                             id="zone-geo"
                             name="zone-geo"
                             required
-                            class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
-                            placeholder="Ex: Département 34, Montpellier et environs dans un rayon de 30km"
+                            class="w-full px-4 md:px-6 py-3 md:py-4 text-base md:text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
+                            placeholder="Ex: Département 34, Montpellier..."
                         >
                     </div>
 
                     <!-- Email -->
                     <div>
-                        <label for="email" class="block text-lg font-semibold mb-2 text-dark-gray">
-                            <span class="text-2xl mr-2">✉️</span>
+                        <label for="email" class="block text-base md:text-lg font-semibold mb-2 text-dark-gray">
+                            <span class="text-xl md:text-2xl mr-2">✉️</span>
                             Email professionnel *
                         </label>
                         <input
@@ -121,15 +121,15 @@
                             id="email"
                             name="email"
                             required
-                            class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
+                            class="w-full px-4 md:px-6 py-3 md:py-4 text-base md:text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
                             placeholder="contact@entreprise.fr"
                         >
                     </div>
 
                     <!-- Téléphone -->
                     <div>
-                        <label for="telephone" class="block text-lg font-semibold mb-2 text-dark-gray">
-                            <span class="text-2xl mr-2">📞</span>
+                        <label for="telephone" class="block text-base md:text-lg font-semibold mb-2 text-dark-gray">
+                            <span class="text-xl md:text-2xl mr-2">📞</span>
                             Téléphone *
                         </label>
                         <input
@@ -137,7 +137,7 @@
                             id="telephone"
                             name="telephone"
                             required
-                            class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
+                            class="w-full px-4 md:px-6 py-3 md:py-4 text-base md:text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
                             placeholder="06 12 34 56 78"
                         >
                     </div>
@@ -161,7 +161,7 @@
                     <!-- Bouton générer -->
                     <button
                         type="submit"
-                        class="w-full bg-primary-purple text-white py-5 rounded-lg text-xl font-bold hover:bg-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+                        class="w-full bg-primary-purple text-white py-4 md:py-5 rounded-lg text-lg md:text-xl font-bold hover:bg-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl"
                     >
                         📄 Générer ma proposition en PDF
                     </button>
@@ -169,44 +169,44 @@
             </div>
 
             <!-- Section après génération (cachée au début) -->
-            <div id="success-section" class="hidden mt-12">
-                <div class="bg-green-50 border-2 border-green-500 rounded-2xl p-8 text-center">
-                    <div class="text-6xl mb-4">🎉</div>
-                    <h2 class="text-3xl font-bold text-dark-gray mb-4">
+            <div id="success-section" class="hidden mt-8 md:mt-12">
+                <div class="bg-green-50 border-2 border-green-500 rounded-2xl p-4 md:p-6 lg:p-8 text-center">
+                    <div class="text-4xl md:text-6xl mb-3 md:mb-4">🎉</div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-dark-gray mb-3 md:mb-4 px-2">
                         Votre proposition est prête !
                     </h2>
-                    <p class="text-lg text-gray-700 mb-8">
+                    <p class="text-base md:text-lg text-gray-700 mb-6 md:mb-8 px-2">
                         Le PDF a été téléchargé automatiquement. Vous pouvez également le re-télécharger ci-dessous.
                     </p>
 
                     <div class="space-y-4">
                         <button
-                            id="btn-generate-pdf"
-                            class="w-full bg-primary-purple text-white px-12 py-5 rounded-lg text-xl font-bold hover:bg-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+                            id="btn-re-download-pdf"
+                            class="w-full bg-primary-purple text-white px-6 md:px-12 py-4 md:py-5 rounded-lg text-lg md:text-xl font-bold hover:bg-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl"
                         >
                             📥 Re-télécharger le PDF
                         </button>
 
-                        <div class="bg-white p-6 rounded-lg">
-                            <p class="text-gray-700 mb-4">
+                        <div class="bg-white p-4 md:p-6 rounded-lg">
+                            <p class="text-base md:text-lg text-gray-700 mb-3 md:mb-4">
                                 <strong>Prochaines étapes :</strong>
                             </p>
-                            <ol class="text-left space-y-2 text-gray-700">
+                            <ol class="text-left space-y-2 text-sm md:text-base text-gray-700">
                                 <li>1. Prenez le temps de lire la proposition</li>
                                 <li>2. On se retrouve lors de notre rendez-vous pour répondre à toutes vos questions</li>
                                 <li>3. Si tout vous convient, on lance la campagne sous 48h !</li>
                             </ol>
                         </div>
 
-                        <div class="bg-primary-purple/10 p-6 rounded-lg">
-                            <p class="text-lg font-semibold text-dark-gray mb-3">
+                        <div class="bg-primary-purple/10 p-4 md:p-6 rounded-lg">
+                            <p class="text-base md:text-lg font-semibold text-dark-gray mb-3">
                                 Des questions avant notre rendez-vous ?
                             </p>
-                            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                                <a href="tel:+33651725756" class="bg-white border-2 border-primary-purple text-primary-purple px-6 py-3 rounded-lg font-semibold hover:bg-primary-purple hover:text-white transition-all">
+                            <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+                                <a href="tel:+33651725756" class="bg-white border-2 border-primary-purple text-primary-purple px-4 md:px-6 py-2.5 md:py-3 rounded-lg text-sm md:text-base font-semibold hover:bg-primary-purple hover:text-white transition-all">
                                     📞 06 51 72 57 56
                                 </a>
-                                <a href="mailto:thomas@agencecelexia.fr" class="bg-white border-2 border-primary-purple text-primary-purple px-6 py-3 rounded-lg font-semibold hover:bg-primary-purple hover:text-white transition-all">
+                                <a href="mailto:thomas@agencecelexia.fr" class="bg-white border-2 border-primary-purple text-primary-purple px-4 md:px-6 py-2.5 md:py-3 rounded-lg text-sm md:text-base font-semibold hover:bg-primary-purple hover:text-white transition-all">
                                     ✉️ Email
                                 </a>
                             </div>
@@ -256,6 +256,11 @@
             // Afficher la section succès
             document.getElementById('contract-form').classList.add('hidden');
             document.getElementById('success-section').classList.remove('hidden');
+
+            // Attacher l'event listener au bouton re-télécharger APRÈS l'affichage
+            document.getElementById('btn-re-download-pdf').addEventListener('click', function() {
+                generateContractPDF();
+            });
 
             // Scroll vers le haut
             window.scrollTo({ top: 0, behavior: 'smooth' });

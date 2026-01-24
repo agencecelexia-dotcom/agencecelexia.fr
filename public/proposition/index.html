@@ -41,29 +41,29 @@
     </header>
 
     <!-- Main Content -->
-    <main class="min-h-screen py-12 px-4">
+    <main class="min-h-screen py-6 md:py-12 px-4">
         <div class="max-w-2xl mx-auto">
             <!-- Card -->
-            <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
+            <div class="bg-white rounded-2xl shadow-2xl p-4 md:p-8 lg:p-12">
                 <!-- Icône -->
-                <div class="text-center mb-8">
-                    <div class="inline-block bg-primary-purple/10 p-6 rounded-full mb-4">
-                        <span class="text-6xl">👋</span>
+                <div class="text-center mb-6 md:mb-8">
+                    <div class="inline-block bg-primary-purple/10 p-4 md:p-6 rounded-full mb-3 md:mb-4">
+                        <span class="text-4xl md:text-6xl">👋</span>
                     </div>
-                    <h1 class="text-3xl md:text-4xl font-bold text-dark-gray mb-4">
+                    <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-dark-gray mb-3 md:mb-4">
                         Bienvenue !
                     </h1>
-                    <p class="text-lg text-gray-600">
+                    <p class="text-base md:text-lg text-gray-600 px-2">
                         Pour personnaliser votre proposition, j'ai besoin de quelques informations.
                     </p>
                 </div>
 
                 <!-- Formulaire -->
-                <form id="identification-form" class="space-y-6">
+                <form id="identification-form" class="space-y-4 md:space-y-6">
                     <!-- Prénom -->
                     <div>
-                        <label for="prenom" class="block text-lg font-semibold mb-2 text-dark-gray">
-                            <span class="text-2xl mr-2">👤</span>
+                        <label for="prenom" class="block text-base md:text-lg font-semibold mb-2 text-dark-gray">
+                            <span class="text-xl md:text-2xl mr-2">👤</span>
                             Votre prénom *
                         </label>
                         <input
@@ -71,15 +71,15 @@
                             id="prenom"
                             name="prenom"
                             required
-                            class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
+                            class="w-full px-4 md:px-6 py-3 md:py-4 text-base md:text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
                             placeholder="Thomas"
                         >
                     </div>
 
                     <!-- Nom -->
                     <div>
-                        <label for="nom" class="block text-lg font-semibold mb-2 text-dark-gray">
-                            <span class="text-2xl mr-2">👤</span>
+                        <label for="nom" class="block text-base md:text-lg font-semibold mb-2 text-dark-gray">
+                            <span class="text-xl md:text-2xl mr-2">👤</span>
                             Votre nom *
                         </label>
                         <input
@@ -87,15 +87,15 @@
                             id="nom"
                             name="nom"
                             required
-                            class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
+                            class="w-full px-4 md:px-6 py-3 md:py-4 text-base md:text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
                             placeholder="Aubigeon"
                         >
                     </div>
 
                     <!-- Nom de l'entreprise -->
                     <div>
-                        <label for="entreprise" class="block text-lg font-semibold mb-2 text-dark-gray">
-                            <span class="text-2xl mr-2">🏢</span>
+                        <label for="entreprise" class="block text-base md:text-lg font-semibold mb-2 text-dark-gray">
+                            <span class="text-xl md:text-2xl mr-2">🏢</span>
                             Nom de votre entreprise *
                         </label>
                         <input
@@ -103,22 +103,22 @@
                             id="entreprise"
                             name="entreprise"
                             required
-                            class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
+                            class="w-full px-4 md:px-6 py-3 md:py-4 text-base md:text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors"
                             placeholder="Piscines Azur"
                         >
                     </div>
 
                     <!-- Secteur d'activité -->
                     <div>
-                        <label for="secteur" class="block text-lg font-semibold mb-2 text-dark-gray">
-                            <span class="text-2xl mr-2">🔧</span>
+                        <label for="secteur" class="block text-base md:text-lg font-semibold mb-2 text-dark-gray">
+                            <span class="text-xl md:text-2xl mr-2">🔧</span>
                             Votre secteur d'activité *
                         </label>
                         <select
                             id="secteur"
                             name="secteur"
                             required
-                            class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors bg-white"
+                            class="w-full px-4 md:px-6 py-3 md:py-4 text-base md:text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none transition-colors bg-white"
                         >
                             <option value="">Sélectionnez votre secteur</option>
                             <option value="pisciniste">Pisciniste (10€/appel)</option>
@@ -129,7 +129,7 @@
                             <option value="menuisier">Menuisier (20€/appel)</option>
                             <option value="autre">Autre artisan (15€/appel)</option>
                         </select>
-                        <p class="text-sm text-gray-500 mt-2">
+                        <p class="text-xs md:text-sm text-gray-500 mt-2">
                             💡 Le coût par appel varie selon votre secteur d'activité
                         </p>
                     </div>
@@ -137,21 +137,21 @@
                     <!-- Bouton suivant -->
                     <button
                         type="submit"
-                        class="w-full bg-primary-purple text-white py-5 rounded-lg text-xl font-bold hover:bg-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl mt-8"
+                        class="w-full bg-primary-purple text-white py-4 md:py-5 rounded-lg text-lg md:text-xl font-bold hover:bg-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl mt-6 md:mt-8"
                     >
                         Continuer →
                     </button>
                 </form>
 
                 <!-- Note -->
-                <p class="text-center text-sm text-gray-500 mt-6">
+                <p class="text-center text-xs md:text-sm text-gray-500 mt-4 md:mt-6">
                     🔒 Vos informations sont confidentielles et ne seront jamais partagées
                 </p>
             </div>
 
             <!-- Rassurance -->
-            <div class="mt-8 text-center">
-                <p class="text-gray-600">
+            <div class="mt-6 md:mt-8 text-center">
+                <p class="text-sm md:text-base text-gray-600">
                     ⏱️ Temps estimé : 5 minutes
                 </p>
             </div>
