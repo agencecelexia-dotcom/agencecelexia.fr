@@ -224,14 +224,29 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"></script>
     <script src="app.js"></script>
     <script>
         checkPageAccess(5);
 
+        // Vérifier que jsPDF est chargé
+        window.addEventListener('load', function() {
+            console.log('=== DIAGNOSTIC PDF ===');
+            console.log('jsPDF chargé:', typeof window.jspdf !== 'undefined');
+            console.log('window.jspdf:', window.jspdf);
+
+            if (typeof window.jspdf === 'undefined') {
+                console.error('❌ jsPDF n\'est PAS chargé !');
+            } else {
+                console.log('✅ jsPDF est chargé correctement');
+            }
+        });
+
         // Gérer la soumission du formulaire
         document.getElementById('contract-form').addEventListener('submit', async function(e) {
             e.preventDefault();
+
+            console.log('=== DÉBUT SOUMISSION FORMULAIRE ===');
 
             const formData = {
                 siret: document.getElementById('siret').value.trim(),
@@ -241,6 +256,8 @@
                 telephone: document.getElementById('telephone').value.trim()
             };
 
+            console.log('Données formulaire:', formData);
+
             // Validation SIRET
             if (formData.siret.length !== 14 || !/^\d+$/.test(formData.siret)) {
                 alert('Le SIRET doit contenir exactement 14 chiffres');
@@ -249,37 +266,56 @@
 
             // Sauvegarder les données
             saveUserData(formData);
+            console.log('✅ Données sauvegardées');
+
+            // Vérifier les données complètes
+            const allData = getUserData();
+            console.log('Toutes les données:', allData);
 
             // Générer le PDF automatiquement avec gestion d'erreur
             try {
-                console.log('Génération du PDF...');
-                await generateContractPDF();
-                console.log('PDF généré avec succès');
+                console.log('🔄 Appel generateContractPDF()...');
+
+                // Vérifier que la fonction existe
+                if (typeof generateContractPDF !== 'function') {
+                    throw new Error('generateContractPDF n\'est pas une fonction');
+                }
+
+                const result = await generateContractPDF();
+                console.log('✅ PDF généré avec succès, résultat:', result);
             } catch (error) {
-                console.error('Erreur génération PDF:', error);
-                alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
+                console.error('❌ ERREUR génération PDF:', error);
+                console.error('Stack trace:', error.stack);
+                alert('Erreur lors de la génération du PDF:\n' + error.message + '\n\nVeuillez vérifier la console (F12) pour plus de détails.');
                 return;
             }
 
             // Afficher la section succès
             document.getElementById('contract-form').classList.add('hidden');
             document.getElementById('success-section').classList.remove('hidden');
+            console.log('✅ Section succès affichée');
 
             // Attacher l'event listener au bouton re-télécharger APRÈS l'affichage
             const btnReDownload = document.getElementById('btn-re-download-pdf');
             if (btnReDownload) {
-                btnReDownload.addEventListener('click', async function() {
+                console.log('✅ Bouton re-download trouvé');
+
+                // Enlever les anciens listeners
+                const newBtn = btnReDownload.cloneNode(true);
+                btnReDownload.parentNode.replaceChild(newBtn, btnReDownload);
+
+                newBtn.addEventListener('click', async function() {
                     try {
-                        console.log('Re-téléchargement du PDF...');
+                        console.log('🔄 Re-téléchargement du PDF...');
                         await generateContractPDF();
-                        console.log('PDF re-téléchargé avec succès');
+                        console.log('✅ PDF re-téléchargé avec succès');
                     } catch (error) {
-                        console.error('Erreur re-téléchargement PDF:', error);
-                        alert('Erreur lors du téléchargement. Veuillez réessayer.');
+                        console.error('❌ Erreur re-téléchargement PDF:', error);
+                        alert('Erreur lors du téléchargement:\n' + error.message);
                     }
                 });
             } else {
-                console.error('Bouton re-download introuvable');
+                console.error('❌ Bouton re-download INTROUVABLE');
             }
 
             // Scroll vers le haut
