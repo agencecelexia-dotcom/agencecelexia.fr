@@ -168,17 +168,20 @@
 
     <script src="app.js"></script>
     <script>
-        // Convertir en majuscules automatiquement lors de la saisie
+        // Fonction pour capitaliser (première lettre en majuscule)
+        function capitalize(str) {
+            if (!str) return '';
+            return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+        }
+
+        // Convertir avec première lettre en majuscule lors de la sortie du champ
         const prenomInput = document.getElementById('prenom');
         const nomInput = document.getElementById('nom');
         const entrepriseInput = document.getElementById('entreprise');
 
         [prenomInput, nomInput, entrepriseInput].forEach(input => {
-            input.addEventListener('input', function(e) {
-                const start = e.target.selectionStart;
-                const end = e.target.selectionEnd;
-                e.target.value = e.target.value.toUpperCase();
-                e.target.setSelectionRange(start, end);
+            input.addEventListener('blur', function(e) {
+                e.target.value = capitalize(e.target.value.trim());
             });
         });
 
@@ -187,9 +190,9 @@
             e.preventDefault();
 
             const formData = {
-                prenom: document.getElementById('prenom').value.trim().toUpperCase(),
-                nom: document.getElementById('nom').value.trim().toUpperCase(),
-                entreprise: document.getElementById('entreprise').value.trim().toUpperCase(),
+                prenom: capitalize(document.getElementById('prenom').value.trim()),
+                nom: capitalize(document.getElementById('nom').value.trim()),
+                entreprise: capitalize(document.getElementById('entreprise').value.trim()),
                 secteur: document.getElementById('secteur').value
             };
 
