@@ -117,7 +117,7 @@ function initCalculator() {
     const coutParAppel = CONFIG.callCosts[secteur] || 15;
 
     // État de la calculatrice
-    let appelsParMois = 30;
+    let appelsParMois = 20;
     let tauxDevis = 50;
     let tauxClient = 30;
     let valeurContrat = 45000;
@@ -210,16 +210,21 @@ function initCalculator() {
 // GÉNÉRATION PDF CONTRAT COMPLET
 // ========================================
 
-function generateContractPDF() {
-    const data = getUserData();
+async function generateContractPDF() {
+    try {
+        const data = getUserData();
 
-    if (!data.prenom || !data.nom || !data.entreprise || !data.siret) {
-        alert('Veuillez compléter le formulaire d\'abord.');
-        return;
-    }
+        if (!data.prenom || !data.nom || !data.entreprise || !data.siret) {
+            throw new Error('Données incomplètes');
+        }
 
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
+        // Vérifier que jsPDF est chargé
+        if (typeof window.jspdf === 'undefined') {
+            throw new Error('jsPDF non chargé');
+        }
+
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
 
     // Configuration
     const margin = 20;
@@ -686,14 +691,21 @@ function generateContractPDF() {
     doc.text('(Précédée de la mention', pageWidth - margin - 75, signatureY + 58);
     doc.text('"Lu et approuvé")', pageWidth - margin - 70, signatureY + 63);
 
-    // Pied de page
-    doc.setFontSize(8);
-    doc.setFont('helvetica', 'italic');
-    doc.text(`Document généré le ${new Date().toLocaleDateString('fr-FR')} - Celexia © 2026`, pageWidth / 2, pageHeight - 10, { align: 'center' });
+        // Pied de page
+        doc.setFontSize(8);
+        doc.setFont('helvetica', 'italic');
+        doc.text(`Document généré le ${new Date().toLocaleDateString('fr-FR')} - Celexia © 2026`, pageWidth / 2, pageHeight - 10, { align: 'center' });
 
-    // Sauvegarder
-    const filename = `Contrat_Celexia_${data.entreprise.replace(/\s+/g, '_')}_${new Date().toISOString().split('T')[0]}.pdf`;
-    doc.save(filename);
+        // Sauvegarder
+        const filename = `Contrat_Celexia_${data.entreprise.replace(/\s+/g, '_')}_${new Date().toISOString().split('T')[0]}.pdf`;
+        doc.save(filename);
+
+        console.log('PDF généré:', filename);
+        return true;
+    } catch (error) {
+        console.error('Erreur dans generateContractPDF:', error);
+        throw error;
+    }
 }
 
 // ========================================

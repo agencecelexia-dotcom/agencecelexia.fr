@@ -230,7 +230,7 @@
         checkPageAccess(5);
 
         // Gérer la soumission du formulaire
-        document.getElementById('contract-form').addEventListener('submit', function(e) {
+        document.getElementById('contract-form').addEventListener('submit', async function(e) {
             e.preventDefault();
 
             const formData = {
@@ -250,17 +250,37 @@
             // Sauvegarder les données
             saveUserData(formData);
 
-            // Générer le PDF automatiquement
-            generateContractPDF();
+            // Générer le PDF automatiquement avec gestion d'erreur
+            try {
+                console.log('Génération du PDF...');
+                await generateContractPDF();
+                console.log('PDF généré avec succès');
+            } catch (error) {
+                console.error('Erreur génération PDF:', error);
+                alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
+                return;
+            }
 
             // Afficher la section succès
             document.getElementById('contract-form').classList.add('hidden');
             document.getElementById('success-section').classList.remove('hidden');
 
             // Attacher l'event listener au bouton re-télécharger APRÈS l'affichage
-            document.getElementById('btn-re-download-pdf').addEventListener('click', function() {
-                generateContractPDF();
-            });
+            const btnReDownload = document.getElementById('btn-re-download-pdf');
+            if (btnReDownload) {
+                btnReDownload.addEventListener('click', async function() {
+                    try {
+                        console.log('Re-téléchargement du PDF...');
+                        await generateContractPDF();
+                        console.log('PDF re-téléchargé avec succès');
+                    } catch (error) {
+                        console.error('Erreur re-téléchargement PDF:', error);
+                        alert('Erreur lors du téléchargement. Veuillez réessayer.');
+                    }
+                });
+            } else {
+                console.error('Bouton re-download introuvable');
+            }
 
             // Scroll vers le haut
             window.scrollTo({ top: 0, behavior: 'smooth' });
