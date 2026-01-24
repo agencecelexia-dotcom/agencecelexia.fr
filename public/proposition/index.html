@@ -168,14 +168,28 @@
 
     <script src="app.js"></script>
     <script>
+        // Convertir en majuscules automatiquement lors de la saisie
+        const prenomInput = document.getElementById('prenom');
+        const nomInput = document.getElementById('nom');
+        const entrepriseInput = document.getElementById('entreprise');
+
+        [prenomInput, nomInput, entrepriseInput].forEach(input => {
+            input.addEventListener('input', function(e) {
+                const start = e.target.selectionStart;
+                const end = e.target.selectionEnd;
+                e.target.value = e.target.value.toUpperCase();
+                e.target.setSelectionRange(start, end);
+            });
+        });
+
         // Gérer la soumission du formulaire
         document.getElementById('identification-form').addEventListener('submit', function(e) {
             e.preventDefault();
 
             const formData = {
-                prenom: document.getElementById('prenom').value.trim(),
-                nom: document.getElementById('nom').value.trim(),
-                entreprise: document.getElementById('entreprise').value.trim(),
+                prenom: document.getElementById('prenom').value.trim().toUpperCase(),
+                nom: document.getElementById('nom').value.trim().toUpperCase(),
+                entreprise: document.getElementById('entreprise').value.trim().toUpperCase(),
                 secteur: document.getElementById('secteur').value
             };
 
