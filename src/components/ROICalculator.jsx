@@ -1,13 +1,25 @@
 import { useState } from 'react';
 
 const ROICalculator = () => {
+  // Configuration des prix par niche
+  const NICHES = {
+    pisciniste: { label: 'Pisciniste', prix: 10 },
+    paysagiste: { label: 'Paysagiste', prix: 10 },
+    plombier: { label: 'Plombier', prix: 25 },
+    chauffagiste: { label: 'Chauffagiste', prix: 25 },
+    electricien: { label: 'Électricien', prix: 20 },
+    menuisier: { label: 'Menuisier', prix: 20 },
+    autre: { label: 'Autre secteur', prix: 15 }
+  };
+
+  const [niche, setNiche] = useState('pisciniste');
   const [appelsParMois, setAppelsParMois] = useState(30);
   const [tauxDevis, setTauxDevis] = useState(50);
   const [tauxClient, setTauxClient] = useState(30);
   const [valeurContrat, setValeurContrat] = useState(45000);
   const [showResults, setShowResults] = useState(false);
 
-  const coutParAppel = 30;
+  const coutParAppel = NICHES[niche].prix;
   const coutTotal = appelsParMois * coutParAppel;
   const nombreDevis = appelsParMois * (tauxDevis / 100);
   const nombreClients = nombreDevis * (tauxClient / 100);
@@ -54,6 +66,28 @@ const ROICalculator = () => {
 
         {/* Formulaire */}
         <div className="space-y-6 md:space-y-8">
+          {/* Sélecteur de niche */}
+          <div>
+            <label className="flex items-start md:items-center text-sm md:text-base lg:text-lg font-semibold mb-3 md:mb-4">
+              <span className="text-xl md:text-2xl mr-2 md:mr-3 flex-shrink-0">🏢</span>
+              <span>Quel est votre secteur d'activité ?</span>
+            </label>
+            <select
+              value={niche}
+              onChange={(e) => setNiche(e.target.value)}
+              className="w-full px-4 md:px-6 py-3 md:py-4 text-base md:text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none font-semibold"
+            >
+              {Object.entries(NICHES).map(([key, value]) => (
+                <option key={key} value={key}>
+                  {value.label} - {value.prix}€ par appel
+                </option>
+              ))}
+            </select>
+            <p className="text-sm text-gray-600 mt-2">
+              Prix par appel: <span className="font-bold text-primary-purple text-lg">{coutParAppel}€</span>
+            </p>
+          </div>
+
           {/* Slider 1 */}
           <div>
             <label className="flex items-start md:items-center text-sm md:text-base lg:text-lg font-semibold mb-3 md:mb-4">
@@ -149,10 +183,16 @@ const ROICalculator = () => {
               <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center">📊 VOS RÉSULTATS</h3>
 
               <p className="text-center text-sm md:text-base lg:text-lg mb-4 md:mb-6 text-gray-700">
+                Secteur : <span className="font-bold text-primary-purple">{NICHES[niche].label}</span> |
                 Avec <span className="font-bold text-primary-purple">{appelsParMois} appels par mois</span> :
               </p>
 
               <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
+                <div className="bg-purple-50 p-3 md:p-4 rounded-lg shadow-md flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border border-primary-purple">
+                  <span className="text-sm md:text-base text-gray-700">💵 Prix par appel :</span>
+                  <span className="text-lg md:text-xl lg:text-2xl font-bold text-primary-purple">{coutParAppel}€</span>
+                </div>
+
                 <div className="bg-white p-3 md:p-4 rounded-lg shadow-md flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                   <span className="text-sm md:text-base text-gray-700">💰 Coût total Google :</span>
                   <span className="text-lg md:text-xl lg:text-2xl font-bold">{coutTotal.toLocaleString()}€/mois</span>
