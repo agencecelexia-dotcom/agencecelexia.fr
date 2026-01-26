@@ -1,18 +1,8 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { NicheContext, NICHES } from '../context/NicheContext';
 
 const ROICalculator = () => {
-  // Configuration des prix par niche
-  const NICHES = {
-    pisciniste: { label: 'Pisciniste', prix: 10 },
-    paysagiste: { label: 'Paysagiste', prix: 10 },
-    plombier: { label: 'Plombier', prix: 25 },
-    chauffagiste: { label: 'Chauffagiste', prix: 25 },
-    electricien: { label: 'Électricien', prix: 20 },
-    menuisier: { label: 'Menuisier', prix: 20 },
-    autre: { label: 'Autre secteur', prix: 15 }
-  };
-
-  const [niche, setNiche] = useState('pisciniste');
+  const { niche, handleNicheChange } = useContext(NicheContext);
   const [appelsParMois, setAppelsParMois] = useState(30);
   const [tauxDevis, setTauxDevis] = useState(50);
   const [tauxClient, setTauxClient] = useState(30);
@@ -74,7 +64,7 @@ const ROICalculator = () => {
             </label>
             <select
               value={niche}
-              onChange={(e) => setNiche(e.target.value)}
+              onChange={(e) => handleNicheChange(e.target.value)}
               className="w-full px-4 md:px-6 py-3 md:py-4 text-base md:text-lg border-2 border-gray-300 rounded-lg focus:border-primary-purple focus:outline-none font-semibold"
             >
               {Object.entries(NICHES).map(([key, value]) => (
