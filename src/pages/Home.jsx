@@ -95,7 +95,7 @@ const Home = () => {
             <div className="bg-white p-6 md:p-8 lg:p-10 rounded-xl shadow-md text-center border border-gray-200">
               <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-green-600 mb-3 md:mb-4">~{prixParAppel}€</div>
               <p className="text-base md:text-lg lg:text-xl font-semibold mb-2">Coût moyen par contact</p>
-              <p className="text-sm md:text-base text-gray-600">Avec notre système publicitaire ({NICHES[Object.keys(NICHES)[0]].label})</p>
+              <p className="text-sm md:text-base text-gray-600">Avec notre système publicitaire</p>
               <p className="text-xs md:text-sm text-gray-500 mt-3 md:mt-4">Varie selon votre secteur d'activité</p>
             </div>
 
