@@ -1,7 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import ROICalculator from '../components/ROICalculator';
+import { NicheContext, NICHES } from '../context/NicheContext';
 
 const Home = () => {
+  const { prixParAppel } = useContext(NicheContext);
+
   useEffect(() => {
     // Fonction Cal.com loader (du code embed officiel)
     (function (C, A, L) {
@@ -90,10 +93,10 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16 lg:mb-20">
             {/* Stat 1 */}
             <div className="bg-white p-6 md:p-8 lg:p-10 rounded-xl shadow-md text-center border border-gray-200">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-green-600 mb-3 md:mb-4">~30€</div>
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-green-600 mb-3 md:mb-4">~{prixParAppel}€</div>
               <p className="text-base md:text-lg lg:text-xl font-semibold mb-2">Coût moyen par contact</p>
-              <p className="text-sm md:text-base text-gray-600">Avec notre système publicitaire</p>
-              <p className="text-xs md:text-sm text-gray-500 mt-3 md:mt-4">Moyenne observée sur nos clients artisans</p>
+              <p className="text-sm md:text-base text-gray-600">Avec notre système publicitaire ({NICHES[Object.keys(NICHES)[0]].label})</p>
+              <p className="text-xs md:text-sm text-gray-500 mt-3 md:mt-4">Varie selon votre secteur d'activité</p>
             </div>
 
             {/* Stat 2 */}
@@ -106,10 +109,12 @@ const Home = () => {
 
             {/* Stat 3 */}
             <div className="bg-white p-6 md:p-8 lg:p-10 rounded-xl shadow-md text-center border border-primary-purple">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-purple mb-3 md:mb-4">65%</div>
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-purple mb-3 md:mb-4">
+                {Math.round(((85 - prixParAppel) / 85) * 100)}%
+              </div>
               <p className="text-base md:text-lg lg:text-xl font-semibold mb-2">Économies potentielles</p>
               <p className="text-sm md:text-base text-gray-600">sur votre coût d'acquisition</p>
-              <p className="text-xs md:text-sm text-gray-500 mt-3 md:mt-4">Calcul: (85-30)/85</p>
+              <p className="text-xs md:text-sm text-gray-500 mt-3 md:mt-4">Calcul: (85-{prixParAppel})/85</p>
             </div>
           </div>
 
