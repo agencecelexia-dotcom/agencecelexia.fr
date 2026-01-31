@@ -1,29 +1,215 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply font-sans text-dark-gray bg-white;
+    @apply font-sans text-gray-900 bg-white;
+  }
+
+  ::selection {
+    background: rgba(124, 58, 237, 0.15);
+    color: #111827;
   }
 }
 
 @layer components {
+  /* ============================================
+     BUTTONS - SaaS style with animations
+     ============================================ */
+
   .btn-primary {
-    @apply bg-primary-purple text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-purple-500 transition-all duration-300 shadow-lg hover:shadow-xl;
+    @apply relative inline-flex items-center justify-center
+           bg-violet-600 text-white
+           px-7 py-3.5 rounded-xl font-semibold text-[15px]
+           shadow-btn
+           transition-all duration-300 ease-out
+           overflow-hidden;
+  }
+
+  .btn-primary:hover {
+    @apply bg-violet-700 shadow-btn-hover -translate-y-[1px];
+  }
+
+  .btn-primary:active {
+    @apply translate-y-0 shadow-btn scale-[0.98];
+    transition-duration: 100ms;
+  }
+
+  /* Shimmer sweep on hover */
+  .btn-primary::after {
+    content: '';
+    @apply absolute inset-0 opacity-0;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.2) 50%,
+      transparent 60%
+    );
+    transition: opacity 0.3s ease;
+  }
+
+  .btn-primary:hover::after {
+    @apply opacity-100;
+    animation: shimmerSweep 0.6s ease-out;
   }
 
   .btn-secondary {
-    @apply border-2 border-primary-purple text-primary-purple px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-purple hover:text-white transition-all duration-300;
+    @apply relative inline-flex items-center justify-center
+           bg-white text-violet-600
+           border-2 border-violet-200
+           px-7 py-3.5 rounded-xl font-semibold text-[15px]
+           shadow-btn
+           transition-all duration-300 ease-out;
   }
 
+  .btn-secondary:hover {
+    @apply border-violet-300 bg-violet-50 shadow-card -translate-y-[1px];
+  }
+
+  .btn-secondary:active {
+    @apply translate-y-0 shadow-btn scale-[0.98];
+    transition-duration: 100ms;
+  }
+
+  .btn-ghost {
+    @apply relative inline-flex items-center justify-center
+           text-gray-600
+           px-5 py-2.5 rounded-lg font-medium text-[15px]
+           transition-all duration-300 ease-out;
+  }
+
+  .btn-ghost:hover {
+    @apply text-violet-600 bg-violet-50;
+  }
+
+  .btn-ghost:active {
+    @apply scale-[0.97] bg-violet-100;
+    transition-duration: 100ms;
+  }
+
+  /* ============================================
+     CARDS
+     ============================================ */
+
+  .card {
+    @apply bg-white rounded-2xl border border-gray-200/80
+           shadow-soft
+           transition-all duration-300 ease-out;
+  }
+
+  .card:hover {
+    @apply shadow-card-hover border-gray-200 -translate-y-[2px];
+  }
+
+  .card-violet {
+    @apply bg-white rounded-2xl border border-violet-200/60
+           shadow-soft
+           transition-all duration-300 ease-out;
+  }
+
+  .card-violet:hover {
+    @apply shadow-violet border-violet-300/60 -translate-y-[2px];
+  }
+
+  /* ============================================
+     BADGES / TAGS
+     ============================================ */
+
+  .tag {
+    @apply inline-flex items-center
+           px-3.5 py-1.5 rounded-full
+           text-xs font-semibold uppercase tracking-wider
+           bg-violet-50 text-violet-600 border border-violet-100;
+  }
+
+  /* ============================================
+     SECTION UTILITIES
+     ============================================ */
+
   .section {
-    @apply py-16 px-6 md:px-12 lg:px-24;
+    @apply py-20 px-6 md:px-12 lg:px-24;
   }
 
   .container-custom {
     @apply max-w-7xl mx-auto;
   }
+
+  .section-divider {
+    @apply w-12 h-1 bg-violet-600 rounded-full;
+  }
+
+  /* ============================================
+     FORM INPUTS
+     ============================================ */
+
+  input[type="range"] {
+    @apply appearance-none w-full h-1.5 rounded-full bg-gray-200 outline-none cursor-pointer;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    @apply appearance-none w-5 h-5 rounded-full bg-violet-600 cursor-pointer
+           shadow-violet transition-all duration-200;
+    border: 3px solid white;
+  }
+
+  input[type="range"]::-webkit-slider-thumb:hover {
+    @apply scale-125 shadow-violet-lg;
+  }
+
+  input[type="range"]::-webkit-slider-thumb:active {
+    @apply scale-110;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    @apply w-5 h-5 rounded-full bg-violet-600 cursor-pointer border-[3px] border-white
+           shadow-violet transition-all duration-200;
+  }
+
+  /* ============================================
+     CUSTOM ANIMATIONS
+     ============================================ */
+
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-1;
+  }
+
+  /* Arrow animation for CTAs */
+  .arrow-animate svg,
+  .arrow-animate .arrow-icon {
+    @apply transition-transform duration-300;
+  }
+
+  .arrow-animate:hover svg,
+  .arrow-animate:hover .arrow-icon {
+    @apply translate-x-1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* ============================================
+   GLOBAL KEYFRAMES (not Tailwind)
+   ============================================ */
+
+@keyframes shimmerSweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }

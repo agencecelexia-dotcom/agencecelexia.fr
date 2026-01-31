@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 
 const Contact = () => {
   useEffect(() => {
-    // Fonction Cal.com loader (du code embed officiel)
     (function (C, A, L) {
       let p = function (a, ar) { a.q.push(ar); };
       let d = C.document;
@@ -30,7 +29,6 @@ const Contact = () => {
       };
     })(window, "https://app.cal.com/embed/embed.js", "init");
 
-    // Initialisation Cal.com
     window.Cal("init", "rdv-decouverte-240-appels-an-garantis", {origin:"https://app.cal.com"});
 
     window.Cal.ns["rdv-decouverte-240-appels-an-garantis"]("inline", {
@@ -40,133 +38,111 @@ const Contact = () => {
     });
 
     window.Cal.ns["rdv-decouverte-240-appels-an-garantis"]("ui", {
-      "cssVarsPerTheme":{"light":{"cal-brand":"#5050ff"},"dark":{"cal-brand":"#fafafa"}},
+      "cssVarsPerTheme":{"light":{"cal-brand":"#7C3AED"},"dark":{"cal-brand":"#7C3AED"}},
       "hideEventTypeDetails":false,
       "layout":"month_view"
     });
   }, []);
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white">
-      {/* Hero Section */}
-      <section className="py-12 md:py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-            Développez votre activité d'artisan
+    <div className="bg-white">
+      {/* Hero */}
+      <section className="relative pt-28 pb-16 md:pt-36 md:pb-20 px-4 md:px-6 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-100/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <span className="tag mb-6 inline-block">Contact</span>
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight mb-6">
+            Developpez votre activite
           </h1>
-          <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
-            Réservez 30 minutes d'échange pour comprendre comment notre système d'acquisition peut générer un flux régulier de clients qualifiés pour votre entreprise.
+          <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
+            Reservez 30 minutes d'echange pour comprendre comment notre systeme d'acquisition peut generer un flux regulier de clients qualifies.
           </p>
         </div>
       </section>
 
-      {/* Contact Info Cards */}
-      <section className="py-8 px-4">
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6 mb-12">
-          {/* Email Card */}
-          <div className="bg-white p-8 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-shadow">
-            <div className="flex items-center justify-center mb-4">
-              <div className="w-16 h-16 bg-primary-purple bg-opacity-10 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
+      {/* Contact cards */}
+      <section className="py-12 px-4 md:px-6">
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6 mb-16">
+          {/* Email */}
+          <div className="card p-8 text-center group">
+            <div className="w-16 h-16 rounded-2xl bg-violet-100 flex items-center justify-center mx-auto mb-5
+                           group-hover:bg-violet-600 transition-colors duration-300">
+              <svg className="w-7 h-7 text-violet-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 text-center mb-2">Email</h3>
-            <a
-              href="mailto:agence.celexia@gmail.com"
-              className="text-primary-purple hover:underline text-center block font-semibold text-lg"
-            >
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Email</h3>
+            <a href="mailto:agence.celexia@gmail.com" className="text-violet-600 hover:text-violet-700 transition-colors font-semibold text-lg">
               agence.celexia@gmail.com
             </a>
-            <p className="text-center text-gray-600 text-sm mt-3">
-              Réponse sous 24h
-            </p>
+            <p className="text-gray-400 text-sm mt-3">Reponse sous 24h</p>
           </div>
 
-          {/* Phone Card */}
-          <div className="bg-white p-8 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-shadow">
-            <div className="flex items-center justify-center mb-4">
-              <div className="w-16 h-16 bg-green-600 bg-opacity-10 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-              </div>
+          {/* Phone */}
+          <div className="card p-8 text-center group">
+            <div className="w-16 h-16 rounded-2xl bg-emerald-100 flex items-center justify-center mx-auto mb-5
+                           group-hover:bg-emerald-600 transition-colors duration-300">
+              <svg className="w-7 h-7 text-emerald-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 text-center mb-2">Téléphone</h3>
-            <a
-              href="tel:+33651725756"
-              className="text-green-600 hover:underline text-center block font-semibold text-lg"
-            >
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Telephone</h3>
+            <a href="tel:+33651725756" className="text-emerald-600 hover:text-emerald-700 transition-colors font-semibold text-lg">
               06 51 72 57 56
             </a>
-            <p className="text-center text-gray-600 text-sm mt-3">
-              Lun-Ven 9h-18h
-            </p>
+            <p className="text-gray-400 text-sm mt-3">Lun-Ven 9h-18h</p>
           </div>
         </div>
       </section>
 
-      {/* Calendly Section */}
-      <section className="py-12 px-4 bg-white">
+      {/* Booking section */}
+      <section className="py-12 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Réservez votre appel stratégique
+          <div className="text-center mb-10">
+            <span className="tag mb-4 inline-block">Reservation</span>
+            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight mb-4">
+              Reservez votre appel strategique
             </h2>
-            <p className="text-gray-700 text-lg mb-6">
-              Un échange sans engagement pour évaluer ensemble le potentiel de notre solution pour votre entreprise.
+            <p className="text-gray-500 text-lg">
+              Un echange sans engagement pour evaluer le potentiel de notre solution.
             </p>
           </div>
 
-          {/* Pourquoi réserver un appel */}
-          <div className="bg-gradient-to-br from-purple-50 to-white p-6 md:p-8 rounded-xl mb-8 border border-purple-200">
-            <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">
+          {/* What we'll cover */}
+          <div className="card p-6 md:p-8 mb-8">
+            <h3 className="font-display text-lg font-bold text-gray-900 mb-6 text-center">
               Ce que nous allons aborder pendant l'appel
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                  <span className="text-2xl">🎯</span>
+              {[
+                { num: '01', title: 'Analyse de votre situation', desc: "Vos objectifs de croissance, votre zone d'intervention, votre positionnement actuel" },
+                { num: '02', title: 'Strategie personnalisee', desc: "Plan d'action concret adapte a votre metier et a votre marche local" },
+                { num: '03', title: 'Projection de resultats', desc: "Estimation realiste du volume d'appels et du ROI potentiel pour votre activite" }
+              ].map((item) => (
+                <div key={item.num} className="text-center">
+                  <span className="font-display text-2xl font-bold text-violet-200 mb-3 block">{item.num}</span>
+                  <h4 className="font-bold text-gray-900 mb-2">{item.title}</h4>
+                  <p className="text-sm text-gray-500">{item.desc}</p>
                 </div>
-                <h4 className="font-bold text-gray-900 mb-2">Analyse de votre situation</h4>
-                <p className="text-sm text-gray-600">
-                  Vos objectifs de croissance, votre zone d'intervention, votre positionnement actuel
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                  <span className="text-2xl">💡</span>
-                </div>
-                <h4 className="font-bold text-gray-900 mb-2">Stratégie personnalisée</h4>
-                <p className="text-sm text-gray-600">
-                  Plan d'action concret adapté à votre métier et à votre marché local
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                  <span className="text-2xl">📊</span>
-                </div>
-                <h4 className="font-bold text-gray-900 mb-2">Projection de résultats</h4>
-                <p className="text-sm text-gray-600">
-                  Estimation réaliste du volume d'appels et du ROI potentiel pour votre activité
-                </p>
-              </div>
+              ))}
             </div>
           </div>
 
           {/* Cal.com Widget */}
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+          <div className="bg-white rounded-2xl p-4 md:p-6 shadow-soft border border-gray-200/80">
             <div
               id="my-cal-inline-rdv-decouverte-240-appels-an-garantis"
-              style={{width:'100%', height:'700px', overflow:'scroll'}}
+              style={{width:'100%', height:'700px', overflow:'scroll', borderRadius: '12px'}}
             ></div>
           </div>
 
-          {/* Footer note */}
-          <p className="text-center text-gray-600 mt-8 text-sm">
-            Appel de 30 minutes • Sans engagement • 100% confidentiel
-          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-8 text-gray-400 text-sm">
+            <span>Appel de 30 minutes</span>
+            <span className="w-1 h-1 rounded-full bg-gray-300 hidden sm:block" />
+            <span>Sans engagement</span>
+            <span className="w-1 h-1 rounded-full bg-gray-300 hidden sm:block" />
+            <span>100% confidentiel</span>
+          </div>
         </div>
       </section>
     </div>

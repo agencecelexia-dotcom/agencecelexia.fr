@@ -10,36 +10,53 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-dark-gray text-white py-12">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center">
-          <h3 className="text-2xl font-bold text-primary-purple mb-4">
-            Agence Celexia
-          </h3>
-          <p className="text-gray-300 mb-6">
-            Votre partenaire pour la génération de leads qualifiés
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8 mb-8">
-            <Link to="/" className="text-gray-300 hover:text-primary-purple transition-colors">
-              Accueil
+    <footer className="bg-gray-50 border-t border-gray-200/80 py-16">
+      <div className="max-w-6xl mx-auto px-6 md:px-8">
+        <div className="grid md:grid-cols-3 gap-12 mb-12">
+          {/* Brand */}
+          <div>
+            <Link to="/" className="inline-block mb-4">
+              <img src="/logo.png" alt="Agence Celexia" className="h-8 opacity-80 hover:opacity-100 transition-opacity" />
             </Link>
-            <Link to="/about" className="text-gray-300 hover:text-primary-purple transition-colors">
-              À Propos
-            </Link>
-            <button
-              onClick={handleCalculatorClick}
-              className="text-gray-300 hover:text-primary-purple transition-colors"
-            >
-              Calculateur
-            </button>
-            <Link to="/contact" className="text-gray-300 hover:text-primary-purple transition-colors">
-              Contact
-            </Link>
-          </div>
-          <div className="border-t border-gray-700 pt-6">
-            <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Agence Celexia • agence.celexia@gmail.com
+            <p className="text-gray-500 text-sm leading-relaxed">
+              Votre partenaire pour la generation de leads qualifies.
+              Acquisition client optimisee pour artisans.
             </p>
+          </div>
+
+          {/* Navigation */}
+          <div>
+            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Navigation</h4>
+            <div className="flex flex-col gap-3">
+              <Link to="/" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">Accueil</Link>
+              <Link to="/about" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">A Propos</Link>
+              <button onClick={handleCalculatorClick} className="text-gray-500 hover:text-violet-600 transition-colors text-sm text-left">Calculateur</button>
+              <Link to="/contact" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">Contact</Link>
+            </div>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Contact</h4>
+            <div className="flex flex-col gap-3">
+              <a href="mailto:agence.celexia@gmail.com" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">
+                agence.celexia@gmail.com
+              </a>
+              <a href="tel:+33651725756" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">
+                06 51 72 57 56
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className="pt-8 border-t border-gray-200/80 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-gray-400 text-xs">
+            &copy; {new Date().getFullYear()} Agence Celexia. Tous droits reserves.
+          </p>
+          <div className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-gray-400 text-xs">Systeme actif</span>
           </div>
         </div>
       </div>
