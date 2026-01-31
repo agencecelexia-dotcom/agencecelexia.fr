@@ -35,7 +35,7 @@ const Breadcrumbs = () => {
       '@type': 'ListItem',
       'position': index + 1,
       'name': crumb.name,
-      'item': `https://agence-celexia.fr${crumb.path}`
+      'item': `https://agencecelexia.fr${crumb.path}`
     }))
   });
 

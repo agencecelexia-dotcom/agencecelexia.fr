@@ -6,7 +6,7 @@ const NotFound = () => {
   usePageMeta({
     title: 'Page non trouvée - Agence Celexia',
     description: 'La page que vous recherchez n\'existe pas. Retournez à l\'accueil pour continuer.',
-    canonical: 'https://agence-celexia.fr/404'
+    canonical: 'https://agencecelexia.fr/404'
   });
 
   return (

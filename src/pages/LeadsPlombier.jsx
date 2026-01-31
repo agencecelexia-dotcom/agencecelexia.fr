@@ -11,7 +11,7 @@ const LeadsPlombier = () => {
   usePageMeta({
     title: 'Génération de Leads Plombier | Clients Qualifiés pour Plombiers',
     description: 'Obtenez des appels de clients qualifiés pour votre entreprise de plomberie. Système de paiement par lead. Premiers clients sous 10-21 jours. Agence Celexia.',
-    canonical: 'https://agence-celexia.fr/leads-plombier'
+    canonical: 'https://agencecelexia.fr/leads-plombier'
   });
 
   // Schéma JSON-LD pour le service spécifique plomberie

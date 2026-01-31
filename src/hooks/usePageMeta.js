@@ -22,13 +22,13 @@ export const usePageMeta = ({ title, description, image = '/logo.png', canonical
       canonicalLink.rel = 'canonical';
       document.head.appendChild(canonicalLink);
     }
-    canonicalLink.href = canonical || 'https://agence-celexia.fr/';
+    canonicalLink.href = canonical || 'https://agencecelexia.fr/';
 
     // Mise à jour Open Graph
     updateMetaProperty('og:title', title);
     updateMetaProperty('og:description', description);
     updateMetaProperty('og:image', image);
-    updateMetaProperty('og:url', canonical || 'https://agence-celexia.fr/');
+    updateMetaProperty('og:url', canonical || 'https://agencecelexia.fr/');
 
     // Mise à jour Twitter Card
     updateMetaName('twitter:title', title);

@@ -11,7 +11,7 @@ const About = () => {
   usePageMeta({
     title: 'À propos - Agence Celexia | Experts en Local Service Ads',
     description: 'Découvrez comment Agence Celexia aide les artisans à générer des leads qualifiés. Transparence, expertise métier, résultats mesurables.',
-    canonical: 'https://agence-celexia.fr/about'
+    canonical: 'https://agencecelexia.fr/about'
   });
 
   const faqs = [

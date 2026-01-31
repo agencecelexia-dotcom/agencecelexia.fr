@@ -22,4 +22,4 @@ User-agent: MJ12bot
 Disallow: /
 
 # Sitemap location
-Sitemap: https://agence-celexia.fr/sitemap.xml
+Sitemap: https://agencecelexia.fr/sitemap.xml

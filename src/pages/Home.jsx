@@ -11,7 +11,7 @@ const Home = () => {
   usePageMeta({
     title: 'Génération de leads qualifiés pour artisans - Agence Celexia',
     description: 'Système de paiement par appel qualifié. ROI garanti pour plombiers, électriciens, menuisiers. Premiers appels sous 10-21 jours.',
-    canonical: 'https://agence-celexia.fr/'
+    canonical: 'https://agencecelexia.fr/'
   });
 
   // Schéma JSON-LD pour l'organisation
@@ -19,9 +19,14 @@ const Home = () => {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     'name': 'Agence Celexia',
-    'url': 'https://agence-celexia.fr',
-    'logo': 'https://agence-celexia.fr/logo.png',
-    'description': 'Agence spécialisée en génération de leads qualifiés pour artisans via Local Service Ads',
+    'url': 'https://agencecelexia.fr',
+    'logo': {
+      '@type': 'ImageObject',
+      'url': 'https://agencecelexia.fr/logo.png',
+      'width': '512',
+      'height': '512'
+    },
+    'description': 'Experts en génération de leads qualifiés pour artisans. Payez uniquement pour des appels qualifiés. Position #1 garantie sur Google.',
     'telephone': '+33651725756',
     'email': 'agence.celexia@gmail.com',
     'address': {
@@ -43,7 +48,7 @@ const Home = () => {
     'provider': {
       '@type': 'Organization',
       'name': 'Agence Celexia',
-      'url': 'https://agence-celexia.fr'
+      'url': 'https://agencecelexia.fr'
     },
     'areaServed': {
       '@type': 'Country',
@@ -62,10 +67,10 @@ const Home = () => {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     'name': 'Agence Celexia',
-    'image': 'https://agence-celexia.fr/logo.png',
+    'image': 'https://agencecelexia.fr/logo.png',
     'telephone': '+33651725756',
     'email': 'agence.celexia@gmail.com',
-    'url': 'https://agence-celexia.fr',
+    'url': 'https://agencecelexia.fr',
     'address': {
       '@type': 'PostalAddress',
       'addressCountry': 'FR'

@@ -11,7 +11,7 @@ const LeadsElectricien = () => {
   usePageMeta({
     title: 'Génération de Leads Électricien | Clients Qualifiés pour Électriciens',
     description: 'Obtenez des appels de clients qualifiés pour votre entreprise d\'électricité. Système de paiement par lead. Premiers clients sous 10-21 jours. Agence Celexia.',
-    canonical: 'https://agence-celexia.fr/leads-electricien'
+    canonical: 'https://agencecelexia.fr/leads-electricien'
   });
 
   // Schéma JSON-LD pour le service spécifique électricité

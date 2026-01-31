@@ -5,7 +5,7 @@ const ArtisanWebsites = () => {
   usePageMeta({
     title: 'Sites Web pour Artisans en 7 Jours | Agence Celexia',
     description: 'Site web professionnel pour artisans livré en 7 jours. Design moderne, optimisé SEO, responsive. Devis gratuit pour plombiers, électriciens, menuisiers.',
-    canonical: 'https://agence-celexia.fr/sites-artisans'
+    canonical: 'https://agencecelexia.fr/sites-artisans'
   });
 
   const features = [

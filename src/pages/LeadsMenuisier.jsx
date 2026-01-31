@@ -11,7 +11,7 @@ const LeadsMenuisier = () => {
   usePageMeta({
     title: 'Génération de Leads Menuisier | Clients Qualifiés pour Menuisiers',
     description: 'Obtenez des appels de clients qualifiés pour votre entreprise de menuiserie. Système de paiement par lead. Premiers clients sous 10-21 jours. Agence Celexia.',
-    canonical: 'https://agence-celexia.fr/leads-menuisier'
+    canonical: 'https://agencecelexia.fr/leads-menuisier'
   });
 
   // Schéma JSON-LD pour le service spécifique menuiserie

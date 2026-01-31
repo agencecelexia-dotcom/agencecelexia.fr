@@ -6,7 +6,7 @@ const Contact = () => {
   usePageMeta({
     title: 'Réservez votre appel gratuit - Agence Celexia',
     description: '30 minutes pour analyser votre situation et évaluer le potentiel de notre système d\'acquisition client. Sans engagement.',
-    canonical: 'https://agence-celexia.fr/contact'
+    canonical: 'https://agencecelexia.fr/contact'
   });
 
   useEffect(() => {
