@@ -114,7 +114,17 @@
   .card-violet {
     @apply bg-gradient-to-br from-violet-600 to-violet-700 rounded-2xl border border-violet-500/30
            shadow-soft
-           transition-all duration-300 ease-out;
+           transition-all duration-300 ease-out text-white;
+  }
+
+  .card-violet p,
+  .card-violet span,
+  .card-violet li {
+    @apply text-white;
+  }
+
+  .card-violet strong {
+    @apply text-white font-bold;
   }
 
   .card-violet:hover {

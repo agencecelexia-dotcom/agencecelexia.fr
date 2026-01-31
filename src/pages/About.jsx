@@ -159,7 +159,7 @@ const About = () => {
               </div>
               <div>
                 <h3 className="font-display text-2xl font-bold text-white mb-4">La philosophie qui nous guide</h3>
-                <div className="space-y-3 text-violet-100 text-sm leading-relaxed">
+                <div className="space-y-3 text-white text-sm leading-relaxed">
                   <p>
                     <strong className="text-white">Nos clients gagnent avant nous.</strong> Cette phrase resonne dans chaque
                     décision que nous prenons. Si un artisan ne génère pas de résultats concrets avec nos services, nous
