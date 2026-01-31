@@ -25,10 +25,10 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white ${
         scrolled
-          ? 'bg-white shadow-soft border-b border-gray-100'
-          : 'bg-white'
+          ? 'shadow-soft border-b border-gray-100'
+          : ''
       }`}
     >
       <nav className="max-w-6xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between">
@@ -46,6 +46,9 @@ const Header = () => {
         <div className="hidden md:flex items-center gap-1">
           <Link to="/about" className="btn-ghost">
             A propos
+          </Link>
+          <Link to="/sites-artisans" className="btn-ghost">
+            Sites Web
           </Link>
           {isHome && (
             <button onClick={handleCalculatorClick} className="btn-ghost">
@@ -78,10 +81,13 @@ const Header = () => {
       </nav>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden overflow-hidden transition-all duration-400 ease-out ${isMenuOpen ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`md:hidden overflow-hidden transition-all duration-400 ease-out ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="px-5 pb-5 flex flex-col gap-1 border-t border-gray-100 pt-3 bg-white">
           <Link to="/about" className="btn-ghost justify-start" onClick={closeMenu}>
             A propos
+          </Link>
+          <Link to="/sites-artisans" className="btn-ghost justify-start" onClick={closeMenu}>
+            Sites Web
           </Link>
           {isHome && (
             <button onClick={handleCalculatorClick} className="btn-ghost justify-start">

@@ -15,14 +15,14 @@ const About = () => {
   });
 
   const faqs = [
-    { question: "Comment fonctionne votre systeme publicitaire ?", answer: "Nous utilisons une strategie de referencement local optimisee qui place votre entreprise en tete des resultats Google lorsque des clients potentiels recherchent vos services dans votre zone geographique. Vous payez uniquement pour les appels qualifies recus." },
-    { question: "Quel est le cout reel du service ?", answer: "Le premier mois de gestion est inclus dans notre offre de lancement. Ensuite, nos tarifs dependent de votre volume d'appels souhaite et de votre zone geographique. Nous etablissons un devis personnalise lors de notre premier echange." },
-    { question: "Sous combien de temps puis-je esperer les premiers resultats ?", answer: "Une fois votre compte configure et valide par Google, les premiers appels arrivent generalement sous 10 a 21 jours. La montee en puissance se fait progressivement sur les 2-3 premiers mois." },
-    { question: "Quels types d'artisans accompagnez-vous ?", answer: "Nous travaillons avec tous les corps de metiers du batiment et des services a domicile : plombiers, electriciens, menuisiers, couvreurs, serruriers, paysagistes, peintres, macons, installateurs de piscines, et bien d'autres." },
+    { question: "Comment fonctionne votre systeme publicitaire ?", answer: "Nous utilisons une strategie de referencement local optimisee qui place votre entreprise en tete des résultats Google lorsque des clients potentiels recherchent vos services dans votre zone geographique. Vous payez uniquement pour les appels qualifiés recus." },
+    { question: "Quel est le cout reel du service ?", answer: "Le premier mois de gestion est inclus dans notre offre de lancement. Ensuite, nos tarifs dependent de votre volume d'appels souhaite et de votre zone geographique. Nous établissons un devis personnalise lors de notre premier echange." },
+    { question: "Sous combien de temps puis-je esperer les premiers résultats ?", answer: "Une fois votre compte configure et valide par Google, les premiers appels arrivent generalement sous 10 a 21 jours. La montee en puissance se fait progressivement sur les 2-3 premiers mois." },
+    { question: "Quels types d'artisans accompagnez-vous ?", answer: "Nous travaillons avec tous les corps de metiers du bâtiment et des services a domicile : plombiers, électriciens, menuisiers, couvreurs, serruriers, paysagistes, peintres, macons, installateurs de piscines, et bien d'autres." },
     { question: "Dois-je gerer quelque chose techniquement ?", answer: "Non. Nous prenons en charge l'integralite de la partie technique : creation de compte, optimisation, gestion quotidienne des campagnes, et reporting. Vous vous concentrez sur votre metier, nous gerons votre visibilite digitale." },
-    { question: "Y a-t-il un engagement de duree ?", answer: "Nous privilegions la transparence et la confiance. Nos contrats sont flexibles et nous travaillons sur la base de resultats concrets. Discutons de vos objectifs pour definir ensemble le cadre de collaboration qui vous convient." },
-    { question: "Que se passe-t-il si je ne suis pas satisfait ?", answer: "Notre approche repose sur la satisfaction client. Si apres le premier mois les resultats ne correspondent pas a vos attentes, nous analysons ensemble les axes d'amelioration ou nous arretons la collaboration en toute transparence." },
-    { question: "Travaillez-vous avec des artisans partout en France ?", answer: "Oui, notre systeme fonctionne dans toutes les regions francaises. La performance depend de votre secteur d'activite et de la concurrence locale, que nous analysons lors de notre audit initial." }
+    { question: "Y a-t-il un engagement de duree ?", answer: "Nous privilegions la transparence et la confiance. Nos contrats sont flexibles et nous travaillons sur la base de résultats concrets. Discutons de vos objectifs pour definir ensemble le cadre de collaboration qui vous convient." },
+    { question: "Que se passe-t-il si je ne suis pas satisfait ?", answer: "Notre approche repose sur la satisfaction client. Si apres le premier mois les résultats ne correspondent pas a vos attentes, nous analysons ensemble les axes d'amelioration ou nous arretons la collaboration en toute transparence." },
+    { question: "Travaillez-vous avec des artisans partout en France ?", answer: "Oui, notre systeme fonctionne dans toutes les regions francaises. La performance depend de votre secteur d'activité et de la concurrence locale, que nous analysons lors de notre audit initial." }
   ];
 
   // Schéma JSON-LD pour la page FAQ
@@ -46,7 +46,7 @@ const About = () => {
     { num: '02', title: "Strategie d'avis clients", desc: "Mise en place d'un systeme automatise de collecte d'avis positifs. Nous transformons vos clients satisfaits en ambassadeurs.", icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
     )},
-    { num: '03', title: 'Campagnes publicitaires ciblees', desc: "Vous apparaissez en premiere position lorsque des clients potentiels recherchent vos services. Vous ne payez que pour les contacts qualifies.", icon: (
+    { num: '03', title: 'Campagnes publicitaires ciblees', desc: "Vous apparaissez en premiere position lorsque des clients potentiels recherchent vos services. Vous ne payez que pour les contacts qualifiés.", icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
     )},
     { num: '04', title: 'Gestion et optimisation continue', desc: "Suivi quotidien de vos performances, ajustements strategiques, reporting transparent et recommandations mensuelles.", icon: (
@@ -56,11 +56,11 @@ const About = () => {
 
   const values = [
     { title: 'Transparence totale', desc: "Acces complet a vos statistiques en temps reel. Vous savez exactement combien vous depensez et quel est votre ROI." },
-    { title: 'Engagement resultats', desc: "Notre remuneration est liee a votre satisfaction. Pas de resultats, on ajuste jusqu'a y arriver." },
+    { title: 'Engagement résultats', desc: "Notre remuneration est liee a votre satisfaction. Pas de résultats, on ajuste jusqu'a y arriver." },
     { title: 'Expertise metier', desc: "Nous connaissons les specificites de l'artisanat : saisonnalite, zones d'intervention, typologie de clients." },
     { title: 'Communication directe', desc: "Un interlocuteur dedie qui connait votre dossier. Pas de plateforme impersonnelle." },
     { title: 'Formation incluse', desc: "Nous vous expliquons chaque action et chaque metrique. Vous montez en competence avec nous." },
-    { title: 'Reactivite maximum', desc: "Ajustements en temps reel sur vos campagnes. Reponse sous 24h a vos sollicitations." }
+    { title: 'Reactivité maximum', desc: "Ajustements en temps reel sur vos campagnes. Reponse sous 24h a vos sollicitations." }
   ];
 
   return (
@@ -71,11 +71,122 @@ const About = () => {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="tag mb-6 inline-block">A propos</span>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
-            Nous aidons les artisans a developper leur activite
+            Nous aidons les artisans a développer leur activité
           </h1>
           <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
-            Acquisition de clients qualifies, visibilite locale optimisee, croissance maitrisee.
+            Acquisition de clients qualifiés, visibilite locale optimisee, croissance maitrisee.
           </p>
+        </div>
+      </section>
+
+      {/* NOTRE HISTOIRE */}
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="tag mb-4 inline-block">Notre histoire</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+              Thomas & Antoine : une amitié au service des artisans
+            </h2>
+          </div>
+
+          <div className="card p-8 md:p-10 border-gray-200 mb-8">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-14 h-14 rounded-2xl bg-violet-100 flex items-center justify-center flex-shrink-0">
+                <svg className="w-7 h-7 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-display text-2xl font-bold text-gray-900 mb-2">Tout commence par une passion commune</h3>
+                <p className="text-gray-500 text-sm">Deux amis d'enfance unis par l'informatique et l'envie d'aider</p>
+              </div>
+            </div>
+
+            <div className="space-y-4 text-gray-600 text-[15px] leading-relaxed">
+              <p>
+                <strong className="text-gray-900">Thomas et Antoine se connaissent depuis le collège.</strong> Déjà à l'époque,
+                ils passaient leurs après-midis à bidouiller des sites web, à comprendre comment Google fonctionnait, à explorer
+                les possibilités infinies du digital. Cette passion ne les a jamais quittés.
+              </p>
+              <p>
+                En grandissant, ils ont vu leurs proches artisans - plombiers, électriciens, menuisiers - galéraient à trouver
+                des clients malgré leur excellent savoir-faire. <span className="text-violet-600 font-semibold">Le paradoxe était
+                frappant</span> : ces professionnels hautement qualifiés n'avaient pas accès aux outils digitaux qui auraient pu
+                transformer leur activité.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="card p-7 border-gray-200">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                </div>
+                <h3 className="font-display text-lg font-bold text-gray-900">Thomas</h3>
+              </div>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Spécialiste du marketing digital et de l'acquisition client. Passionné par les stratégies qui génèrent des
+                résultats concrets et mesurables. <strong className="text-gray-900">Sa devise :</strong> "Un client satisfait
+                est notre meilleure publicité."
+              </p>
+            </div>
+
+            <div className="card p-7 border-gray-200">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                </div>
+                <h3 className="font-display text-lg font-bold text-gray-900">Antoine</h3>
+              </div>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Expert en développement web et optimisation technique. Convaincu que la technologie doit être accèssible a tous.
+                <strong className="text-gray-900"> Son credo :</strong> "Simplifier le complexe pour rendre le digital accèssible."
+              </p>
+            </div>
+          </div>
+
+          <div className="card-violet p-8 md:p-10">
+            <div className="flex items-start gap-5">
+              <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-display text-2xl font-bold text-white mb-4">La philosophie qui nous guide</h3>
+                <div className="space-y-3 text-violet-100 text-sm leading-relaxed">
+                  <p>
+                    <strong className="text-white">Nos clients gagnent avant nous.</strong> Cette phrase resonne dans chaque
+                    décision que nous prenons. Si un artisan ne génère pas de résultats concrets avec nos services, nous
+                    considérons que nous avons échoué.
+                  </p>
+                  <p>
+                    Nous croyons fermement que <strong className="text-white">partager notre savoir avec les nouvelles
+                    générations d'entrepreneurs</strong> est essentiel pour faire grandir tout le marché. Quand les artisans
+                    français réussissent, c'est toute l'économie locale qui en profite.
+                  </p>
+                  <p className="pt-2 border-t border-white/20">
+                    <strong className="text-white text-base">Notre mission :</strong> Démocratiser l'accès au marketing digital
+                    pour que chaque artisan, quelle que soit sa taille, puisse développer son activité de manière sereine et
+                    rentable.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-gray-500 text-sm leading-relaxed max-w-2xl mx-auto">
+              Aujourd'hui, Agence Celexia est le fruit de cette amitié et de cette passion commune.
+              <strong className="text-gray-900"> Une équipe soudée, des valeurs fortes, et une seule obsession :
+              votre réussite.</strong>
+            </p>
+          </div>
         </div>
       </section>
 
@@ -92,7 +203,7 @@ const About = () => {
           <div className="space-y-5 text-gray-600 text-[17px] leading-relaxed">
             <p>
               Depuis plusieurs annees, nous observons un paradoxe dans le secteur de l'artisanat :
-              <strong className="text-gray-900"> des professionnels hautement qualifies qui peinent a remplir leur carnet de commandes</strong>,
+              <strong className="text-gray-900"> des professionnels hautement qualifiés qui peinent à remplir leur carnet de commandes</strong>,
               non par manque de competences, mais par manque de visibilite.
             </p>
             <p>
@@ -105,7 +216,7 @@ const About = () => {
             <h3 className="font-display text-lg font-bold text-gray-900 mb-5">Les defis quotidiens des artisans</h3>
             <div className="space-y-3">
               {[
-                "Fluctuations d'activite imprevisibles",
+                "Fluctuations d'activité imprevisibles",
                 "Dependance aux prescripteurs ou a la saisonnalite",
                 "Difficulte a mesurer le ROI des actions marketing",
                 "Manque de temps pour le digital"
@@ -237,15 +348,15 @@ const About = () => {
           <div className="card-violet p-7 md:p-9">
             <div className="space-y-4">
               {[
-                { bold: 'Artisan etabli', rest: "qui souhaite stabiliser et augmenter son volume d'activite" },
-                { bold: "Chef d'entreprise du batiment", rest: 'qui veut reduire sa dependance aux prescripteurs' },
-                { bold: 'Professionnel des services a domicile', rest: "cherchant a remplir son agenda 2-3 mois a l'avance" },
-                { bold: 'Entrepreneur ambitieux', rest: "qui veut developper son activite de maniere structuree" },
-                { bold: 'Artisan pragmatique', rest: "qui prefere deleguer le digital a des experts" }
+                { bold: 'Artisan établi', rest: "qui souhaite stabiliser et augmenter son volume d'activité" },
+                { bold: "Chef d'entreprise du bâtiment", rest: 'qui veut réduire sa dépendance aux prescripteurs' },
+                { bold: 'Professionnel des services a domicile', rest: "cherchant à remplir son agenda 2-3 mois a l'avance" },
+                { bold: 'Entrepreneur ambitieux', rest: "qui veut développer son activité de manière structurée" },
+                { bold: 'Artisan pragmatique', rest: "qui préfère déléguer le digital a des experts" }
               ].map((item, i) => (
                 <div key={i} className="flex items-start">
                   <span className="w-1.5 h-1.5 rounded-full bg-violet-400 mt-2.5 mr-3.5 flex-shrink-0" />
-                  <p className="text-gray-600">
+                  <p className="text-gray-900">
                     <strong className="text-gray-900">{item.bold}</strong> {item.rest}
                   </p>
                 </div>
@@ -284,7 +395,7 @@ const About = () => {
           </Link>
 
           <div className="mt-10 pt-6 border-t border-white/20">
-            <p className="text-sm text-violet-300 mb-1">Vous preferez nous ecrire ?</p>
+            <p className="text-sm text-violet-300 mb-1">Vous préfèrez nous ecrire ?</p>
             <a href="mailto:agence.celexia@gmail.com" className="text-lg font-semibold text-white hover:text-violet-100 transition-colors">
               agence.celexia@gmail.com
             </a>

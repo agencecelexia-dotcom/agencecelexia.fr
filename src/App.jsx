@@ -6,6 +6,7 @@ import Breadcrumbs from './components/Breadcrumbs';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import ArtisanWebsites from './pages/ArtisanWebsites';
 import NotFound from './pages/NotFound';
 import { NicheProvider } from './context/NicheContext';
 
@@ -21,6 +22,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/sites-artisans" element={<ArtisanWebsites />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

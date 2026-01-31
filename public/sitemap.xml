@@ -16,6 +16,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Page Sites Web Artisans -->
+  <url>
+    <loc>https://agence-celexia.fr/sites-artisans</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Page Contact -->
   <url>
     <loc>https://agence-celexia.fr/contact</loc>
