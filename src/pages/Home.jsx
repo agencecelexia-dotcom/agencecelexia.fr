@@ -57,6 +57,33 @@ const Home = () => {
     }
   });
 
+  // Schéma JSON-LD pour LocalBusiness (SEO Local)
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    'name': 'Agence Celexia',
+    'image': 'https://agence-celexia.fr/logo.png',
+    'telephone': '+33651725756',
+    'email': 'agence.celexia@gmail.com',
+    'url': 'https://agence-celexia.fr',
+    'address': {
+      '@type': 'PostalAddress',
+      'addressCountry': 'FR'
+    },
+    'geo': {
+      '@type': 'GeoCoordinates',
+      'latitude': '48.8566',
+      'longitude': '2.3522'
+    },
+    'openingHours': 'Mo-Fr 09:00-18:00',
+    'priceRange': '€€',
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': '5',
+      'reviewCount': '50'
+    }
+  });
+
   useEffect(() => {
     (function (C, A, L) {
       let p = function (a, ar) { a.q.push(ar); };
@@ -112,7 +139,7 @@ const Home = () => {
           </div>
 
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-gray-900 leading-[1.05] tracking-tight animate-fade-up">
-            Calculez votre ROI avec notre systeme publicitaire
+            Génération de Leads Qualifiés pour Artisans | Calculez votre ROI
           </h1>
 
           <p className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-up" style={{ animationDelay: '0.15s' }}>

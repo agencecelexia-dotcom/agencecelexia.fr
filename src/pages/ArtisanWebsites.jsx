@@ -125,8 +125,8 @@ const ArtisanWebsites = () => {
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <span className="tag mb-6 inline-block">Sites Web Artisans</span>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
-            Site web professionnel
-            <span className="block text-violet-600">livré en 7 jours</span>
+            Site Web pour Artisans
+            <span className="block text-violet-600">Livré en 7 Jours | Agence Celexia</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-10">
             Design moderne, optimisé pour convertir vos visiteurs en clients.

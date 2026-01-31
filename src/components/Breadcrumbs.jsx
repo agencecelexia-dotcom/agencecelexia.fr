@@ -15,7 +15,11 @@ const Breadcrumbs = () => {
     const pageName = pathnames[0];
     const pageNames = {
       'about': 'À propos',
-      'contact': 'Contact'
+      'contact': 'Contact',
+      'sites-artisans': 'Sites Web Artisans',
+      'leads-plombier': 'Leads Plombier',
+      'leads-electricien': 'Leads Électricien',
+      'leads-menuisier': 'Leads Menuisier'
     };
     breadcrumbs.push({
       name: pageNames[pageName] || pageName,

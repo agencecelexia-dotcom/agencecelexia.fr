@@ -71,7 +71,7 @@ const About = () => {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="tag mb-6 inline-block">A propos</span>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
-            Nous aidons les artisans a développer leur activité
+            Agence Marketing Digital pour Artisans | Expert en Acquisition Client
           </h1>
           <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
             Acquisition de clients qualifiés, visibilite locale optimisee, croissance maitrisee.

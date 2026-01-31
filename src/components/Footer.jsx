@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-50 border-t border-gray-200/80 py-16">
       <div className="max-w-6xl mx-auto px-6 md:px-8">
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
+        <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
             <Link to="/" className="inline-block mb-4">
@@ -35,8 +35,19 @@ const Footer = () => {
             <div className="flex flex-col gap-3">
               <Link to="/" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">Accueil</Link>
               <Link to="/about" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">A Propos</Link>
+              <Link to="/sites-artisans" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">Sites Web</Link>
               <button onClick={handleCalculatorClick} className="text-gray-500 hover:text-violet-600 transition-colors text-sm text-left">Calculateur</button>
               <Link to="/contact" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">Contact</Link>
+            </div>
+          </div>
+
+          {/* Leads par Métier */}
+          <div>
+            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Leads par Métier</h4>
+            <div className="flex flex-col gap-3">
+              <Link to="/leads-plombier" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">Plombiers</Link>
+              <Link to="/leads-electricien" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">Électriciens</Link>
+              <Link to="/leads-menuisier" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">Menuisiers</Link>
             </div>
           </div>
 

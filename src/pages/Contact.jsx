@@ -60,7 +60,7 @@ const Contact = () => {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="tag mb-6 inline-block">Contact</span>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight mb-6">
-            Developpez votre activite
+            Obtenez vos Premiers Clients Qualifiés sous 21 Jours | Contact
           </h1>
           <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
             Reservez 30 minutes d'echange pour comprendre comment notre systeme d'acquisition peut generer un flux regulier de clients qualifies.

@@ -24,6 +24,30 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Page Leads Plombier -->
+  <url>
+    <loc>https://agence-celexia.fr/leads-plombier</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Page Leads Électricien -->
+  <url>
+    <loc>https://agence-celexia.fr/leads-electricien</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Page Leads Menuisier -->
+  <url>
+    <loc>https://agence-celexia.fr/leads-menuisier</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Page Contact -->
   <url>
     <loc>https://agence-celexia.fr/contact</loc>
