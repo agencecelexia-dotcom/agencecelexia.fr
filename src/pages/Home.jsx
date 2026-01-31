@@ -1,9 +1,61 @@
 import { useEffect, useContext } from 'react';
 import ROICalculator from '../components/ROICalculator';
 import { NicheContext } from '../context/NicheContext';
+import { usePageMeta } from '../hooks/usePageMeta';
+import { useJsonLd } from '../hooks/useJsonLd';
 
 const Home = () => {
   const { prixParAppel } = useContext(NicheContext);
+
+  // Métadonnées SEO pour la page d'accueil
+  usePageMeta({
+    title: 'Génération de leads qualifiés pour artisans - Agence Celexia',
+    description: 'Système de paiement par appel qualifié. ROI garanti pour plombiers, électriciens, menuisiers. Premiers appels sous 10-21 jours.',
+    canonical: 'https://agence-celexia.fr/'
+  });
+
+  // Schéma JSON-LD pour l'organisation
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    'name': 'Agence Celexia',
+    'url': 'https://agence-celexia.fr',
+    'logo': 'https://agence-celexia.fr/logo.png',
+    'description': 'Agence spécialisée en génération de leads qualifiés pour artisans via Local Service Ads',
+    'telephone': '+33651725756',
+    'email': 'agence.celexia@gmail.com',
+    'address': {
+      '@type': 'PostalAddress',
+      'addressCountry': 'FR'
+    },
+    'sameAs': [
+      'https://www.facebook.com/agencecelexia',
+      'https://www.linkedin.com/company/agence-celexia'
+    ]
+  });
+
+  // Schéma JSON-LD pour le service
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    'name': 'Génération de Leads Qualifiés pour Artisans',
+    'description': 'Système d\'acquisition client basé sur le paiement par appel qualifié. Positionnement en tête des résultats Google locaux.',
+    'provider': {
+      '@type': 'Organization',
+      'name': 'Agence Celexia',
+      'url': 'https://agence-celexia.fr'
+    },
+    'areaServed': {
+      '@type': 'Country',
+      'name': 'FR'
+    },
+    'priceRange': 'Contact for pricing',
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': '5',
+      'ratingCount': '50'
+    }
+  });
 
   useEffect(() => {
     (function (C, A, L) {

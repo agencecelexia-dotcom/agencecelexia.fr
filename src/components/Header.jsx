@@ -27,7 +27,7 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/80 backdrop-blur-xl shadow-soft border-b border-gray-100'
+          ? 'bg-white shadow-soft border-b border-gray-100'
           : 'bg-white'
       }`}
     >
@@ -36,8 +36,9 @@ const Header = () => {
         <Link to="/" className="flex items-center group" onClick={closeMenu}>
           <img
             src="/logo.png"
-            alt="Agence Celexia"
+            alt="Agence Celexia - Génération de leads pour artisans"
             className="h-8 transition-transform duration-300 group-hover:scale-[1.02]"
+            loading="eager"
           />
         </Link>
 

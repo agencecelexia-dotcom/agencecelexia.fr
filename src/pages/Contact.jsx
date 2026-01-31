@@ -1,6 +1,14 @@
 import { useEffect } from 'react';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 const Contact = () => {
+  // Métadonnées SEO pour la page Contact
+  usePageMeta({
+    title: 'Réservez votre appel gratuit - Agence Celexia',
+    description: '30 minutes pour analyser votre situation et évaluer le potentiel de notre système d\'acquisition client. Sans engagement.',
+    canonical: 'https://agence-celexia.fr/contact'
+  });
+
   useEffect(() => {
     (function (C, A, L) {
       let p = function (a, ar) { a.q.push(ar); };

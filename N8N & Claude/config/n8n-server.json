@@ -1,0 +1,32 @@
+{
+  "server": {
+    "url": "https://n8n.srv1241880.hstgr.cloud",
+    "baseUrl": "https://n8n.srv1241880.hstgr.cloud/api/v1",
+    "webhookUrl": "https://n8n.srv1241880.hstgr.cloud/webhook",
+    "protocol": "https",
+    "host": "n8n.srv1241880.hstgr.cloud"
+  },
+  "authentication": {
+    "type": "api_key",
+    "apiKeyHeader": "X-N8N-API-KEY",
+    "apiKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3OWVkMDA1MS1lODhiLTQyZDEtYTg4Ny1hYjdkMjc3OGEzZTQiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzY5ODcyNzQ2fQ.7iWLWSV5tBExD6CiZ7k63y_zqy-wKOziTPKvcldEKsk"
+  },
+  "endpoints": {
+    "workflows": "/workflows",
+    "executions": "/executions",
+    "credentials": "/credentials",
+    "activeWorkflows": "/workflows/active",
+    "workflowExecute": "/workflows/{id}/execute"
+  },
+  "limits": {
+    "maxWorkflows": 1000,
+    "maxExecutionsPerMinute": 60,
+    "timeout": 120000
+  },
+  "features": {
+    "autoSave": true,
+    "autoActivate": false,
+    "errorNotifications": true,
+    "monitoring": true
+  }
+}

@@ -1,9 +1,18 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { usePageMeta } from '../hooks/usePageMeta';
+import { useJsonLd } from '../hooks/useJsonLd';
 
 const About = () => {
   const [openFaq, setOpenFaq] = useState(null);
   const toggleFaq = (index) => setOpenFaq(openFaq === index ? null : index);
+
+  // Métadonnées SEO pour la page À propos
+  usePageMeta({
+    title: 'À propos - Agence Celexia | Experts en Local Service Ads',
+    description: 'Découvrez comment Agence Celexia aide les artisans à générer des leads qualifiés. Transparence, expertise métier, résultats mesurables.',
+    canonical: 'https://agence-celexia.fr/about'
+  });
 
   const faqs = [
     { question: "Comment fonctionne votre systeme publicitaire ?", answer: "Nous utilisons une strategie de referencement local optimisee qui place votre entreprise en tete des resultats Google lorsque des clients potentiels recherchent vos services dans votre zone geographique. Vous payez uniquement pour les appels qualifies recus." },
@@ -15,6 +24,20 @@ const About = () => {
     { question: "Que se passe-t-il si je ne suis pas satisfait ?", answer: "Notre approche repose sur la satisfaction client. Si apres le premier mois les resultats ne correspondent pas a vos attentes, nous analysons ensemble les axes d'amelioration ou nous arretons la collaboration en toute transparence." },
     { question: "Travaillez-vous avec des artisans partout en France ?", answer: "Oui, notre systeme fonctionne dans toutes les regions francaises. La performance depend de votre secteur d'activite et de la concurrence locale, que nous analysons lors de notre audit initial." }
   ];
+
+  // Schéma JSON-LD pour la page FAQ
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': faqs.map(faq => ({
+      '@type': 'Question',
+      'name': faq.question,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': faq.answer
+      }
+    }))
+  });
 
   const services = [
     { num: '01', title: 'Optimisation de votre presence locale', desc: "Configuration professionnelle de votre fiche Google Business Profile : photos de qualite, description optimisee, categories pertinentes, horaires a jour.", icon: (

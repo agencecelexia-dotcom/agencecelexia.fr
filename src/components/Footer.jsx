@@ -16,7 +16,12 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="inline-block mb-4">
-              <img src="/logo.png" alt="Agence Celexia" className="h-8 opacity-80 hover:opacity-100 transition-opacity" />
+              <img
+                src="/logo.png"
+                alt="Agence Celexia - Spécialiste en Local Service Ads pour artisans"
+                className="h-8 opacity-80 hover:opacity-100 transition-opacity"
+                loading="lazy"
+              />
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed">
               Votre partenaire pour la generation de leads qualifies.

@@ -1,0 +1,118 @@
+{
+  "name": "FOLLOWUP PROOF",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 9 * * *"
+            }
+          ]
+        }
+      },
+      "id": "dc11fc77-3d16-4d82-b2e0-fa58a015f27a",
+      "name": "Trigger Quotidien 9h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [100, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://api.cal.com/v1/bookings",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "calApi",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [{"name": "status", "value": "upcoming"}]
+        },
+        "options": {}
+      },
+      "id": "9b645972-dc66-47ef-9d8a-509bc6552702",
+      "name": "Récupérer RDV Cal.com",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [300, 300],
+      "credentials": {"calApi": {"id": "CJUWH6TwxfRScRfZ", "name": "Cal account"}}
+    },
+    {
+      "parameters": {
+        "jsCode": "const staticData=$getWorkflowStaticData('node');staticData.sentHistory=staticData.sentHistory||[];const results=[];const now=new Date();const todayStr=now.toLocaleString('en-US',{timeZone:'Europe/Paris'});const today=new Date(todayStr);today.setHours(0,0,0,0);const items=$input.all();let bookings=[];if(items.length>0&&items[0].json.bookings){bookings=items[0].json.bookings;}else if(items.length>0){bookings=items.map(i=>i.json);}for(const b of bookings){if(!b.startTime||b.status!=='ACCEPTED')continue;const rdvDateRaw=new Date(b.startTime);const rdvParisStr=rdvDateRaw.toLocaleString('en-US',{timeZone:'Europe/Paris'});const rdvParis=new Date(rdvParisStr);const rdvDateOnly=new Date(rdvParis.getFullYear(),rdvParis.getMonth(),rdvParis.getDate());const diffDays=Math.round((rdvDateOnly.getTime()-today.getTime())/(1000*60*60*24));let emailType=null;if(diffDays===3)emailType='proof_j3';else if(diffDays===1)emailType='proof_j1';if(!emailType)continue;const bookingId=b.id||b.uid;const uniqueKey=bookingId+'_'+emailType;if(!staticData.sentHistory.includes(uniqueKey)){const attendee=b.attendees?.[0]||{};const name=attendee.name||b.title||'Client';const email=attendee.email||b.responses?.email;if(email&&email.includes('@')){results.push({json:{email:email,firstName:name.split(' ')[0],rdvDate:rdvParis.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'}),rdvTime:rdvParis.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'}),emailType:emailType,meetingLink:b.meetingUrl||b.metadata?.videoCallUrl||''}});staticData.sentHistory.push(uniqueKey);}}}if(staticData.sentHistory.length>500)staticData.sentHistory=staticData.sentHistory.slice(-500);return results;"
+      },
+      "id": "3f48e137-d001-4f06-9e5c-2d0f7fbdf021",
+      "name": "Logique & Anti-Doublon",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "expressionType": "native",
+        "expression": "={{ $json.emailType }}",
+        "cases": [
+          {
+            "output": 0,
+            "caseValue": "proof_j3",
+            "regex": false
+          },
+          {
+            "output": 1,
+            "caseValue": "proof_j1",
+            "regex": false
+          }
+        ],
+        "options": {}
+      },
+      "id": "switch-email-type",
+      "name": "Route Email Type",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [700, 300]
+    },
+    {
+      "parameters": {
+        "to": "={{ $json.email }}",
+        "subject": "={{ $json.firstName }}, voici pourquoi nos clients nous font confiance",
+        "message": "<h2>Bonjour {{ $json.firstName }}</h2><p>Notre rendez-vous du <strong>{{ $json.rdvDate }}</strong> à <strong>{{ $json.rdvTime }}</strong> approche. Voici nos derniers résultats et pourquoi nous sommes le choix idéal pour votre entreprise...</p><p>À bientôt !</p><p>Cordialement,<br><strong>L'équipe Celexia</strong></p>",
+        "options": {"replyTo": "thomas@celexia.fr"}
+      },
+      "id": "ac39e52d-6efa-466b-a7d2-77f6ba254b3f",
+      "name": "Email Proof J-3",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [900, 150]
+    },
+    {
+      "parameters": {
+        "to": "={{ $json.email }}",
+        "subject": "={{ 'Rappel : Notre RDV demain à ' + $json.rdvTime }}",
+        "message": "<h2>Rappel RDV</h2><p>Bonjour {{ $json.firstName }}, on se voit <strong>demain</strong> à <strong>{{ $json.rdvTime }}</strong>.</p><p><a href='{{ $json.meetingLink }}'><button style='background-color:#667eea;color:white;padding:10px 20px;border:none;border-radius:5px;'>Accéder à la réunion</button></a></p><p>À demain !<br><strong>L'équipe Celexia</strong></p>",
+        "options": {"replyTo": "thomas@celexia.fr"}
+      },
+      "id": "2b7db3bf-b833-4011-9d84-2bfa8b008d9f",
+      "name": "Email Rappel J-1",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [900, 450]
+    }
+  ],
+  "connections": {
+    "Trigger Quotidien 9h": {
+      "main": [[{"node": "Récupérer RDV Cal.com", "type": "main", "index": 0}]]
+    },
+    "Récupérer RDV Cal.com": {
+      "main": [[{"node": "Logique & Anti-Doublon", "type": "main", "index": 0}]]
+    },
+    "Logique & Anti-Doublon": {
+      "main": [[{"node": "Route Email Type", "type": "main", "index": 0}]]
+    },
+    "Route Email Type": {
+      "main": [
+        [{"node": "Email Proof J-3", "type": "main", "index": 0}],
+        [{"node": "Email Rappel J-1", "type": "main", "index": 0}]
+      ]
+    }
+  },
+  "settings": {"executionOrder": "v1"}
+}
