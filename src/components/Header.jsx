@@ -56,7 +56,7 @@ const Header = () => {
             </button>
           )}
           <Link
-            to="/contact"
+            to="/reserver"
             className="btn-primary ml-3 arrow-animate"
           >
             Reserver un appel
