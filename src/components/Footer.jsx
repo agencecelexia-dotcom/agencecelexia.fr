@@ -24,8 +24,8 @@ const Footer = () => {
               />
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed">
-              Votre partenaire pour la generation de leads qualifies.
-              Acquisition client optimisee pour artisans.
+              Votre partenaire pour la génération de leads qualifiés.
+              Acquisition client optimisée pour artisans.
             </p>
           </div>
 
@@ -68,11 +68,11 @@ const Footer = () => {
         {/* Bottom */}
         <div className="pt-8 border-t border-gray-200/80 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-400 text-xs">
-            &copy; {new Date().getFullYear()} Agence Celexia. Tous droits reserves.
+            &copy; {new Date().getFullYear()} Agence Celexia. Tous droits réservés.
           </p>
           <div className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-gray-400 text-xs">Systeme actif</span>
+            <span className="text-gray-400 text-xs">Système actif</span>
           </div>
         </div>
       </div>

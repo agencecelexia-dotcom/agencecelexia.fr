@@ -3,10 +3,10 @@ import { NicheContext, NICHES } from '../context/NicheContext';
 
 const ROICalculator = () => {
   const { niche, handleNicheChange } = useContext(NicheContext);
-  const [appelsParMois, setAppelsParMois] = useState(30);
+  const [appelsParMois, setAppelsParMois] = useState(20);
   const [tauxDevis, setTauxDevis] = useState(50);
   const [tauxClient, setTauxClient] = useState(30);
-  const [valeurContrat, setValeurContrat] = useState(45000);
+  const [valeurContrat, setValeurContrat] = useState(10000);
   const [showResults, setShowResults] = useState(false);
 
   const coutParAppel = NICHES[niche].prix;
@@ -47,7 +47,7 @@ const ROICalculator = () => {
           <div>
             <label className="flex items-center text-sm font-semibold mb-3 text-gray-700">
               <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-violet-100 text-violet-600 mr-3 text-xs font-bold">1</span>
-              Quel est votre secteur d'activite ?
+              Quel est votre secteur d'activité ?
             </label>
             <select
               value={niche}
@@ -153,8 +153,8 @@ const ROICalculator = () => {
           <div className="mt-12 animate-fade-up">
             <div className="rounded-2xl border border-violet-200 bg-violet-50/30 p-6 md:p-8">
               <div className="text-center mb-6">
-                <span className="tag mb-3 inline-block">Resultats</span>
-                <h3 className="font-display text-2xl md:text-3xl font-bold text-gray-900">Vos resultats</h3>
+                <span className="tag mb-3 inline-block">Résultats</span>
+                <h3 className="font-display text-2xl md:text-3xl font-bold text-gray-900">Vos résultats</h3>
                 <p className="text-gray-500 mt-2 text-sm">
                   Secteur : <span className="text-violet-600 font-semibold">{NICHES[niche].label}</span> |
                   <span className="text-violet-600 font-semibold"> {appelsParMois} appels/mois</span>
@@ -170,32 +170,32 @@ const ROICalculator = () => {
 
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1.5
                                bg-white p-4 rounded-xl border border-gray-200/80">
-                  <span className="text-sm text-gray-600">Cout total Google</span>
+                  <span className="text-sm text-gray-600">Coût total Google</span>
                   <span className="text-lg font-bold text-gray-900">{coutTotal.toLocaleString()}€/mois</span>
                 </div>
 
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1.5
                                bg-white p-4 rounded-xl border border-gray-200/80">
-                  <span className="text-sm text-gray-600">Clients gagnes</span>
+                  <span className="text-sm text-gray-600">Clients gagnés</span>
                   <span className="text-lg font-bold text-emerald-600">{nombreClients.toFixed(1)} clients/mois</span>
                 </div>
 
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1.5
                                bg-white p-4 rounded-xl border border-gray-200/80">
-                  <span className="text-sm text-gray-600">Chiffre d'affaires genere</span>
+                  <span className="text-sm text-gray-600">Chiffre d'affaires généré</span>
                   <span className="text-lg font-bold text-blue-600">{CA.toLocaleString()}€/mois</span>
                 </div>
 
                 {/* Net benefit */}
                 <div className="bg-emerald-600 text-white p-6 rounded-xl shadow-lg">
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-3">
-                    <span className="font-medium">Benefice net</span>
+                    <span className="font-medium">Bénéfice net</span>
                     <span className="text-2xl md:text-3xl font-bold">{beneficeNet.toLocaleString()}€/mois</span>
                   </div>
                   <div className="text-center pt-4 border-t border-white/20">
                     <p className="text-xs text-emerald-200 mb-1 uppercase tracking-wider">Retour sur investissement</p>
                     <p className="font-display text-5xl font-bold">{ROI}x</p>
-                    <p className="text-sm text-emerald-200 mt-1">Pour chaque euro depense, vous gagnez {ROI}€</p>
+                    <p className="text-sm text-emerald-200 mt-1">Pour chaque euro dépensé, vous gagnez {ROI}€</p>
                   </div>
                 </div>
               </div>
@@ -219,7 +219,7 @@ const ROICalculator = () => {
                 {/* Chart */}
                 <div className="mt-5 p-4 rounded-xl bg-gray-50 border border-gray-100">
                   <p className="text-xs text-gray-400 mb-3 text-center uppercase tracking-wider font-medium">
-                    Evolution des benefices cumules
+                    Évolution des bénéfices cumulés
                   </p>
                   <div className="relative h-48 md:h-60">
                     <svg className="w-full h-full" viewBox="0 0 600 260" preserveAspectRatio="xMidYMid meet">
@@ -265,7 +265,7 @@ const ROICalculator = () => {
                     </svg>
                   </div>
                   <p className="text-center text-xs text-gray-400 mt-2">
-                    Benefice cumule sur 12 mois : <span className="font-bold text-violet-600">{(beneficeNet * 12).toLocaleString()}€</span>
+                    Bénéfice cumulé sur 12 mois : <span className="font-bold text-violet-600">{(beneficeNet * 12).toLocaleString()}€</span>
                   </p>
                 </div>
               </div>
@@ -280,13 +280,13 @@ const ROICalculator = () => {
                   }}
                   className="btn-primary px-8 py-4 rounded-xl text-base arrow-animate"
                 >
-                  Reserver un audit gratuit
+                  Réserver un audit gratuit
                   <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </button>
                 <p className="text-xs text-gray-400 mt-3">
-                  On vous montre le potentiel reel de votre zone
+                  On vous montre le potentiel réel de votre zone
                 </p>
               </div>
             </div>

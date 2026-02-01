@@ -63,7 +63,7 @@ const Contact = () => {
             Obtenez vos Premiers Clients Qualifiés sous 21 Jours | Contact
           </h1>
           <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
-            Reservez 30 minutes d'echange pour comprendre comment notre systeme d'acquisition peut generer un flux regulier de clients qualifies.
+            Réservez 30 minutes d'échange pour comprendre comment notre système d'acquisition peut générer un flux régulier de clients qualifiés.
           </p>
         </div>
       </section>
@@ -83,7 +83,7 @@ const Contact = () => {
             <a href="mailto:agence.celexia@gmail.com" className="text-violet-600 hover:text-violet-700 transition-colors font-semibold text-lg">
               agence.celexia@gmail.com
             </a>
-            <p className="text-gray-400 text-sm mt-3">Reponse sous 24h</p>
+            <p className="text-gray-400 text-sm mt-3">Réponse sous 24h</p>
           </div>
 
           {/* Phone */}
@@ -94,7 +94,7 @@ const Contact = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
             </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Telephone</h3>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Téléphone</h3>
             <a href="tel:+33651725756" className="text-emerald-600 hover:text-emerald-700 transition-colors font-semibold text-lg">
               06 51 72 57 56
             </a>
@@ -107,12 +107,12 @@ const Contact = () => {
       <section className="py-12 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
-            <span className="tag mb-4 inline-block">Reservation</span>
+            <span className="tag mb-4 inline-block">Réservation</span>
             <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight mb-4">
-              Reservez votre appel strategique
+              Réservez votre appel stratégique
             </h2>
             <p className="text-gray-500 text-lg">
-              Un echange sans engagement pour evaluer le potentiel de notre solution.
+              Un échange sans engagement pour évaluer le potentiel de notre solution.
             </p>
           </div>
 

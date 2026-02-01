@@ -15,14 +15,14 @@ const About = () => {
   });
 
   const faqs = [
-    { question: "Comment fonctionne votre systeme publicitaire ?", answer: "Nous utilisons une strategie de referencement local optimisee qui place votre entreprise en tete des résultats Google lorsque des clients potentiels recherchent vos services dans votre zone geographique. Vous payez uniquement pour les appels qualifiés recus." },
-    { question: "Quel est le cout reel du service ?", answer: "Le premier mois de gestion est inclus dans notre offre de lancement. Ensuite, nos tarifs dependent de votre volume d'appels souhaite et de votre zone geographique. Nous établissons un devis personnalise lors de notre premier echange." },
-    { question: "Sous combien de temps puis-je esperer les premiers résultats ?", answer: "Une fois votre compte configure et valide par Google, les premiers appels arrivent generalement sous 10 a 21 jours. La montee en puissance se fait progressivement sur les 2-3 premiers mois." },
-    { question: "Quels types d'artisans accompagnez-vous ?", answer: "Nous travaillons avec tous les corps de metiers du bâtiment et des services a domicile : plombiers, électriciens, menuisiers, couvreurs, serruriers, paysagistes, peintres, macons, installateurs de piscines, et bien d'autres." },
-    { question: "Dois-je gerer quelque chose techniquement ?", answer: "Non. Nous prenons en charge l'integralite de la partie technique : creation de compte, optimisation, gestion quotidienne des campagnes, et reporting. Vous vous concentrez sur votre metier, nous gerons votre visibilite digitale." },
-    { question: "Y a-t-il un engagement de duree ?", answer: "Nous privilegions la transparence et la confiance. Nos contrats sont flexibles et nous travaillons sur la base de résultats concrets. Discutons de vos objectifs pour definir ensemble le cadre de collaboration qui vous convient." },
-    { question: "Que se passe-t-il si je ne suis pas satisfait ?", answer: "Notre approche repose sur la satisfaction client. Si apres le premier mois les résultats ne correspondent pas a vos attentes, nous analysons ensemble les axes d'amelioration ou nous arretons la collaboration en toute transparence." },
-    { question: "Travaillez-vous avec des artisans partout en France ?", answer: "Oui, notre systeme fonctionne dans toutes les regions francaises. La performance depend de votre secteur d'activité et de la concurrence locale, que nous analysons lors de notre audit initial." }
+    { question: "Comment fonctionne votre système publicitaire ?", answer: "Nous utilisons une stratégie de référencement local optimisée qui place votre entreprise en tête des résultats Google lorsque des clients potentiels recherchent vos services dans votre zone géographique. Vous payez uniquement pour les appels qualifiés reçus." },
+    { question: "Quel est le coût réel du service ?", answer: "Le premier mois de gestion est inclus dans notre offre de lancement. Ensuite, nos tarifs dépendent de votre volume d'appels souhaité et de votre zone géographique. Nous établissons un devis personnalisé lors de notre premier échange." },
+    { question: "Sous combien de temps puis-je espérer les premiers résultats ?", answer: "Une fois votre compte configuré et validé par Google, les premiers appels arrivent dès les premiers jours de publication des campagnes publicitaires. La montée en puissance se fait progressivement sur les 2-3 premiers mois." },
+    { question: "Quels types d'artisans accompagnez-vous ?", answer: "Nous travaillons avec tous les corps de métiers du bâtiment et des services à domicile : plombiers, électriciens, menuisiers, couvreurs, serruriers, paysagistes, peintres, maçons, installateurs de piscines, et bien d'autres." },
+    { question: "Dois-je gérer quelque chose techniquement ?", answer: "Non. Nous prenons en charge l'intégralité de la partie technique : création de compte, optimisation, gestion quotidienne des campagnes, et reporting. Vous vous concentrez sur votre métier, nous gérons votre visibilité digitale." },
+    { question: "Y a-t-il un engagement de durée ?", answer: "Nous privilégions la transparence et la confiance. Nos contrats sont flexibles et nous travaillons sur la base de résultats concrets. Discutons de vos objectifs pour définir ensemble le cadre de collaboration qui vous convient." },
+    { question: "Que se passe-t-il si je ne suis pas satisfait ?", answer: "Notre approche repose sur la satisfaction client. Si après le premier mois les résultats ne correspondent pas à vos attentes, nous analysons ensemble les axes d'amélioration ou nous arrêtons la collaboration en toute transparence." },
+    { question: "Travaillez-vous avec des artisans partout en France ?", answer: "Oui, notre système fonctionne dans toutes les régions françaises. La performance dépend de votre secteur d'activité et de la concurrence locale, que nous analysons lors de notre audit initial." }
   ];
 
   // Schéma JSON-LD pour la page FAQ
@@ -40,27 +40,27 @@ const About = () => {
   });
 
   const services = [
-    { num: '01', title: 'Optimisation de votre presence locale', desc: "Configuration professionnelle de votre fiche Google Business Profile : photos de qualite, description optimisee, categories pertinentes, horaires a jour.", icon: (
+    { num: '01', title: 'Optimisation de votre présence locale', desc: "Configuration professionnelle de votre fiche Google Business Profile : photos de qualité, description optimisée, catégories pertinentes, horaires à jour.", icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
     )},
-    { num: '02', title: "Strategie d'avis clients", desc: "Mise en place d'un systeme automatise de collecte d'avis positifs. Nous transformons vos clients satisfaits en ambassadeurs.", icon: (
+    { num: '02', title: "Stratégie d'avis clients", desc: "Mise en place d'un système automatisé de collecte d'avis positifs. Nous transformons vos clients satisfaits en ambassadeurs.", icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
     )},
-    { num: '03', title: 'Campagnes publicitaires ciblees', desc: "Vous apparaissez en premiere position lorsque des clients potentiels recherchent vos services. Vous ne payez que pour les contacts qualifiés.", icon: (
+    { num: '03', title: 'Campagnes publicitaires ciblées', desc: "Vous apparaissez en première position lorsque des clients potentiels recherchent vos services. Vous ne payez que pour les contacts qualifiés.", icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
     )},
-    { num: '04', title: 'Gestion et optimisation continue', desc: "Suivi quotidien de vos performances, ajustements strategiques, reporting transparent et recommandations mensuelles.", icon: (
+    { num: '04', title: 'Gestion et optimisation continue', desc: "Suivi quotidien de vos performances, ajustements stratégiques, reporting transparent et recommandations mensuelles.", icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
     )}
   ];
 
   const values = [
-    { title: 'Transparence totale', desc: "Acces complet a vos statistiques en temps reel. Vous savez exactement combien vous depensez et quel est votre ROI." },
-    { title: 'Engagement résultats', desc: "Notre remuneration est liee a votre satisfaction. Pas de résultats, on ajuste jusqu'a y arriver." },
-    { title: 'Expertise metier', desc: "Nous connaissons les specificites de l'artisanat : saisonnalite, zones d'intervention, typologie de clients." },
-    { title: 'Communication directe', desc: "Un interlocuteur dedie qui connait votre dossier. Pas de plateforme impersonnelle." },
-    { title: 'Formation incluse', desc: "Nous vous expliquons chaque action et chaque metrique. Vous montez en competence avec nous." },
-    { title: 'Reactivité maximum', desc: "Ajustements en temps reel sur vos campagnes. Reponse sous 24h a vos sollicitations." }
+    { title: 'Transparence totale', desc: "Accès complet à vos statistiques en temps réel. Vous savez exactement combien vous dépensez et quel est votre ROI." },
+    { title: 'Engagement résultats', desc: "Notre rémunération est liée à votre satisfaction. Pas de résultats, on ajuste jusqu'à y arriver." },
+    { title: 'Expertise métier', desc: "Nous connaissons les spécificités de l'artisanat : saisonnalité, zones d'intervention, typologie de clients." },
+    { title: 'Communication directe', desc: "Un interlocuteur dédié qui connaît votre dossier. Pas de plateforme impersonnelle." },
+    { title: 'Formation incluse', desc: "Nous vous expliquons chaque action et chaque métrique. Vous montez en compétence avec nous." },
+    { title: 'Réactivité maximum', desc: "Ajustements en temps réel sur vos campagnes. Réponse sous 24h à vos sollicitations." }
   ];
 
   return (
@@ -71,10 +71,10 @@ const About = () => {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="tag mb-6 inline-block">A propos</span>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
-            Agence Marketing Digital pour Artisans | Expert en Acquisition Client
+            Agence marketing digital pour artisans<br />Expert en acquisition client
           </h1>
           <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
-            Acquisition de clients qualifiés, visibilite locale optimisee, croissance maitrisee.
+            Acquisition de clients qualifiés, visibilité locale optimisée, croissance maîtrisée.
           </p>
         </div>
       </section>
@@ -144,8 +144,8 @@ const About = () => {
                 <h3 className="font-display text-lg font-bold text-gray-900">Antoine</h3>
               </div>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Expert en développement web et optimisation technique. Convaincu que la technologie doit être accèssible a tous.
-                <strong className="text-gray-900"> Son credo :</strong> "Simplifier le complexe pour rendre le digital accèssible."
+                Expert en développement web et optimisation technique. Convaincu que la technologie doit être accessible à tous.
+                <strong className="text-gray-900"> Son credo :</strong> "Simplifier le complexe pour rendre le digital accessible."
               </p>
             </div>
           </div>
@@ -196,29 +196,29 @@ const About = () => {
           <div className="text-center mb-10">
             <span className="tag mb-4 inline-block">Le constat</span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-              Ce qui nous a pousse a agir
+              Ce qui nous a poussé à agir
             </h2>
           </div>
 
           <div className="space-y-5 text-gray-600 text-[17px] leading-relaxed">
             <p>
-              Depuis plusieurs annees, nous observons un paradoxe dans le secteur de l'artisanat :
+              Depuis plusieurs années, nous observons un paradoxe dans le secteur de l'artisanat :
               <strong className="text-gray-900"> des professionnels hautement qualifiés qui peinent à remplir leur carnet de commandes</strong>,
-              non par manque de competences, mais par manque de visibilite.
+              non par manque de compétences, mais par manque de visibilité.
             </p>
             <p>
-              Les methodes traditionnelles (bouche-a-oreille, annuaires, flyers) ne suffisent plus quand
+              Les méthodes traditionnelles (bouche-à-oreille, annuaires, flyers) ne suffisent plus quand
               <span className="text-violet-600 font-semibold"> 87% des recherches de services commencent sur Google</span>.
             </p>
           </div>
 
           <div className="card p-6 md:p-8 mt-10 border-gray-200">
-            <h3 className="font-display text-lg font-bold text-gray-900 mb-5">Les defis quotidiens des artisans</h3>
+            <h3 className="font-display text-lg font-bold text-gray-900 mb-5">Les défis quotidiens des artisans</h3>
             <div className="space-y-3">
               {[
-                "Fluctuations d'activité imprevisibles",
-                "Dependance aux prescripteurs ou a la saisonnalite",
-                "Difficulte a mesurer le ROI des actions marketing",
+                "Fluctuations d'activité imprévisibles",
+                "Dépendance aux prescripteurs ou a la saisonnalité",
+                "Difficulté à mesurer le ROI des actions marketing",
                 "Manque de temps pour le digital"
               ].map((item, i) => (
                 <div key={i} className="flex items-center text-gray-600">
@@ -230,7 +230,7 @@ const About = () => {
           </div>
 
           <p className="text-lg font-semibold text-center text-violet-600 mt-10">
-            Nous avons cree Agence Celexia pour resoudre ces problemes.
+            Nous avons créé Agence Celexia pour résoudre ces problèmes.
           </p>
         </div>
       </section>
@@ -239,12 +239,12 @@ const About = () => {
       <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
-            <span className="tag mb-4 inline-block">Notre methode</span>
+            <span className="tag mb-4 inline-block">Notre méthode</span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-3">
-              Notre methode d'acquisition client
+              Notre méthode d'acquisition client
             </h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-              Un systeme complet qui transforme votre visibilite en flux regulier de demandes qualifiees.
+              Un système complet qui transforme votre visibilité en flux régulier de demandes qualifiées.
             </p>
           </div>
 
@@ -267,7 +267,7 @@ const About = () => {
           </div>
 
           <p className="text-base font-medium text-center mt-12 text-gray-500">
-            <span className="text-gray-900 font-semibold">Resultat :</span> vous vous concentrez sur votre metier pendant que nous generons vos opportunites.
+            <span className="text-gray-900 font-semibold">Résultat :</span> vous vous concentrez sur votre métier pendant que nous générons vos opportunités.
           </p>
         </div>
       </section>
@@ -312,11 +312,11 @@ const About = () => {
           <div className="card p-7 md:p-9 border-gray-200">
             <div className="space-y-5">
               {[
-                { title: 'Flux regulier de demandes qualifiees', desc: "Votre telephone sonne regulierement avec des prospects interesses." },
-                { title: 'Previsibilite financiere', desc: "Projetez votre CA sur 2-3 mois grace a un pipeline constant." },
-                { title: 'Pouvoir de negociation', desc: "Selectionnez les projets les plus rentables." },
-                { title: "Serenite d'entrepreneur", desc: "Votre systeme d'acquisition fonctionne en automatique." },
-                { title: 'Developpement maitrise', desc: "Embauche, materiel, expansion : la croissance devient un choix." }
+                { title: 'Flux régulier de demandes qualifiées', desc: "Votre téléphone sonne régulièrement avec des prospects intéressés." },
+                { title: 'Prévisibilité financière', desc: "Projetez votre CA sur 2-3 mois grâce à un pipeline constant." },
+                { title: 'Pouvoir de négociation', desc: "Sélectionnez les projets les plus rentables." },
+                { title: "Sérénité d'entrepreneur", desc: "Votre système d'acquisition fonctionne en automatique." },
+                { title: 'Développement maîtrisé', desc: "Embauche, matériel, expansion : la croissance devient un choix." }
               ].map((item, i) => (
                 <div key={i} className="flex items-start group">
                   <span className="flex-shrink-0 w-7 h-7 rounded-lg bg-emerald-100 flex items-center justify-center mr-3.5 mt-0.5">
@@ -348,7 +348,7 @@ const About = () => {
           <div className="card-violet p-7 md:p-9">
             <div className="space-y-4">
               {[
-                { bold: 'Artisan établi', rest: "qui souhaite stabiliser et augmenter son volume d'activité" },
+                { bold: 'Artisan établi', rest: "qui souhaité stabiliser et augmenter son volume d'activité" },
                 { bold: "Chef d'entreprise du bâtiment", rest: 'qui veut réduire sa dépendance aux prescripteurs' },
                 { bold: 'Professionnel des services a domicile', rest: "cherchant à remplir son agenda 2-3 mois a l'avance" },
                 { bold: 'Entrepreneur ambitieux', rest: "qui veut développer son activité de manière structurée" },

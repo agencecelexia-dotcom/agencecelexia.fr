@@ -9,8 +9,8 @@ const Home = () => {
 
   // Métadonnées SEO pour la page d'accueil
   usePageMeta({
-    title: 'Génération de leads qualifiés pour artisans - Agence Celexia',
-    description: 'Système de paiement par appel qualifié. ROI garanti pour plombiers, électriciens, menuisiers. Premiers appels sous 10-21 jours.',
+    title: 'Agence Celexia – Expert en génération de leads pour artisans | Paiement uniquement aux appels qualifiés',
+    description: 'Système de paiement par appel qualifié. ROI garanti pour plombiers, électriciens, menuisiers. Dès les premiers jours de publication des campagnes publicitaires.',
     canonical: 'https://agencecelexia.fr/'
   });
 
@@ -140,7 +140,7 @@ const Home = () => {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="mb-6 animate-fade-in">
-            <span className="tag">Systeme d'acquisition client</span>
+            <span className="tag">Système d'acquisition client</span>
           </div>
 
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-gray-900 leading-[1.05] tracking-tight animate-fade-up">
@@ -148,7 +148,7 @@ const Home = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-up" style={{ animationDelay: '0.15s' }}>
-            Un systeme d'acquisition qui vous fait payer uniquement pour les appels qualifies recus.
+            Un système d'acquisition qui vous fait payer uniquement pour les appels qualifiés reçus.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: '0.3s' }}>
@@ -171,7 +171,7 @@ const Home = () => {
               }}
               className="btn-secondary text-base px-8 py-4 rounded-xl"
             >
-              Reserver un appel
+              Réserver un appel
             </button>
           </div>
 
@@ -179,7 +179,7 @@ const Home = () => {
           <div className="mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-gray-400 animate-fade-up" style={{ animationDelay: '0.45s' }}>
             <span className="flex items-center gap-2">
               <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-              Premiers appels sous 10-21 jours
+              Dès les premiers jours de publication des campagnes publicitaires
             </span>
             <span className="flex items-center gap-2">
               <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
@@ -187,7 +187,7 @@ const Home = () => {
             </span>
             <span className="flex items-center gap-2">
               <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-              Paiement par appel qualifie
+              Paiement par appel qualifié
             </span>
           </div>
         </div>
@@ -206,33 +206,33 @@ const Home = () => {
           <div className="text-center mb-14">
             <span className="tag mb-4 inline-block">Performances</span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
-              Pourquoi choisir notre systeme ?
+              Pourquoi choisir notre système ?
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
             {/* Stat 1 */}
             <div className="card-violet p-8 text-center">
-              <div className="font-display text-5xl md:text-6xl font-bold text-violet-600 mb-3">~{prixParAppel}€</div>
-              <p className="text-base font-semibold text-gray-900 mb-1">Cout moyen par contact</p>
-              <p className="text-sm text-gray-500">Avec notre systeme publicitaire</p>
-              <p className="text-xs text-gray-400 mt-4 pt-4 border-t border-gray-100">Varie selon votre secteur d'activite</p>
+              <div className="font-display text-5xl md:text-6xl font-bold text-white mb-3">~{prixParAppel}€</div>
+              <p className="text-base font-semibold text-gray-900 mb-1">Coût moyen par contact</p>
+              <p className="text-sm text-gray-500">Avec notre système publicitaire</p>
+              <p className="text-xs text-gray-400 mt-4 pt-4 border-t border-gray-100">Varie selon votre secteur d'activité</p>
             </div>
 
             {/* Stat 2 */}
             <div className="card p-8 text-center">
               <div className="font-display text-5xl md:text-6xl font-bold text-red-500 mb-3">~85€</div>
-              <p className="text-base font-semibold text-gray-900 mb-1">Cout moyen par contact</p>
+              <p className="text-base font-semibold text-gray-900 mb-1">Coût moyen par contact</p>
               <p className="text-sm text-gray-500">Google Ads classique</p>
-              <p className="text-xs text-gray-400 mt-4 pt-4 border-t border-gray-100">Moyenne marche services a domicile</p>
+              <p className="text-xs text-gray-400 mt-4 pt-4 border-t border-gray-100">Moyenne marché services à domicile</p>
             </div>
 
             {/* Stat 3 */}
             <div className="card-violet p-8 text-center">
-              <div className="font-display text-5xl md:text-6xl font-bold text-violet-600 mb-3">
+              <div className="font-display text-5xl md:text-6xl font-bold text-white mb-3">
                 {Math.round(((85 - prixParAppel) / 85) * 100)}%
               </div>
-              <p className="text-base font-semibold text-gray-900 mb-1">Economies potentielles</p>
+              <p className="text-base font-semibold text-gray-900 mb-1">Économies potentielles</p>
               <p className="text-sm text-gray-500">Sur votre cout d'acquisition</p>
               <p className="text-xs text-gray-400 mt-4 pt-4 border-t border-gray-100">Calcul: (85-{prixParAppel})/85</p>
             </div>
@@ -246,10 +246,10 @@ const Home = () => {
               </svg>
             </div>
             <p className="text-xl font-bold text-gray-900 mb-2">
-              Visibilite maximale sur Google
+              Visibilité maximale sur Google
             </p>
             <p className="text-gray-500 leading-relaxed max-w-xl mx-auto">
-              Notre systeme vous positionne en tete des resultats de recherche locaux, au-dessus des resultats organiques et des publicites traditionnelles.
+              Notre système vous positionne en tête des résultats de recherche locaux, au-dessus des résultats organiques et des publicités traditionnelles.
             </p>
           </div>
         </div>
@@ -264,10 +264,10 @@ const Home = () => {
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-10">
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
-              Echangeons sur votre projet
+              Échangeons sur votre projet
             </h2>
             <p className="text-lg text-violet-200 max-w-2xl mx-auto">
-              30 minutes pour analyser votre situation et evaluer le potentiel de notre solution pour votre activite.
+              30 minutes pour analyser votre situation et évaluer le potentiel de notre solution pour votre activité.
             </p>
           </div>
 
@@ -279,7 +279,7 @@ const Home = () => {
           </div>
 
           <div className="text-center mt-8 text-violet-200">
-            <p className="text-sm mb-1">Vous preferez nous ecrire ?</p>
+            <p className="text-sm mb-1">Vous préférez nous écrire ?</p>
             <a href="mailto:agence.celexia@gmail.com" className="text-lg font-semibold text-white hover:text-violet-100 transition-colors">
               agence.celexia@gmail.com
             </a>
