@@ -10,7 +10,7 @@ const LeadsMenuisier = () => {
   // Métadonnées SEO pour la page Menuisier
   usePageMeta({
     title: 'Génération de Leads Menuisier | Clients Qualifiés pour Menuisiers',
-    description: 'Obtenez des appels de clients qualifiés pour votre entreprise de menuiserie. Système de paiement par lead. Premiers clients sous 10-21 jours. Agence Celexia.',
+    description: 'Obtenez des appels de clients qualifiés pour votre entreprise de menuiserie. Système de paiement par lead. Dès les premiers jours de publication des campagnes publicitaires. Agence Celexia.',
     canonical: 'https://agencecelexia.fr/leads-menuisier'
   });
 
@@ -55,11 +55,11 @@ const LeadsMenuisier = () => {
   ];
 
   const testimonial = {
-    name: 'Philippe R.',
-    company: 'Atelier Bois & Création Bordeaux',
-    text: 'En 5 mois, j\'ai multiplié mes projets sur mesure par 3. Je reçois principalement des demandes de fenêtres haut de gamme et d\'aménagements intérieurs. La qualité des leads est excellente, ce sont des gens qui ont un vrai projet.',
+    name: 'Menuisier de Bordeaux',
+    company: '',
+    text: 'En 5 mois, j\'ai multiplié mes projets sur mesure par 3. Je reçois principalement des demandes de fenêtres haut de gamme et d\'aménagements intérieurs. La qualité des leads est excellente.',
     rating: 5,
-    results: 'x3 projets sur mesure en 5 mois'
+    results: 'x3 projets en 5 mois'
   };
 
   const faqs = [
@@ -122,7 +122,7 @@ const LeadsMenuisier = () => {
           <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-gray-400">
             <span className="flex items-center gap-2">
               <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-              Premiers appels sous 10-21 jours
+              Dès les premiers jours de publication des campagnes publicitaires
             </span>
             <span className="flex items-center gap-2">
               <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>

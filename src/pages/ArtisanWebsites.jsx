@@ -81,11 +81,11 @@ const ArtisanWebsites = () => {
       color: 'amber'
     },
     {
-      title: 'Menuiserie Artisan',
-      category: 'Menuiserie',
-      image: '/examples/menuiserie.jpg',
-      features: ['Portfolio réalisations', 'Types de bois', 'Sur-mesure', 'Devis gratuit'],
-      color: 'emerald'
+      title: 'Piscine Expert',
+      category: 'Piscines',
+      image: '/examples/piscine.jpg',
+      features: ['Galerie photos', 'Devis gratuit', 'Entretien', 'Rénovation'],
+      color: 'cyan'
     }
   ];
 
@@ -252,7 +252,7 @@ const ArtisanWebsites = () => {
           </div>
 
           <p className="text-center mt-10 text-gray-500">
-            <strong className="text-gray-900">Note :</strong> Les captures d'écran réelles de sites clients sont disponibles sur demande pour respecter leur confidentialité.
+            <strong className="text-gray-900">Ces sites sont des modèles :</strong> Conçus par nos développeurs, ils sont entièrement duplicables et personnalisables à votre image. Vous pouvez avoir exactement ce site, adapté à votre entreprise, votre secteur et vos besoins spécifiques.
           </p>
         </div>
       </section>

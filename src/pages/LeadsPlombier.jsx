@@ -10,7 +10,7 @@ const LeadsPlombier = () => {
   // Métadonnées SEO pour la page Plombier
   usePageMeta({
     title: 'Génération de Leads Plombier | Clients Qualifiés pour Plombiers',
-    description: 'Obtenez des appels de clients qualifiés pour votre entreprise de plomberie. Système de paiement par lead. Premiers clients sous 10-21 jours. Agence Celexia.',
+    description: 'Obtenez des appels de clients qualifiés pour votre entreprise de plomberie. Système de paiement par lead. Dès les premiers jours de publication des campagnes publicitaires. Agence Celexia.',
     canonical: 'https://agencecelexia.fr/leads-plombier'
   });
 
@@ -55,11 +55,11 @@ const LeadsPlombier = () => {
   ];
 
   const testimonial = {
-    name: 'Marc D.',
-    company: 'Plomberie Express Paris',
-    text: 'En 3 mois je suis passé de 2-3 chantiers par mois à 12-15. Le système fonctionne vraiment, je reçois des appels tous les jours pour des urgences et des rénovations. Mon chiffre d\'affaires a doublé.',
+    name: 'Plombier de Paris',
+    company: '',
+    text: 'En 3 mois, je suis passé de 2-3 chantiers à 12-15 par mois. Je reçois des appels quotidiens pour des urgences et des rénovations. Mon chiffre d\'affaires a significativement augmenté.',
     rating: 5,
-    results: '+450% de chiffre d\'affaires en 6 mois'
+    results: '+450% de CA en 6 mois'
   };
 
   const faqs = [
@@ -122,7 +122,7 @@ const LeadsPlombier = () => {
           <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-gray-400">
             <span className="flex items-center gap-2">
               <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-              Premiers appels sous 10-21 jours
+              Dès les premiers jours de publication des campagnes publicitaires
             </span>
             <span className="flex items-center gap-2">
               <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>

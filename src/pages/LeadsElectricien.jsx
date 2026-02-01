@@ -10,7 +10,7 @@ const LeadsElectricien = () => {
   // Métadonnées SEO pour la page Électricien
   usePageMeta({
     title: 'Génération de Leads Électricien | Clients Qualifiés pour Électriciens',
-    description: 'Obtenez des appels de clients qualifiés pour votre entreprise d\'électricité. Système de paiement par lead. Premiers clients sous 10-21 jours. Agence Celexia.',
+    description: 'Obtenez des appels de clients qualifiés pour votre entreprise d\'électricité. Système de paiement par lead. Dès les premiers jours de publication des campagnes publicitaires. Agence Celexia.',
     canonical: 'https://agencecelexia.fr/leads-electricien'
   });
 
@@ -55,11 +55,11 @@ const LeadsElectricien = () => {
   ];
 
   const testimonial = {
-    name: 'Alexandre M.',
-    company: 'AM Électricité Lyon',
-    text: 'Le système m\'a permis de passer de 15 à 40 chantiers par mois. Je reçois principalement des rénovations électriques et des installations de bornes de recharge. J\'ai embauché 2 employés pour suivre la demande.',
+    name: 'Électricien de Lyon',
+    company: '',
+    text: 'En 4 mois, j\'ai multiplié mon volume de chantiers (de 15 à 40 par mois). Je reçois principalement des rénovations électriques et des installations de bornes de recharge. J\'ai pu embaucher 2 employés pour suivre la demande.',
     rating: 5,
-    results: 'De 15 à 40 chantiers/mois en 4 mois'
+    results: '15 → 40 chantiers/mois en 4 mois'
   };
 
   const faqs = [
@@ -122,7 +122,7 @@ const LeadsElectricien = () => {
           <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-gray-400">
             <span className="flex items-center gap-2">
               <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-              Premiers appels sous 10-21 jours
+              Dès les premiers jours de publication des campagnes publicitaires
             </span>
             <span className="flex items-center gap-2">
               <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
