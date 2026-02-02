@@ -1,14 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useScrollToSection } from '../utils/scrollToSection';
 
 const Footer = () => {
-  const scrollToSection = useScrollToSection();
-
-  const handleCalculatorClick = (e) => {
-    e.preventDefault();
-    scrollToSection('calculateur');
-  };
-
   return (
     <footer className="bg-gray-50 border-t border-gray-200/80 py-16">
       <div className="max-w-6xl mx-auto px-6 md:px-8">
@@ -36,7 +28,6 @@ const Footer = () => {
               <Link to="/" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">Accueil</Link>
               <Link to="/about" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">A Propos</Link>
               <Link to="/sites-artisans" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">Sites Web</Link>
-              <button onClick={handleCalculatorClick} className="text-gray-500 hover:text-violet-600 transition-colors text-sm text-left">Calculateur</button>
               <Link to="/contact" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">Contact</Link>
             </div>
           </div>

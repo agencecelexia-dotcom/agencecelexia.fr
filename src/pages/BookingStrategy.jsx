@@ -200,7 +200,7 @@ const BookingStrategy = () => {
             Investissez quand ça marche, sinon c'est gratuit
           </p>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            Plus de 1200 artisans nous font confiance pour développer leur activité. Rejoignez-les et découvrez comment nous pouvons multiplier votre chiffre d'affaires.
+            Découvrez comment nous pouvons développer votre activité avec des solutions adaptées à votre métier.
           </p>
         </div>
       </section>

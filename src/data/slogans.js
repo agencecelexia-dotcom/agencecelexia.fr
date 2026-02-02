@@ -84,9 +84,8 @@ export const SOCIAL_PROOF = [
   "Dès les premiers jours de publication des campagnes publicitaires",
   "Sans engagement, résiliable à tout moment",
   "Paiement par appel qualifié uniquement",
-  "+1200 artisans nous font confiance",
-  "Note moyenne 4.9/5 sur Google",
-  "Position #1 garantie sur Google Local"
+  "Solutions adaptées aux artisans",
+  "Accompagnement personnalisé"
 ];
 
 // Fonction pour récupérer le slogan actif (permet A/B testing)
