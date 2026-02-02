@@ -60,10 +60,10 @@ const Contact = () => {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="tag mb-6 inline-block">Contact</span>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight mb-6">
-            Obtenez vos Premiers Clients Qualifiés sous 21 Jours | Contact
+            Réservez votre appel stratégique
           </h1>
           <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
-            Réservez 30 minutes d'échange pour comprendre comment notre système d'acquisition peut générer un flux régulier de clients qualifiés.
+            30 minutes d'échange pour comprendre comment nos solutions peuvent développer votre activité.
           </p>
         </div>
       </section>

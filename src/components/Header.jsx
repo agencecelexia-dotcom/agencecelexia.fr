@@ -4,9 +4,21 @@ import { METIERS } from '../context/NicheContext';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMetiersOpen, setIsMetiersOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const servicesRef = useRef(null);
   const metiersRef = useRef(null);
+
+  // Liste des 6 services
+  const services = [
+    { name: 'Publicité à la Performance', path: '/services/publicite-performance', icon: '📞' },
+    { name: 'Sites Web Artisans', path: '/services/site-web', icon: '🌐' },
+    { name: 'Référencement SEO', path: '/services/seo', icon: '🔍' },
+    { name: 'Avis Clients', path: '/services/avis-clients', icon: '⭐' },
+    { name: 'Email Marketing', path: '/services/emailing', icon: '📧' },
+    { name: 'Automatisation', path: '/services/automatisation', icon: '⚙️' }
+  ];
 
   // Liste des 12 métiers
   const metiers = Object.entries(METIERS).map(([key, data]) => ({
@@ -25,6 +37,9 @@ const Header = () => {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
+      if (servicesRef.current && !servicesRef.current.contains(event.target)) {
+        setIsServicesOpen(false);
+      }
       if (metiersRef.current && !metiersRef.current.contains(event.target)) {
         setIsMetiersOpen(false);
       }
@@ -36,6 +51,7 @@ const Header = () => {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+    setIsServicesOpen(false);
     setIsMetiersOpen(false);
   };
 
@@ -61,6 +77,43 @@ const Header = () => {
           <Link to="/about" className="btn-ghost">
             À propos
           </Link>
+
+          {/* Services Dropdown */}
+          <div className="relative" ref={servicesRef}>
+            <button
+              onClick={() => setIsServicesOpen(!isServicesOpen)}
+              className="btn-ghost flex items-center gap-1"
+            >
+              Services
+              <svg
+                className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {/* Dropdown Menu Services */}
+            {isServicesOpen && (
+              <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-fade-up">
+                {services.map((service, i) => (
+                  <Link
+                    key={i}
+                    to={service.path}
+                    onClick={() => setIsServicesOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 hover:bg-violet-50 transition-colors group"
+                  >
+                    <span className="text-2xl">{service.icon}</span>
+                    <span className="text-sm font-medium text-gray-700 group-hover:text-violet-600 transition-colors">
+                      {service.name}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
 
           {/* Métiers Dropdown */}
           <div className="relative" ref={metiersRef}>
@@ -134,6 +187,24 @@ const Header = () => {
           <Link to="/about" className="btn-ghost justify-start" onClick={closeMenu}>
             À propos
           </Link>
+
+          {/* Services Mobile */}
+          <div className="py-2">
+            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mb-2">Services</p>
+            <div className="space-y-1">
+              {services.map((service, i) => (
+                <Link
+                  key={i}
+                  to={service.path}
+                  onClick={closeMenu}
+                  className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-violet-50 hover:text-violet-600 rounded-lg transition-colors"
+                >
+                  <span className="text-lg">{service.icon}</span>
+                  {service.name}
+                </Link>
+              ))}
+            </div>
+          </div>
 
           {/* Métiers Mobile */}
           <div className="py-2">

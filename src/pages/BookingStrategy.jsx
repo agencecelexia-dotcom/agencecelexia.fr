@@ -77,11 +77,7 @@ const BookingStrategy = () => {
           <span className="tag mb-6 inline-block">Audit Stratégique Gratuit</span>
 
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
-            {niche ? (
-              <>Audit Stratégique <span className="text-violet-600">{metierLabel}</span></>
-            ) : (
-              'Réservez votre audit stratégique'
-            )}
+            Réservez votre audit stratégique
           </h1>
 
           <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-8">
