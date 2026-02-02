@@ -19,6 +19,20 @@ import AvisClients from './pages/services/AvisClients';
 import Emailing from './pages/services/Emailing';
 import Automatisation from './pages/services/Automatisation';
 
+// Métiers pages
+import Pisciniste from './pages/metiers/Pisciniste';
+import Paysagiste from './pages/metiers/Paysagiste';
+import Plombier from './pages/metiers/Plombier';
+import Chauffagiste from './pages/metiers/Chauffagiste';
+import Electricien from './pages/metiers/Electricien';
+import Menuisier from './pages/metiers/Menuisier';
+import Couvreur from './pages/metiers/Couvreur';
+import Macon from './pages/metiers/Macon';
+import Carreleur from './pages/metiers/Carreleur';
+import Peintre from './pages/metiers/Peintre';
+import Serrurier from './pages/metiers/Serrurier';
+import Vitrier from './pages/metiers/Vitrier';
+
 function App() {
   return (
     <NicheProvider>
@@ -41,6 +55,20 @@ function App() {
               <Route path="/services/avis-clients" element={<AvisClients />} />
               <Route path="/services/emailing" element={<Emailing />} />
               <Route path="/services/automatisation" element={<Automatisation />} />
+
+              {/* Métiers routes */}
+              <Route path="/metiers/pisciniste" element={<Pisciniste />} />
+              <Route path="/metiers/paysagiste" element={<Paysagiste />} />
+              <Route path="/metiers/plombier" element={<Plombier />} />
+              <Route path="/metiers/chauffagiste" element={<Chauffagiste />} />
+              <Route path="/metiers/electricien" element={<Electricien />} />
+              <Route path="/metiers/menuisier" element={<Menuisier />} />
+              <Route path="/metiers/couvreur" element={<Couvreur />} />
+              <Route path="/metiers/macon" element={<Macon />} />
+              <Route path="/metiers/carreleur" element={<Carreleur />} />
+              <Route path="/metiers/peintre" element={<Peintre />} />
+              <Route path="/metiers/serrurier" element={<Serrurier />} />
+              <Route path="/metiers/vitrier" element={<Vitrier />} />
 
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />

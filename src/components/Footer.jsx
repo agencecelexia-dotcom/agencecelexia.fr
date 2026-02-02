@@ -41,13 +41,15 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Leads par Métier */}
+          {/* Nos Services */}
           <div>
-            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Leads par Métier</h4>
+            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Nos Services</h4>
             <div className="flex flex-col gap-3">
-              <Link to="/leads-plombier" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">Plombiers</Link>
-              <Link to="/leads-electricien" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">Électriciens</Link>
-              <Link to="/leads-menuisier" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">Menuisiers</Link>
+              <Link to="/services/publicite-performance" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">Publicité Performance</Link>
+              <Link to="/services/site-web" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">Sites Web</Link>
+              <Link to="/services/seo" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">SEO</Link>
+              <Link to="/services/avis-clients" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">Avis Clients</Link>
+              <Link to="/services/emailing" className="text-gray-500 hover:text-violet-600 transition-colors text-sm">Email Marketing</Link>
             </div>
           </div>
 
