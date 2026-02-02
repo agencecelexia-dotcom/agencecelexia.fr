@@ -1,0 +1,117 @@
+{
+  "name": "CRM - Auto-création contact depuis Gmail",
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "getTrigger",
+        "filters": {
+          "labelIds": ["INBOX"]
+        }
+      },
+      "name": "Gmail Trigger",
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "gmail-new-email"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "messageId": "={{ $json.id }}"
+      },
+      "name": "Get Email Details",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "email",
+              "value": "={{ $json.payload.headers.find(h => h.name === 'From').value }}"
+            },
+            {
+              "name": "subject",
+              "value": "={{ $json.payload.headers.find(h => h.name === 'Subject').value }}"
+            },
+            {
+              "name": "date",
+              "value": "={{ $json.payload.headers.find(h => h.name === 'Date').value }}"
+            }
+          ]
+        }
+      },
+      "name": "Extract Contact Info",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "databaseId": "VOTRE_BASE_NOTION_ID",
+        "title": "={{ $json.email }}",
+        "properties": {
+          "Email": "={{ $json.email }}",
+          "Source": "Gmail",
+          "Date premier contact": "={{ $json.date }}",
+          "Statut": "Nouveau"
+        }
+      },
+      "name": "Create Notion Contact",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 1,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "email": "={{ $json.email }}",
+        "listIds": ["VOTRE_LISTE_BREVO_ID"],
+        "attributes": {
+          "PRENOM": "",
+          "NOM": "",
+          "SOURCE": "Gmail Automation"
+        }
+      },
+      "name": "Add to Brevo",
+      "type": "n8n-nodes-base.brevo",
+      "typeVersion": 1,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "summary": "Rappel: Contacter {{ $json.email }}",
+        "start": "={{ $now.plus({days: 2}).toISO() }}",
+        "end": "={{ $now.plus({days: 2, hours: 1}).toISO() }}",
+        "description": "Nouveau lead depuis Gmail - {{ $json.subject }}"
+      },
+      "name": "Create Calendar Reminder",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1,
+      "position": [850, 500]
+    }
+  ],
+  "connections": {
+    "Gmail Trigger": {
+      "main": [[{"node": "Get Email Details", "type": "main", "index": 0}]]
+    },
+    "Get Email Details": {
+      "main": [[{"node": "Extract Contact Info", "type": "main", "index": 0}]]
+    },
+    "Extract Contact Info": {
+      "main": [
+        [
+          {"node": "Create Notion Contact", "type": "main", "index": 0},
+          {"node": "Create Calendar Reminder", "type": "main", "index": 0}
+        ]
+      ]
+    },
+    "Create Notion Contact": {
+      "main": [[{"node": "Add to Brevo", "type": "main", "index": 0}]]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "tags": ["CRM", "Gmail", "Automation"]
+}

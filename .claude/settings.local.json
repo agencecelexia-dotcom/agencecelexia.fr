@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:n8n.srv1241880.hstgr.cloud)"
+    ]
+  }
+}

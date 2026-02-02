@@ -45,12 +45,12 @@ npm run build
 1. **Google Search Console**
    - Va sur: https://search.google.com/search-console
    - Ajoute ton domaine
-   - Soumets le sitemap: https://agence-celexia.fr/sitemap.xml
+   - Soumets le sitemap: https://agencecelexia.fr/sitemap.xml
 
 2. **Test chaque page**
-   - https://agence-celexia.fr/
-   - https://agence-celexia.fr/about
-   - https://agence-celexia.fr/contact
+   - https://agencecelexia.fr/
+   - https://agencecelexia.fr/about
+   - https://agencecelexia.fr/contact
    - Clique "Request Indexing"
 
 3. **Valide les schémas**

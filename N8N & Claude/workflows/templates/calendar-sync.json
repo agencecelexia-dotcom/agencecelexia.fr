@@ -1,0 +1,146 @@
+{
+  "name": "Productivité - Sync Notion ↔ Google Calendar",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 15
+            }
+          ]
+        }
+      },
+      "name": "Check Every 15 min",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "databaseId": "VOTRE_BASE_TACHES_NOTION_ID",
+        "filters": {
+          "and": [
+            {
+              "property": "Date",
+              "condition": "is_not_empty"
+            },
+            {
+              "property": "Sync Calendar",
+              "condition": "equals",
+              "value": true
+            }
+          ]
+        }
+      },
+      "name": "Get Tasks with Dates",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "notionId",
+              "field2": "extendedProperties.private.notionId"
+            }
+          ]
+        }
+      },
+      "name": "Match with Calendar",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 1,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "calendarId": "primary",
+        "timeMin": "={{ $now.toISO() }}",
+        "timeMax": "={{ $now.plus({months: 1}).toISO() }}"
+      },
+      "name": "Get Calendar Events",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1,
+      "position": [450, 500]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.calendarEventId }}",
+              "operation": "isEmpty"
+            }
+          ]
+        }
+      },
+      "name": "Is New Event?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "calendarId": "primary",
+        "summary": "={{ $json.properties.Titre.title[0].plain_text }}",
+        "start": "={{ $json.properties.Date.date.start }}",
+        "end": "={{ $json.properties.Date.date.end || $json.properties.Date.date.start }}",
+        "description": "Depuis Notion: {{ $json.url }}",
+        "extendedProperties": {
+          "private": {
+            "notionId": "={{ $json.id }}"
+          }
+        }
+      },
+      "name": "Create Calendar Event",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1,
+      "position": [1250, 200]
+    },
+    {
+      "parameters": {
+        "calendarId": "primary",
+        "eventId": "={{ $json.calendarEventId }}",
+        "summary": "={{ $json.properties.Titre.title[0].plain_text }}",
+        "start": "={{ $json.properties.Date.date.start }}",
+        "end": "={{ $json.properties.Date.date.end || $json.properties.Date.date.start }}"
+      },
+      "name": "Update Calendar Event",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1,
+      "position": [1250, 400]
+    }
+  ],
+  "connections": {
+    "Check Every 15 min": {
+      "main": [
+        [
+          {"node": "Get Tasks with Dates", "type": "main", "index": 0},
+          {"node": "Get Calendar Events", "type": "main", "index": 0}
+        ]
+      ]
+    },
+    "Get Tasks with Dates": {
+      "main": [[{"node": "Match with Calendar", "type": "main", "index": 0}]]
+    },
+    "Get Calendar Events": {
+      "main": [[{"node": "Match with Calendar", "type": "main", "index": 1}]]
+    },
+    "Match with Calendar": {
+      "main": [[{"node": "Is New Event?", "type": "main", "index": 0}]]
+    },
+    "Is New Event?": {
+      "main": [
+        [{"node": "Create Calendar Event", "type": "main", "index": 0}],
+        [{"node": "Update Calendar Event", "type": "main", "index": 0}]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "tags": ["Sync", "Calendar", "Notion", "Productivité"]
+}

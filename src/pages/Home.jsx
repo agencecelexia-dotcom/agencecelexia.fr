@@ -1,20 +1,13 @@
-import { useEffect, useContext } from 'react';
-import { NicheContext } from '../context/NicheContext';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
-import ROICalculator from '../components/ROICalculator';
-import PersonalizedHero from '../components/PersonalizedHero';
-import ServiceCard from '../components/ServiceCard';
-import DynamicTestimonial from '../components/DynamicTestimonial';
-import { getServicesOrder } from '../data/services';
 
 const Home = () => {
-  const { niche, prixParAppel, metierColor } = useContext(NicheContext);
-
   // Métadonnées SEO pour la page d'accueil
   usePageMeta({
-    title: 'Agence Celexia – Expert en génération de leads pour artisans | Paiement uniquement aux appels qualifiés',
-    description: 'Investissez quand ça marche, sinon c\'est gratuit. Système de paiement par appel qualifié pour plombiers, électriciens, menuisiers, piscinistes. ROI garanti dès les premiers jours.',
+    title: 'Agence Celexia – Expert en Marketing Digital pour Artisans | SEO, Pub, Sites Web',
+    description: 'Agence marketing digital spécialisée artisans. Publicité performance, sites web, SEO local, avis clients, emailing, automatisation. Résultats garantis.',
     canonical: 'https://agencecelexia.fr/'
   });
 
@@ -30,7 +23,7 @@ const Home = () => {
       'width': '512',
       'height': '512'
     },
-    'description': 'Experts en génération de leads qualifiés pour artisans. Payez uniquement pour des appels qualifiés. Position #1 garantie sur Google.',
+    'description': 'Agence marketing digital spécialisée pour artisans. Publicité performance, sites web, SEO, avis clients.',
     'telephone': '+33651725756',
     'email': 'agence.celexia@gmail.com',
     'address': {
@@ -41,56 +34,6 @@ const Home = () => {
       'https://www.facebook.com/agencecelexia',
       'https://www.linkedin.com/company/agence-celexia'
     ]
-  });
-
-  // Schéma JSON-LD pour le service
-  useJsonLd({
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    'name': 'Génération de Leads Qualifiés pour Artisans',
-    'description': 'Système d\'acquisition client basé sur le paiement par appel qualifié. Positionnement en tête des résultats Google locaux.',
-    'provider': {
-      '@type': 'Organization',
-      'name': 'Agence Celexia',
-      'url': 'https://agencecelexia.fr'
-    },
-    'areaServed': {
-      '@type': 'Country',
-      'name': 'FR'
-    },
-    'priceRange': 'Contact for pricing',
-    'aggregateRating': {
-      '@type': 'AggregateRating',
-      'ratingValue': '5',
-      'ratingCount': '50'
-    }
-  });
-
-  // Schéma JSON-LD pour LocalBusiness (SEO Local)
-  useJsonLd({
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    'name': 'Agence Celexia',
-    'image': 'https://agencecelexia.fr/logo.png',
-    'telephone': '+33651725756',
-    'email': 'agence.celexia@gmail.com',
-    'url': 'https://agencecelexia.fr',
-    'address': {
-      '@type': 'PostalAddress',
-      'addressCountry': 'FR'
-    },
-    'geo': {
-      '@type': 'GeoCoordinates',
-      'latitude': '48.8566',
-      'longitude': '2.3522'
-    },
-    'openingHours': 'Mo-Fr 09:00-18:00',
-    'priceRange': '€€',
-    'aggregateRating': {
-      '@type': 'AggregateRating',
-      'ratingValue': '5',
-      'reviewCount': '50'
-    }
   });
 
   // Initialisation Cal.com
@@ -135,51 +78,158 @@ const Home = () => {
     });
   }, []);
 
-  // Liste des services à afficher
-  const services = getServicesOrder();
+  const services = [
+    {
+      title: 'Publicité à la Performance',
+      category: 'Génération Leads',
+      description: 'Payez uniquement pour des appels de clients réels. Position #1 Google Local.',
+      link: '/services/publicite-performance',
+      color: 'blue',
+      features: ['Paiement à l\'appel', 'Position #1 Google', 'ROI garanti', 'Filtrage anti-spam']
+    },
+    {
+      title: 'Sites Web Artisans',
+      category: 'Web Design',
+      description: 'Site professionnel livré en 7 jours. Design moderne, optimisé SEO.',
+      link: '/services/site-web',
+      color: 'violet',
+      features: ['Livraison 7 jours', 'Design responsive', 'Optimisé SEO', 'Galerie photos']
+    },
+    {
+      title: 'Référencement SEO',
+      category: 'Visibilité',
+      description: 'Dominez Google dans votre zone. Position top 3 garantie en 90 jours.',
+      link: '/services/seo',
+      color: 'emerald',
+      features: ['Position #1 locale', 'Google My Business', 'Backlinks qualité', 'Résultats 90j']
+    },
+    {
+      title: 'Avis Clients',
+      category: 'E-réputation',
+      description: 'Multipliez vos avis Google automatiquement. +50% d\'avis garantis.',
+      link: '/services/avis-clients',
+      color: 'amber',
+      features: ['Collecte auto', 'Réponses IA', 'Note 4.8/5', 'Gestion négatifs']
+    },
+    {
+      title: 'Email Marketing',
+      category: 'Fidélisation',
+      description: 'Campagnes email automatisées. Relances, promotions, rappels.',
+      link: '/services/emailing',
+      color: 'cyan',
+      features: ['Relances auto', 'Taux 45%', 'Reconquête clients', 'ROI 42:1']
+    },
+    {
+      title: 'Automatisation',
+      category: 'Productivité',
+      description: 'Automatisez tout : CRM, devis, facturation, relances. Gagnez 15h/semaine.',
+      link: '/services/automatisation',
+      color: 'purple',
+      features: ['CRM artisan', 'Devis auto', 'Rappels RDV', '15h/semaine']
+    }
+  ];
+
+  const colorClasses = {
+    blue: 'from-blue-400 to-blue-600',
+    violet: 'from-violet-400 to-violet-600',
+    emerald: 'from-emerald-400 to-emerald-600',
+    amber: 'from-amber-400 to-amber-600',
+    cyan: 'from-cyan-400 to-cyan-600',
+    purple: 'from-purple-400 to-purple-600'
+  };
 
   return (
     <div className="bg-white">
-      {/* HERO PERSONNALISÉ */}
-      <PersonalizedHero />
+      {/* HERO SIMPLE */}
+      <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-4 md:px-6 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-100/30 rounded-full blur-3xl -translate-y-1/4 translate-x-1/4" />
 
-      {/* SECTION SERVICES */}
-      <section className="py-20 md:py-28 px-4 md:px-6 bg-white">
+        <div className="max-w-5xl mx-auto text-center relative z-10">
+          <span className="tag mb-6 inline-block">Agence Marketing Digital</span>
+
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
+            Votre Partenaire de
+            <span className="block text-violet-600">Croissance Digitale</span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-10">
+            Agence spécialisée pour artisans et professionnels du bâtiment.
+            Publicité performance, sites web, SEO, avis clients, email marketing, automatisation.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link to="/reserver" className="btn-primary arrow-animate text-base px-8 py-4">
+              Réserver un audit gratuit
+              <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+            <a href="#services" className="btn-ghost text-base px-8 py-4">
+              Découvrir nos services
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION SERVICES - GRID STYLE PORTFOLIO */}
+      <section id="services" className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-6xl mx-auto">
-          {/* Titre section */}
           <div className="text-center mb-14">
             <span className="tag mb-4 inline-block">Nos Services</span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
-              Comment nous accélérons votre croissance
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4">
+              Des Solutions Complètes
             </h2>
-            <p className="text-lg text-gray-500 mt-4 max-w-2xl mx-auto">
-              Des solutions complètes pour développer votre activité d'artisan
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+              Tout ce dont vous avez besoin pour développer votre activité en ligne
             </p>
           </div>
 
-          {/* Grid de cartes services */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service) => (
-              <ServiceCard
-                key={service.id}
-                service={service.id}
-                metier={niche}
-                accentColor={metierColor}
-              />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {services.map((service, i) => (
+              <Link
+                key={i}
+                to={service.link}
+                className="card overflow-hidden border-gray-200 group hover:border-violet-200 transition-all duration-300 hover:-translate-y-1"
+              >
+                {/* Header avec gradient */}
+                <div className={`h-48 bg-gradient-to-br ${colorClasses[service.color]} flex items-center justify-center text-white font-display text-2xl font-bold px-6 text-center relative`}>
+                  {service.title}
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <span className="inline-block px-3 py-1 rounded-full bg-violet-100 text-violet-700 text-xs font-semibold mb-4">
+                    {service.category}
+                  </span>
+
+                  <p className="text-gray-600 text-sm mb-5 leading-relaxed">
+                    {service.description}
+                  </p>
+
+                  {/* Features list */}
+                  <div className="space-y-2 mb-4">
+                    {service.features.map((feature, j) => (
+                      <div key={j} className="flex items-center text-sm text-gray-600">
+                        <span className="w-1.5 h-1.5 rounded-full bg-violet-400 mr-2 flex-shrink-0" />
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <div className="flex items-center text-violet-600 font-semibold text-sm group-hover:text-violet-700 transition-colors">
+                    En savoir plus
+                    <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
-
-      {/* CALCULATEUR ROI */}
-      <section id="calculateur" className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
-        <div className="max-w-5xl mx-auto">
-          <ROICalculator />
-        </div>
-      </section>
-
-      {/* TÉMOIGNAGE DYNAMIQUE */}
-      <DynamicTestimonial metier={niche} />
 
       {/* STATS */}
       <section className="py-20 md:py-28 px-4 md:px-6 bg-white">
@@ -187,58 +237,32 @@ const Home = () => {
           <div className="text-center mb-14">
             <span className="tag mb-4 inline-block">Performances</span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
-              Pourquoi choisir notre système ?
+              Des Résultats Concrets
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
-            {/* Stat 1 */}
-            <div className="card-violet p-8 text-center">
-              <div className="font-display text-5xl md:text-6xl font-bold text-white mb-3">~{prixParAppel}€</div>
-              <p className="text-base font-semibold text-gray-900 mb-1">Coût moyen par contact</p>
-              <p className="text-sm text-gray-500">Avec notre système publicitaire</p>
-              <p className="text-xs text-gray-400 mt-4 pt-4 border-t border-gray-100">Varie selon votre secteur d'activité</p>
-            </div>
-
-            {/* Stat 2 */}
-            <div className="card p-8 text-center">
-              <div className="font-display text-5xl md:text-6xl font-bold text-red-500 mb-3">~85€</div>
-              <p className="text-base font-semibold text-gray-900 mb-1">Coût moyen par contact</p>
-              <p className="text-sm text-gray-500">Google Ads classique</p>
-              <p className="text-xs text-gray-400 mt-4 pt-4 border-t border-gray-100">Moyenne marché services à domicile</p>
-            </div>
-
-            {/* Stat 3 */}
-            <div className="card-violet p-8 text-center">
-              <div className="font-display text-5xl md:text-6xl font-bold text-white mb-3">
-                {Math.round(((85 - prixParAppel) / 85) * 100)}%
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {[
+              { value: '240+', label: 'Clients actifs' },
+              { value: '10-25€', label: 'Coût par appel qualifié' },
+              { value: '4.8/5', label: 'Satisfaction client' },
+              { value: '+300%', label: 'ROI moyen' }
+            ].map((stat, i) => (
+              <div key={i} className="card p-8 text-center border-gray-200">
+                <div className="font-display text-5xl md:text-6xl font-bold text-violet-600 mb-3">
+                  {stat.value}
+                </div>
+                <p className="text-base font-semibold text-gray-700">
+                  {stat.label}
+                </p>
               </div>
-              <p className="text-base font-semibold text-gray-900 mb-1">Économies potentielles</p>
-              <p className="text-sm text-gray-500">Sur votre coût d'acquisition</p>
-              <p className="text-xs text-gray-400 mt-4 pt-4 border-t border-gray-100">Calcul: (85-{prixParAppel})/85</p>
-            </div>
-          </div>
-
-          {/* Extra */}
-          <div className="card p-8 md:p-10 max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-violet-100 mb-5">
-              <svg className="w-6 h-6 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-              </svg>
-            </div>
-            <p className="text-xl font-bold text-gray-900 mb-2">
-              Visibilité maximale sur Google
-            </p>
-            <p className="text-gray-500 leading-relaxed max-w-xl mx-auto">
-              Notre système vous positionne en tête des résultats de recherche locaux, au-dessus des résultats organiques et des publicités traditionnelles.
-            </p>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CAL.COM BOOKING */}
       <section id="contact" className="py-20 md:py-28 px-4 md:px-6 bg-violet-600 relative overflow-hidden">
-        {/* Background decorations */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-violet-500/30 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-violet-700/30 rounded-full blur-3xl" />
 
@@ -248,7 +272,7 @@ const Home = () => {
               Échangeons sur votre projet
             </h2>
             <p className="text-lg text-violet-200 max-w-2xl mx-auto">
-              30 minutes pour analyser votre situation et évaluer le potentiel de notre solution pour votre activité.
+              30 minutes pour analyser votre situation et évaluer le potentiel de nos solutions pour votre activité.
             </p>
           </div>
 

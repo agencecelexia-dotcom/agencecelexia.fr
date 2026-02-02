@@ -14,6 +14,14 @@ import LeadsMenuisier from './pages/LeadsMenuisier';
 import NotFound from './pages/NotFound';
 import { NicheProvider } from './context/NicheContext';
 
+// Services pages
+import PublicitePerformance from './pages/services/PublicitePerformance';
+import SiteWeb from './pages/services/SiteWeb';
+import SEO from './pages/services/SEO';
+import AvisClients from './pages/services/AvisClients';
+import Emailing from './pages/services/Emailing';
+import Automatisation from './pages/services/Automatisation';
+
 function App() {
   return (
     <NicheProvider>
@@ -28,6 +36,15 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/sites-artisans" element={<ArtisanWebsites />} />
               <Route path="/reserver" element={<BookingStrategy />} />
+
+              {/* Services routes */}
+              <Route path="/services/publicite-performance" element={<PublicitePerformance />} />
+              <Route path="/services/site-web" element={<SiteWeb />} />
+              <Route path="/services/seo" element={<SEO />} />
+              <Route path="/services/avis-clients" element={<AvisClients />} />
+              <Route path="/services/emailing" element={<Emailing />} />
+              <Route path="/services/automatisation" element={<Automatisation />} />
+
               <Route path="/leads-plombier" element={<LeadsPlombier />} />
               <Route path="/leads-electricien" element={<LeadsElectricien />} />
               <Route path="/leads-menuisier" element={<LeadsMenuisier />} />

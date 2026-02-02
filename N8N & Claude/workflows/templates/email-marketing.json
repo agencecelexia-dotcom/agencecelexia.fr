@@ -1,0 +1,97 @@
+{
+  "name": "Marketing - Newsletter Hebdomadaire Automatique",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "daysOfTheWeek": [1],
+              "hoursOfDay": [9]
+            }
+          ]
+        }
+      },
+      "name": "Schedule: Lundi 9h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "databaseId": "VOTRE_BASE_BLOG_NOTION_ID",
+        "filters": {
+          "property": "Statut",
+          "condition": "equals",
+          "value": "Publié"
+        },
+        "limit": 5,
+        "sort": {
+          "property": "Date Publication",
+          "direction": "descending"
+        }
+      },
+      "name": "Get Latest Blog Posts",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const posts = items.map(item => ({\n  titre: item.json.properties.Titre.title[0].plain_text,\n  url: item.json.url,\n  description: item.json.properties.Description.rich_text[0]?.plain_text || '',\n  date: item.json.properties['Date Publication'].date.start\n}));\n\nconst html = `\n  <h2>📰 Votre Newsletter Hebdomadaire</h2>\n  <p>Bonjour,</p>\n  <p>Voici les derniers articles de la semaine :</p>\n  ${posts.map((post, i) => `\n    <div style=\"margin: 20px 0; padding: 15px; border-left: 3px solid #7c3aed;\">\n      <h3>${i+1}. ${post.titre}</h3>\n      <p style=\"color: #666;\">${post.description}</p>\n      <p><a href=\"${post.url}\" style=\"color: #7c3aed;\">Lire l'article →</a></p>\n      <p style=\"font-size: 12px; color: #999;\">Publié le ${new Date(post.date).toLocaleDateString('fr-FR')}</p>\n    </div>\n  `).join('')}\n  <p style=\"margin-top: 30px;\">Bonne lecture ! 📚</p>\n`;\n\nreturn [{ json: { posts, html } }];"
+      },
+      "name": "Generate Email HTML",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "listIds": ["VOTRE_LISTE_NEWSLETTER_BREVO_ID"],
+        "subject": "📰 Votre Newsletter de la Semaine",
+        "htmlContent": "={{ $json.html }}",
+        "sender": {
+          "name": "Votre Nom",
+          "email": "newsletter@votredomaine.com"
+        }
+      },
+      "name": "Send via Brevo",
+      "type": "n8n-nodes-base.brevo",
+      "typeVersion": 1,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "databaseId": "VOTRE_BASE_STATS_NOTION_ID",
+        "title": "Newsletter - {{ $now.toFormat('dd/MM/yyyy') }}",
+        "properties": {
+          "Date": "={{ $now.toISO() }}",
+          "Nombre d'articles": "={{ $json.posts.length }}",
+          "Statut": "Envoyée"
+        }
+      },
+      "name": "Log in Notion",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 1,
+      "position": [1050, 300]
+    }
+  ],
+  "connections": {
+    "Schedule: Lundi 9h": {
+      "main": [[{"node": "Get Latest Blog Posts", "type": "main", "index": 0}]]
+    },
+    "Get Latest Blog Posts": {
+      "main": [[{"node": "Generate Email HTML", "type": "main", "index": 0}]]
+    },
+    "Generate Email HTML": {
+      "main": [[{"node": "Send via Brevo", "type": "main", "index": 0}]]
+    },
+    "Send via Brevo": {
+      "main": [[{"node": "Log in Notion", "type": "main", "index": 0}]]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "tags": ["Marketing", "Newsletter", "Automation"]
+}

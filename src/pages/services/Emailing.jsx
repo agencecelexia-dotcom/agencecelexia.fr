@@ -1,0 +1,304 @@
+import { Link } from 'react-router-dom';
+import { usePageMeta } from '../../hooks/usePageMeta';
+
+const Emailing = () => {
+  usePageMeta({
+    title: 'Campagnes Email Automatisées pour Artisans | Agence Celexia',
+    description: 'Emails automatiques de relance, newsletters, promotions. Taux d\'ouverture 45%. Reconquête clients inactifs. CRM intégré avec votre activité.',
+    canonical: 'https://agencecelexia.fr/services/emailing'
+  });
+
+  const features = [
+    {
+      icon: (
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
+      title: 'Relances automatiques',
+      desc: 'Emails automatiques aux devis non signés pour augmenter le taux de conversion'
+    },
+    {
+      icon: (
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
+      title: 'Campagnes saisonnières',
+      desc: 'Promotions ciblées selon la saison (climatisation été, chauffage hiver...)'
+    },
+    {
+      icon: (
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      ),
+      title: 'Segmentation intelligente',
+      desc: 'Segmentation par type de service, zone géo, date dernière intervention'
+    },
+    {
+      icon: (
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+      ),
+      title: 'Reconquête clients',
+      desc: 'Réactivation automatique des clients inactifs depuis 6/12/18 mois'
+    },
+    {
+      icon: (
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+      ),
+      title: 'Templates professionnels',
+      desc: 'Modèles d\'emails conçus spécifiquement pour artisans'
+    },
+    {
+      icon: (
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      ),
+      title: 'Analytics détaillés',
+      desc: 'Taux d\'ouverture, clics, conversions en temps réel'
+    }
+  ];
+
+  const useCases = [
+    {
+      title: 'Relance devis non signés',
+      desc: 'Email automatique J+3, J+7 et J+14 après envoi du devis',
+      impact: '+25% de conversion'
+    },
+    {
+      title: 'Rappel entretien annuel',
+      desc: 'Notification automatique 1 an après intervention (chaudière, climatisation...)',
+      impact: '+40% de récurrence'
+    },
+    {
+      title: 'Promotions saisonnières',
+      desc: 'Climatisation en mai, ramonage en septembre, déco Noël en novembre',
+      impact: '+60% de CA hors-saison'
+    },
+    {
+      title: 'Clients inactifs',
+      desc: 'Offre spéciale pour clients n\'ayant pas utilisé vos services depuis 12 mois',
+      impact: '+15% de réactivation'
+    }
+  ];
+
+  const stats = [
+    { value: '45%', label: 'Taux d\'ouverture moyen' },
+    { value: '8.2%', label: 'Taux de clic' },
+    { value: '+32%', label: 'Conversion devis' },
+    { value: '€€€', label: 'Coût par contact: <0.10€' }
+  ];
+
+  return (
+    <div className="bg-white">
+      {/* HERO */}
+      <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-4 md:px-6 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-100/30 rounded-full blur-3xl -translate-y-1/4 translate-x-1/4" />
+
+        <div className="max-w-5xl mx-auto text-center relative z-10">
+          <span className="tag mb-6 inline-block">Email Marketing</span>
+
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
+            Campagnes Email
+            <span className="block text-violet-600">100% Automatisées</span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-10">
+            Relances devis, promotions saisonnières, rappels entretien, reconquête clients inactifs.
+            <strong className="block mt-2 text-gray-900">Taux d'ouverture 45% garanti.</strong>
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link to="/reserver" className="btn-primary arrow-animate text-base px-8 py-4">
+              Lancer mes campagnes email
+              <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* STATS */}
+      <section className="py-16 px-4 md:px-6 bg-gray-50/50">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((item, i) => (
+              <div key={i} className="text-center">
+                <div className="font-display text-4xl md:text-5xl font-bold text-violet-600 mb-2">
+                  {item.value}
+                </div>
+                <p className="text-sm text-gray-600">{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURES */}
+      <section className="py-20 md:py-28 px-4 md:px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block">Fonctionnalités</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+              Email marketing sur-mesure pour artisans
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {features.map((feature, i) => (
+              <div key={i} className="card p-6 border-gray-200 group hover:border-violet-200">
+                <div className="w-11 h-11 rounded-xl bg-violet-100 flex items-center justify-center mb-4 text-violet-600
+                               group-hover:bg-violet-600 group-hover:text-white transition-colors duration-300">
+                  {feature.icon}
+                </div>
+                <h3 className="text-base font-bold text-gray-900 mb-2">{feature.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* USE CASES */}
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block">Cas d'usage</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-3">
+              4 scénarios qui génèrent du chiffre d'affaires
+            </h2>
+            <p className="text-gray-500 text-lg">
+              Configurés une fois, ils tournent en automatique 24/7
+            </p>
+          </div>
+
+          <div className="space-y-5">
+            {useCases.map((item, i) => (
+              <div key={i} className="card p-6 md:p-8 border-gray-200 hover:border-violet-200 transition-all duration-300">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2 flex items-center gap-3">
+                      <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-violet-100 text-violet-600 text-sm font-bold flex-shrink-0">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm leading-relaxed ml-11">{item.desc}</p>
+                  </div>
+                  <div className="md:text-right md:min-w-[140px]">
+                    <span className="inline-block px-4 py-2 rounded-lg bg-emerald-100 text-emerald-700 text-sm font-bold">
+                      {item.impact}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="py-20 md:py-28 px-4 md:px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block">Comment ça marche</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+              Mise en place en 48h
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                num: '01',
+                title: 'Import de votre base clients',
+                desc: 'On importe vos contacts depuis Excel, votre logiciel de facturation ou CRM'
+              },
+              {
+                num: '02',
+                title: 'Configuration des scénarios',
+                desc: 'On paramètre les déclencheurs automatiques selon votre activité'
+              },
+              {
+                num: '03',
+                title: 'Personnalisation des templates',
+                desc: 'Adaptation des emails avec votre logo, couleurs et contenu'
+              },
+              {
+                num: '04',
+                title: 'Lancement & suivi',
+                desc: 'Les campagnes démarrent automatiquement, vous suivez les résultats en temps réel'
+              }
+            ].map((item, i) => (
+              <div key={i} className="card p-6 border-gray-200">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-violet-100 flex items-center justify-center text-violet-600 font-bold flex-shrink-0">
+                    {item.num}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2 text-[15px]">{item.title}</h3>
+                    <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY EMAIL */}
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
+        <div className="max-w-3xl mx-auto">
+          <div className="card p-8 md:p-10 border-gray-200">
+            <h3 className="font-display text-2xl font-bold text-gray-900 mb-6 text-center">
+              Pourquoi l'email est le canal #1 pour les artisans ?
+            </h3>
+            <div className="space-y-4">
+              {[
+                'ROI moyen de 42€ pour 1€ investi (meilleur ROI de tous les canaux)',
+                'Coût par contact 50x moins cher que la pub Google',
+                'Vous possédez votre base de données (contrairement aux réseaux sociaux)',
+                'Automatisable à 100% : configurez une fois, profitez à vie',
+                'Permet de fidéliser et réactiver vos anciens clients'
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-violet-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-gray-700 text-sm leading-relaxed">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA FINAL */}
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-violet-600">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+            Prêt à automatiser vos emails ?
+          </h2>
+          <p className="text-lg text-violet-200 mb-8 leading-relaxed">
+            Configuration en 48h, premières campagnes actives sous 72h
+          </p>
+          <Link to="/reserver" className="btn-secondary text-base px-8 py-4 inline-flex items-center">
+            Lancer mes campagnes email
+            <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Emailing;

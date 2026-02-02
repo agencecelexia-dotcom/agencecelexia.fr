@@ -1,0 +1,370 @@
+{
+  "sitemap": {
+    "version": "1.0",
+    "baseUrl": "https://www.celexia.fr",
+    "lastUpdate": "2026-02-01",
+    "pages": [
+      {
+        "path": "/",
+        "name": "Accueil",
+        "priority": 1.0,
+        "changefreq": "weekly",
+        "metaTemplate": "Homepage",
+        "personalization": true,
+        "children": []
+      },
+      {
+        "path": "/services",
+        "name": "Services - Vue d'ensemble",
+        "priority": 0.9,
+        "changefreq": "monthly",
+        "metaTemplate": "Services Hub",
+        "personalization": true,
+        "children": [
+          {
+            "path": "/services/publicite-performance",
+            "name": "Publicité à la performance",
+            "priority": 0.8,
+            "changefreq": "monthly",
+            "metaTemplate": "Service Page",
+            "personalization": true
+          },
+          {
+            "path": "/services/site-web",
+            "name": "Création de site web",
+            "priority": 0.8,
+            "changefreq": "monthly",
+            "metaTemplate": "Service Page",
+            "personalization": true
+          },
+          {
+            "path": "/services/seo",
+            "name": "SEO local et organique",
+            "priority": 0.8,
+            "changefreq": "monthly",
+            "metaTemplate": "Service Page",
+            "personalization": true
+          },
+          {
+            "path": "/services/avis-clients",
+            "name": "Gestion avis clients",
+            "priority": 0.7,
+            "changefreq": "monthly",
+            "metaTemplate": "Service Page",
+            "personalization": true
+          },
+          {
+            "path": "/services/automatisation",
+            "name": "Automatisation marketing",
+            "priority": 0.7,
+            "changefreq": "monthly",
+            "metaTemplate": "Service Page",
+            "personalization": true
+          },
+          {
+            "path": "/services/emailing",
+            "name": "Emailing & nurturing",
+            "priority": 0.7,
+            "changefreq": "monthly",
+            "metaTemplate": "Service Page",
+            "personalization": true
+          },
+          {
+            "path": "/services/tracking",
+            "name": "Tracking & analytics",
+            "priority": 0.7,
+            "changefreq": "monthly",
+            "metaTemplate": "Service Page",
+            "personalization": true
+          },
+          {
+            "path": "/services/call-tracking",
+            "name": "Call tracking",
+            "priority": 0.7,
+            "changefreq": "monthly",
+            "metaTemplate": "Service Page",
+            "personalization": true
+          },
+          {
+            "path": "/services/crm-funnels",
+            "name": "CRM & Funnels",
+            "priority": 0.7,
+            "changefreq": "monthly",
+            "metaTemplate": "Service Page",
+            "personalization": true
+          },
+          {
+            "path": "/services/optimisation-conversion",
+            "name": "Optimisation conversion",
+            "priority": 0.7,
+            "changefreq": "monthly",
+            "metaTemplate": "Service Page",
+            "personalization": true
+          }
+        ]
+      },
+      {
+        "path": "/metiers",
+        "name": "Métiers - Hub",
+        "priority": 0.9,
+        "changefreq": "monthly",
+        "metaTemplate": "Metiers Hub",
+        "personalization": false,
+        "children": [
+          {
+            "path": "/metiers/pisciniste",
+            "name": "Solutions pour piscinistes",
+            "priority": 0.85,
+            "changefreq": "monthly",
+            "metaTemplate": "Metier Page",
+            "accentColor": "#1E88E5"
+          },
+          {
+            "path": "/metiers/menuisier",
+            "name": "Solutions pour menuisiers",
+            "priority": 0.85,
+            "changefreq": "monthly",
+            "metaTemplate": "Metier Page",
+            "accentColor": "#BF6C2E"
+          },
+          {
+            "path": "/metiers/plombier",
+            "name": "Solutions pour plombiers",
+            "priority": 0.85,
+            "changefreq": "monthly",
+            "metaTemplate": "Metier Page",
+            "accentColor": "#1EA36F"
+          },
+          {
+            "path": "/metiers/chauffagiste",
+            "name": "Solutions pour chauffagistes",
+            "priority": 0.85,
+            "changefreq": "monthly",
+            "metaTemplate": "Metier Page",
+            "accentColor": "#E05024"
+          },
+          {
+            "path": "/metiers/electricien",
+            "name": "Solutions pour électriciens",
+            "priority": 0.85,
+            "changefreq": "monthly",
+            "metaTemplate": "Metier Page",
+            "accentColor": "#F4C20D"
+          },
+          {
+            "path": "/metiers/couvreur",
+            "name": "Solutions pour couvreurs",
+            "priority": 0.8,
+            "changefreq": "monthly",
+            "metaTemplate": "Metier Page",
+            "accentColor": "#6D4C41"
+          },
+          {
+            "path": "/metiers/paysagiste",
+            "name": "Solutions pour paysagistes",
+            "priority": 0.8,
+            "changefreq": "monthly",
+            "metaTemplate": "Metier Page",
+            "accentColor": "#4CAF50"
+          },
+          {
+            "path": "/metiers/macon",
+            "name": "Solutions pour maçons",
+            "priority": 0.75,
+            "changefreq": "monthly",
+            "metaTemplate": "Metier Page",
+            "accentColor": "#9E9E9E"
+          },
+          {
+            "path": "/metiers/carreleur",
+            "name": "Solutions pour carreleurs",
+            "priority": 0.75,
+            "changefreq": "monthly",
+            "metaTemplate": "Metier Page",
+            "accentColor": "#795548"
+          },
+          {
+            "path": "/metiers/peintre",
+            "name": "Solutions pour peintres",
+            "priority": 0.75,
+            "changefreq": "monthly",
+            "metaTemplate": "Metier Page",
+            "accentColor": "#E91E63"
+          },
+          {
+            "path": "/metiers/serrurier",
+            "name": "Solutions pour serruriers",
+            "priority": 0.7,
+            "changefreq": "monthly",
+            "metaTemplate": "Metier Page",
+            "accentColor": "#607D8B"
+          },
+          {
+            "path": "/metiers/vitrier",
+            "name": "Solutions pour vitriers",
+            "priority": 0.7,
+            "changefreq": "monthly",
+            "metaTemplate": "Metier Page",
+            "accentColor": "#00BCD4"
+          }
+        ]
+      },
+      {
+        "path": "/seo",
+        "name": "SEO pour artisans - Service dédié",
+        "priority": 0.9,
+        "changefreq": "monthly",
+        "metaTemplate": "SEO Service Page",
+        "personalization": true,
+        "children": []
+      },
+      {
+        "path": "/partenaires",
+        "name": "Programme partenaires B2B2C",
+        "priority": 0.85,
+        "changefreq": "monthly",
+        "metaTemplate": "Partners Page",
+        "personalization": false,
+        "children": []
+      },
+      {
+        "path": "/blog",
+        "name": "Blog - Hub",
+        "priority": 0.8,
+        "changefreq": "weekly",
+        "metaTemplate": "Blog Hub",
+        "personalization": false,
+        "children": [
+          {
+            "path": "/blog/pisciniste",
+            "name": "Blog Pisciniste",
+            "priority": 0.7,
+            "changefreq": "weekly",
+            "metaTemplate": "Blog Silo",
+            "articles": 30
+          },
+          {
+            "path": "/blog/menuisier",
+            "name": "Blog Menuisier",
+            "priority": 0.7,
+            "changefreq": "weekly",
+            "metaTemplate": "Blog Silo",
+            "articles": 30
+          },
+          {
+            "path": "/blog/plombier",
+            "name": "Blog Plombier",
+            "priority": 0.7,
+            "changefreq": "weekly",
+            "metaTemplate": "Blog Silo",
+            "articles": 30
+          },
+          {
+            "path": "/blog/chauffagiste",
+            "name": "Blog Chauffagiste",
+            "priority": 0.7,
+            "changefreq": "weekly",
+            "metaTemplate": "Blog Silo",
+            "articles": 30
+          },
+          {
+            "path": "/blog/electricien",
+            "name": "Blog Électricien",
+            "priority": 0.7,
+            "changefreq": "weekly",
+            "metaTemplate": "Blog Silo",
+            "articles": 30
+          }
+        ]
+      },
+      {
+        "path": "/ressources",
+        "name": "Ressources",
+        "priority": 0.6,
+        "changefreq": "monthly",
+        "metaTemplate": "Resources Page",
+        "personalization": false,
+        "children": []
+      },
+      {
+        "path": "/reserver",
+        "name": "Réserver un appel stratégique",
+        "priority": 0.95,
+        "changefreq": "monthly",
+        "metaTemplate": "Booking Page",
+        "personalization": true,
+        "children": []
+      },
+      {
+        "path": "/contact",
+        "name": "Contact",
+        "priority": 0.6,
+        "changefreq": "yearly",
+        "metaTemplate": "Contact Page",
+        "personalization": false,
+        "children": []
+      },
+      {
+        "path": "/mentions-legales",
+        "name": "Mentions légales",
+        "priority": 0.3,
+        "changefreq": "yearly",
+        "metaTemplate": "Legal Page",
+        "personalization": false,
+        "children": []
+      },
+      {
+        "path": "/politique-confidentialite",
+        "name": "Politique de confidentialité",
+        "priority": 0.3,
+        "changefreq": "yearly",
+        "metaTemplate": "Privacy Page",
+        "personalization": false,
+        "children": []
+      }
+    ]
+  },
+  "arborescence": {
+    "description": "Arborescence complète du site CELEXIA",
+    "structure": [
+      "/ (Accueil)",
+      "├── /services (Hub + 10 cartes services)",
+      "│   ├── /services/publicite-performance",
+      "│   ├── /services/site-web",
+      "│   ├── /services/seo",
+      "│   ├── /services/avis-clients",
+      "│   ├── /services/automatisation",
+      "│   ├── /services/emailing",
+      "│   ├── /services/tracking",
+      "│   ├── /services/call-tracking",
+      "│   ├── /services/crm-funnels",
+      "│   └── /services/optimisation-conversion",
+      "├── /metiers (Hub métiers)",
+      "│   ├── /metiers/pisciniste",
+      "│   ├── /metiers/menuisier",
+      "│   ├── /metiers/plombier",
+      "│   ├── /metiers/chauffagiste",
+      "│   ├── /metiers/electricien",
+      "│   ├── /metiers/couvreur",
+      "│   ├── /metiers/paysagiste",
+      "│   ├── /metiers/macon",
+      "│   ├── /metiers/carreleur",
+      "│   ├── /metiers/peintre",
+      "│   ├── /metiers/serrurier",
+      "│   └── /metiers/vitrier",
+      "├── /seo (Service SEO dédié)",
+      "├── /partenaires (Programme B2B2C)",
+      "├── /blog (Hub + silos métiers)",
+      "│   ├── /blog/pisciniste/[30 articles]",
+      "│   ├── /blog/menuisier/[30 articles]",
+      "│   ├── /blog/plombier/[30 articles]",
+      "│   ├── /blog/chauffagiste/[30 articles]",
+      "│   └── /blog/electricien/[30 articles]",
+      "├── /ressources",
+      "├── /reserver (Page réservation centralisée)",
+      "├── /contact",
+      "├── /mentions-legales",
+      "└── /politique-confidentialite"
+    ]
+  }
+}

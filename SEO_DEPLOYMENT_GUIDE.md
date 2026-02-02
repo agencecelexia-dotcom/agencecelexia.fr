@@ -54,7 +54,7 @@ Ouvrir chaque page et faire clic droit > Inspecter :
 <meta name="description" content="Description unique">
 <meta property="og:title" content="Titre">
 <meta property="og:description" content="Description">
-<link rel="canonical" href="https://agence-celexia.fr/PAGE">
+<link rel="canonical" href="https://agencecelexia.fr/PAGE">
 ```
 
 ### 3. Valider les schémas JSON-LD
@@ -115,7 +115,7 @@ serve -s dist
 1. Aller à https://search.google.com/search-console
 2. Ajouter votre domaine
 3. Aller à "Sitemaps"
-4. Ajouter : `https://agence-celexia.fr/sitemap.xml`
+4. Ajouter : `https://agencecelexia.fr/sitemap.xml`
 
 ### 2. Tester avec Google Lighthouse
 
@@ -127,9 +127,9 @@ serve -s dist
 ### 3. Tester les URL en Search Console
 
 1. Aller à "URL Inspection"
-2. Tester : `https://agence-celexia.fr/`
-3. Tester : `https://agence-celexia.fr/about`
-4. Tester : `https://agence-celexia.fr/contact`
+2. Tester : `https://agencecelexia.fr/`
+3. Tester : `https://agencecelexia.fr/about`
+4. Tester : `https://agencecelexia.fr/contact`
 5. Clicker "Request Indexing" pour chacune
 
 ### 4. Vérifier les métadonnées sur réseaux sociaux
@@ -217,7 +217,7 @@ Après déploiement, vous devriez voir :
 Si quelque chose ne marche pas :
 
 1. **Vérifier les logs serveur** (panneau de contrôle hébergement)
-2. **Tester avec `curl`** : `curl -I https://agence-celexia.fr/about`
+2. **Tester avec `curl`** : `curl -I https://agencecelexia.fr/about`
 3. **Utiliser Google Search Console** pour les erreurs crawl
 4. **Valider le HTML** : https://validator.w3.org/
 

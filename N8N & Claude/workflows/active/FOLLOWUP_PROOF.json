@@ -1,0 +1,270 @@
+{
+  "name": "FOLLOWUP PROOF",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 9 * * *"
+            }
+          ]
+        }
+      },
+      "id": "dc11fc77-3d16-4d82-b2e0-fa58a015f27a",
+      "name": "Trigger Quotidien 9h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        100,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.cal.com/v1/bookings",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "calApi",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "status",
+              "value": "upcoming"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9b645972-dc66-47ef-9d8a-509bc6552702",
+      "name": "Récupérer RDV Cal.com",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        300,
+        300
+      ],
+      "credentials": {
+        "calApi": {
+          "id": "CJUWH6TwxfRScRfZ",
+          "name": "Cal account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Initialisation de la mémoire anti-doublon\nconst staticData = $getWorkflowStaticData('node');\nstaticData.sentHistory = staticData.sentHistory || [];\n\nconst results = [];\nconst now = new Date();\n// On se base sur l'heure de Paris pour le calcul des jours\nconst todayStr = now.toLocaleString(\"en-US\", {timeZone: \"Europe/Paris\"});\nconst today = new Date(todayStr);\ntoday.setHours(0, 0, 0, 0);\n\nconst items = $input.all();\nlet bookings = [];\n\n// Extraction des bookings selon le format de réponse API\nif (items.length > 0 && items[0].json.bookings) {\n  bookings = items[0].json.bookings;\n} else if (items.length > 0) {\n  bookings = items.map(i => i.json);\n}\n\nfor (const b of bookings) {\n  // On ne traite que les RDV confirmés\n  if (!b.startTime || b.status !== 'ACCEPTED') continue;\n  \n  const rdvDateRaw = new Date(b.startTime);\n  // Conversion forcée en heure de Paris pour l'affichage et le calcul\n  const rdvParisStr = rdvDateRaw.toLocaleString(\"en-US\", {timeZone: \"Europe/Paris\"});\n  const rdvParis = new Date(rdvParisStr);\n  \n  const rdvDateOnly = new Date(rdvParis.getFullYear(), rdvParis.getMonth(), rdvParis.getDate());\n  \n  // Calcul de la différence de jours (J-1 ou J-3)\n  const diffDays = Math.round((rdvDateOnly.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));\n  \n  let emailType = null;\n  if (diffDays === 3) emailType = 'proof_j3';\n  else if (diffDays === 1) emailType = 'proof_j1';\n\n  if (!emailType) continue; // Sauter si pas J-3 ou J-1\n\n  const bookingId = b.id || b.uid;\n  const uniqueKey = `${bookingId}_${emailType}`;\n\n  // Vérification anti-doublon\n  if (!staticData.sentHistory.includes(uniqueKey)) {\n    const attendee = b.attendees?.[0] || {};\n    const name = attendee.name || b.title || 'Client';\n    const email = attendee.email || b.responses?.email;\n    \n    // Vérifier que l'email est valide\n    if (email && email.includes('@')) {\n      results.push({\n        json: {\n          email: email,\n          firstName: name.split(' ')[0],\n          rdvDate: rdvParis.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' }),\n          rdvTime: rdvParis.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }),\n          emailType: emailType,\n          meetingLink: b.meetingUrl || b.metadata?.videoCallUrl || ''\n        }\n      });\n      // Ajout à l'historique\n      staticData.sentHistory.push(uniqueKey);\n    }\n  }\n}\n\n// Limitation de la mémoire à 500 entrées\nif (staticData.sentHistory.length > 500) staticData.sentHistory = staticData.sentHistory.slice(-500);\n\nreturn results;"
+      },
+      "id": "3f48e137-d001-4f06-9e5c-2d0f7fbdf021",
+      "name": "Logique & Anti-Doublon",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.emailType }}",
+              "rightValue": "proof_j3",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              },
+              "id": "4a8965bb-7b35-4ceb-857e-f79b350e3070"
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "2712818e-12f8-4d5d-b9a4-95f8b9440e83",
+      "name": "Si J-3 ?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        700,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.emailType }}",
+              "rightValue": "proof_j1",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              },
+              "id": "5b9c66cc-8c46-4dcf-96f7-g80c461e171f"
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "7829d3hf-23k9-5e8g-c9d5-06e9h3550e94",
+      "name": "Si J-1 ?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        700,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "to": "={{ $json.email }}",
+        "subject": "={{ $json.firstName }}, voici pourquoi nos clients nous font confiance",
+        "message": "<h2>Bonjour {{ $json.firstName }}</h2><p>Notre rendez-vous du {{ $json.rdvDate }} à {{ $json.rdvTime }} approche. Voici nos derniers résultats et pourquoi nous sommes le choix idéal pour votre entreprise...</p><p>À bientôt !</p><p>Cordialement,<br>L'équipe Celexia</p>",
+        "options": {
+          "replyTo": "thomas@celexia.fr"
+        }
+      },
+      "id": "ac39e52d-6efa-466b-a7d2-77f6ba254b3f",
+      "name": "Email Proof J-3",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        900,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "to": "={{ $json.email }}",
+        "subject": "={{ 'Rappel : Notre RDV demain à ' + $json.rdvTime }}",
+        "message": "<h2>Rappel RDV</h2><p>Bonjour {{ $json.firstName }}, on se voit demain à {{ $json.rdvTime }}.</p><p>Lien visio : <a href='{{ $json.meetingLink }}'>Cliquez ici pour accéder à la réunion</a></p><p>À demain !<br>L'équipe Celexia</p>",
+        "options": {
+          "replyTo": "thomas@celexia.fr"
+        }
+      },
+      "id": "2b7db3bf-b833-4011-9d84-2bfa8b008d9f",
+      "name": "Email Rappel J-1",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        900,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "content": "=Email de rappel J-1 envoyé avec succès à {{ $json.email }}"
+      },
+      "id": "8h3k9d2j-4l5m-6n7o-p8qr-s9t0u1v2w3x4",
+      "name": "Log Succès",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        300
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Trigger Quotidien 9h": {
+      "main": [
+        [
+          {
+            "node": "Récupérer RDV Cal.com",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Récupérer RDV Cal.com": {
+      "main": [
+        [
+          {
+            "node": "Logique & Anti-Doublon",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Logique & Anti-Doublon": {
+      "main": [
+        [
+          {
+            "node": "Si J-3 ?",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Si J-1 ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Si J-3 ?": {
+      "main": [
+        [
+          {
+            "node": "Email Proof J-3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Si J-1 ?": {
+      "main": [
+        [
+          {
+            "node": "Email Rappel J-1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Email Proof J-3": {
+      "main": [
+        []
+      ]
+    },
+    "Email Rappel J-1": {
+      "main": [
+        [
+          {
+            "node": "Log Succès",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  }
+}

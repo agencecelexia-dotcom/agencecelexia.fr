@@ -9,7 +9,7 @@ Transformer ton site d'un simple SPA React (Score SEO 52/100) en une vraie **mac
 
 ### AVANT ❌
 ```
-❌ URLs: agence-celexia.fr/#/about
+❌ URLs: agencecelexia.fr/#/about
 ❌ Pas de robots.txt ni sitemap.xml
 ❌ Pas de schémas JSON-LD
 ❌ Même titre/description pour toutes les pages
@@ -22,7 +22,7 @@ Transformer ton site d'un simple SPA React (Score SEO 52/100) en une vraie **mac
 
 ### APRÈS ✅
 ```
-✅ URLs: agence-celexia.fr/about
+✅ URLs: agencecelexia.fr/about
 ✅ robots.txt + sitemap.xml créés
 ✅ Schémas JSON-LD (Organization, Service, FAQ, BreadcrumbList)
 ✅ Title/description UNIQUES par page
@@ -112,7 +112,7 @@ CHANGEMENT 1:
   + import { BrowserRouter as Router }  ✅ APRÈS
 
   Résultat:
-    ❌ agence-celexia.fr/#/about  →  ✅ agence-celexia.fr/about
+    ❌ agencecelexia.fr/#/about  →  ✅ agencecelexia.fr/about
     C'est LE changement le plus important pour le SEO!
 
 CHANGEMENT 2:
@@ -156,8 +156,8 @@ vite.config.js (+12 lignes)
 
 ### 🌍 URLS & ROUTING
 ```
-AVANT: agence-celexia.fr/#/
-APRÈS: agence-celexia.fr/
+AVANT: agencecelexia.fr/#/
+APRÈS: agencecelexia.fr/
 
 Bénéfices:
   ✅ Google comprend que c'est une vraie page
@@ -202,14 +202,14 @@ APRÈS:
 
   + <og:title>, <og:description>, <og:image>
   + <twitter:card>, <twitter:title>, <twitter:image>
-  + <link rel="canonical" href="https://agence-celexia.fr/">
+  + <link rel="canonical" href="https://agencecelexia.fr/">
 ```
 
 #### Page À propos
 ```
 <title>À propos - Agence Celexia | Experts en Local Service Ads</title>
 <description>Découvrez comment Agence Celexia aide les artisans...
-+ Canonical: https://agence-celexia.fr/about
++ Canonical: https://agencecelexia.fr/about
 + Schéma FAQPage avec 8 Q&A
 ```
 
@@ -217,7 +217,7 @@ APRÈS:
 ```
 <title>Réservez votre appel gratuit - Agence Celexia</title>
 <description>30 minutes pour analyser votre situation...
-+ Canonical: https://agence-celexia.fr/contact
++ Canonical: https://agencecelexia.fr/contact
 ```
 
 ### 🖼️ IMAGES & PERFORMANCE
