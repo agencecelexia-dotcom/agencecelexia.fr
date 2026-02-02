@@ -1,9 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
+import { NicheContext } from '../context/NicheContext';
+import NicheSelector from '../components/NicheSelector';
 
 const Home = () => {
+  const { metierLabel, prixParAppel } = useContext(NicheContext);
+
   // Métadonnées SEO pour la page d'accueil
   usePageMeta({
     title: 'Agence Celexia – Expert en Marketing Digital pour Artisans | SEO, Pub, Sites Web',
@@ -148,14 +152,22 @@ const Home = () => {
           <span className="tag mb-6 inline-block">Agence Marketing Digital</span>
 
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
-            Votre Partenaire de
-            <span className="block text-violet-600">Croissance Digitale</span>
+            Solutions Marketing pour
+            <span className="block text-violet-600">{metierLabel}s</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-10">
-            Agence spécialisée pour artisans et professionnels du bâtiment.
-            Publicité performance, sites web, SEO, avis clients, email marketing, automatisation.
+          <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-8">
+            Publicité performance, sites web, SEO local, avis clients, email marketing, automatisation.
+            <strong className="block mt-2 text-gray-900">Spécialement adapté aux {metierLabel}s.</strong>
           </p>
+
+          {/* Sélecteur de métier */}
+          <div className="flex flex-col items-center gap-4 mb-10">
+            <p className="text-sm font-medium text-gray-600">
+              Pas {metierLabel} ? Sélectionnez votre métier pour du contenu personnalisé :
+            </p>
+            <NicheSelector className="mx-auto" />
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link to="/reserver" className="btn-primary arrow-animate text-base px-8 py-4">
@@ -244,8 +256,8 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
               { value: '6', label: 'Services complets', desc: 'Pub, Web, SEO, Avis, Email, Auto' },
-              { value: '7j', label: 'Livraison site web', desc: 'De la commande à la mise en ligne' },
-              { value: '100%', label: 'Solutions sur-mesure', desc: 'Adaptées à votre métier' },
+              { value: prixParAppel + '€', label: 'Coût par appel', desc: 'Dans votre secteur (' + metierLabel + ')' },
+              { value: '100%', label: 'Solutions sur-mesure', desc: 'Adaptées aux ' + metierLabel + 's' },
               { value: '24/7', label: 'Automatisation', desc: 'Vos processus tournent non-stop' }
             ].map((stat, i) => (
               <div key={i} className="card p-8 text-center border-gray-200">
