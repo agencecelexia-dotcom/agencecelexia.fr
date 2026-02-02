@@ -4,7 +4,7 @@ import { usePageMeta } from '../../hooks/usePageMeta';
 const Emailing = () => {
   usePageMeta({
     title: 'Campagnes Email Automatisées pour Artisans | Agence Celexia',
-    description: 'Emails automatiques de relance, newsletters, promotions. Taux d\'ouverture 45%. Reconquête clients inactifs. CRM intégré avec votre activité.',
+    description: 'Emails automatiques de relance, newsletters, promotions. Taux d\'ouverture optimisé. Reconquête clients inactifs. CRM intégré avec votre activité.',
     canonical: 'https://agencecelexia.fr/services/emailing'
   });
 
@@ -89,10 +89,10 @@ const Emailing = () => {
   ];
 
   const stats = [
-    { value: '45%', label: 'Taux d\'ouverture moyen' },
-    { value: '8.2%', label: 'Taux de clic' },
-    { value: '+32%', label: 'Conversion devis' },
-    { value: '€€€', label: 'Coût par contact: <0.10€' }
+    { value: '100%', label: 'Automatisation' },
+    { value: '24/7', label: 'Fonctionnement continu' },
+    { value: 'ROI+', label: 'Excellent retour' },
+    { value: '<0.10€', label: 'Coût par contact' }
   ];
 
   return (
@@ -111,7 +111,7 @@ const Emailing = () => {
 
           <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-10">
             Relances devis, promotions saisonnières, rappels entretien, reconquête clients inactifs.
-            <strong className="block mt-2 text-gray-900">Taux d'ouverture 45% garanti.</strong>
+            <strong className="block mt-2 text-gray-900">Taux d'ouverture optimisé.</strong>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

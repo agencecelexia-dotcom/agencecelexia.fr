@@ -4,7 +4,7 @@ import { usePageMeta } from '../../hooks/usePageMeta';
 const AvisClients = () => {
   usePageMeta({
     title: 'Gestion Automatisée des Avis Clients | Google Reviews | Agence Celexia',
-    description: 'Multipliez vos avis Google automatiquement. Système de collecte, réponses automatiques, gestion de réputation. +50% d\'avis positifs garantis en 3 mois.',
+    description: 'Multipliez vos avis Google automatiquement. Système de collecte, réponses automatiques, gestion de réputation. Objectif de forte augmentation en 3 mois.',
     canonical: 'https://agencecelexia.fr/services/avis-clients'
   });
 
@@ -66,10 +66,10 @@ const AvisClients = () => {
   ];
 
   const stats = [
-    { value: '+312%', label: 'Avis collectés en moyenne' },
-    { value: '4.8/5', label: 'Note moyenne clients' },
-    { value: '<1h', label: 'Temps de réponse moyen' },
-    { value: '85%', label: 'Taux de satisfaction' }
+    { value: 'x3-x5', label: 'Multiplication des avis' },
+    { value: '100%', label: 'Automatisation collecte' },
+    { value: '<1h', label: 'Temps de réponse IA' },
+    { value: '24/7', label: 'Service automatique' }
   ];
 
   const process = [

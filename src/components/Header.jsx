@@ -1,18 +1,42 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useScrollToSection } from '../utils/scrollToSection';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === '/';
   const scrollToSection = useScrollToSection();
+  const servicesRef = useRef(null);
+
+  // Services list
+  const services = [
+    { name: 'Publicité à la Performance', path: '/services/publicite-performance', icon: '📞' },
+    { name: 'Sites Web Artisans', path: '/services/site-web', icon: '🌐' },
+    { name: 'Référencement SEO', path: '/services/seo', icon: '🔍' },
+    { name: 'Avis Clients', path: '/services/avis-clients', icon: '⭐' },
+    { name: 'Email Marketing', path: '/services/emailing', icon: '📧' },
+    { name: 'Automatisation', path: '/services/automatisation', icon: '⚙️' }
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (servicesRef.current && !servicesRef.current.contains(event.target)) {
+        setIsServicesOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const handleCalculatorClick = (e) => {
@@ -21,7 +45,10 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
-  const closeMenu = () => setIsMenuOpen(false);
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    setIsServicesOpen(false);
+  };
 
   return (
     <header
@@ -36,7 +63,7 @@ const Header = () => {
         <Link to="/" className="flex items-center group" onClick={closeMenu}>
           <img
             src="/logo.png"
-            alt="Agence Celexia - Génération de leads pour artisans"
+            alt="Agence Celexia - Marketing Digital pour Artisans"
             className="h-8 transition-transform duration-300 group-hover:scale-[1.02]"
             loading="eager"
           />
@@ -45,21 +72,57 @@ const Header = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-1">
           <Link to="/about" className="btn-ghost">
-            A propos
+            À propos
           </Link>
-          <Link to="/sites-artisans" className="btn-ghost">
-            Sites Web
-          </Link>
+
+          {/* Services Dropdown */}
+          <div className="relative" ref={servicesRef}>
+            <button
+              onClick={() => setIsServicesOpen(!isServicesOpen)}
+              className="btn-ghost flex items-center gap-1"
+            >
+              Services
+              <svg
+                className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {/* Dropdown Menu */}
+            {isServicesOpen && (
+              <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-fade-up">
+                {services.map((service, i) => (
+                  <Link
+                    key={i}
+                    to={service.path}
+                    onClick={() => setIsServicesOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 hover:bg-violet-50 transition-colors group"
+                  >
+                    <span className="text-2xl">{service.icon}</span>
+                    <span className="text-sm font-medium text-gray-700 group-hover:text-violet-600 transition-colors">
+                      {service.name}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
           {isHome && (
             <button onClick={handleCalculatorClick} className="btn-ghost">
               Calculateur
             </button>
           )}
+
           <Link
             to="/reserver"
             className="btn-primary ml-3 arrow-animate"
           >
-            Reserver un appel
+            Réserver un appel
             <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -81,25 +144,42 @@ const Header = () => {
       </nav>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden overflow-hidden transition-all duration-400 ease-out ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`md:hidden overflow-hidden transition-all duration-400 ease-out ${isMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="px-5 pb-5 flex flex-col gap-1 border-t border-gray-100 pt-3 bg-white">
           <Link to="/about" className="btn-ghost justify-start" onClick={closeMenu}>
-            A propos
+            À propos
           </Link>
-          <Link to="/sites-artisans" className="btn-ghost justify-start" onClick={closeMenu}>
-            Sites Web
-          </Link>
+
+          {/* Services Mobile */}
+          <div className="py-2">
+            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mb-2">Services</p>
+            <div className="space-y-1">
+              {services.map((service, i) => (
+                <Link
+                  key={i}
+                  to={service.path}
+                  onClick={closeMenu}
+                  className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-violet-50 hover:text-violet-600 rounded-lg transition-colors"
+                >
+                  <span className="text-lg">{service.icon}</span>
+                  {service.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
           {isHome && (
             <button onClick={handleCalculatorClick} className="btn-ghost justify-start">
               Calculateur
             </button>
           )}
+
           <Link
-            to="/contact"
-            className="btn-primary mt-2 arrow-animate"
+            to="/reserver"
+            className="btn-primary mt-2 arrow-animate justify-center"
             onClick={closeMenu}
           >
-            Reserver un appel
+            Réserver un appel
             <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>

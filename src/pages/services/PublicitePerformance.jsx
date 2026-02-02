@@ -5,7 +5,7 @@ import ROICalculator from '../../components/ROICalculator';
 const PublicitePerformance = () => {
   usePageMeta({
     title: 'Publicité à la Performance | Génération d\'Appels Qualifiés | Agence Celexia',
-    description: 'Payez uniquement pour des appels de clients réels. Position #1 sur Google Local. ROI garanti dès les premiers jours. Système de paiement par appel qualifié pour artisans.',
+    description: 'Payez uniquement pour des appels de clients réels. Positionnement prioritaire sur Google Local. Objectif de ROI positif rapide. Système de paiement par appel qualifié pour artisans.',
     canonical: 'https://agencecelexia.fr/services/publicite-performance'
   });
 
@@ -25,7 +25,7 @@ const PublicitePerformance = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: 'Position #1 Google',
+      title: 'Positionnement prioritaire',
       desc: 'Votre entreprise apparaît en tête des résultats de recherche locaux'
     },
     {
@@ -43,8 +43,8 @@ const PublicitePerformance = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
         </svg>
       ),
-      title: 'ROI garanti',
-      desc: 'Retour sur investissement dès les premiers jours, sinon on rembourse'
+      title: 'Engagement résultats',
+      desc: 'Objectif de retour sur investissement rapide, suivi personnalisé'
     },
     {
       icon: (
@@ -77,7 +77,7 @@ const PublicitePerformance = () => {
     {
       step: '02',
       title: 'Lancement campagne',
-      desc: 'Votre annonce est mise en ligne et positionnée #1 sur les recherches locales',
+      desc: 'Votre annonce est mise en ligne et positionnée en tête des recherches locales',
       duration: 'Jour 3'
     },
     {
@@ -112,12 +112,12 @@ const PublicitePerformance = () => {
       a: 'Aucun engagement. Vous pouvez suspendre ou arrêter le service à tout moment. On ne facture que les appels reçus, pas d\'abonnement mensuel.'
     },
     {
-      q: 'Comment garantissez-vous la position #1 ?',
+      q: 'Comment obtenez-vous un positionnement prioritaire ?',
       a: 'On utilise Google Local Services Ads, un système publicitaire premium qui positionne votre entreprise au-dessus des résultats organiques et des Google Ads classiques.'
     },
     {
       q: 'Que se passe-t-il si je ne suis pas satisfait ?',
-      a: 'Si après 30 jours vous n\'avez pas au moins doublé votre investissement, on vous rembourse intégralement. C\'est notre garantie ROI.'
+      a: 'Notre objectif est votre satisfaction. Nous travaillons en étroite collaboration avec vous pour optimiser les résultats. Aucun engagement de durée, vous pouvez arrêter à tout moment.'
     }
   ];
 
@@ -136,8 +136,8 @@ const PublicitePerformance = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-10">
-            Position #1 sur Google. Filtrage automatique des spams. ROI garanti dès les premiers jours.
-            <strong className="block mt-2 text-gray-900">Investissez quand ça marche, sinon c'est gratuit.</strong>
+            Positionnement prioritaire sur Google. Filtrage automatique des spams. Objectif de ROI positif rapide.
+            <strong className="block mt-2 text-gray-900">Payez uniquement les appels qualifiés.</strong>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

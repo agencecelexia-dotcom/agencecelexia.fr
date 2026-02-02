@@ -243,17 +243,20 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
-              { value: '240+', label: 'Clients actifs' },
-              { value: '10-25€', label: 'Coût par appel qualifié' },
-              { value: '4.8/5', label: 'Satisfaction client' },
-              { value: '+300%', label: 'ROI moyen' }
+              { value: '6', label: 'Services complets', desc: 'Pub, Web, SEO, Avis, Email, Auto' },
+              { value: '7j', label: 'Livraison site web', desc: 'De la commande à la mise en ligne' },
+              { value: '100%', label: 'Solutions sur-mesure', desc: 'Adaptées à votre métier' },
+              { value: '24/7', label: 'Automatisation', desc: 'Vos processus tournent non-stop' }
             ].map((stat, i) => (
               <div key={i} className="card p-8 text-center border-gray-200">
                 <div className="font-display text-5xl md:text-6xl font-bold text-violet-600 mb-3">
                   {stat.value}
                 </div>
-                <p className="text-base font-semibold text-gray-700">
+                <p className="text-base font-semibold text-gray-900 mb-1">
                   {stat.label}
+                </p>
+                <p className="text-xs text-gray-500">
+                  {stat.desc}
                 </p>
               </div>
             ))}

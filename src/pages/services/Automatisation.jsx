@@ -4,7 +4,7 @@ import { usePageMeta } from '../../hooks/usePageMeta';
 const Automatisation = () => {
   usePageMeta({
     title: 'Automatisation Complète pour Artisans | CRM + Workflows | Agence Celexia',
-    description: 'Automatisez tout : devis, facturation, relances, rappels RDV, collecte avis. CRM artisan connecté à vos outils. Gagnez 15h/semaine.',
+    description: 'Automatisez tout : devis, facturation, relances, rappels RDV, collecte avis. CRM artisan connecté à vos outils. Économisez un temps précieux.',
     canonical: 'https://agencecelexia.fr/services/automatisation'
   });
 
@@ -122,7 +122,7 @@ const Automatisation = () => {
 
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
             Automatisez Tout
-            <span className="block text-violet-600">Gagnez 15h/semaine</span>
+            <span className="block text-violet-600">Libérez votre Temps</span>
           </h1>
 
           <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-10">
@@ -169,7 +169,7 @@ const Automatisation = () => {
           <div className="mt-6 text-center">
             <div className="inline-block px-6 py-3 rounded-xl bg-violet-600 text-white">
               <span className="text-sm font-medium">Total: </span>
-              <span className="font-display text-2xl font-bold">34h/mois récupérées</span>
+              <span className="font-display text-2xl font-bold">Gains de temps importants</span>
             </div>
           </div>
         </div>

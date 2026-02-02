@@ -3,8 +3,8 @@ import { usePageMeta } from '../../hooks/usePageMeta';
 
 const SEO = () => {
   usePageMeta({
-    title: 'Référencement SEO Local pour Artisans | Position #1 sur Google | Agence Celexia',
-    description: 'Positionnez votre entreprise en tête des résultats Google locaux. SEO technique, optimisation Google My Business, avis clients. Résultats garantis en 90 jours.',
+    title: 'Référencement SEO Local pour Artisans | Agence Celexia',
+    description: 'Positionnez votre entreprise en tête des résultats Google locaux. SEO technique, optimisation Google My Business, avis clients. Résultats visibles sous 90 jours.',
     canonical: 'https://agencecelexia.fr/services/seo'
   });
 
@@ -15,8 +15,8 @@ const SEO = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: 'Position #1 locale',
-      desc: 'Apparaissez en tête des recherches Google dans votre zone d\'intervention'
+      title: 'Positionnement local',
+      desc: 'Objectif d\'apparaître en tête des recherches Google dans votre zone'
     },
     {
       icon: (
@@ -61,8 +61,8 @@ const SEO = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: 'Résultats garantis',
-      desc: 'Position top 3 sous 90 jours ou remboursement intégral'
+      title: 'Engagement résultats',
+      desc: 'Objectif de positionnement top 3 sous 90 jours, suivi rigoureux'
     }
   ];
 
@@ -94,10 +94,10 @@ const SEO = () => {
   ];
 
   const results = [
-    { metric: '+300%', label: 'Trafic organique moyen' },
-    { metric: 'Top 3', label: 'Position Google locale' },
-    { metric: '+150%', label: 'Demandes de devis' },
-    { metric: '90j', label: 'Délai résultats visibles' }
+    { metric: 'x2-x5', label: 'Potentiel trafic organique' },
+    { metric: 'Top 3', label: 'Objectif position locale' },
+    { metric: '+50%', label: 'Croissance demandes' },
+    { metric: '90j', label: 'Premiers résultats' }
   ];
 
   return (
@@ -115,8 +115,8 @@ const SEO = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-10">
-            Position #1 sur les recherches locales de votre métier. SEO technique, Google My Business, avis clients.
-            <strong className="block mt-2 text-gray-900">Résultats garantis en 90 jours.</strong>
+            Positionnement optimal sur les recherches locales de votre métier. SEO technique, Google My Business, avis clients.
+            <strong className="block mt-2 text-gray-900">Résultats visibles sous 90 jours.</strong>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
