@@ -152,11 +152,6 @@ const routes = [
     description: '30 minutes pour analyser votre situation et évaluer le potentiel de croissance de votre activité. Sans engagement. Gratuit.',
   },
   {
-    path: '/sites-artisans',
-    title: 'Sites Web Artisans | Agence Celexia',
-    description: 'Site web professionnel pour artisans livré en 7 jours. Design moderne, optimisé SEO, responsive. Devis gratuit pour plombiers, électriciens, menuisiers.',
-  },
-  {
     path: '/mentions-legales',
     title: 'Mentions Légales - Agence Celexia',
     description: "Mentions légales du site agencecelexia.fr. Informations sur l'éditeur, l'hébergeur et les conditions d'utilisation.",
@@ -229,7 +224,7 @@ const routes = [
   },
   {
     path: '/services/avis-clients',
-    title: 'Gestion Automatisée des Avis Clients | Google Reviews | Agence Celexia',
+    title: 'Gestion Avis Clients Google | Agence Celexia',
     description: 'Multipliez vos avis Google automatiquement. Système de collecte, réponses automatiques, gestion de réputation. Objectif de forte augmentation en 3 mois.',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -269,7 +264,7 @@ const routes = [
   },
   {
     path: '/services/automatisation',
-    title: 'Automatisation Complète pour Artisans | CRM + Workflows | Agence Celexia',
+    title: 'Automatisation CRM pour Artisans | Agence Celexia',
     description: 'Automatisez tout : devis, facturation, relances, rappels RDV, collecte avis. CRM artisan connecté à vos outils. Économisez un temps précieux.',
     jsonLd: {
       '@context': 'https://schema.org',

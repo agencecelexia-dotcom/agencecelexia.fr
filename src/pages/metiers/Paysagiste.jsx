@@ -14,13 +14,15 @@ const Paysagiste = () => {
     '@type': 'Service',
     '@id': 'https://agencecelexia.fr/metiers/paysagiste/#service',
     'name': 'Marketing Digital pour Paysagistes',
-    'description': 'Strategies de marketing digital adaptees aux paysagistes : portfolio visuel en ligne, generation de leads saisonniers, gestion de reputation et campagnes email pour contrats d\'entretien recurrents.',
+    'description': 'Stratégies de marketing digital adaptées aux paysagistes : portfolio visuel en ligne, génération de leads saisonniers, gestion de réputation et campagnes email pour contrats d\'entretien récurrents.',
     'url': 'https://agencecelexia.fr/metiers/paysagiste',
     'serviceType': 'Marketing Digital',
     'category': 'Marketing Digital pour Artisans',
     'provider': { '@id': 'https://agencecelexia.fr/#organization' },
     'areaServed': { '@type': 'Country', 'name': 'France' },
-    'audience': { '@type': 'Audience', 'audienceType': 'Paysagistes' }
+    'audience': { '@type': 'Audience', 'audienceType': 'Paysagistes' },
+    'datePublished': '2024-10-01',
+    'dateModified': '2026-03-11'
   });
 
   const metierColor = '#4CAF50';

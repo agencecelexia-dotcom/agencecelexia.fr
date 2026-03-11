@@ -61,7 +61,7 @@ const Header = () => {
         scrolled ? 'shadow-soft border-b border-gray-100' : ''
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between">
+      <nav className="max-w-6xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between" aria-label="Navigation principale">
         {/* Logo */}
         <Link to="/" className="flex items-center group" onClick={closeMenu}>
           <img
@@ -85,6 +85,8 @@ const Header = () => {
             <button
               onClick={() => setIsServicesOpen(!isServicesOpen)}
               className="btn-ghost flex items-center gap-1"
+              aria-expanded={isServicesOpen}
+              aria-haspopup="true"
             >
               Services
               <svg
@@ -123,6 +125,8 @@ const Header = () => {
             <button
               onClick={() => setIsMetiersOpen(!isMetiersOpen)}
               className="btn-ghost flex items-center gap-1"
+              aria-expanded={isMetiersOpen}
+              aria-haspopup="true"
             >
               Métiers
               <svg

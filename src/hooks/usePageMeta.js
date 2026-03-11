@@ -4,7 +4,7 @@ import { useEffect } from 'react';
  * Hook pour définir les métadonnées de chaque page
  * Utilisé pour le SEO et les partages sociaux
  */
-export const usePageMeta = ({ title, description, image = '/logo.png', canonical }) => {
+export const usePageMeta = ({ title, description, image = 'https://agencecelexia.fr/logo.png', canonical }) => {
   useEffect(() => {
     // Mise à jour du titre
     document.title = title;

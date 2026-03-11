@@ -14,13 +14,15 @@ const Electricien = () => {
     '@type': 'Service',
     '@id': 'https://agencecelexia.fr/metiers/electricien/#service',
     'name': 'Marketing Digital pour Électriciens',
-    'description': 'Solutions marketing digital pour electriciens : captation de chantiers neufs et renovations, visibilite sur les nouvelles technologies (bornes de recharge, panneaux solaires, domotique) et gestion de reputation en ligne.',
+    'description': 'Solutions marketing digital pour électriciens : captation de chantiers neufs et rénovations, visibilité sur les nouvelles technologies (bornes de recharge, panneaux solaires, domotique) et gestion de réputation en ligne.',
     'url': 'https://agencecelexia.fr/metiers/electricien',
     'serviceType': 'Marketing Digital',
     'category': 'Marketing Digital pour Artisans',
     'provider': { '@id': 'https://agencecelexia.fr/#organization' },
     'areaServed': { '@type': 'Country', 'name': 'France' },
-    'audience': { '@type': 'Audience', 'audienceType': 'Électriciens' }
+    'audience': { '@type': 'Audience', 'audienceType': 'Électriciens' },
+    'datePublished': '2024-10-01',
+    'dateModified': '2026-03-11'
   });
 
   const metierColor = '#F4C20D';

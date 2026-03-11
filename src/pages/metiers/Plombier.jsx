@@ -14,7 +14,7 @@ const Plombier = () => {
     '@type': 'Service',
     '@id': 'https://agencecelexia.fr/metiers/plombier/#service',
     'name': 'Marketing Digital pour Plombiers',
-    'description': 'Marketing digital specialise pour plombiers : captation d\'appels urgents, visibilite locale maximale, gestion des avis clients et fidelisation par email pour transformer les interventions ponctuelles en contrats recurrents.',
+    'description': 'Marketing digital spécialisé pour plombiers : captation d\'appels urgents, visibilité locale maximale, gestion des avis clients et fidélisation par email pour transformer les interventions ponctuelles en contrats récurrents.',
     'url': 'https://agencecelexia.fr/metiers/plombier',
     'serviceType': 'Marketing Digital',
     'category': 'Marketing Digital pour Artisans',
