@@ -4,7 +4,7 @@ import { useJsonLd } from '../../hooks/useJsonLd';
 
 const AvisClients = () => {
   usePageMeta({
-    title: 'Gestion Automatisée des Avis Clients | Google Reviews | Agence Celexia',
+    title: 'Gestion Avis Clients Google | Agence Celexia',
     description: 'Multipliez vos avis Google automatiquement. Système de collecte, réponses automatiques, gestion de réputation. Objectif de forte augmentation en 3 mois.',
     canonical: 'https://agencecelexia.fr/services/avis-clients'
   });

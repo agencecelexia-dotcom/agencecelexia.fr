@@ -14,7 +14,7 @@ const Pisciniste = () => {
     '@type': 'Service',
     '@id': 'https://agencecelexia.fr/metiers/pisciniste/#service',
     'name': 'Marketing Digital pour Piscinistes',
-    'description': 'Solutions de marketing digital sur-mesure pour les piscinistes : generation de leads qualifies, site web portfolio, gestion des avis clients et campagnes email saisonnieres pour maximiser votre chiffre d\'affaires.',
+    'description': 'Solutions de marketing digital sur-mesure pour les piscinistes : génération de leads qualifiés, site web portfolio, gestion des avis clients et campagnes email saisonnières pour maximiser votre chiffre d\'affaires.',
     'url': 'https://agencecelexia.fr/metiers/pisciniste',
     'serviceType': 'Marketing Digital',
     'category': 'Marketing Digital pour Artisans',

@@ -4,7 +4,7 @@ import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Automatisation = () => {
   usePageMeta({
-    title: 'Automatisation Complète pour Artisans | CRM + Workflows | Agence Celexia',
+    title: 'Automatisation CRM pour Artisans | Agence Celexia',
     description: 'Automatisez tout : devis, facturation, relances, rappels RDV, collecte avis. CRM artisan connecté à vos outils. Économisez un temps précieux.',
     canonical: 'https://agencecelexia.fr/services/automatisation'
   });

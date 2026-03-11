@@ -20,7 +20,9 @@ const Macon = () => {
     'category': 'Marketing Digital pour Artisans',
     'provider': { '@id': 'https://agencecelexia.fr/#organization' },
     'areaServed': { '@type': 'Country', 'name': 'France' },
-    'audience': { '@type': 'Audience', 'audienceType': 'Maçons' }
+    'audience': { '@type': 'Audience', 'audienceType': 'Maçons' },
+    'datePublished': '2024-10-01',
+    'dateModified': '2026-03-11'
   });
 
   const metierColor = '#9E9E9E';

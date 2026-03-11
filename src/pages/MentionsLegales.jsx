@@ -31,9 +31,9 @@ const MentionsLegales = () => {
               <h2 className="font-display text-xl font-bold text-gray-900 mb-3">2. Hébergeur</h2>
               <p>Le site est hébergé par :</p>
               <ul className="list-disc pl-6 mt-2 space-y-1">
-                <li><strong>Netlify, Inc.</strong></li>
-                <li>512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis</li>
-                <li>Site web : <a href="https://www.netlify.com" className="text-violet-600 hover:text-violet-700" target="_blank" rel="noopener noreferrer">www.netlify.com</a></li>
+                <li><strong>Vercel Inc.</strong></li>
+                <li>440 N Barranca Ave #4133, Covina, CA 91723, États-Unis</li>
+                <li>Site web : <a href="https://vercel.com" className="text-violet-600 hover:text-violet-700" target="_blank" rel="noopener noreferrer">vercel.com</a></li>
               </ul>
             </div>
 
