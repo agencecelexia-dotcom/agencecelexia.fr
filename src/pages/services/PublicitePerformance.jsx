@@ -21,7 +21,9 @@ const PublicitePerformance = () => {
     'category': 'Marketing Digital',
     'provider': { '@id': 'https://agencecelexia.fr/#organization' },
     'areaServed': { '@type': 'Country', 'name': 'France' },
-    'audience': { '@type': 'Audience', 'audienceType': 'Artisans et professionnels du bâtiment' }
+    'audience': { '@type': 'Audience', 'audienceType': 'Artisans et professionnels du bâtiment' },
+    'datePublished': '2024-10-01',
+    'dateModified': '2026-03-11'
   });
 
   const features = [

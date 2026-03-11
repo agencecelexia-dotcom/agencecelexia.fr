@@ -20,7 +20,9 @@ const Plombier = () => {
     'category': 'Marketing Digital pour Artisans',
     'provider': { '@id': 'https://agencecelexia.fr/#organization' },
     'areaServed': { '@type': 'Country', 'name': 'France' },
-    'audience': { '@type': 'Audience', 'audienceType': 'Plombiers' }
+    'audience': { '@type': 'Audience', 'audienceType': 'Plombiers' },
+    'datePublished': '2024-10-01',
+    'dateModified': '2026-03-11'
   });
 
   const metierColor = '#1EA36F';

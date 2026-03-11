@@ -33,7 +33,9 @@ const Home = () => {
         'isPartOf': { '@id': 'https://agencecelexia.fr/#website' },
         'about': { '@id': 'https://agencecelexia.fr/#organization' },
         'description': 'Agence marketing digital pour artisans du bâtiment. Publicité locale, sites web, SEO, avis clients, emailing et automatisation.',
-        'inLanguage': 'fr-FR'
+        'inLanguage': 'fr-FR',
+        'datePublished': '2024-10-01',
+        'dateModified': '2026-03-11'
       },
       {
         '@type': ['Organization', 'ProfessionalService'],
@@ -305,6 +307,92 @@ const Home = () => {
                 <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* METIERS QUE NOUS ACCOMPAGNONS */}
+      <section className="py-20 md:py-28 px-4 md:px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block">Nos Métiers</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
+              12 corps de métiers du bâtiment accompagnés
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Chaque stratégie marketing est adaptée aux spécificités de votre métier : saisonnalité, type de clientèle, urgence et zone d'intervention.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {[
+              { name: 'Plombier', path: '/metiers/plombier', color: '#1EA36F' },
+              { name: 'Électricien', path: '/metiers/electricien', color: '#F59E0B' },
+              { name: 'Menuisier', path: '/metiers/menuisier', color: '#8B5E3C' },
+              { name: 'Couvreur', path: '/metiers/couvreur', color: '#6B7280' },
+              { name: 'Maçon', path: '/metiers/macon', color: '#D97706' },
+              { name: 'Carreleur', path: '/metiers/carreleur', color: '#0EA5E9' },
+              { name: 'Peintre', path: '/metiers/peintre', color: '#EC4899' },
+              { name: 'Serrurier', path: '/metiers/serrurier', color: '#6366F1' },
+              { name: 'Chauffagiste', path: '/metiers/chauffagiste', color: '#EF4444' },
+              { name: 'Pisciniste', path: '/metiers/pisciniste', color: '#06B6D4' },
+              { name: 'Paysagiste', path: '/metiers/paysagiste', color: '#22C55E' },
+              { name: 'Vitrier', path: '/metiers/vitrier', color: '#94A3B8' }
+            ].map((metier) => (
+              <Link
+                key={metier.path}
+                to={metier.path}
+                className="card p-5 border-gray-200 hover:border-violet-200 group text-center transition-all duration-300 hover:-translate-y-0.5"
+              >
+                <span
+                  className="w-3 h-3 rounded-full inline-block mb-3"
+                  style={{ backgroundColor: metier.color }}
+                  aria-hidden="true"
+                />
+                <p className="text-sm font-semibold text-gray-900 group-hover:text-violet-600 transition-colors">
+                  {metier.name}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LE MARKETING DIGITAL POUR LES ARTISANS */}
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block">Expertise</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
+              Le marketing digital, un levier essentiel pour les artisans du bâtiment
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
+            <p>
+              Le secteur du bâtiment connaît une transformation profonde dans la façon dont les particuliers trouvent et choisissent leurs artisans. Aujourd'hui, plus de 80 % des propriétaires commencent leur recherche d'artisan sur internet, principalement via Google. Que ce soit pour une urgence de plomberie, une rénovation de salle de bain ou l'installation d'une piscine, le réflexe est le même : on sort son smartphone et on tape « plombier près de chez moi » ou « électricien + nom de ville ». L'artisan qui n'est pas visible en ligne perd chaque jour des clients au profit de concurrents mieux positionnés.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Pourquoi les artisans ont besoin d'une agence spécialisée
+            </h3>
+            <p>
+              Les agences marketing généralistes ne comprennent pas les spécificités de l'artisanat. La saisonnalité des couvreurs n'est pas celle des piscinistes. Le parcours d'achat d'un client en urgence de serrurerie est radicalement différent de celui qui planifie une rénovation de façade. Chez Agence Celexia, nous avons développé une expertise approfondie de chaque corps de métier du bâtiment. Nous connaissons les mots-clés qui convertissent, les périodes de forte demande, les objections courantes des prospects et les arguments qui déclenchent la prise de rendez-vous.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Des résultats concrets et mesurables
+            </h3>
+            <p>
+              Notre approche repose sur la transparence totale et les données mesurables. Chaque euro investi dans votre visibilité en ligne est suivi et analysé : nombre d'appels reçus, coût par lead, taux de conversion, retour sur investissement. Nous ne promettons pas de résultats vagues. Nous déployons des campagnes de publicité locale à la performance où vous ne payez que pour les appels de clients réellement intéressés par vos services. Nos artisans partenaires constatent en moyenne une augmentation de 40 à 60 % de leur volume d'appels entrants dans les trois premiers mois de collaboration.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Une approche complète en six services intégrés
+            </h3>
+            <p>
+              Notre offre couvre l'ensemble des besoins marketing d'un artisan : de la publicité à la performance pour générer des appels immédiats, à la création de sites web optimisés pour la conversion, en passant par le référencement SEO local pour une visibilité durable, la gestion des avis clients pour bâtir votre réputation, l'email marketing pour fidéliser votre clientèle existante, et l'automatisation de vos processus administratifs pour gagner du temps. Chaque service peut être activé individuellement ou combiné dans une stratégie globale adaptée à vos objectifs et à votre budget.
+            </p>
           </div>
         </div>
       </section>

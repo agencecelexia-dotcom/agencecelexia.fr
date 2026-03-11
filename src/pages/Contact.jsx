@@ -23,7 +23,9 @@ const Contact = () => {
         'url': 'https://agencecelexia.fr/contact',
         'inLanguage': 'fr-FR',
         'isPartOf': { '@id': 'https://agencecelexia.fr/#website' },
-        'about': { '@id': 'https://agencecelexia.fr/contact#localbusiness' }
+        'about': { '@id': 'https://agencecelexia.fr/contact#localbusiness' },
+        'datePublished': '2024-10-01',
+        'dateModified': '2026-03-11'
       },
       {
         '@type': 'LocalBusiness',

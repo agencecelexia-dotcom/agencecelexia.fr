@@ -20,7 +20,9 @@ const Couvreur = () => {
     'category': 'Marketing Digital pour Artisans',
     'provider': { '@id': 'https://agencecelexia.fr/#organization' },
     'areaServed': { '@type': 'Country', 'name': 'France' },
-    'audience': { '@type': 'Audience', 'audienceType': 'Couvreurs' }
+    'audience': { '@type': 'Audience', 'audienceType': 'Couvreurs' },
+    'datePublished': '2024-10-01',
+    'dateModified': '2026-03-11'
   });
 
   const metierColor = '#6D4C41';
