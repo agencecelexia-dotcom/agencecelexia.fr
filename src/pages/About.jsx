@@ -34,7 +34,9 @@ const About = () => {
         name: 'France'
       },
       knowsAbout: ['Marketing digital', 'Référencement local', 'Google Ads', 'Acquisition client artisans']
-    }
+    },
+    datePublished: '2024-10-01',
+    dateModified: '2026-03-11'
   }), []);
 
   useJsonLd(aboutSchema);

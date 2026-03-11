@@ -108,7 +108,7 @@ const Paysagiste = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link to="/reserver" className="btn-primary arrow-animate text-base px-8 py-4">
               Réserver un audit gratuit
-              <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
@@ -152,7 +152,7 @@ const Paysagiste = () => {
                     <div className="space-y-2 mb-5">
                       {rec.benefits.map((benefit, j) => (
                         <div key={j} className="flex items-start gap-2">
-                          <svg className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: metierColor }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: metierColor }} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
                           <span className="text-sm text-gray-600">{benefit}</span>
@@ -173,7 +173,7 @@ const Paysagiste = () => {
                         }}
                       >
                         En savoir plus
-                        <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                       </Link>
@@ -262,7 +262,7 @@ const Paysagiste = () => {
                 'Les contrats d\'entretien récurrents assurent un revenu stable toute l\'année'
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <svg className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: metierColor }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: metierColor }} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <p className="text-gray-700 text-sm leading-relaxed">{item}</p>
@@ -283,7 +283,7 @@ const Paysagiste = () => {
           </p>
           <Link to="/reserver" className="btn-secondary text-base px-8 py-4 inline-flex items-center">
             Réserver mon audit gratuit
-            <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
