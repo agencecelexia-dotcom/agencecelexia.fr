@@ -1,4 +1,14 @@
 {
+  "redirects": [
+    { "source": "/privacy-policy", "destination": "/politique-confidentialite", "statusCode": 301 },
+    { "source": "/terms-and-conditions", "destination": "/mentions-legales", "statusCode": 301 },
+    { "source": "/contact-3625", "destination": "/contact", "statusCode": 301 },
+    { "source": "/demo-call", "destination": "/reserver", "statusCode": 301 },
+    { "source": "/onboarding-call", "destination": "/reserver", "statusCode": 301 },
+    { "source": "/banque-alimentaire", "destination": "/", "statusCode": 301 },
+    { "source": "/leads-electricien", "destination": "/metiers/electricien", "statusCode": 301 },
+    { "source": "/leads-plombier", "destination": "/metiers/plombier", "statusCode": 301 }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
