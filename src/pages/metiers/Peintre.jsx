@@ -4,7 +4,7 @@ import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Peintre = () => {
   usePageMeta({
-    title: 'Solutions Marketing Digital pour Peintres | Agence Celexia',
+    title: 'Marketing Digital Peintres | Agence Celexia',
     description: 'Recommandations personnalisées pour peintres : site portfolio, publicité, avis clients. Multipliez vos chantiers peinture.',
     canonical: 'https://agencecelexia.fr/metiers/peintre'
   });

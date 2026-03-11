@@ -4,7 +4,7 @@ import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Serrurier = () => {
   usePageMeta({
-    title: 'Solutions Marketing Digital pour Serruriers | Agence Celexia',
+    title: 'Marketing Digital Serruriers | Agence Celexia',
     description: 'Recommandations personnalisées pour serruriers : publicité urgence, site web, avis clients. Multipliez vos interventions serrurerie.',
     canonical: 'https://agencecelexia.fr/metiers/serrurier'
   });

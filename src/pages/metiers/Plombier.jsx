@@ -4,7 +4,7 @@ import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Plombier = () => {
   usePageMeta({
-    title: 'Solutions Marketing Digital pour Plombiers | Agence Celexia',
+    title: 'Marketing Digital Plombiers | Agence Celexia',
     description: 'Recommandations personnalisées pour plombiers : publicité, site web, avis clients. Générez plus d\'appels urgents et de chantiers.',
     canonical: 'https://agencecelexia.fr/metiers/plombier'
   });

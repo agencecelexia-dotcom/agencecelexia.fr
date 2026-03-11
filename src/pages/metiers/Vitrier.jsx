@@ -4,7 +4,7 @@ import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Vitrier = () => {
   usePageMeta({
-    title: 'Solutions Marketing Digital pour Vitriers | Agence Celexia',
+    title: 'Marketing Digital Vitriers | Agence Celexia',
     description: 'Recommandations personnalisées pour vitriers : publicité urgence, site web, avis clients. Multipliez vos interventions vitrerie.',
     canonical: 'https://agencecelexia.fr/metiers/vitrier'
   });

@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Breadcrumbs from './components/Breadcrumbs';
+import CookieConsent from './components/CookieConsent';
 import { NicheProvider } from './context/NicheContext';
 
 // Lazy-loaded pages
@@ -90,6 +91,7 @@ function App() {
             </Suspense>
           </main>
           <Footer />
+          <CookieConsent />
         </div>
       </Router>
     </NicheProvider>

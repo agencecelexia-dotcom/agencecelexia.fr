@@ -26,7 +26,7 @@ const About = () => {
       '@type': 'Organization',
       name: 'Agence Celexia',
       url: 'https://agencecelexia.fr',
-      email: 'contact@agencecelexia.fr',
+      email: 'agence.celexia@gmail.com',
       description: 'Agence marketing digital spécialisée dans l\'acquisition client pour les artisans et professionnels du bâtiment.',
       foundingDate: '2024',
       areaServed: {
@@ -410,8 +410,8 @@ const About = () => {
 
           <div className="mt-10 pt-6 border-t border-white/20">
             <p className="text-sm text-violet-300 mb-1">Vous préférez nous écrire ?</p>
-            <a href="mailto:contact@agencecelexia.fr" className="text-lg font-semibold text-white hover:text-violet-100 transition-colors">
-              contact@agencecelexia.fr
+            <a href="mailto:agence.celexia@gmail.com" className="text-lg font-semibold text-white hover:text-violet-100 transition-colors">
+              agence.celexia@gmail.com
             </a>
           </div>
         </div>

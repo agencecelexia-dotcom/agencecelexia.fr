@@ -4,7 +4,7 @@ import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Paysagiste = () => {
   usePageMeta({
-    title: 'Solutions Marketing Digital pour Paysagistes | Agence Celexia',
+    title: 'Marketing Digital Paysagistes | Agence Celexia',
     description: 'Recommandations personnalisées pour paysagistes : publicité, site web portfolio, avis clients. Développez votre carnet de commandes.',
     canonical: 'https://agencecelexia.fr/metiers/paysagiste'
   });

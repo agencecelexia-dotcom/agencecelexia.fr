@@ -53,7 +53,7 @@ const Home = () => {
         'priceRange': '€€',
         'serviceType': 'Marketing Digital pour Artisans',
         'telephone': '+33651725756',
-        'email': 'contact@agencecelexia.fr',
+        'email': 'agence.celexia@gmail.com',
         'address': {
           '@type': 'PostalAddress',
           'addressCountry': 'FR',
@@ -74,7 +74,7 @@ const Home = () => {
         'contactPoint': {
           '@type': 'ContactPoint',
           'telephone': '+33651725756',
-          'email': 'contact@agencecelexia.fr',
+          'email': 'agence.celexia@gmail.com',
           'contactType': 'customer service',
           'availableLanguage': 'French'
         },
@@ -432,8 +432,8 @@ const Home = () => {
 
           <div className="text-center mt-8 text-violet-100">
             <p className="text-sm mb-1">Vous préférez nous écrire ?</p>
-            <a href="mailto:contact@agencecelexia.fr" className="text-lg font-semibold text-white hover:text-violet-100 transition-colors">
-              contact@agencecelexia.fr
+            <a href="mailto:agence.celexia@gmail.com" className="text-lg font-semibold text-white hover:text-violet-100 transition-colors">
+              agence.celexia@gmail.com
             </a>
           </div>
         </div>

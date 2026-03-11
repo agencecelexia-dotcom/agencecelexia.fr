@@ -58,7 +58,7 @@ const routes = [
           priceRange: '€€',
           serviceType: 'Marketing Digital pour Artisans',
           telephone: '+33651725756',
-          email: 'contact@agencecelexia.fr',
+          email: 'agence.celexia@gmail.com',
           address: { '@type': 'PostalAddress', addressCountry: 'FR', addressRegion: 'France métropolitaine', addressLocality: 'France' },
           foundingDate: '2024',
           areaServed: { '@type': 'Country', name: 'France' },
@@ -68,7 +68,7 @@ const routes = [
             { '@type': 'Person', name: 'Thomas', jobTitle: 'Co-fondateur - Marketing Digital & Acquisition Client' },
             { '@type': 'Person', name: 'Antoine', jobTitle: 'Co-fondateur - Développement Web & Optimisation Technique' }
           ],
-          contactPoint: { '@type': 'ContactPoint', telephone: '+33651725756', email: 'contact@agencecelexia.fr', contactType: 'customer service', availableLanguage: 'French' },
+          contactPoint: { '@type': 'ContactPoint', telephone: '+33651725756', email: 'agence.celexia@gmail.com', contactType: 'customer service', availableLanguage: 'French' },
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
             name: 'Services Marketing Digital pour Artisans',
@@ -99,7 +99,7 @@ const routes = [
         '@type': 'Organization',
         name: 'Agence Celexia',
         url: 'https://agencecelexia.fr',
-        email: 'contact@agencecelexia.fr',
+        email: 'agence.celexia@gmail.com',
         description: "Agence marketing digital spécialisée dans l'acquisition client pour les artisans et professionnels du bâtiment.",
         foundingDate: '2024',
         areaServed: { '@type': 'Country', name: 'France' },
@@ -135,13 +135,13 @@ const routes = [
           description: 'Agence marketing digital spécialisée pour artisans et professionnels du bâtiment. SEO local, publicité à la performance, création de sites web.',
           url: 'https://agencecelexia.fr',
           telephone: '+33651725756',
-          email: 'contact@agencecelexia.fr',
+          email: 'agence.celexia@gmail.com',
           image: 'https://agencecelexia.fr/logo.png',
           address: { '@type': 'PostalAddress', addressCountry: 'FR', addressLocality: 'France' },
           areaServed: { '@type': 'Country', name: 'France' },
           priceRange: '€€',
           openingHours: 'Mo-Fr 09:00-18:00',
-          contactPoint: { '@type': 'ContactPoint', telephone: '+33651725756', email: 'contact@agencecelexia.fr', contactType: 'customer service', availableLanguage: 'French', areaServed: 'FR' }
+          contactPoint: { '@type': 'ContactPoint', telephone: '+33651725756', email: 'agence.celexia@gmail.com', contactType: 'customer service', availableLanguage: 'French', areaServed: 'FR' }
         }
       ]
     },
@@ -244,7 +244,7 @@ const routes = [
   },
   {
     path: '/services/emailing',
-    title: 'Campagnes Email Automatisées pour Artisans | Agence Celexia',
+    title: 'Email Marketing Artisans | Agence Celexia',
     description: "Emails automatiques de relance, newsletters, promotions. Taux d'ouverture optimisé. Reconquête clients inactifs. CRM intégré avec votre activité.",
     jsonLd: {
       '@context': 'https://schema.org',
@@ -285,7 +285,7 @@ const routes = [
   // Métiers
   {
     path: '/metiers/pisciniste',
-    title: 'Solutions Marketing Digital pour Piscinistes | Agence Celexia',
+    title: 'Marketing Digital Piscinistes | Agence Celexia',
     description: 'Recommandations personnalisées pour piscinistes : publicité, site web, avis clients. Générez plus de leads qualifiés pour vos projets piscine.',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -305,7 +305,7 @@ const routes = [
   },
   {
     path: '/metiers/paysagiste',
-    title: 'Solutions Marketing Digital pour Paysagistes | Agence Celexia',
+    title: 'Marketing Digital Paysagistes | Agence Celexia',
     description: 'Recommandations personnalisées pour paysagistes : publicité, site web portfolio, avis clients. Développez votre carnet de commandes.',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -325,7 +325,7 @@ const routes = [
   },
   {
     path: '/metiers/plombier',
-    title: 'Solutions Marketing Digital pour Plombiers | Agence Celexia',
+    title: 'Marketing Digital Plombiers | Agence Celexia',
     description: "Recommandations personnalisées pour plombiers : publicité, site web, avis clients. Générez plus d'appels urgents et de chantiers.",
     jsonLd: {
       '@context': 'https://schema.org',
@@ -345,7 +345,7 @@ const routes = [
   },
   {
     path: '/metiers/chauffagiste',
-    title: 'Solutions Marketing Digital pour Chauffagistes | Agence Celexia',
+    title: 'Marketing Digital Chauffagistes | Agence Celexia',
     description: "Recommandations personnalisées pour chauffagistes : publicité, site web, avis clients. Générez plus de contrats d'entretien et installations.",
     jsonLd: {
       '@context': 'https://schema.org',
@@ -365,7 +365,7 @@ const routes = [
   },
   {
     path: '/metiers/electricien',
-    title: 'Solutions Marketing Digital pour Électriciens | Agence Celexia',
+    title: 'Marketing Digital Électriciens | Agence Celexia',
     description: 'Recommandations personnalisées pour électriciens : publicité, site web, avis clients. Générez plus de chantiers et dépannages électriques.',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -385,7 +385,7 @@ const routes = [
   },
   {
     path: '/metiers/menuisier',
-    title: 'Solutions Marketing Digital pour Menuisiers | Agence Celexia',
+    title: 'Marketing Digital Menuisiers | Agence Celexia',
     description: 'Recommandations personnalisées pour menuisiers : site portfolio, publicité, avis clients. Multipliez vos projets menuiserie.',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -405,7 +405,7 @@ const routes = [
   },
   {
     path: '/metiers/couvreur',
-    title: 'Solutions Marketing Digital pour Couvreurs | Agence Celexia',
+    title: 'Marketing Digital Couvreurs | Agence Celexia',
     description: 'Recommandations personnalisées pour couvreurs : publicité, site web, avis clients. Multipliez vos chantiers toiture et rénovation.',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -425,7 +425,7 @@ const routes = [
   },
   {
     path: '/metiers/macon',
-    title: 'Solutions Marketing Digital pour Maçons | Agence Celexia',
+    title: 'Marketing Digital Maçons | Agence Celexia',
     description: 'Recommandations personnalisées pour maçons : publicité, site web portfolio, avis clients. Multipliez vos chantiers maçonnerie.',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -445,7 +445,7 @@ const routes = [
   },
   {
     path: '/metiers/carreleur',
-    title: 'Solutions Marketing Digital pour Carreleurs | Agence Celexia',
+    title: 'Marketing Digital Carreleurs | Agence Celexia',
     description: 'Recommandations personnalisées pour carreleurs : site portfolio, publicité, avis clients. Multipliez vos chantiers carrelage.',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -465,7 +465,7 @@ const routes = [
   },
   {
     path: '/metiers/peintre',
-    title: 'Solutions Marketing Digital pour Peintres | Agence Celexia',
+    title: 'Marketing Digital Peintres | Agence Celexia',
     description: 'Recommandations personnalisées pour peintres : site portfolio, publicité, avis clients. Multipliez vos chantiers peinture.',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -485,7 +485,7 @@ const routes = [
   },
   {
     path: '/metiers/serrurier',
-    title: 'Solutions Marketing Digital pour Serruriers | Agence Celexia',
+    title: 'Marketing Digital Serruriers | Agence Celexia',
     description: 'Recommandations personnalisées pour serruriers : publicité urgence, site web, avis clients. Multipliez vos interventions serrurerie.',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -505,7 +505,7 @@ const routes = [
   },
   {
     path: '/metiers/vitrier',
-    title: 'Solutions Marketing Digital pour Vitriers | Agence Celexia',
+    title: 'Marketing Digital Vitriers | Agence Celexia',
     description: 'Recommandations personnalisées pour vitriers : publicité urgence, site web, avis clients. Multipliez vos interventions vitrerie.',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -594,7 +594,7 @@ function generatePage(template, route) {
   const canonical = `${SITE_URL}${route.path === '/' ? '/' : route.path}`;
   const title = escapeHtml(route.title);
   const description = escapeHtml(route.description);
-  const image = `${SITE_URL}/logo.png`;
+  const image = `${SITE_URL}/og-image.png`;
 
   let html = template;
 

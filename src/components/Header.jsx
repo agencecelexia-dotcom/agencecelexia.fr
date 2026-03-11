@@ -180,6 +180,7 @@ const Header = () => {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden w-12 h-12 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors"
           aria-label="Menu"
+          aria-expanded={isMenuOpen}
         >
           <div className="w-5 h-4 flex flex-col justify-between relative">
             <span className={`w-full h-[2px] bg-gray-800 rounded-full transition-all duration-300 origin-center ${isMenuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />

@@ -4,7 +4,7 @@ import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Carreleur = () => {
   usePageMeta({
-    title: 'Solutions Marketing Digital pour Carreleurs | Agence Celexia',
+    title: 'Marketing Digital Carreleurs | Agence Celexia',
     description: 'Recommandations personnalisées pour carreleurs : site portfolio, publicité, avis clients. Multipliez vos chantiers carrelage.',
     canonical: 'https://agencecelexia.fr/metiers/carreleur'
   });

@@ -34,7 +34,7 @@ const Contact = () => {
         'description': 'Agence marketing digital spécialisée pour artisans et professionnels du bâtiment. SEO local, publicité à la performance, création de sites web.',
         'url': 'https://agencecelexia.fr',
         'telephone': '+33651725756',
-        'email': 'contact@agencecelexia.fr',
+        'email': 'agence.celexia@gmail.com',
         'image': 'https://agencecelexia.fr/logo.png',
         'address': {
           '@type': 'PostalAddress',
@@ -50,7 +50,7 @@ const Contact = () => {
         'contactPoint': {
           '@type': 'ContactPoint',
           'telephone': '+33651725756',
-          'email': 'contact@agencecelexia.fr',
+          'email': 'agence.celexia@gmail.com',
           'contactType': 'customer service',
           'availableLanguage': 'French',
           'areaServed': 'FR'
@@ -132,8 +132,8 @@ const Contact = () => {
               </svg>
             </div>
             <h3 className="text-lg font-bold text-gray-900 mb-2">Email</h3>
-            <a href="mailto:contact@agencecelexia.fr" className="text-violet-600 hover:text-violet-700 transition-colors font-semibold text-lg">
-              contact@agencecelexia.fr
+            <a href="mailto:agence.celexia@gmail.com" className="text-violet-600 hover:text-violet-700 transition-colors font-semibold text-lg">
+              agence.celexia@gmail.com
             </a>
             <p className="text-gray-600 text-sm mt-3">Réponse sous 24h</p>
           </div>

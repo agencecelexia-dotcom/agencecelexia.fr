@@ -4,7 +4,7 @@ import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Macon = () => {
   usePageMeta({
-    title: 'Solutions Marketing Digital pour Maçons | Agence Celexia',
+    title: 'Marketing Digital Maçons | Agence Celexia',
     description: 'Recommandations personnalisées pour maçons : publicité, site web portfolio, avis clients. Multipliez vos chantiers maçonnerie.',
     canonical: 'https://agencecelexia.fr/metiers/macon'
   });
