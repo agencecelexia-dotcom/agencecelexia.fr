@@ -1,11 +1,26 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Macon = () => {
   usePageMeta({
     title: 'Solutions Marketing Digital pour Maçons | Agence Celexia',
     description: 'Recommandations personnalisées pour maçons : publicité, site web portfolio, avis clients. Multipliez vos chantiers maçonnerie.',
     canonical: 'https://agencecelexia.fr/metiers/macon'
+  });
+
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://agencecelexia.fr/metiers/macon/#service',
+    'name': 'Marketing Digital pour Maçons',
+    'description': 'Stratégies marketing digital adaptées aux maçons : génération de leads qualifiés pour chantiers gros oeuvre, site portfolio professionnel, gestion des avis et campagnes ciblées pour le marché de la rénovation et de la construction.',
+    'url': 'https://agencecelexia.fr/metiers/macon',
+    'serviceType': 'Marketing Digital',
+    'category': 'Marketing Digital pour Artisans',
+    'provider': { '@id': 'https://agencecelexia.fr/#organization' },
+    'areaServed': { '@type': 'Country', 'name': 'France' },
+    'audience': { '@type': 'Audience', 'audienceType': 'Maçons' }
   });
 
   const metierColor = '#9E9E9E';

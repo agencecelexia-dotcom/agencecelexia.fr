@@ -1,11 +1,26 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Electricien = () => {
   usePageMeta({
     title: 'Solutions Marketing Digital pour Électriciens | Agence Celexia',
     description: 'Recommandations personnalisées pour électriciens : publicité, site web, avis clients. Générez plus de chantiers et dépannages électriques.',
     canonical: 'https://agencecelexia.fr/metiers/electricien'
+  });
+
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://agencecelexia.fr/metiers/electricien/#service',
+    'name': 'Marketing Digital pour Électriciens',
+    'description': 'Solutions marketing digital pour electriciens : captation de chantiers neufs et renovations, visibilite sur les nouvelles technologies (bornes de recharge, panneaux solaires, domotique) et gestion de reputation en ligne.',
+    'url': 'https://agencecelexia.fr/metiers/electricien',
+    'serviceType': 'Marketing Digital',
+    'category': 'Marketing Digital pour Artisans',
+    'provider': { '@id': 'https://agencecelexia.fr/#organization' },
+    'areaServed': { '@type': 'Country', 'name': 'France' },
+    'audience': { '@type': 'Audience', 'audienceType': 'Électriciens' }
   });
 
   const metierColor = '#F4C20D';

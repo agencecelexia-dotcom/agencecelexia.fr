@@ -1,11 +1,26 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Serrurier = () => {
   usePageMeta({
     title: 'Solutions Marketing Digital pour Serruriers | Agence Celexia',
     description: 'Recommandations personnalisées pour serruriers : publicité urgence, site web, avis clients. Multipliez vos interventions serrurerie.',
     canonical: 'https://agencecelexia.fr/metiers/serrurier'
+  });
+
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://agencecelexia.fr/metiers/serrurier/#service',
+    'name': 'Marketing Digital pour Serruriers',
+    'description': 'Marketing digital spécialisé pour serruriers honnêtes : visibilité en urgence 24/7, site web avec tarifs transparents, collecte d\'avis vérifiés et stratégie de confiance pour se différencier des arnaques en ligne.',
+    'url': 'https://agencecelexia.fr/metiers/serrurier',
+    'serviceType': 'Marketing Digital',
+    'category': 'Marketing Digital pour Artisans',
+    'provider': { '@id': 'https://agencecelexia.fr/#organization' },
+    'areaServed': { '@type': 'Country', 'name': 'France' },
+    'audience': { '@type': 'Audience', 'audienceType': 'Serruriers' }
   });
 
   const metierColor = '#607D8B';

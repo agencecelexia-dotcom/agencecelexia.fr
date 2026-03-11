@@ -1,11 +1,26 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Menuisier = () => {
   usePageMeta({
     title: 'Solutions Marketing Digital pour Menuisiers | Agence Celexia',
     description: 'Recommandations personnalisées pour menuisiers : site portfolio, publicité, avis clients. Multipliez vos projets menuiserie.',
     canonical: 'https://agencecelexia.fr/metiers/menuisier'
+  });
+
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://agencecelexia.fr/metiers/menuisier/#service',
+    'name': 'Marketing Digital pour Menuisiers',
+    'description': 'Marketing digital dedie aux menuisiers et ebenistes : mise en valeur du savoir-faire artisanal, portfolio de realisations sur-mesure, differenciation face a la grande distribution et generation de projets a forte valeur ajoutee.',
+    'url': 'https://agencecelexia.fr/metiers/menuisier',
+    'serviceType': 'Marketing Digital',
+    'category': 'Marketing Digital pour Artisans',
+    'provider': { '@id': 'https://agencecelexia.fr/#organization' },
+    'areaServed': { '@type': 'Country', 'name': 'France' },
+    'audience': { '@type': 'Audience', 'audienceType': 'Menuisiers' }
   });
 
   const metierColor = '#BF6C2E';

@@ -1,11 +1,26 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Plombier = () => {
   usePageMeta({
     title: 'Solutions Marketing Digital pour Plombiers | Agence Celexia',
     description: 'Recommandations personnalisées pour plombiers : publicité, site web, avis clients. Générez plus d\'appels urgents et de chantiers.',
     canonical: 'https://agencecelexia.fr/metiers/plombier'
+  });
+
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://agencecelexia.fr/metiers/plombier/#service',
+    'name': 'Marketing Digital pour Plombiers',
+    'description': 'Marketing digital specialise pour plombiers : captation d\'appels urgents, visibilite locale maximale, gestion des avis clients et fidelisation par email pour transformer les interventions ponctuelles en contrats recurrents.',
+    'url': 'https://agencecelexia.fr/metiers/plombier',
+    'serviceType': 'Marketing Digital',
+    'category': 'Marketing Digital pour Artisans',
+    'provider': { '@id': 'https://agencecelexia.fr/#organization' },
+    'areaServed': { '@type': 'Country', 'name': 'France' },
+    'audience': { '@type': 'Audience', 'audienceType': 'Plombiers' }
   });
 
   const metierColor = '#1EA36F';

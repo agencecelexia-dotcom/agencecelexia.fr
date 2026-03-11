@@ -1,11 +1,26 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Peintre = () => {
   usePageMeta({
     title: 'Solutions Marketing Digital pour Peintres | Agence Celexia',
     description: 'Recommandations personnalisées pour peintres : site portfolio, publicité, avis clients. Multipliez vos chantiers peinture.',
     canonical: 'https://agencecelexia.fr/metiers/peintre'
+  });
+
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://agencecelexia.fr/metiers/peintre/#service',
+    'name': 'Marketing Digital pour Peintres',
+    'description': 'Solutions marketing digital conçues pour les peintres en bâtiment : différenciation par la spécialisation, site portfolio avec transformations avant/après, publicité locale et stratégie de marque pour se démarquer dans un marché très concurrentiel.',
+    'url': 'https://agencecelexia.fr/metiers/peintre',
+    'serviceType': 'Marketing Digital',
+    'category': 'Marketing Digital pour Artisans',
+    'provider': { '@id': 'https://agencecelexia.fr/#organization' },
+    'areaServed': { '@type': 'Country', 'name': 'France' },
+    'audience': { '@type': 'Audience', 'audienceType': 'Peintres' }
   });
 
   const metierColor = '#E91E63';

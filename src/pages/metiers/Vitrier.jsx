@@ -1,11 +1,26 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Vitrier = () => {
   usePageMeta({
     title: 'Solutions Marketing Digital pour Vitriers | Agence Celexia',
     description: 'Recommandations personnalisées pour vitriers : publicité urgence, site web, avis clients. Multipliez vos interventions vitrerie.',
     canonical: 'https://agencecelexia.fr/metiers/vitrier'
+  });
+
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://agencecelexia.fr/metiers/vitrier/#service',
+    'name': 'Marketing Digital pour Vitriers',
+    'description': 'Stratégies marketing digital pour vitriers et miroitiers : captation des urgences bris de glace, positionnement sur le marché du vitrage énergetique, site web professionnel et gestion de la réputation en ligne pour développer votre clientèle.',
+    'url': 'https://agencecelexia.fr/metiers/vitrier',
+    'serviceType': 'Marketing Digital',
+    'category': 'Marketing Digital pour Artisans',
+    'provider': { '@id': 'https://agencecelexia.fr/#organization' },
+    'areaServed': { '@type': 'Country', 'name': 'France' },
+    'audience': { '@type': 'Audience', 'audienceType': 'Vitriers' }
   });
 
   const metierColor = '#00BCD4';

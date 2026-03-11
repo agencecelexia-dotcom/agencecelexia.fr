@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useJsonLd } from '../../hooks/useJsonLd';
 
 const SEO = () => {
   usePageMeta({
@@ -8,10 +9,24 @@ const SEO = () => {
     canonical: 'https://agencecelexia.fr/services/seo'
   });
 
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://agencecelexia.fr/services/seo/#service',
+    'name': 'Référencement SEO Local pour Artisans',
+    'description': 'Service de référencement naturel local pour artisans. Optimisation Google My Business, SEO technique, contenu optimisé et backlinks de qualité. Résultats visibles sous 90 jours.',
+    'url': 'https://agencecelexia.fr/services/seo',
+    'serviceType': 'Référencement naturel SEO local',
+    'category': 'Marketing Digital',
+    'provider': { '@id': 'https://agencecelexia.fr/#organization' },
+    'areaServed': { '@type': 'Country', 'name': 'France' },
+    'audience': { '@type': 'Audience', 'audienceType': 'Artisans et professionnels du bâtiment' }
+  });
+
   const features = [
     {
       icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
@@ -20,7 +35,7 @@ const SEO = () => {
     },
     {
       icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
@@ -30,7 +45,7 @@ const SEO = () => {
     },
     {
       icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
         </svg>
       ),
@@ -39,7 +54,7 @@ const SEO = () => {
     },
     {
       icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
         </svg>
       ),
@@ -48,7 +63,7 @@ const SEO = () => {
     },
     {
       icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
         </svg>
       ),
@@ -57,7 +72,7 @@ const SEO = () => {
     },
     {
       icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
@@ -122,7 +137,7 @@ const SEO = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link to="/reserver" className="btn-primary arrow-animate text-base px-8 py-4">
               Obtenir un audit SEO gratuit
-              <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
@@ -171,8 +186,49 @@ const SEO = () => {
         </div>
       </section>
 
-      {/* PROCESS */}
+      {/* DETAILED EXPLANATION */}
       <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block">En détail</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
+              Le SEO local : la stratégie la plus rentable pour les artisans
+            </h2>
+          </div>
+          <div className="space-y-6 text-gray-600 text-[15px] leading-relaxed">
+            <p>
+              Le référencement local (Local SEO) est la branche du SEO qui vise à positionner votre entreprise sur les recherches géolocalisées. Quand un particulier tape <strong className="text-gray-900">« plombier Marseille »</strong>, <strong className="text-gray-900">« électricien près de chez moi »</strong> ou <strong className="text-gray-900">« menuisier 69 »</strong>, Google affiche en priorité les entreprises locales pertinentes. Notre mission est de vous placer dans ces résultats, idéalement dans le « Pack Local » — les trois premiers résultats qui apparaissent avec la carte Google Maps.
+            </p>
+            <p>
+              Le Pack Local capte à lui seul <strong className="text-gray-900">44% des clics</strong> sur les recherches à intention locale. Être positionné dans ce top 3 signifie capter presque la moitié du trafic de recherche pour vos mots-clés cibles. Pour un artisan, c'est la différence entre un téléphone qui sonne régulièrement et un carnet de commandes vide.
+            </p>
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">L'optimisation de votre fiche Google Business Profile</h3>
+            <p>
+              Votre fiche Google Business Profile (anciennement Google My Business) est le pilier de votre visibilité locale. Nous l'optimisons de fond en comble : catégories principales et secondaires correctement définies, description riche en mots-clés pertinents, photos professionnelles de vos réalisations, horaires à jour, zones d'intervention clairement délimitées, et services détaillés avec tarifs indicatifs quand c'est pertinent.
+            </p>
+            <p>
+              Nous mettons en place un calendrier de publication régulier sur votre fiche : photos de chantiers récents, offres saisonnières, actualités de votre entreprise. Google favorise les fiches actives et régulièrement mises à jour. Nos clients constatent une augmentation moyenne de 60% des vues de leur fiche après trois mois d'optimisation continue.
+            </p>
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">Le SEO technique adapté aux sites d'artisans</h3>
+            <p>
+              Un site techniquement irréprochable est la base d'un bon référencement. Nous auditons et corrigeons la vitesse de chargement, la compatibilité mobile, les erreurs d'indexation, les redirections cassées et l'architecture de l'information. Nous implémentons les données structurées Schema.org spécifiques aux entreprises locales (LocalBusiness, Service, Review) pour que Google comprenne exactement ce que vous faites et où vous intervenez.
+            </p>
+            <p>
+              Chaque page de service est optimisée pour un groupe de mots-clés spécifique. Par exemple, si vous êtes plombier à Toulouse, nous créons des pages dédiées pour « dépannage plomberie Toulouse », « installation chauffe-eau Toulouse », « rénovation salle de bain Haute-Garonne ». Cette approche de pages ciblées multiplie vos portes d'entrée sur Google et augmente considérablement votre volume de trafic qualifié.
+            </p>
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">Les citations locales et backlinks de qualité</h3>
+            <p>
+              Les citations locales — mentions de votre entreprise (nom, adresse, téléphone) sur des annuaires et plateformes tierces — renforcent votre crédibilité aux yeux de Google. Nous inscrivons votre entreprise sur les annuaires professionnels pertinents (Pages Jaunes, Houzz, 123Devis, Habitatpresto) et veillons à la cohérence parfaite de vos informations sur toutes ces plateformes. Une incohérence d'adresse entre votre site et un annuaire peut pénaliser votre référencement local.
+            </p>
+            <p>
+              En parallèle, nous développons une stratégie de backlinks ciblée : partenariats avec des blogs locaux, articles invités sur des sites spécialisés dans l'habitat, liens depuis les sites de vos fournisseurs et partenaires. Chaque lien de qualité pointant vers votre site renforce votre autorité de domaine et améliore vos positions dans les résultats de recherche. Notre objectif est d'obtenir entre 5 et 15 backlinks de qualité par mois, provenant de sources pertinentes et fiables.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section className="py-20 md:py-28 px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
             <span className="tag mb-4 inline-block">Le processus</span>
@@ -283,7 +339,7 @@ const SEO = () => {
           </p>
           <Link to="/reserver" className="btn-secondary text-base px-8 py-4 inline-flex items-center">
             Réserver mon audit SEO gratuit
-            <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>

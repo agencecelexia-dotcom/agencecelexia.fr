@@ -1,11 +1,26 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Chauffagiste = () => {
   usePageMeta({
     title: 'Solutions Marketing Digital pour Chauffagistes | Agence Celexia',
     description: 'Recommandations personnalisées pour chauffagistes : publicité, site web, avis clients. Générez plus de contrats d\'entretien et installations.',
     canonical: 'https://agencecelexia.fr/metiers/chauffagiste'
+  });
+
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://agencecelexia.fr/metiers/chauffagiste/#service',
+    'name': 'Marketing Digital pour Chauffagistes',
+    'description': 'Accompagnement marketing digital complet pour chauffagistes : visibilite lors des pics hivernaux, promotion des installations pompes a chaleur, automatisation des rappels d\'entretien obligatoire et positionnement sur la transition energetique.',
+    'url': 'https://agencecelexia.fr/metiers/chauffagiste',
+    'serviceType': 'Marketing Digital',
+    'category': 'Marketing Digital pour Artisans',
+    'provider': { '@id': 'https://agencecelexia.fr/#organization' },
+    'areaServed': { '@type': 'Country', 'name': 'France' },
+    'audience': { '@type': 'Audience', 'audienceType': 'Chauffagistes' }
   });
 
   const metierColor = '#E05024';

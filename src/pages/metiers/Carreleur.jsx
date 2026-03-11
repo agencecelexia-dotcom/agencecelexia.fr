@@ -1,11 +1,26 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Carreleur = () => {
   usePageMeta({
     title: 'Solutions Marketing Digital pour Carreleurs | Agence Celexia',
     description: 'Recommandations personnalisées pour carreleurs : site portfolio, publicité, avis clients. Multipliez vos chantiers carrelage.',
     canonical: 'https://agencecelexia.fr/metiers/carreleur'
+  });
+
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://agencecelexia.fr/metiers/carreleur/#service',
+    'name': 'Marketing Digital pour Carreleurs',
+    'description': 'Accompagnement marketing digital dédié aux carreleurs : site portfolio visuel, publicité ciblée pour projets salle de bain et cuisine, gestion des avis avec photos de finitions et stratégie de présence sur Google Images.',
+    'url': 'https://agencecelexia.fr/metiers/carreleur',
+    'serviceType': 'Marketing Digital',
+    'category': 'Marketing Digital pour Artisans',
+    'provider': { '@id': 'https://agencecelexia.fr/#organization' },
+    'areaServed': { '@type': 'Country', 'name': 'France' },
+    'audience': { '@type': 'Audience', 'audienceType': 'Carreleurs' }
   });
 
   const metierColor = '#795548';
