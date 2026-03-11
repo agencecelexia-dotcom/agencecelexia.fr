@@ -1,1 +1,15 @@
+# Redirections 301 - Anciennes URLs vers nouvelles pages
+/privacy-policy /politique-confidentialite 301
+/terms-and-conditions /mentions-legales 301
+/contact-3625 /contact 301
+/demo-call /reserver 301
+/onboarding-call /reserver 301
+/banque-alimentaire / 301
+/leads-electricien /metiers/electricien 301
+/leads-plombier /metiers/plombier 301
+
+# 410 Gone - URLs parasites (ancien builder Brevo/Sendinblue)
+/tmp/* /index.html 410
+
+# SPA fallback - doit rester en dernier
 /* /index.html 200
