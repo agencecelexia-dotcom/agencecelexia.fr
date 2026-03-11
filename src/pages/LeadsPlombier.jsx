@@ -9,8 +9,8 @@ const LeadsPlombier = () => {
 
   // Métadonnées SEO pour la page Plombier
   usePageMeta({
-    title: 'Génération de Leads Plombier | Clients Qualifiés pour Plombiers',
-    description: 'Obtenez des appels de clients qualifiés pour votre entreprise de plomberie. Système de paiement par lead. Dès les premiers jours de publication des campagnes publicitaires. Agence Celexia.',
+    title: 'Leads Plombier | Agence Celexia',
+    description: 'Obtenez des appels de clients qualifiés pour votre plomberie. Paiement par lead, résultats rapides. Agence Celexia.',
     canonical: 'https://agencecelexia.fr/leads-plombier'
   });
 
@@ -106,7 +106,7 @@ const LeadsPlombier = () => {
             Génération de Leads Plombier
             <span className="block text-blue-600">Clients Qualifiés Garantis</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-10">
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
             Remplissez votre agenda avec des urgences plomberie et des chantiers de rénovation.
             Payez uniquement pour les appels de clients réels prêts à engager un plombier.
           </p>
@@ -156,7 +156,7 @@ const LeadsPlombier = () => {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">{benefit.desc}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{benefit.desc}</p>
                   </div>
                 </div>
               </div>
@@ -211,7 +211,7 @@ const LeadsPlombier = () => {
             {faqs.map((faq, i) => (
               <div key={i} className="card p-6 border-gray-200">
                 <h3 className="font-bold text-gray-900 mb-3 text-base">{faq.question}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{faq.answer}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
               </div>
             ))}
           </div>
@@ -224,7 +224,7 @@ const LeadsPlombier = () => {
           <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
             Prêt à remplir votre agenda de chantiers ?
           </h2>
-          <p className="text-lg text-gray-500 mb-8 leading-relaxed">
+          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
             Réservez 30 minutes pour analyser votre zone et estimer votre volume de leads mensuel
           </p>
           <Link to="/contact" className="btn-primary arrow-animate text-base px-8 py-4 inline-flex items-center">

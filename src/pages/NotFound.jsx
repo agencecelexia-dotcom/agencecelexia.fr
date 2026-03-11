@@ -26,7 +26,7 @@ const NotFound = () => {
           <h1 className="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Oups ! Page non trouvée
           </h1>
-          <p className="text-lg text-gray-500 mb-8">
+          <p className="text-lg text-gray-600 mb-8">
             La page que vous recherchez n'existe pas ou a été déplacée.
           </p>
         </div>

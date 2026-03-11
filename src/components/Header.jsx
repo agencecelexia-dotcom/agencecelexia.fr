@@ -67,8 +67,8 @@ const Header = () => {
           <img
             src="/logo.png"
             alt="Agence Celexia - Marketing Digital pour Artisans"
-            className="h-8 transition-transform duration-300 group-hover:scale-[1.02]"
-            width="32"
+            className="h-8 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
+            width="197"
             height="32"
             loading="eager"
           />

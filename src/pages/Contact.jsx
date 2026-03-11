@@ -6,8 +6,8 @@ import { useJsonLd } from '../hooks/useJsonLd';
 const Contact = () => {
   // Métadonnées SEO pour la page Contact
   usePageMeta({
-    title: 'Contactez Agence Celexia – Réservez votre appel stratégique gratuit',
-    description: 'Prenez rendez-vous pour un appel stratégique gratuit de 30 minutes avec Agence Celexia. Analyse de votre visibilité locale, recommandations personnalisées et projection de résultats pour artisans et professionnels du bâtiment.',
+    title: 'Contact | Agence Celexia – Appel Gratuit',
+    description: 'Réservez un appel stratégique gratuit de 30 min avec Agence Celexia. Analyse de visibilité, recommandations et projection de résultats pour artisans.',
     canonical: 'https://agencecelexia.fr/contact'
   });
 
@@ -32,7 +32,7 @@ const Contact = () => {
         'description': 'Agence marketing digital spécialisée pour artisans et professionnels du bâtiment. SEO local, publicité à la performance, création de sites web.',
         'url': 'https://agencecelexia.fr',
         'telephone': '+33651725756',
-        'email': 'agence.celexia@gmail.com',
+        'email': 'contact@agencecelexia.fr',
         'image': 'https://agencecelexia.fr/logo.png',
         'address': {
           '@type': 'PostalAddress',
@@ -48,7 +48,7 @@ const Contact = () => {
         'contactPoint': {
           '@type': 'ContactPoint',
           'telephone': '+33651725756',
-          'email': 'agence.celexia@gmail.com',
+          'email': 'contact@agencecelexia.fr',
           'contactType': 'customer service',
           'availableLanguage': 'French',
           'areaServed': 'FR'
@@ -130,8 +130,8 @@ const Contact = () => {
               </svg>
             </div>
             <h3 className="text-lg font-bold text-gray-900 mb-2">Email</h3>
-            <a href="mailto:agence.celexia@gmail.com" className="text-violet-600 hover:text-violet-700 transition-colors font-semibold text-lg">
-              agence.celexia@gmail.com
+            <a href="mailto:contact@agencecelexia.fr" className="text-violet-600 hover:text-violet-700 transition-colors font-semibold text-lg">
+              contact@agencecelexia.fr
             </a>
             <p className="text-gray-600 text-sm mt-3">Réponse sous 24h</p>
           </div>

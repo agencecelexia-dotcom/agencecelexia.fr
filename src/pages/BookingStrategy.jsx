@@ -80,7 +80,7 @@ const BookingStrategy = () => {
             Réservez votre audit stratégique
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-8">
             30 minutes pour analyser votre situation actuelle et identifier les opportunités de croissance pour votre activité.
           </p>
 
@@ -122,7 +122,7 @@ const BookingStrategy = () => {
                 </svg>
               </div>
               <h3 className="font-bold text-gray-900 mb-2">Analyse de votre situation</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
+              <p className="text-sm text-gray-600 leading-relaxed">
                 Volume d'activité actuel, canaux d'acquisition, budget marketing, objectifs de croissance
               </p>
             </div>
@@ -134,7 +134,7 @@ const BookingStrategy = () => {
                 </svg>
               </div>
               <h3 className="font-bold text-gray-900 mb-2">Potentiel de croissance</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
+              <p className="text-sm text-gray-600 leading-relaxed">
                 Estimation du volume de leads disponibles dans votre zone, opportunités de marché, ROI prévisionnel
               </p>
             </div>
@@ -146,7 +146,7 @@ const BookingStrategy = () => {
                 </svg>
               </div>
               <h3 className="font-bold text-gray-900 mb-2">Stratégie sur-mesure</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
+              <p className="text-sm text-gray-600 leading-relaxed">
                 Plan d'action personnalisé, mix de services adaptés, timeline de déploiement, investissement recommandé
               </p>
             </div>
@@ -158,7 +158,7 @@ const BookingStrategy = () => {
                 </svg>
               </div>
               <h3 className="font-bold text-gray-900 mb-2">Modèle économique clair</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
+              <p className="text-sm text-gray-600 leading-relaxed">
                 Tarification transparente, garantie de résultats, conditions de paiement à la performance
               </p>
             </div>
@@ -180,10 +180,10 @@ const BookingStrategy = () => {
             ></div>
           </div>
 
-          <div className="text-center mt-8 text-gray-500">
+          <div className="text-center mt-8 text-gray-600">
             <p className="text-sm mb-1">Vous préférez nous écrire ?</p>
-            <a href="mailto:agence.celexia@gmail.com" className="text-lg font-semibold text-violet-600 hover:text-violet-700 transition-colors">
-              agence.celexia@gmail.com
+            <a href="mailto:contact@agencecelexia.fr" className="text-lg font-semibold text-violet-600 hover:text-violet-700 transition-colors">
+              contact@agencecelexia.fr
             </a>
           </div>
         </div>
@@ -195,7 +195,7 @@ const BookingStrategy = () => {
           <p className="text-sm font-bold text-gray-900 mb-4 tracking-wide uppercase">
             Investissez quand ça marche, sinon c'est gratuit
           </p>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto">
             Découvrez comment nous pouvons développer votre activité avec des solutions adaptées à votre métier.
           </p>
         </div>

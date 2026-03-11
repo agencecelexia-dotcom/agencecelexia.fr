@@ -134,7 +134,7 @@ const NicheSelector = ({ className = '' }) => {
 
           {/* Footer avec nombre de métiers */}
           <div className="px-4 py-2 border-t border-gray-100 bg-gray-50">
-            <p className="text-xs text-gray-500 text-center">
+            <p className="text-xs text-gray-600 text-center">
               {filteredMetiers.length} {filteredMetiers.length > 1 ? 'métiers disponibles' : 'métier disponible'}
             </p>
           </div>

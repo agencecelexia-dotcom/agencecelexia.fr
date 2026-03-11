@@ -100,7 +100,7 @@ const Couvreur = () => {
             <span className="block" style={{ color: metierColor }}>pour {metierLabel}s</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-10">
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
             Nos recommandations personnalisées pour développer votre activité de couvreur.
             Captez les urgences, développez votre carnet de chantiers.
           </p>
@@ -123,7 +123,7 @@ const Couvreur = () => {
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4">
               Ce que nous vous conseillons
             </h2>
-            <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Solutions adaptées à votre métier de {metierLabel.toLowerCase()} pour maximiser votre croissance
             </p>
           </div>
