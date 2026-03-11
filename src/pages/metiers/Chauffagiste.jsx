@@ -1,11 +1,26 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Chauffagiste = () => {
   usePageMeta({
     title: 'Solutions Marketing Digital pour Chauffagistes | Agence Celexia',
     description: 'Recommandations personnalisées pour chauffagistes : publicité, site web, avis clients. Générez plus de contrats d\'entretien et installations.',
     canonical: 'https://agencecelexia.fr/metiers/chauffagiste'
+  });
+
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://agencecelexia.fr/metiers/chauffagiste/#service',
+    'name': 'Marketing Digital pour Chauffagistes',
+    'description': 'Accompagnement marketing digital complet pour chauffagistes : visibilite lors des pics hivernaux, promotion des installations pompes a chaleur, automatisation des rappels d\'entretien obligatoire et positionnement sur la transition energetique.',
+    'url': 'https://agencecelexia.fr/metiers/chauffagiste',
+    'serviceType': 'Marketing Digital',
+    'category': 'Marketing Digital pour Artisans',
+    'provider': { '@id': 'https://agencecelexia.fr/#organization' },
+    'areaServed': { '@type': 'Country', 'name': 'France' },
+    'audience': { '@type': 'Audience', 'audienceType': 'Chauffagistes' }
   });
 
   const metierColor = '#E05024';
@@ -171,7 +186,68 @@ const Chauffagiste = () => {
         </div>
       </section>
 
+      {/* LA TRANSITION ENERGETIQUE ET LE CHAUFFAGISTE */}
       <section className="py-20 md:py-28 px-4 md:px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block" style={{ backgroundColor: `${metierColor}20`, color: metierColor }}>
+              Chauffage et transition énergétique
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
+              Le chauffagiste au coeur de la révolution énergétique française
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
+            <p>
+              Le métier de chauffagiste traverse une période de transformation sans précédent. L'interdiction progressive des chaudières au fioul, les incitations massives pour l'installation de pompes à chaleur et la montée en puissance des énergies renouvelables dans le bâtiment redessinent complètement le paysage du secteur. Pour les chauffagistes, cette transition énergétique est une opportunité de croissance exceptionnelle, mais elle exige de communiquer différemment auprès d'une clientèle qui a besoin d'être informée, rassurée et accompagnée dans ses choix.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Un marché en pleine explosion : les pompes à chaleur
+            </h3>
+            <p>
+              Le marché français de la pompe à chaleur a connu une accélération spectaculaire, avec plus d'un million d'unités vendues ces dernières années. Le ticket moyen d'une installation de pompe à chaleur air-eau se situe entre 8 000 et 15 000 euros, ce qui en fait l'un des projets les plus rentables pour un chauffagiste. Mais le particulier qui envisage cet investissement fait des recherches approfondies avant de s'engager : il compare les technologies, vérifie les aides financières disponibles (MaPrimeRénov', CEE), consulte les certifications du professionnel et lit les retours d'expérience.
+            </p>
+            <p>
+              Un chauffagiste qui ne dispose pas d'un site web expliquant clairement les avantages de la pompe à chaleur, les aides auxquelles le client peut prétendre et ses propres certifications (RGE, QualiPAC) passe à côté de ce marché en plein essor. Le contenu éducatif -- expliquer simplement la différence entre une PAC air-air et air-eau, détailler le processus d'installation, rassurer sur le niveau sonore -- est un levier d'acquisition puissant.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Les certifications RGE et QualiPAC : un argument commercial décisif
+            </h3>
+            <p>
+              Les particuliers le savent : pour bénéficier des aides à la rénovation énergétique, ils doivent faire appel à un artisan certifié RGE (Reconnu Garant de l'Environnement). Cette certification est bien plus qu'un label technique -- c'est un critère de sélection pour le client. Votre site web, votre fiche Google Business et vos supports de communication doivent mettre ces certifications en avant de manière visible et immédiate. Un chauffagiste RGE qui n'affiche pas clairement cette mention en ligne se prive d'un avantage concurrentiel majeur.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              La saisonnalité extrême : anticiper le rush hivernal
+            </h3>
+            <p>
+              Le chauffage est sans doute le métier du bâtiment le plus soumis à la saisonnalité. Dès les premières baisses de température en octobre, les appels explosent : pannes de chaudière, demandes d'entretien oubliées, installations urgentes avant le grand froid. En décembre et janvier, les agendas sont saturés. Puis, dès mars, l'activité chute brutalement. Cette saisonnalité marquée impose une stratégie digitale en deux temps.
+            </p>
+            <p>
+              Pendant la haute saison, la publicité à la performance doit être maximale pour capter chaque prospect dans un contexte où la demande dépasse souvent l'offre. Pendant la basse saison, le marketing doit se concentrer sur les projets d'installation de pompes à chaleur, les remplacements de chaudières vétustes et les contrats d'entretien -- des prestations qui peuvent se planifier en avance et lisser votre activité tout au long de l'année.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              L'entretien obligatoire : une mine d'or pour la fidélisation
+            </h3>
+            <p>
+              L'entretien annuel de chaudière est une obligation réglementaire pour tous les occupants d'un logement équipé. Ce rendez-vous annuel représente un revenu récurrent prévisible et une occasion de détecter des besoins de remplacement ou de modernisation. L'email marketing automatisé est l'outil parfait pour ce cas d'usage : un rappel envoyé chaque année en septembre ou octobre, personnalisé avec le type d'équipement du client et la date du dernier entretien, transforme un simple rappel en prise de rendez-vous quasi automatique.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Éduquer pour vendre : le marketing de contenu au service du chauffagiste
+            </h3>
+            <p>
+              Le passage d'une chaudière gaz à une pompe à chaleur est un investissement important qui suscite de nombreuses questions chez le particulier. Quel sera le retour sur investissement ? Mon logement est-il compatible ? Quelles aides puis-je obtenir ? Le chauffagiste qui prend le temps de répondre à ces questions sur son site web -- via des articles, des FAQ détaillées ou des simulateurs d'économies -- se positionne comme un expert de confiance. Ce contenu génère du trafic qualifié et pré-qualifie le prospect avant même le premier appel téléphonique.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-4xl mx-auto">
           <div className="card p-8 md:p-10 border-gray-200">
             <h3 className="font-display text-2xl font-bold text-gray-900 mb-6 text-center">

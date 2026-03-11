@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
+
 
 const About = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -14,6 +15,30 @@ const About = () => {
     canonical: 'https://agencecelexia.fr/about'
   });
 
+  // Schéma JSON-LD AboutPage + Organization
+  const aboutSchema = useMemo(() => ({
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'À propos - Agence Celexia',
+    description: 'Découvrez comment Agence Celexia aide les artisans à générer des leads qualifiés grâce au marketing digital local.',
+    url: 'https://agencecelexia.fr/about',
+    mainEntity: {
+      '@type': 'Organization',
+      name: 'Agence Celexia',
+      url: 'https://agencecelexia.fr',
+      email: 'agence.celexia@gmail.com',
+      description: 'Agence marketing digital spécialisée dans l\'acquisition client pour les artisans et professionnels du bâtiment.',
+      foundingDate: '2024',
+      areaServed: {
+        '@type': 'Country',
+        name: 'France'
+      },
+      knowsAbout: ['Marketing digital', 'Référencement local', 'Google Ads', 'Acquisition client artisans']
+    }
+  }), []);
+
+  useJsonLd(aboutSchema);
+
   const faqs = [
     { question: "Comment fonctionne votre système publicitaire ?", answer: "Nous utilisons une stratégie de référencement local optimisée qui place votre entreprise en tête des résultats Google lorsque des clients potentiels recherchent vos services dans votre zone géographique. Vous payez uniquement pour les appels qualifiés reçus." },
     { question: "Quel est le coût réel du service ?", answer: "Le premier mois de gestion est inclus dans notre offre de lancement. Ensuite, nos tarifs dépendent de votre volume d'appels souhaité et de votre zone géographique. Nous établissons un devis personnalisé lors de notre premier échange." },
@@ -25,32 +50,19 @@ const About = () => {
     { question: "Travaillez-vous avec des artisans partout en France ?", answer: "Oui, notre système fonctionne dans toutes les régions françaises. La performance dépend de votre secteur d'activité et de la concurrence locale, que nous analysons lors de notre audit initial." }
   ];
 
-  // Schéma JSON-LD pour la page FAQ
-  useJsonLd({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    'mainEntity': faqs.map(faq => ({
-      '@type': 'Question',
-      'name': faq.question,
-      'acceptedAnswer': {
-        '@type': 'Answer',
-        'text': faq.answer
-      }
-    }))
-  });
 
   const services = [
     { num: '01', title: 'Optimisation de votre présence locale', desc: "Configuration professionnelle de votre fiche Google Business Profile : photos de qualité, description optimisée, catégories pertinentes, horaires à jour.", icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+      <svg className="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
     )},
     { num: '02', title: "Stratégie d'avis clients", desc: "Mise en place d'un système automatisé de collecte d'avis positifs. Nous transformons vos clients satisfaits en ambassadeurs.", icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
+      <svg className="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
     )},
     { num: '03', title: 'Campagnes publicitaires ciblées', desc: "Vous apparaissez en première position lorsque des clients potentiels recherchent vos services. Vous ne payez que pour les contacts qualifiés.", icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+      <svg className="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
     )},
     { num: '04', title: 'Gestion et optimisation continue', desc: "Suivi quotidien de vos performances, ajustements stratégiques, reporting transparent et recommandations mensuelles.", icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+      <svg className="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
     )}
   ];
 
@@ -69,11 +81,11 @@ const About = () => {
       <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-4 md:px-6 overflow-hidden">
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-violet-100/30 rounded-full blur-3xl -translate-y-1/3 -translate-x-1/4" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <span className="tag mb-6 inline-block">A propos</span>
+          <span className="tag mb-6 inline-block">À propos</span>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
             Agence marketing digital pour artisans<br />Expert en acquisition client
           </h1>
-          <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
             Acquisition de clients qualifiés, visibilité locale optimisée, croissance maîtrisée.
           </p>
         </div>
@@ -92,13 +104,13 @@ const About = () => {
           <div className="card p-8 md:p-10 border-gray-200 mb-8">
             <div className="flex items-start gap-4 mb-6">
               <div className="w-14 h-14 rounded-2xl bg-violet-100 flex items-center justify-center flex-shrink-0">
-                <svg className="w-7 h-7 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-7 h-7 text-violet-600" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
               </div>
               <div>
                 <h3 className="font-display text-2xl font-bold text-gray-900 mb-2">Tout commence par une passion commune</h3>
-                <p className="text-gray-500 text-sm">Deux amis d'enfance unis par l'informatique et l'envie d'aider</p>
+                <p className="text-gray-600 text-sm">Deux amis d'enfance unis par l'informatique et l'envie d'aider</p>
               </div>
             </div>
 
@@ -109,7 +121,7 @@ const About = () => {
                 les possibilités infinies du digital. Cette passion ne les a jamais quittés.
               </p>
               <p>
-                En grandissant, ils ont vu leurs proches artisans - plombiers, électriciens, menuisiers - galéraient à trouver
+                En grandissant, ils ont vu leurs proches artisans — plombiers, électriciens, menuisiers — galérer à trouver
                 des clients malgré leur excellent savoir-faire. <span className="text-violet-600 font-semibold">Le paradoxe était
                 frappant</span> : ces professionnels hautement qualifiés n'avaient pas accès aux outils digitaux qui auraient pu
                 transformer leur activité.
@@ -121,7 +133,7 @@ const About = () => {
             <div className="card p-7 border-gray-200">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-6 h-6 text-blue-600" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
@@ -137,7 +149,7 @@ const About = () => {
             <div className="card p-7 border-gray-200">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center">
-                  <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-6 h-6 text-emerald-600" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
@@ -153,7 +165,7 @@ const About = () => {
           <div className="card-violet p-8 md:p-10">
             <div className="flex items-start gap-5">
               <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0">
-                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-7 h-7 text-white" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
@@ -181,7 +193,7 @@ const About = () => {
           </div>
 
           <div className="mt-8 text-center">
-            <p className="text-gray-500 text-sm leading-relaxed max-w-2xl mx-auto">
+            <p className="text-gray-600 text-sm leading-relaxed max-w-2xl mx-auto">
               Aujourd'hui, Agence Celexia est le fruit de cette amitié et de cette passion commune.
               <strong className="text-gray-900"> Une équipe soudée, des valeurs fortes, et une seule obsession :
               votre réussite.</strong>
@@ -217,7 +229,7 @@ const About = () => {
             <div className="space-y-3">
               {[
                 "Fluctuations d'activité imprévisibles",
-                "Dépendance aux prescripteurs ou a la saisonnalité",
+                "Dépendance aux prescripteurs ou à la saisonnalité",
                 "Difficulté à mesurer le ROI des actions marketing",
                 "Manque de temps pour le digital"
               ].map((item, i) => (
@@ -243,7 +255,7 @@ const About = () => {
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-3">
               Notre méthode d'acquisition client
             </h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               Un système complet qui transforme votre visibilité en flux régulier de demandes qualifiées.
             </p>
           </div>
@@ -261,12 +273,12 @@ const About = () => {
                     <h3 className="text-base font-bold text-gray-900">{service.title}</h3>
                   </div>
                 </div>
-                <p className="text-gray-500 text-sm leading-relaxed ml-14">{service.desc}</p>
+                <p className="text-gray-600 text-sm leading-relaxed ml-14">{service.desc}</p>
               </div>
             ))}
           </div>
 
-          <p className="text-base font-medium text-center mt-12 text-gray-500">
+          <p className="text-base font-medium text-center mt-12 text-gray-600">
             <span className="text-gray-900 font-semibold">Résultat :</span> vous vous concentrez sur votre métier pendant que nous générons vos opportunités.
           </p>
         </div>
@@ -292,7 +304,7 @@ const About = () => {
                   </span>
                 </div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{value.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{value.desc}</p>
+                <p className="text-sm text-gray-600 leading-relaxed">{value.desc}</p>
               </div>
             ))}
           </div>
@@ -303,9 +315,9 @@ const About = () => {
       <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <span className="tag mb-4 inline-block">Benefices</span>
+            <span className="tag mb-4 inline-block">Bénéfices</span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-              Ce que vous gagnez concretement
+              Ce que vous gagnez concrètement
             </h2>
           </div>
 
@@ -320,13 +332,13 @@ const About = () => {
               ].map((item, i) => (
                 <div key={i} className="flex items-start group">
                   <span className="flex-shrink-0 w-7 h-7 rounded-lg bg-emerald-100 flex items-center justify-center mr-3.5 mt-0.5">
-                    <svg className="w-3.5 h-3.5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-3.5 h-3.5 text-emerald-600" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                     </svg>
                   </span>
                   <div>
                     <h3 className="font-semibold text-gray-900 text-[15px] mb-0.5">{item.title}</h3>
-                    <p className="text-sm text-gray-500">{item.desc}</p>
+                    <p className="text-sm text-gray-600">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -341,18 +353,18 @@ const About = () => {
           <div className="text-center mb-10">
             <span className="tag mb-4 inline-block">Pour qui ?</span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-              Ce service est adapte si vous etes...
+              Ce service est adapté si vous êtes...
             </h2>
           </div>
 
           <div className="card-violet p-7 md:p-9">
             <div className="space-y-4">
               {[
-                { bold: 'Artisan établi', rest: "qui souhaité stabiliser et augmenter son volume d'activité" },
+                { bold: 'Artisan établi', rest: "qui souhaite stabiliser et augmenter son volume d'activité" },
                 { bold: "Chef d'entreprise du bâtiment", rest: 'qui veut réduire sa dépendance aux prescripteurs' },
-                { bold: 'Professionnel des services a domicile', rest: "cherchant à remplir son agenda 2-3 mois a l'avance" },
+                { bold: 'Professionnel des services à domicile', rest: "cherchant à remplir son agenda 2-3 mois à l'avance" },
                 { bold: 'Entrepreneur ambitieux', rest: "qui veut développer son activité de manière structurée" },
-                { bold: 'Artisan pragmatique', rest: "qui préfère déléguer le digital a des experts" }
+                { bold: 'Artisan pragmatique', rest: "qui préfère déléguer le digital à des experts" }
               ].map((item, i) => (
                 <div key={i} className="flex items-start">
                   <span className="w-1.5 h-1.5 rounded-full bg-violet-400 mt-2.5 mr-3.5 flex-shrink-0" />
@@ -376,7 +388,7 @@ const About = () => {
             Discutons de votre projet
           </h2>
           <p className="text-lg text-violet-200 mb-4 max-w-xl mx-auto leading-relaxed">
-            Echangeons 30 minutes pour comprendre votre situation et determiner si notre solution correspond a vos besoins.
+            Échangeons 30 minutes pour comprendre votre situation et déterminer si notre solution correspond à vos besoins.
           </p>
           <p className="text-violet-300 text-sm mb-8">
             Pas de discours commercial. Une conversation franche entre professionnels.
@@ -388,14 +400,14 @@ const About = () => {
                        shadow-lg hover:shadow-xl hover:-translate-y-[1px] active:translate-y-0 active:scale-[0.98]
                        transition-all duration-300 arrow-animate"
           >
-            Reserver un appel strategique
-            <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            Réserver un appel stratégique
+            <svg className="ml-2 w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
 
           <div className="mt-10 pt-6 border-t border-white/20">
-            <p className="text-sm text-violet-300 mb-1">Vous préfèrez nous ecrire ?</p>
+            <p className="text-sm text-violet-300 mb-1">Vous préférez nous écrire ?</p>
             <a href="mailto:agence.celexia@gmail.com" className="text-lg font-semibold text-white hover:text-violet-100 transition-colors">
               agence.celexia@gmail.com
             </a>
@@ -409,7 +421,7 @@ const About = () => {
           <div className="text-center mb-12">
             <span className="tag mb-4 inline-block">FAQ</span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-              Questions frequentes
+              Questions fréquentes
             </h2>
           </div>
 
@@ -418,18 +430,19 @@ const About = () => {
               <div key={index} className="card overflow-hidden border-gray-200">
                 <button
                   onClick={() => toggleFaq(index)}
+                  aria-expanded={openFaq === index}
                   className="w-full px-6 py-5 text-left flex justify-between items-center
                              hover:bg-gray-50 transition-colors"
                 >
                   <span className="text-[15px] font-semibold text-gray-900 pr-4">{faq.question}</span>
                   <span className={`text-violet-600 flex-shrink-0 transition-transform duration-300 ${openFaq === index ? 'rotate-45' : ''}`}>
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                     </svg>
                   </span>
                 </button>
                 <div className={`overflow-hidden transition-all duration-400 ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <div className="px-6 pb-5 text-gray-500 text-sm leading-relaxed border-t border-gray-100 pt-4">
+                  <div className="px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
                     {faq.answer}
                   </div>
                 </div>

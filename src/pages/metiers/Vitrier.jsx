@@ -1,11 +1,26 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Vitrier = () => {
   usePageMeta({
     title: 'Solutions Marketing Digital pour Vitriers | Agence Celexia',
     description: 'Recommandations personnalisées pour vitriers : publicité urgence, site web, avis clients. Multipliez vos interventions vitrerie.',
     canonical: 'https://agencecelexia.fr/metiers/vitrier'
+  });
+
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://agencecelexia.fr/metiers/vitrier/#service',
+    'name': 'Marketing Digital pour Vitriers',
+    'description': 'Stratégies marketing digital pour vitriers et miroitiers : captation des urgences bris de glace, positionnement sur le marché du vitrage énergetique, site web professionnel et gestion de la réputation en ligne pour développer votre clientèle.',
+    'url': 'https://agencecelexia.fr/metiers/vitrier',
+    'serviceType': 'Marketing Digital',
+    'category': 'Marketing Digital pour Artisans',
+    'provider': { '@id': 'https://agencecelexia.fr/#organization' },
+    'areaServed': { '@type': 'Country', 'name': 'France' },
+    'audience': { '@type': 'Audience', 'audienceType': 'Vitriers' }
   });
 
   const metierColor = '#00BCD4';
@@ -172,6 +187,51 @@ const Vitrier = () => {
       </section>
 
       <section className="py-20 md:py-28 px-4 md:px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block" style={{ backgroundColor: `${metierColor}20`, color: metierColor }}>Expertise Métier</span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4">
+              Vitrerie et miroiterie : saisir les opportunités d'un marché en mutation
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
+            <p>
+              Le métier de vitrier-miroitier se situe au carrefour de deux réalités commerciales distinctes : le dépannage d'urgence et le marché de la rénovation énergétique. D'un côté, le remplacement de vitres brisées suite à un accident, un cambriolage ou une intempérie génère un flux constant d'interventions urgentes. De l'autre, la transition énergétique et les exigences croissantes en matière d'isolation thermique créent une demande soutenue pour le remplacement de vitrages anciens par du double ou triple vitrage performant. Cette dualité impose une stratégie marketing digital capable d'adresser simultanément ces deux segments de clientèle aux comportements d'achat radicalement différents.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              L'urgence du bris de glace : réactivité et visibilité instantanée
+            </h3>
+            <p>
+              Une vitre brisée est une urgence qui ne peut pas attendre. Qu'il s'agisse d'une baie vitrée fracturée par une tempête de grêle, d'une vitrine de commerce défoncée lors d'un cambriolage ou d'une fenêtre cassée par un ballon dans un pavillon de banlieue, le propriétaire a besoin d'un vitrier disponible dans les heures qui suivent. La sécurité du logement ou du local est en jeu, sans parler de l'exposition aux intempéries et du risque de vol. Dans ces moments de stress, le réflexe est invariablement le même : recherche sur smartphone « vitrier urgence + ville ». Les vitriers qui apparaissent dans les trois premiers résultats captent la quasi-totalité de ces appels. Chaque intervention d'urgence représente un ticket moyen de 200 à 800 euros, et la satisfaction du client en situation de détresse génère naturellement des avis positifs et du bouche-à-oreille.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              Les schémas saisonniers : anticiper les pics de demande
+            </h3>
+            <p>
+              L'activité de vitrerie suit des cycles saisonniers prévisibles qu'une stratégie marketing intelligente doit exploiter. Les tempêtes automnales et hivernales provoquent des pics de demandes de dépannage. La période estivale voit augmenter les projets de vérandas, de garde-corps en verre et de cloisons vitrées. Les cambriolages, plus fréquents pendant les vacances d'été et les fêtes de fin d'année, génèrent des besoins de remplacement et de sécurisation. En ajustant vos campagnes publicitaires et vos messages marketing à ces cycles, vous optimisez votre budget et captez la demande au moment précis où elle se manifeste. Des campagnes Google Ads activées automatiquement lors d'alertes météo dans votre zone d'intervention peuvent multiplier votre taux de conversion.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              Le vitrage énergétique : un marché porté par les subventions
+            </h3>
+            <p>
+              Le remplacement de fenêtres simple vitrage par du double ou triple vitrage constitue l'un des postes majeurs de la rénovation énergétique en France. Les aides gouvernementales comme MaPrimeRénov', les CEE (Certificats d'Économies d'Énergie) et l'éco-prêt à taux zéro rendent ces travaux accessibles à un large public. Pour les vitriers, ce marché représente des projets de 1 500 à 5 000 euros par logement, avec une clientèle motivée par les économies d'énergie et le confort acoustique. Mettre en avant votre capacité à accompagner les clients dans les démarches administratives d'obtention des aides, tout en garantissant la qualité de pose certifiée, constitue un argument commercial puissant que votre site web doit valoriser.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              Le double marché résidentiel et commercial
+            </h3>
+            <p>
+              Les vitriers-miroitiers interviennent aussi bien chez les particuliers que pour les professionnels. Le marché commercial englobe les vitrines de magasins, les cloisons de bureaux, les façades vitrées d'immeubles, les garde-corps et rampes en verre pour les ERP (Établissements Recevant du Public). Ces chantiers commerciaux représentent des tickets plus élevés et des relations récurrentes avec des gestionnaires d'immeubles, des architectes et des syndics de copropriété. Votre présence en ligne doit adresser ces deux cibles avec des pages et des contenus dédiés. Un portfolio montrant aussi bien le remplacement rapide d'une vitre chez un particulier que l'installation d'une façade vitrée pour un commerce démontre la polyvalence de votre savoir-faire. La documentation photographique de vos interventions, accompagnée des délais de réalisation, renforce la crédibilité de votre offre tant en urgence qu'en projet planifié, et constitue le socle d'une stratégie de contenu efficace pour développer durablement votre activité.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-4xl mx-auto">
           <div className="card p-8 md:p-10 border-gray-200">
             <h3 className="font-display text-2xl font-bold text-gray-900 mb-6 text-center">

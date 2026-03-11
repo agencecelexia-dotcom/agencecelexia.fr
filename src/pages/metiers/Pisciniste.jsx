@@ -1,11 +1,26 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Pisciniste = () => {
   usePageMeta({
     title: 'Solutions Marketing Digital pour Piscinistes | Agence Celexia',
     description: 'Recommandations personnalisées pour piscinistes : publicité, site web, avis clients. Générez plus de leads qualifiés pour vos projets piscine.',
     canonical: 'https://agencecelexia.fr/metiers/pisciniste'
+  });
+
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://agencecelexia.fr/metiers/pisciniste/#service',
+    'name': 'Marketing Digital pour Piscinistes',
+    'description': 'Solutions de marketing digital sur-mesure pour les piscinistes : generation de leads qualifies, site web portfolio, gestion des avis clients et campagnes email saisonnieres pour maximiser votre chiffre d\'affaires.',
+    'url': 'https://agencecelexia.fr/metiers/pisciniste',
+    'serviceType': 'Marketing Digital',
+    'category': 'Marketing Digital pour Artisans',
+    'provider': { '@id': 'https://agencecelexia.fr/#organization' },
+    'areaServed': { '@type': 'Country', 'name': 'France' },
+    'audience': { '@type': 'Audience', 'audienceType': 'Piscinistes' }
   });
 
   const metierColor = '#1E88E5';
@@ -175,8 +190,69 @@ const Pisciniste = () => {
         </div>
       </section>
 
-      {/* POURQUOI CES RECOMMANDATIONS */}
+      {/* LE MARCHE DE LA PISCINE ET SES DEFIS DIGITAUX */}
       <section className="py-20 md:py-28 px-4 md:px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block" style={{ backgroundColor: `${metierColor}20`, color: metierColor }}>
+              Le marché de la piscine en France
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
+              Pourquoi le digital est devenu indispensable pour les piscinistes
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
+            <p>
+              La France est le deuxième marché mondial de la piscine privée, juste derrière les États-Unis. Avec plus de 3,2 millions de bassins installés sur le territoire et une croissance annuelle de 10 à 15 % depuis 2020, le secteur attire de plus en plus d'acteurs. Pour un pisciniste indépendant ou une entreprise locale, cette dynamique représente à la fois une opportunité formidable et un défi considérable : comment se démarquer dans un marché où les grandes enseignes nationales comme Desjoyaux, Waterair ou Magiline investissent massivement en publicité ?
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Un cycle de vente long et saisonnier qui exige une stratégie anticipée
+            </h3>
+            <p>
+              Le métier de pisciniste est profondément saisonnier. L'essentiel des demandes de construction se concentre entre février et juin, avec un pic au printemps lorsque les propriétaires commencent à imaginer leur été au bord de la piscine. Le ticket moyen d'une construction neuve oscille entre 15 000 et 50 000 euros, ce qui signifie que chaque prospect perdu représente un manque à gagner considérable. Les particuliers ne prennent pas cette décision à la légère : 78 % des acheteurs de piscine effectuent des recherches en ligne avant de contacter un professionnel. Ils comparent les réalisations, lisent les avis, consultent les galeries photos et demandent plusieurs devis.
+            </p>
+            <p>
+              C'est pourquoi il est essentiel d'être visible dès le mois de janvier sur les requêtes de type « pisciniste + ville » ou « construction piscine + département ». Un pisciniste qui n'apparaît pas dans les trois premiers résultats Google au moment où le prospect cherche laisse littéralement ses futurs clients à la concurrence.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Le pouvoir de l'image : avant/après et réalisations
+            </h3>
+            <p>
+              Contrairement à beaucoup d'autres métiers du bâtiment, la piscine est un produit hautement visuel et émotionnel. Un propriétaire n'achète pas seulement un bassin : il achète un cadre de vie, un rêve d'été en famille, un espace de détente. Les photos avant/après de vos chantiers sont votre meilleur argument commercial. Un site web sans galerie de réalisations, c'est comme un restaurant sans carte : le prospect passera son chemin.
+            </p>
+            <p>
+              Les réseaux sociaux, notamment Instagram et Pinterest, jouent un rôle croissant dans l'inspiration des futurs propriétaires de piscine. Mais ces plateformes ne suffisent pas : elles doivent être complétées par un site professionnel qui rassemble vos réalisations, vos certifications et vos avis clients au même endroit.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              La rénovation : un marché en pleine expansion
+            </h3>
+            <p>
+              Au-delà de la construction neuve, le marché de la rénovation de piscines connaît une croissance remarquable. Des millions de bassins construits dans les années 2000 arrivent à un âge où le liner doit être remplacé, la filtration modernisée ou la margelle refaite. Ce segment représente des interventions de 5 000 à 20 000 euros et offre l'avantage d'une moindre saisonnalité. Un pisciniste qui sait capter ces demandes via des campagnes ciblées « rénovation piscine » ou « remplacement liner » diversifie son activité et lisse son chiffre d'affaires sur l'année.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              L'entretien annuel : la clé de la fidélisation
+            </h3>
+            <p>
+              Chaque piscine construite est un client potentiel récurrent pour l'ouverture printanière, l'hivernage automnal, le traitement de l'eau et le remplacement des équipements. Les campagnes email automatisées permettent de relancer vos anciens clients au bon moment, avant qu'ils ne cherchent un autre prestataire. Un simple email de rappel envoyé en mars pour l'ouverture de la piscine peut générer un taux de conversion de 30 à 40 % chez vos clients existants.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Face aux chaînes nationales, misez sur la proximité et la confiance
+            </h3>
+            <p>
+              Les grandes enseignes de piscine investissent des budgets publicitaires importants, mais elles ne peuvent pas rivaliser avec un pisciniste local sur un point crucial : la relation de confiance et le service après-vente de proximité. Vos avis Google, vos témoignages clients et votre réactivité sont des atouts que les chaînes ne pourront jamais reproduire. Le marketing digital vous permet d'amplifier ces avantages naturels et de les rendre visibles exactement au moment où le prospect prend sa décision.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* POURQUOI CES RECOMMANDATIONS */}
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-4xl mx-auto">
           <div className="card p-8 md:p-10 border-gray-200">
             <h3 className="font-display text-2xl font-bold text-gray-900 mb-6 text-center">

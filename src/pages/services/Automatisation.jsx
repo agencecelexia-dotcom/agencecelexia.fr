@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Automatisation = () => {
   usePageMeta({
@@ -8,10 +9,24 @@ const Automatisation = () => {
     canonical: 'https://agencecelexia.fr/services/automatisation'
   });
 
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://agencecelexia.fr/services/automatisation/#service',
+    'name': 'Automatisation Complète pour Artisans',
+    'description': 'Service d\'automatisation des processus administratifs pour artisans. CRM artisan, devis automatiques, relances intelligentes, rappels RDV, facturation et collecte d\'avis automatisés.',
+    'url': 'https://agencecelexia.fr/services/automatisation',
+    'serviceType': 'Automatisation de processus métier',
+    'category': 'Marketing Digital',
+    'provider': { '@id': 'https://agencecelexia.fr/#organization' },
+    'areaServed': { '@type': 'Country', 'name': 'France' },
+    'audience': { '@type': 'Audience', 'audienceType': 'Artisans et professionnels du bâtiment' }
+  });
+
   const features = [
     {
       icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
         </svg>
       ),
@@ -20,7 +35,7 @@ const Automatisation = () => {
     },
     {
       icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
       ),
@@ -29,7 +44,7 @@ const Automatisation = () => {
     },
     {
       icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
         </svg>
       ),
@@ -38,7 +53,7 @@ const Automatisation = () => {
     },
     {
       icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
       ),
@@ -47,7 +62,7 @@ const Automatisation = () => {
     },
     {
       icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
         </svg>
       ),
@@ -56,7 +71,7 @@ const Automatisation = () => {
     },
     {
       icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       ),
@@ -125,7 +140,7 @@ const Automatisation = () => {
             <span className="block text-violet-600">Libérez votre Temps</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-10">
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
             CRM artisan, devis automatiques, relances, rappels RDV, facturation, collecte d'avis.
             <strong className="block mt-2 text-gray-900">Concentrez-vous sur vos chantiers, on gère l'admin.</strong>
           </p>
@@ -133,7 +148,7 @@ const Automatisation = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link to="/reserver" className="btn-primary arrow-animate text-base px-8 py-4">
               Automatiser mon activité
-              <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
@@ -193,9 +208,50 @@ const Automatisation = () => {
                   {feature.icon}
                 </div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{feature.desc}</p>
+                <p className="text-sm text-gray-600 leading-relaxed">{feature.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DETAILED EXPLANATION */}
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block">En détail</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
+              L'automatisation : la clé pour faire grandir votre activité d'artisan sans embaucher
+            </h2>
+          </div>
+          <div className="space-y-6 text-gray-600 text-[15px] leading-relaxed">
+            <p>
+              En tant qu'artisan, vous passez en moyenne <strong className="text-gray-900">15 à 20 heures par semaine</strong> sur des tâches administratives : répondre aux demandes de devis, relancer les clients, planifier les interventions, émettre des factures, suivre les paiements, demander des avis. Ce temps passé derrière un bureau, c'est du temps que vous ne passez pas sur vos chantiers — là où vous générez réellement du chiffre d'affaires.
+            </p>
+            <p>
+              Notre solution d'automatisation vise à réduire drastiquement ce temps administratif en automatisant les tâches répétitives et à faible valeur ajoutée. L'objectif n'est pas de remplacer le contact humain, mais de l'optimiser : vous intervenez uniquement quand votre expertise est nécessaire, le reste se fait tout seul.
+            </p>
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">Un CRM conçu pour les artisans, pas pour les multinationales</h3>
+            <p>
+              Les CRM traditionnels (Salesforce, HubSpot) sont conçus pour des équipes commerciales de grandes entreprises. Ils sont complexes, coûteux et inadaptés aux réalités d'un artisan qui travaille seul ou avec une petite équipe. Notre CRM artisan est <strong className="text-gray-900">simple, visuel et accessible depuis votre téléphone</strong>. En un coup d'œil, vous voyez vos prospects en attente, vos devis envoyés, vos chantiers en cours et vos factures impayées.
+            </p>
+            <p>
+              Chaque contact est enrichi automatiquement : historique des interventions, montant total facturé, avis laissé, dernière date de contact. Quand un ancien client vous appelle, vous avez immédiatement son historique complet sous les yeux. Ce niveau de connaissance client vous permet de personnaliser chaque interaction et de renforcer la relation de confiance qui fait la force de l'artisanat.
+            </p>
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">Des workflows qui travaillent pendant que vous êtes sur vos chantiers</h3>
+            <p>
+              Un workflow est une séquence d'actions automatiques déclenchées par un événement. Par exemple, quand un prospect remplit le formulaire de contact sur votre site : le système crée automatiquement une fiche dans votre CRM, vous envoie une notification, génère un devis pré-rempli à partir des informations fournies, et programme une relance automatique si le devis n'est pas signé sous 3 jours. Tout cela sans que vous n'ayez à lever le petit doigt.
+            </p>
+            <p>
+              De la même manière, quand vous marquez une intervention comme terminée dans votre CRM, la facture est générée et envoyée automatiquement, un SMS de demande d'avis Google est programmé, les documents sont archivés dans votre Google Drive, et un rappel d'entretien est planifié pour 11 mois plus tard. <strong className="text-gray-900">Chaque étape du cycle client est couverte</strong>, de la première prise de contact jusqu'à la fidélisation à long terme.
+            </p>
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">Connecté à tous vos outils existants</h3>
+            <p>
+              Notre système s'intègre nativement avec les outils que vous utilisez déjà : Google Calendar pour votre planning, Gmail pour vos emails, Google Drive pour vos documents, et votre logiciel de facturation. Pas besoin de changer vos habitudes ni d'apprendre un nouvel outil complexe. Les données circulent automatiquement entre toutes ces applications, éliminant les doubles saisies et les erreurs manuelles.
+            </p>
+            <p>
+              Nous utilisons la plateforme N8N en self-hosted pour construire vos workflows d'automatisation. Cette approche garantit que <strong className="text-gray-900">vos données restent chez vous</strong>, sur votre propre serveur, sans transiter par des services tiers américains. C'est un point crucial pour les artisans soucieux de la confidentialité de leurs données clients. De plus, contrairement aux solutions SaaS qui vous facturent au nombre d'exécutions, notre approche self-hosted vous offre des automatisations illimitées pour un coût fixe mensuel maîtrisé, quel que soit le volume de votre activité.
+            </p>
           </div>
         </div>
       </section>
@@ -208,7 +264,7 @@ const Automatisation = () => {
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-3">
               3 exemples de workflows automatisés
             </h2>
-            <p className="text-gray-500 text-lg">
+            <p className="text-gray-600 text-lg">
               Chaque étape s'exécute automatiquement sans votre intervention
             </p>
           </div>
@@ -263,7 +319,7 @@ const Automatisation = () => {
             ))}
           </div>
 
-          <p className="text-center mt-8 text-gray-500 text-sm">
+          <p className="text-center mt-8 text-gray-600 text-sm">
             + des centaines d'autres intégrations possibles via API
           </p>
         </div>
@@ -293,7 +349,7 @@ const Automatisation = () => {
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
-                    <p className="text-sm text-gray-500">{item.desc}</p>
+                    <p className="text-sm text-gray-600">{item.desc}</p>
                   </div>
                 </div>
               </div>
@@ -313,7 +369,7 @@ const Automatisation = () => {
           </p>
           <Link to="/reserver" className="btn-secondary text-base px-8 py-4 inline-flex items-center">
             Réserver un audit gratuit
-            <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>

@@ -1,11 +1,26 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Plombier = () => {
   usePageMeta({
     title: 'Solutions Marketing Digital pour Plombiers | Agence Celexia',
     description: 'Recommandations personnalisées pour plombiers : publicité, site web, avis clients. Générez plus d\'appels urgents et de chantiers.',
     canonical: 'https://agencecelexia.fr/metiers/plombier'
+  });
+
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://agencecelexia.fr/metiers/plombier/#service',
+    'name': 'Marketing Digital pour Plombiers',
+    'description': 'Marketing digital specialise pour plombiers : captation d\'appels urgents, visibilite locale maximale, gestion des avis clients et fidelisation par email pour transformer les interventions ponctuelles en contrats recurrents.',
+    'url': 'https://agencecelexia.fr/metiers/plombier',
+    'serviceType': 'Marketing Digital',
+    'category': 'Marketing Digital pour Artisans',
+    'provider': { '@id': 'https://agencecelexia.fr/#organization' },
+    'areaServed': { '@type': 'Country', 'name': 'France' },
+    'audience': { '@type': 'Audience', 'audienceType': 'Plombiers' }
   });
 
   const metierColor = '#1EA36F';
@@ -173,8 +188,66 @@ const Plombier = () => {
         </div>
       </section>
 
-      {/* POURQUOI CES RECOMMANDATIONS */}
+      {/* LE QUOTIDIEN DU PLOMBIER ET LE DIGITAL */}
       <section className="py-20 md:py-28 px-4 md:px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block" style={{ backgroundColor: `${metierColor}20`, color: metierColor }}>
+              La plomberie à l'ère du digital
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
+              Quand le téléphone doit sonner : les enjeux digitaux du plombier
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
+            <p>
+              Pour un plombier, le marketing digital n'est pas un luxe, c'est une question de survie commerciale. Contrairement à d'autres métiers du bâtiment où le client prend le temps de comparer, de réfléchir et de planifier, la plomberie obéit à une logique d'urgence. Environ 70 % des recherches « plombier » sur Google correspondent à une situation de crise : fuite d'eau, canalisation bouchée, chauffe-eau en panne, toilettes hors service. Le particulier qui tape « plombier urgence Marseille » à 22 heures un samedi soir n'a pas la patience de parcourir dix pages de résultats. Il appelle le premier professionnel qui inspire confiance.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Le mobile d'abord : la réalité des recherches en plomberie
+            </h3>
+            <p>
+              Plus de 85 % des recherches liées à la plomberie sont effectuées depuis un smartphone. Le propriétaire est debout dans sa salle de bain inondée, le téléphone à la main. Il a besoin d'un numéro à appeler immédiatement. Si votre site web met plus de trois secondes à charger sur mobile, si le numéro de téléphone n'est pas cliquable, si le bouton d'appel n'est pas visible sans scroller, vous perdez ce prospect au profit du concurrent dont le site est optimisé pour cette situation exacte.
+            </p>
+            <p>
+              Un site de plombier performant n'est pas un site « joli ». C'est un site qui affiche un numéro de téléphone en gros, un bouton « appeler maintenant » qui fonctionne en un tap, et vos avis Google bien visibles pour rassurer en une seconde.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              La confiance en quelques secondes : le rôle crucial des avis
+            </h3>
+            <p>
+              La plomberie souffre d'un problème de réputation sectorielle. Les arnaques au dépannage d'urgence, les factures abusives et les artisans peu scrupuleux ont rendu les consommateurs extrêmement méfiants. Dans ce contexte, vos avis Google sont votre meilleur atout. Un plombier avec 80 avis et une note de 4,7 étoiles rassure instantanément, là où un profil sans avis suscite la méfiance. Chaque intervention réussie devrait se transformer en avis positif grâce à un système de collecte automatisé.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Au-delà de l'urgence : développer le chiffre d'affaires planifié
+            </h3>
+            <p>
+              Si les urgences représentent le flux quotidien d'un plombier, les projets planifiés -- rénovation de salle de bain, remplacement de chauffe-eau, installation de système de filtration -- constituent les interventions les plus rentables. Le ticket moyen d'une urgence se situe entre 200 et 400 euros, tandis qu'une rénovation complète de salle de bain peut atteindre 5 000 à 15 000 euros. Capter ces projets nécessite une visibilité différente : des pages dédiées à la rénovation, un formulaire de demande de devis et des photos de réalisations qui démontrent votre capacité à mener des projets d'envergure.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Les contrats d'entretien : transformer l'intervention ponctuelle en revenu récurrent
+            </h3>
+            <p>
+              L'entretien annuel de chaudière est une obligation légale pour les locataires et propriétaires. Chaque client chez qui vous intervenez pour un dépannage est un contrat d'entretien potentiel. Les campagnes email automatisées permettent de relancer ces clients au bon moment : un email envoyé en septembre pour l'entretien de chaudière avant l'hiver génère des prises de rendez-vous régulières sans aucun effort de prospection. Sur une base de 500 clients, un simple rappel annuel peut générer 50 à 80 contrats d'entretien supplémentaires.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              La concurrence urbaine : se démarquer dans un marché saturé
+            </h3>
+            <p>
+              Dans les grandes agglomérations, la densité de plombiers est telle que la visibilité en ligne devient un facteur déterminant. À Paris, Lyon ou Marseille, des dizaines de plombiers se disputent les mêmes requêtes Google. Sans stratégie digitale, même un excellent plombier reste invisible. La publicité à la performance, combinée à une fiche Google Business optimisée et des avis réguliers, permet de sortir du lot et de remplir son planning semaine après semaine, même dans les zones les plus concurrentielles.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* POURQUOI CES RECOMMANDATIONS */}
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-4xl mx-auto">
           <div className="card p-8 md:p-10 border-gray-200">
             <h3 className="font-display text-2xl font-bold text-gray-900 mb-6 text-center">

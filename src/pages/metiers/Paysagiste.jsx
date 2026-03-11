@@ -1,11 +1,26 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Paysagiste = () => {
   usePageMeta({
     title: 'Solutions Marketing Digital pour Paysagistes | Agence Celexia',
     description: 'Recommandations personnalisées pour paysagistes : publicité, site web portfolio, avis clients. Développez votre carnet de commandes.',
     canonical: 'https://agencecelexia.fr/metiers/paysagiste'
+  });
+
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://agencecelexia.fr/metiers/paysagiste/#service',
+    'name': 'Marketing Digital pour Paysagistes',
+    'description': 'Strategies de marketing digital adaptees aux paysagistes : portfolio visuel en ligne, generation de leads saisonniers, gestion de reputation et campagnes email pour contrats d\'entretien recurrents.',
+    'url': 'https://agencecelexia.fr/metiers/paysagiste',
+    'serviceType': 'Marketing Digital',
+    'category': 'Marketing Digital pour Artisans',
+    'provider': { '@id': 'https://agencecelexia.fr/#organization' },
+    'areaServed': { '@type': 'Country', 'name': 'France' },
+    'audience': { '@type': 'Audience', 'audienceType': 'Paysagistes' }
   });
 
   const metierColor = '#4CAF50';
@@ -171,7 +186,68 @@ const Paysagiste = () => {
         </div>
       </section>
 
+      {/* L'UNIVERS DU PAYSAGISME ET LE DIGITAL */}
       <section className="py-20 md:py-28 px-4 md:px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block" style={{ backgroundColor: `${metierColor}20`, color: metierColor }}>
+              Le paysagisme face au digital
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
+              Comment le marketing digital transforme le métier de paysagiste
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
+            <p>
+              Le métier de paysagiste est en pleine mutation. Longtemps fondé exclusivement sur le bouche-à-oreille et les recommandations de voisinage, le secteur du paysagisme doit désormais composer avec des clients qui débutent leur parcours d'achat bien avant de décrocher le téléphone. Avant même de chercher « paysagiste près de chez moi » sur Google, le futur client a souvent passé des heures sur Pinterest à épingler des idées d'aménagement, à parcourir des comptes Instagram de jardins contemporains ou à regarder des vidéos de transformations spectaculaires sur YouTube.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Deux saisons, deux stratégies marketing distinctes
+            </h3>
+            <p>
+              L'activité de paysagiste connaît deux pics majeurs : le printemps pour les créations et les plantations, et l'automne pour les travaux de restructuration et la préparation hivernale. Ces fenêtres de forte demande sont courtes, et la concurrence est rude. Un paysagiste qui lance sa visibilité en ligne en avril a déjà perdu une partie de la saison : les prospects commencent leurs recherches dès février. À l'inverse, les mois d'hiver, souvent perçus comme creux, sont le moment idéal pour préparer ses campagnes, enrichir son portfolio et mettre en place des séquences email qui se déclencheront automatiquement au retour des beaux jours.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              La diversité des services : un atout à valoriser en ligne
+            </h3>
+            <p>
+              Un paysagiste ne fait pas qu'un seul métier. Conception de jardins, terrassement, pose de clôtures, création de terrasses, plantations, élagage, installation d'arrosage automatique, éclairage extérieur... Cette polyvalence est une force commerciale, mais elle doit être clairement présentée sur votre site web. Un prospect qui cherche « pose terrasse bois » ne tombera sur votre site que si cette prestation y figure avec ses propres mots-clés et ses propres photos de réalisations.
+            </p>
+            <p>
+              Chaque service mérite sa propre page, ses propres visuels et son propre argumentaire. Un site générique qui mentionne vaguement « aménagement extérieur » ne capte qu'une fraction du trafic potentiel.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              L'éco-paysagisme : une tendance porteuse à exploiter
+            </h3>
+            <p>
+              La demande pour des jardins écologiques, des aménagements favorisant la biodiversité et des solutions de gestion durable de l'eau ne cesse de croître. Les particuliers recherchent activement des paysagistes capables de concevoir des jardins secs, des toitures végétalisées, des noues paysagères ou des haies champêtres. Ce positionnement « vert » est non seulement en phase avec les attentes du marché, mais il permet également de se différencier des concurrents qui proposent encore uniquement du gazon et des thuyas.
+            </p>
+            <p>
+              Du contenu éducatif sur ces sujets -- articles de blog, guides pratiques, vidéos de projets réalisés -- renforce votre expertise perçue et attire un trafic qualifié de prospects déjà sensibilisés à ces enjeux.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Les contrats d'entretien : le nerf de la guerre financière
+            </h3>
+            <p>
+              La création de jardins génère du chiffre d'affaires ponctuel, mais ce sont les contrats d'entretien récurrents qui assurent la stabilité financière d'une entreprise de paysagisme. Un client qui vous confie la tonte, la taille et l'entretien saisonnier de son jardin représente un revenu prévisible sur plusieurs années. Le marketing par email est l'outil idéal pour convertir vos clients de création en clients d'entretien : une séquence automatisée envoyée trois mois après la livraison d'un chantier, proposant un contrat d'entretien annuel, génère des taux de conversion remarquables.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Contre le DIY, affirmez votre expertise professionnelle
+            </h3>
+            <p>
+              Les émissions télévisées et les tutoriels en ligne incitent de plus en plus de particuliers à tenter l'aménagement de leur jardin eux-mêmes. Pour un paysagiste professionnel, l'enjeu n'est pas de combattre cette tendance, mais de démontrer la valeur ajoutée d'un professionnel : la maîtrise du végétal, la connaissance des sols, la vision à long terme, la garantie d'un résultat durable. Votre présence digitale, à travers des photos de projets aboutis et des témoignages de clients satisfaits, est le meilleur antidote au « je vais le faire moi-même ».
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-4xl mx-auto">
           <div className="card p-8 md:p-10 border-gray-200">
             <h3 className="font-display text-2xl font-bold text-gray-900 mb-6 text-center">

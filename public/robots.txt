@@ -1,25 +1,4 @@
-# Robots.txt pour Agence Celexia
-# Indique à Google quoi crawler sur le site
-
 User-agent: *
 Allow: /
-Disallow: /dist/
 
-# Google Bot spécifique
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-
-# Autres bots
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-# Désactiver les mauvais bots
-User-agent: AhrefsBot
-User-agent: SemrushBot
-User-agent: MJ12bot
-Disallow: /
-
-# Sitemap location
 Sitemap: https://agencecelexia.fr/sitemap.xml

@@ -1,11 +1,26 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Couvreur = () => {
   usePageMeta({
     title: 'Solutions Marketing Digital pour Couvreurs | Agence Celexia',
     description: 'Recommandations personnalisées pour couvreurs : publicité, site web, avis clients. Multipliez vos chantiers toiture et rénovation.',
     canonical: 'https://agencecelexia.fr/metiers/couvreur'
+  });
+
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://agencecelexia.fr/metiers/couvreur/#service',
+    'name': 'Marketing Digital pour Couvreurs',
+    'description': 'Solutions marketing digital sur-mesure pour couvreurs : publicité à la performance, site web avec galerie avant/après, gestion des avis clients et campagnes saisonnières pour capter les urgences toiture et développer votre carnet de chantiers.',
+    'url': 'https://agencecelexia.fr/metiers/couvreur',
+    'serviceType': 'Marketing Digital',
+    'category': 'Marketing Digital pour Artisans',
+    'provider': { '@id': 'https://agencecelexia.fr/#organization' },
+    'areaServed': { '@type': 'Country', 'name': 'France' },
+    'audience': { '@type': 'Audience', 'audienceType': 'Couvreurs' }
   });
 
   const metierColor = '#6D4C41';
@@ -172,6 +187,54 @@ const Couvreur = () => {
       </section>
 
       <section className="py-20 md:py-28 px-4 md:px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block" style={{ backgroundColor: `${metierColor}20`, color: metierColor }}>Expertise Métier</span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4">
+              Le marketing digital au service des couvreurs
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
+            <p>
+              Le métier de couvreur occupe une place singulière dans le paysage du bâtiment en France. Directement dépendant des conditions météorologiques, il connaît des variations saisonnières marquées et des pics d'urgence imprévisibles qui transforment radicalement la demande en quelques heures. Après chaque épisode de tempête, de grêle ou de fortes pluies, les recherches Google pour « couvreur urgence » ou « réparation toiture » peuvent être multipliées par dix dans les zones touchées. Cette réalité impose une stratégie marketing digital capable de répondre instantanément à ces pics de demande.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              Les urgences climatiques : un levier d'acquisition majeur
+            </h3>
+            <p>
+              Lorsqu'une tempête frappe une région, des milliers de propriétaires découvrent simultanément des dégâts sur leur toiture. Tuiles arrachées, fuites d'eau, charpente endommagée : l'urgence est réelle et le besoin d'un professionnel immédiat. Dans ces moments critiques, seuls les couvreurs visibles en première page de Google captent ces appels à forte valeur ajoutée. Un couvreur qui n'a pas anticipé sa présence en ligne perd des dizaines de chantiers potentiels à chaque épisode climatique. Notre publicité à la performance vous positionne en priorité sur ces requêtes urgentes, précisément quand les propriétaires cherchent désespérément un professionnel disponible.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              Des projets à haute valeur et la puissance du visuel
+            </h3>
+            <p>
+              La couverture est l'un des métiers du bâtiment où les tickets moyens sont les plus élevés. Une réfection complète de toiture se situe entre 5 000 et 30 000 euros, voire davantage pour les propriétés de grande surface ou les toitures complexes avec lucarnes et cheminées. Les travaux liés aux sinistres assurés représentent également une part importante du chiffre d'affaires, avec des interventions souvent prises en charge par les assurances habitation. Pour ces projets d'envergure, les clients potentiels effectuent des recherches approfondies avant de choisir leur artisan. C'est ici que les photos avant/après prennent toute leur importance.
+            </p>
+            <p>
+              La photographie par drone est devenue un outil marketing particulièrement puissant pour les couvreurs. Elle permet de montrer l'état d'une toiture avant intervention et le résultat final sous un angle spectaculaire que les photos au sol ne peuvent pas offrir. Ces images aériennes impressionnent les prospects, démontrent votre maîtrise technique et renforcent considérablement la confiance. Intégrées à votre site web et à votre fiche Google Business, elles constituent un argument de vente visuel incomparable face à des concurrents qui se contentent de descriptions textuelles.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              Certifications et confiance : les piliers de la conversion
+            </h3>
+            <p>
+              Dans un secteur où les travaux en hauteur présentent des risques et où les montants engagés sont significatifs, la confiance est le facteur décisif. Les certifications professionnelles, notamment la qualification RGE (Reconnu Garant de l'Environnement), jouent un rôle déterminant. Elles permettent non seulement de rassurer le client sur vos compétences, mais aussi de rendre vos clients éligibles aux aides financières pour la rénovation énergétique comme MaPrimeRénov'. Afficher clairement vos certifications, vos attestations d'assurance décennale et vos garanties sur votre site web et vos supports digitaux transforme des visiteurs hésitants en clients convaincus.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              La saisonnalité comme opportunité stratégique
+            </h3>
+            <p>
+              Le cycle annuel du couvreur est bien défini : forte activité au printemps et en automne, ralentissement en hiver selon les régions, et pics imprévisibles liés aux intempéries. Une stratégie marketing digitale intelligente anticipe ces variations. Les campagnes de démoussage et d'entretien préventif au printemps, les rappels d'inspection avant l'hiver, les offres de réfection durant les mois les plus cléments : chaque saison appelle un message différent. L'email marketing et les campagnes publicitaires ciblées permettent de maintenir un flux régulier de chantiers tout au long de l'année, lissant ainsi les creux d'activité naturels du métier. C'est cette approche méthodique et adaptée au rythme unique de votre profession qui fait la différence entre un carnet de commandes plein et des semaines creuses.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-4xl mx-auto">
           <div className="card p-8 md:p-10 border-gray-200">
             <h3 className="font-display text-2xl font-bold text-gray-900 mb-6 text-center">
