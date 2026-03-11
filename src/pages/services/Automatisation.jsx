@@ -140,7 +140,7 @@ const Automatisation = () => {
             <span className="block text-violet-600">Libérez votre Temps</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-10">
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
             CRM artisan, devis automatiques, relances, rappels RDV, facturation, collecte d'avis.
             <strong className="block mt-2 text-gray-900">Concentrez-vous sur vos chantiers, on gère l'admin.</strong>
           </p>
@@ -208,7 +208,7 @@ const Automatisation = () => {
                   {feature.icon}
                 </div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{feature.desc}</p>
+                <p className="text-sm text-gray-600 leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -264,7 +264,7 @@ const Automatisation = () => {
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-3">
               3 exemples de workflows automatisés
             </h2>
-            <p className="text-gray-500 text-lg">
+            <p className="text-gray-600 text-lg">
               Chaque étape s'exécute automatiquement sans votre intervention
             </p>
           </div>
@@ -319,7 +319,7 @@ const Automatisation = () => {
             ))}
           </div>
 
-          <p className="text-center mt-8 text-gray-500 text-sm">
+          <p className="text-center mt-8 text-gray-600 text-sm">
             + des centaines d'autres intégrations possibles via API
           </p>
         </div>
@@ -349,7 +349,7 @@ const Automatisation = () => {
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
-                    <p className="text-sm text-gray-500">{item.desc}</p>
+                    <p className="text-sm text-gray-600">{item.desc}</p>
                   </div>
                 </div>
               </div>

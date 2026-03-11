@@ -21,9 +21,19 @@ const Home = () => {
         '@id': 'https://agencecelexia.fr/#website',
         'url': 'https://agencecelexia.fr',
         'name': 'Agence Celexia',
-        'description': 'Agence marketing digital spécialisée pour artisans et professionnels du bâtiment.',
+        'description': 'Agence marketing digital spécialisée en Google Local Services Ads pour artisans du bâtiment : plombiers, électriciens, couvreurs, menuisiers, chauffagistes.',
         'inLanguage': 'fr-FR',
         'publisher': { '@id': 'https://agencecelexia.fr/#organization' }
+      },
+      {
+        '@type': 'WebPage',
+        '@id': 'https://agencecelexia.fr/#webpage',
+        'url': 'https://agencecelexia.fr',
+        'name': 'Google Local Services Ads pour Artisans | Agence Celexia',
+        'isPartOf': { '@id': 'https://agencecelexia.fr/#website' },
+        'about': { '@id': 'https://agencecelexia.fr/#organization' },
+        'description': 'Agence marketing digital spécialisée en Google Local Services Ads pour artisans. Plombiers, électriciens, couvreurs : recevez des appels qualifiés avec paiement à la performance.',
+        'inLanguage': 'fr-FR'
       },
       {
         '@type': ['Organization', 'ProfessionalService'],
@@ -37,7 +47,9 @@ const Home = () => {
           'height': 512
         },
         'image': 'https://agencecelexia.fr/logo.png',
-        'description': 'Agence marketing digital spécialisée pour artisans. Publicité performance, sites web, SEO, avis clients, email marketing, automatisation.',
+        'description': 'Agence marketing digital spécialisée en Google Local Services Ads pour artisans du bâtiment. Publicité à la performance, sites web, SEO local, gestion avis clients, email marketing, automatisation.',
+        'priceRange': '€€',
+        'serviceType': 'Google Local Services Ads pour artisans',
         'telephone': '+33651725756',
         'email': 'agence.celexia@gmail.com',
         'address': {
@@ -62,6 +74,33 @@ const Home = () => {
           'contactType': 'customer service',
           'availableLanguage': 'French'
         },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '5',
+          'reviewCount': '3',
+          'bestRating': '5',
+          'worstRating': '1'
+        },
+        'review': [
+          {
+            '@type': 'Review',
+            'author': { '@type': 'Person', 'name': 'Marc D.' },
+            'reviewRating': { '@type': 'Rating', 'ratingValue': '5', 'bestRating': '5' },
+            'reviewBody': 'Depuis que je travaille avec Celexia, je reçois en moyenne 40 appels qualifiés par mois. Mon carnet de commandes est rempli 3 mois à l\'avance.'
+          },
+          {
+            '@type': 'Review',
+            'author': { '@type': 'Person', 'name': 'Sophie L.' },
+            'reviewRating': { '@type': 'Rating', 'ratingValue': '5', 'bestRating': '5' },
+            'reviewBody': 'Le système de paiement à l\'appel est transparent et efficace. Mon chiffre d\'affaires a augmenté de 35% en 6 mois.'
+          },
+          {
+            '@type': 'Review',
+            'author': { '@type': 'Person', 'name': 'Pierre M.' },
+            'reviewRating': { '@type': 'Rating', 'ratingValue': '5', 'bestRating': '5' },
+            'reviewBody': 'L\'équipe est réactive et comprend les spécificités de mon métier. Le site web qu\'ils ont créé me génère des demandes de devis chaque semaine.'
+          }
+        ],
         'hasOfferCatalog': {
           '@type': 'OfferCatalog',
           'name': 'Services Marketing Digital pour Artisans',
@@ -74,6 +113,44 @@ const Home = () => {
             { '@type': 'OfferCatalog', 'name': 'Automatisation Marketing', 'url': 'https://agencecelexia.fr/services/automatisation' }
           ]
         }
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': 'https://agencecelexia.fr/#faq',
+        'mainEntity': [
+          {
+            '@type': 'Question',
+            'name': 'Qu\'est-ce que Google Local Services Ads pour les artisans ?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Google Local Services Ads (LSA) est un programme publicitaire de Google conçu pour les professionnels locaux. Contrairement aux annonces Google Ads classiques, vous ne payez que lorsqu\'un client potentiel vous appelle directement. Votre annonce apparaît tout en haut des résultats de recherche Google, avec le badge "Garanti par Google".'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Quels artisans peuvent utiliser les Google Local Services Ads ?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'En France, les Google Local Services Ads sont disponibles pour de nombreux corps de métier du bâtiment : plombiers, électriciens, couvreurs, chauffagistes, menuisiers, serruriers, peintres, carreleurs, maçons et bien d\'autres.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Combien coûte une campagne Google Local Services Ads ?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Le coût varie selon votre métier et votre zone géographique, mais en moyenne un appel qualifié coûte entre 15€ et 40€. Vous ne payez que pour les appels reçus, pas pour les impressions ou les clics.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'En combien de temps puis-je voir des résultats ?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Les premiers appels arrivent généralement dans les 48 à 72 heures suivant l\'activation de votre campagne Google Local Services Ads.'
+            }
+          }
+        ]
       }
     ]
   });
@@ -133,12 +210,12 @@ const Home = () => {
 
   const services = [
     {
-      title: 'Publicité à la Performance',
+      title: 'Google Local Services Ads',
       category: 'Génération Leads',
-      description: 'Payez uniquement pour des appels de clients réels. Votre entreprise apparaît en position prioritaire sur Google Local Services, au-dessus des résultats organiques et des annonces classiques.',
+      description: 'Payez uniquement pour des appels de clients réels grâce aux Google Local Services Ads. Votre entreprise apparaît en position #1 sur Google avec le badge "Garanti par Google", au-dessus de tous les autres résultats.',
       link: '/services/publicite-performance',
       color: 'blue',
-      features: ['Paiement à l\'appel qualifié', 'Position #1 Google Local', 'ROI mesurable en temps réel', 'Filtrage anti-spam intelligent']
+      features: ['Paiement à l\'appel qualifié', 'Badge Google Garantie', 'ROI mesurable en temps réel', 'Filtrage anti-spam intelligent']
     },
     {
       title: 'Sites Web Artisans',
@@ -227,15 +304,21 @@ const Home = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-4">
-            Agence Celexia est spécialisée dans le marketing digital pour les artisans et professionnels du bâtiment.
-            Nous aidons les plombiers, électriciens, menuisiers, couvreurs et autres artisans à développer leur activité
-            grâce à des solutions digitales concrètes et mesurables.
+            Agence Celexia est spécialisée en <strong>Google Local Services Ads</strong> pour les artisans et professionnels du bâtiment.
+            Nous aidons les <strong>plombiers, électriciens, couvreurs, menuisiers, chauffagistes</strong> et autres artisans
+            à recevoir des appels de clients qualifiés grâce à la publicité locale Google.
+          </p>
+
+          <p className="text-base text-gray-600 leading-relaxed max-w-2xl mx-auto mb-4">
+            Avec les annonces Google Local Services, votre entreprise apparaît en <strong>position #1 sur Google</strong>,
+            au-dessus de tous les autres résultats. Vous ne payez que lorsqu'un client potentiel vous appelle directement.
+            Notre expertise en référencement local et en gestion de campagnes Google Ads garantit un retour sur investissement mesurable.
           </p>
 
           <p className="text-base text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
-            Publicité à la performance avec paiement à l'appel qualifié, création de sites web professionnels,
-            référencement SEO local, gestion des avis clients, email marketing et automatisation des processus.
-            Chaque solution est adaptée aux spécificités de votre métier.
+            Création de sites web professionnels optimisés SEO, gestion de votre fiche Google Business Profile,
+            collecte automatisée d'avis clients, email marketing et automatisation des processus administratifs.
+            Chaque solution est conçue pour les spécificités de votre métier d'artisan.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -372,6 +455,47 @@ const Home = () => {
               <div key={i} className="card p-7 border-gray-200 group hover:border-violet-200">
                 <h3 className="text-lg font-bold text-gray-900 mb-3">{item.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ SEO */}
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block">Questions Fréquentes</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
+              Google Local Services Ads : ce qu'il faut savoir
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Tout ce que les artisans doivent savoir avant de lancer leurs campagnes publicitaires locales sur Google.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                q: 'Qu\'est-ce que Google Local Services Ads pour les artisans ?',
+                a: 'Google Local Services Ads (LSA) est un programme publicitaire de Google conçu pour les professionnels locaux. Contrairement aux annonces Google Ads classiques, vous ne payez que lorsqu\'un client potentiel vous appelle directement. Votre annonce apparaît tout en haut des résultats de recherche Google, avec le badge "Garanti par Google", ce qui inspire immédiatement confiance aux clients qui cherchent un artisan fiable.'
+              },
+              {
+                q: 'Quels artisans peuvent utiliser les Google Local Services Ads ?',
+                a: 'En France, les Google Local Services Ads sont disponibles pour de nombreux corps de métier du bâtiment : plombiers, électriciens, couvreurs, chauffagistes, menuisiers, serruriers, peintres, carreleurs, maçons et bien d\'autres. Agence Celexia vous accompagne dans la vérification de votre éligibilité et dans toutes les démarches d\'inscription au programme Google Garantie.'
+              },
+              {
+                q: 'Combien coûte une campagne Google Local Services Ads ?',
+                a: 'Le coût varie selon votre métier et votre zone géographique, mais en moyenne un appel qualifié coûte entre 15€ et 40€. L\'avantage majeur est que vous ne payez que pour les appels reçus, pas pour les impressions ou les clics. Agence Celexia optimise vos campagnes pour réduire le coût par appel et maximiser votre retour sur investissement.'
+              },
+              {
+                q: 'En combien de temps puis-je voir des résultats ?',
+                a: 'Les premiers appels arrivent généralement dans les 48 à 72 heures suivant l\'activation de votre campagne Google Local Services Ads. Le volume d\'appels augmente ensuite progressivement au cours des premières semaines, à mesure que votre profil gagne en visibilité et en avis clients positifs.'
+              }
+            ].map((faq, i) => (
+              <div key={i} className="card p-7 border-gray-200">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">{faq.q}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>

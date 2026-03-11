@@ -53,16 +53,16 @@ const About = () => {
 
   const services = [
     { num: '01', title: 'Optimisation de votre présence locale', desc: "Configuration professionnelle de votre fiche Google Business Profile : photos de qualité, description optimisée, catégories pertinentes, horaires à jour.", icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+      <svg className="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
     )},
     { num: '02', title: "Stratégie d'avis clients", desc: "Mise en place d'un système automatisé de collecte d'avis positifs. Nous transformons vos clients satisfaits en ambassadeurs.", icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
+      <svg className="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
     )},
     { num: '03', title: 'Campagnes publicitaires ciblées', desc: "Vous apparaissez en première position lorsque des clients potentiels recherchent vos services. Vous ne payez que pour les contacts qualifiés.", icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+      <svg className="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
     )},
     { num: '04', title: 'Gestion et optimisation continue', desc: "Suivi quotidien de vos performances, ajustements stratégiques, reporting transparent et recommandations mensuelles.", icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+      <svg className="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
     )}
   ];
 
@@ -85,7 +85,7 @@ const About = () => {
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
             Agence marketing digital pour artisans<br />Expert en acquisition client
           </h1>
-          <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
             Acquisition de clients qualifiés, visibilité locale optimisée, croissance maîtrisée.
           </p>
         </div>
@@ -104,13 +104,13 @@ const About = () => {
           <div className="card p-8 md:p-10 border-gray-200 mb-8">
             <div className="flex items-start gap-4 mb-6">
               <div className="w-14 h-14 rounded-2xl bg-violet-100 flex items-center justify-center flex-shrink-0">
-                <svg className="w-7 h-7 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-7 h-7 text-violet-600" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
               </div>
               <div>
                 <h3 className="font-display text-2xl font-bold text-gray-900 mb-2">Tout commence par une passion commune</h3>
-                <p className="text-gray-500 text-sm">Deux amis d'enfance unis par l'informatique et l'envie d'aider</p>
+                <p className="text-gray-600 text-sm">Deux amis d'enfance unis par l'informatique et l'envie d'aider</p>
               </div>
             </div>
 
@@ -121,7 +121,7 @@ const About = () => {
                 les possibilités infinies du digital. Cette passion ne les a jamais quittés.
               </p>
               <p>
-                En grandissant, ils ont vu leurs proches artisans - plombiers, électriciens, menuisiers - galéraient à trouver
+                En grandissant, ils ont vu leurs proches artisans — plombiers, électriciens, menuisiers — galérer à trouver
                 des clients malgré leur excellent savoir-faire. <span className="text-violet-600 font-semibold">Le paradoxe était
                 frappant</span> : ces professionnels hautement qualifiés n'avaient pas accès aux outils digitaux qui auraient pu
                 transformer leur activité.
@@ -133,7 +133,7 @@ const About = () => {
             <div className="card p-7 border-gray-200">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-6 h-6 text-blue-600" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
@@ -149,7 +149,7 @@ const About = () => {
             <div className="card p-7 border-gray-200">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center">
-                  <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-6 h-6 text-emerald-600" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
@@ -165,7 +165,7 @@ const About = () => {
           <div className="card-violet p-8 md:p-10">
             <div className="flex items-start gap-5">
               <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0">
-                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-7 h-7 text-white" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
@@ -193,7 +193,7 @@ const About = () => {
           </div>
 
           <div className="mt-8 text-center">
-            <p className="text-gray-500 text-sm leading-relaxed max-w-2xl mx-auto">
+            <p className="text-gray-600 text-sm leading-relaxed max-w-2xl mx-auto">
               Aujourd'hui, Agence Celexia est le fruit de cette amitié et de cette passion commune.
               <strong className="text-gray-900"> Une équipe soudée, des valeurs fortes, et une seule obsession :
               votre réussite.</strong>
@@ -255,7 +255,7 @@ const About = () => {
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-3">
               Notre méthode d'acquisition client
             </h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               Un système complet qui transforme votre visibilité en flux régulier de demandes qualifiées.
             </p>
           </div>
@@ -273,12 +273,12 @@ const About = () => {
                     <h3 className="text-base font-bold text-gray-900">{service.title}</h3>
                   </div>
                 </div>
-                <p className="text-gray-500 text-sm leading-relaxed ml-14">{service.desc}</p>
+                <p className="text-gray-600 text-sm leading-relaxed ml-14">{service.desc}</p>
               </div>
             ))}
           </div>
 
-          <p className="text-base font-medium text-center mt-12 text-gray-500">
+          <p className="text-base font-medium text-center mt-12 text-gray-600">
             <span className="text-gray-900 font-semibold">Résultat :</span> vous vous concentrez sur votre métier pendant que nous générons vos opportunités.
           </p>
         </div>
@@ -304,7 +304,7 @@ const About = () => {
                   </span>
                 </div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{value.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{value.desc}</p>
+                <p className="text-sm text-gray-600 leading-relaxed">{value.desc}</p>
               </div>
             ))}
           </div>
@@ -332,13 +332,13 @@ const About = () => {
               ].map((item, i) => (
                 <div key={i} className="flex items-start group">
                   <span className="flex-shrink-0 w-7 h-7 rounded-lg bg-emerald-100 flex items-center justify-center mr-3.5 mt-0.5">
-                    <svg className="w-3.5 h-3.5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-3.5 h-3.5 text-emerald-600" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                     </svg>
                   </span>
                   <div>
                     <h3 className="font-semibold text-gray-900 text-[15px] mb-0.5">{item.title}</h3>
-                    <p className="text-sm text-gray-500">{item.desc}</p>
+                    <p className="text-sm text-gray-600">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -360,7 +360,7 @@ const About = () => {
           <div className="card-violet p-7 md:p-9">
             <div className="space-y-4">
               {[
-                { bold: 'Artisan établi', rest: "qui souhaité stabiliser et augmenter son volume d'activité" },
+                { bold: 'Artisan établi', rest: "qui souhaite stabiliser et augmenter son volume d'activité" },
                 { bold: "Chef d'entreprise du bâtiment", rest: 'qui veut réduire sa dépendance aux prescripteurs' },
                 { bold: 'Professionnel des services à domicile', rest: "cherchant à remplir son agenda 2-3 mois à l'avance" },
                 { bold: 'Entrepreneur ambitieux', rest: "qui veut développer son activité de manière structurée" },
@@ -401,7 +401,7 @@ const About = () => {
                        transition-all duration-300 arrow-animate"
           >
             Réserver un appel stratégique
-            <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="ml-2 w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
@@ -436,13 +436,13 @@ const About = () => {
                 >
                   <span className="text-[15px] font-semibold text-gray-900 pr-4">{faq.question}</span>
                   <span className={`text-violet-600 flex-shrink-0 transition-transform duration-300 ${openFaq === index ? 'rotate-45' : ''}`}>
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                     </svg>
                   </span>
                 </button>
                 <div className={`overflow-hidden transition-all duration-400 ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <div className="px-6 pb-5 text-gray-500 text-sm leading-relaxed border-t border-gray-100 pt-4">
+                  <div className="px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
                     {faq.answer}
                   </div>
                 </div>
