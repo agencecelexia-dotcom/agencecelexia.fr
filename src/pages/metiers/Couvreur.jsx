@@ -4,7 +4,7 @@ import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Couvreur = () => {
   usePageMeta({
-    title: 'Solutions Marketing Digital pour Couvreurs | Agence Celexia',
+    title: 'Marketing Digital Couvreurs | Agence Celexia',
     description: 'Recommandations personnalisées pour couvreurs : publicité, site web, avis clients. Multipliez vos chantiers toiture et rénovation.',
     canonical: 'https://agencecelexia.fr/metiers/couvreur'
   });

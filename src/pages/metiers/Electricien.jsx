@@ -4,7 +4,7 @@ import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Electricien = () => {
   usePageMeta({
-    title: 'Solutions Marketing Digital pour Électriciens | Agence Celexia',
+    title: 'Marketing Digital Électriciens | Agence Celexia',
     description: 'Recommandations personnalisées pour électriciens : publicité, site web, avis clients. Générez plus de chantiers et dépannages électriques.',
     canonical: 'https://agencecelexia.fr/metiers/electricien'
   });

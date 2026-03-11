@@ -103,7 +103,7 @@ const PolitiqueConfidentialite = () => {
               <h2 className="font-display text-xl font-bold text-gray-900 mb-3">9. Sous-traitants</h2>
               <p>Nous faisons appel aux sous-traitants suivants pour le traitement de vos données :</p>
               <ul className="list-disc pl-6 mt-2 space-y-1">
-                <li><strong>Netlify</strong> — hébergement du site</li>
+                <li><strong>Vercel</strong> — hébergement du site</li>
                 <li><strong>Cal.com</strong> — gestion des rendez-vous</li>
                 <li><strong>Google Analytics</strong> — mesure d'audience (si activé)</li>
               </ul>

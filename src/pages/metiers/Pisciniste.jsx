@@ -4,7 +4,7 @@ import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Pisciniste = () => {
   usePageMeta({
-    title: 'Solutions Marketing Digital pour Piscinistes | Agence Celexia',
+    title: 'Marketing Digital Piscinistes | Agence Celexia',
     description: 'Recommandations personnalisées pour piscinistes : publicité, site web, avis clients. Générez plus de leads qualifiés pour vos projets piscine.',
     canonical: 'https://agencecelexia.fr/metiers/pisciniste'
   });

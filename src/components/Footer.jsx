@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-50 border-t border-gray-200/80 py-16">
       <div className="max-w-6xl mx-auto px-6 md:px-8">
-        <div className="grid md:grid-cols-5 gap-12 mb-12">
+        <div className="grid md:grid-cols-6 gap-10 mb-12">
           {/* Brand */}
           <div>
             <Link to="/" className="inline-block mb-4">
@@ -47,7 +47,20 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Légal */}
+          {/* Métiers */}
+          <div>
+            <h4 className="text-xs font-semibold text-gray-600 uppercase tracking-wider mb-4">Métiers</h4>
+            <div className="flex flex-col gap-2">
+              <Link to="/metiers/plombier" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Plombier</Link>
+              <Link to="/metiers/electricien" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Électricien</Link>
+              <Link to="/metiers/chauffagiste" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Chauffagiste</Link>
+              <Link to="/metiers/couvreur" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Couvreur</Link>
+              <Link to="/metiers/menuisier" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Menuisier</Link>
+              <Link to="/metiers/paysagiste" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Paysagiste</Link>
+            </div>
+          </div>
+
+          {/* Légal & Contact */}
           <div>
             <h4 className="text-xs font-semibold text-gray-600 uppercase tracking-wider mb-4">Légal</h4>
             <div className="flex flex-col gap-3">

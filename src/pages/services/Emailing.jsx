@@ -4,7 +4,7 @@ import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Emailing = () => {
   usePageMeta({
-    title: 'Campagnes Email Automatisées pour Artisans | Agence Celexia',
+    title: 'Email Marketing Artisans | Agence Celexia',
     description: 'Emails automatiques de relance, newsletters, promotions. Taux d\'ouverture optimisé. Reconquête clients inactifs. CRM intégré avec votre activité.',
     canonical: 'https://agencecelexia.fr/services/emailing'
   });

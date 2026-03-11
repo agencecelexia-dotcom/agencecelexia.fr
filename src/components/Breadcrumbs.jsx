@@ -51,12 +51,14 @@ const Breadcrumbs = () => {
   useJsonLd({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    'itemListElement': breadcrumbs.map((crumb, index) => ({
-      '@type': 'ListItem',
-      'position': index + 1,
-      'name': crumb.name,
-      'item': `https://agencecelexia.fr${crumb.path}`
-    }))
+    'itemListElement': breadcrumbs
+      .filter(crumb => crumb.clickable !== false || crumb.path === '/' || breadcrumbs.indexOf(crumb) === breadcrumbs.length - 1)
+      .map((crumb, index) => ({
+        '@type': 'ListItem',
+        'position': index + 1,
+        'name': crumb.name,
+        'item': `https://agencecelexia.fr${crumb.path}`
+      }))
   });
 
   if (location.pathname === '/') return null;

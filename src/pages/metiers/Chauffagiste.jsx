@@ -4,7 +4,7 @@ import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Chauffagiste = () => {
   usePageMeta({
-    title: 'Solutions Marketing Digital pour Chauffagistes | Agence Celexia',
+    title: 'Marketing Digital Chauffagistes | Agence Celexia',
     description: 'Recommandations personnalisées pour chauffagistes : publicité, site web, avis clients. Générez plus de contrats d\'entretien et installations.',
     canonical: 'https://agencecelexia.fr/metiers/chauffagiste'
   });

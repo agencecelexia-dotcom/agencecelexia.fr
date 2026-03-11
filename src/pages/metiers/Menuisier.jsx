@@ -4,7 +4,7 @@ import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Menuisier = () => {
   usePageMeta({
-    title: 'Solutions Marketing Digital pour Menuisiers | Agence Celexia',
+    title: 'Marketing Digital Menuisiers | Agence Celexia',
     description: 'Recommandations personnalisées pour menuisiers : site portfolio, publicité, avis clients. Multipliez vos projets menuiserie.',
     canonical: 'https://agencecelexia.fr/metiers/menuisier'
   });
