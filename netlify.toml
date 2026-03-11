@@ -3,6 +3,44 @@
   command = "npm run build"
   publish = "dist"
 
+# Redirections 301 - Anciennes URLs vers nouvelles pages
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/politique-confidentialite"
+  status = 301
+
+[[redirects]]
+  from = "/terms-and-conditions"
+  to = "/mentions-legales"
+  status = 301
+
+[[redirects]]
+  from = "/contact-3625"
+  to = "/contact"
+  status = 301
+
+[[redirects]]
+  from = "/demo-call"
+  to = "/reserver"
+  status = 301
+
+[[redirects]]
+  from = "/onboarding-call"
+  to = "/reserver"
+  status = 301
+
+[[redirects]]
+  from = "/banque-alimentaire"
+  to = "/"
+  status = 301
+
+# 410 Gone - URLs parasites ancien builder
+[[redirects]]
+  from = "/tmp/*"
+  to = "/index.html"
+  status = 410
+
+# SPA fallback - doit rester en dernier
 [[redirects]]
   from = "/*"
   to = "/index.html"
