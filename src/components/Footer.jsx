@@ -73,8 +73,8 @@ const Footer = () => {
           <div>
             <h4 className="text-xs font-semibold text-gray-600 uppercase tracking-wider mb-4">Contact</h4>
             <div className="flex flex-col gap-3">
-              <a href="mailto:contact@agencecelexia.fr" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">
-                contact@agencecelexia.fr
+              <a href="mailto:agence.celexia@gmail.com" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">
+                agence.celexia@gmail.com
               </a>
               <a href="tel:+33651725756" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">
                 06 51 72 57 56

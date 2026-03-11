@@ -22,7 +22,7 @@ const MentionsLegales = () => {
                 <li><strong>Forme juridique :</strong> Société par actions simplifiée (SAS)</li>
                 <li><strong>Siège social :</strong> France</li>
                 <li><strong>Téléphone :</strong> <a href="tel:+33651725756" className="text-violet-600 hover:text-violet-700">06 51 72 57 56</a></li>
-                <li><strong>Email :</strong> <a href="mailto:contact@agencecelexia.fr" className="text-violet-600 hover:text-violet-700">contact@agencecelexia.fr</a></li>
+                <li><strong>Email :</strong> <a href="mailto:agence.celexia@gmail.com" className="text-violet-600 hover:text-violet-700">agence.celexia@gmail.com</a></li>
                 <li><strong>Directeurs de la publication :</strong> Thomas et Antoine, co-fondateurs</li>
               </ul>
             </div>

@@ -182,8 +182,8 @@ const BookingStrategy = () => {
 
           <div className="text-center mt-8 text-gray-600">
             <p className="text-sm mb-1">Vous préférez nous écrire ?</p>
-            <a href="mailto:contact@agencecelexia.fr" className="text-lg font-semibold text-violet-600 hover:text-violet-700 transition-colors">
-              contact@agencecelexia.fr
+            <a href="mailto:agence.celexia@gmail.com" className="text-lg font-semibold text-violet-600 hover:text-violet-700 transition-colors">
+              agence.celexia@gmail.com
             </a>
           </div>
         </div>

@@ -28,7 +28,7 @@ const PolitiqueConfidentialite = () => {
               <h2 className="font-display text-xl font-bold text-gray-900 mb-3">2. Responsable du traitement</h2>
               <ul className="list-disc pl-6 space-y-1">
                 <li><strong>Responsable :</strong> Agence Celexia</li>
-                <li><strong>Email :</strong> contact@agencecelexia.fr</li>
+                <li><strong>Email :</strong> agence.celexia@gmail.com</li>
                 <li><strong>Téléphone :</strong> 06 51 72 57 56</li>
               </ul>
             </div>
@@ -86,7 +86,7 @@ const PolitiqueConfidentialite = () => {
                 <li><strong>Droit d'opposition :</strong> vous opposer au traitement de vos données</li>
               </ul>
               <p className="mt-3">
-                Pour exercer ces droits, contactez-nous à : <a href="mailto:contact@agencecelexia.fr" className="text-violet-600 hover:text-violet-700">contact@agencecelexia.fr</a>
+                Pour exercer ces droits, contactez-nous à : <a href="mailto:agence.celexia@gmail.com" className="text-violet-600 hover:text-violet-700">agence.celexia@gmail.com</a>
               </p>
             </div>
 
@@ -113,7 +113,7 @@ const PolitiqueConfidentialite = () => {
               <h2 className="font-display text-xl font-bold text-gray-900 mb-3">10. Contact et réclamation</h2>
               <p>
                 Pour toute question relative à la protection de vos données, vous pouvez nous contacter à
-                l'adresse contact@agencecelexia.fr. En cas de différend, vous pouvez adresser une réclamation
+                l'adresse agence.celexia@gmail.com. En cas de différend, vous pouvez adresser une réclamation
                 à la CNIL (Commission Nationale de l'Informatique et des Libertés) : <a href="https://www.cnil.fr" className="text-violet-600 hover:text-violet-700" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>.
               </p>
             </div>

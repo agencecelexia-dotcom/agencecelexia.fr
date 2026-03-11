@@ -58,7 +58,7 @@ const routes = [
           priceRange: '€€',
           serviceType: 'Marketing Digital pour Artisans',
           telephone: '+33651725756',
-          email: 'contact@agencecelexia.fr',
+          email: 'agence.celexia@gmail.com',
           address: { '@type': 'PostalAddress', addressCountry: 'FR', addressRegion: 'France métropolitaine', addressLocality: 'France' },
           foundingDate: '2024',
           areaServed: { '@type': 'Country', name: 'France' },
@@ -68,7 +68,7 @@ const routes = [
             { '@type': 'Person', name: 'Thomas', jobTitle: 'Co-fondateur - Marketing Digital & Acquisition Client' },
             { '@type': 'Person', name: 'Antoine', jobTitle: 'Co-fondateur - Développement Web & Optimisation Technique' }
           ],
-          contactPoint: { '@type': 'ContactPoint', telephone: '+33651725756', email: 'contact@agencecelexia.fr', contactType: 'customer service', availableLanguage: 'French' },
+          contactPoint: { '@type': 'ContactPoint', telephone: '+33651725756', email: 'agence.celexia@gmail.com', contactType: 'customer service', availableLanguage: 'French' },
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
             name: 'Services Marketing Digital pour Artisans',
@@ -99,7 +99,7 @@ const routes = [
         '@type': 'Organization',
         name: 'Agence Celexia',
         url: 'https://agencecelexia.fr',
-        email: 'contact@agencecelexia.fr',
+        email: 'agence.celexia@gmail.com',
         description: "Agence marketing digital spécialisée dans l'acquisition client pour les artisans et professionnels du bâtiment.",
         foundingDate: '2024',
         areaServed: { '@type': 'Country', name: 'France' },
@@ -135,13 +135,13 @@ const routes = [
           description: 'Agence marketing digital spécialisée pour artisans et professionnels du bâtiment. SEO local, publicité à la performance, création de sites web.',
           url: 'https://agencecelexia.fr',
           telephone: '+33651725756',
-          email: 'contact@agencecelexia.fr',
+          email: 'agence.celexia@gmail.com',
           image: 'https://agencecelexia.fr/logo.png',
           address: { '@type': 'PostalAddress', addressCountry: 'FR', addressLocality: 'France' },
           areaServed: { '@type': 'Country', name: 'France' },
           priceRange: '€€',
           openingHours: 'Mo-Fr 09:00-18:00',
-          contactPoint: { '@type': 'ContactPoint', telephone: '+33651725756', email: 'contact@agencecelexia.fr', contactType: 'customer service', availableLanguage: 'French', areaServed: 'FR' }
+          contactPoint: { '@type': 'ContactPoint', telephone: '+33651725756', email: 'agence.celexia@gmail.com', contactType: 'customer service', availableLanguage: 'French', areaServed: 'FR' }
         }
       ]
     },
