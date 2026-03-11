@@ -103,6 +103,51 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* WHY CONTACT US */}
+      <section className="py-12 px-4 md:px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="card p-8 border-gray-200">
+            <h3 className="font-display text-xl font-bold text-gray-900 mb-6 text-center">
+              Pourquoi prendre rendez-vous avec Agence Celexia ?
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">Un audit gratuit et sans engagement</h4>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Pendant 30 minutes, nous analysons votre situation actuelle : votre visibilité sur Google,
+                  la qualité de vos avis clients, votre positionnement par rapport à la concurrence locale,
+                  et les opportunités de croissance dans votre zone d'intervention.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">Des recommandations concrètes</h4>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Nous vous présentons un plan d'action personnalisé avec des projections de résultats réalistes.
+                  Nombre d'appels estimés par mois, coût par acquisition client, retour sur investissement prévu.
+                  Vous repartez avec une feuille de route claire, même si vous décidez de ne pas travailler avec nous.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">Expertise spécifique artisans</h4>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Nous travaillons exclusivement avec les artisans et professionnels du bâtiment depuis la création
+                  de l'agence. Plombiers, électriciens, menuisiers, couvreurs, piscinistes, paysagistes — nous
+                  connaissons les spécificités de chaque métier et adaptons nos stratégies en conséquence.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">Transparence et honnêteté</h4>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Si notre solution n'est pas adaptée à votre situation, nous vous le dirons. Notre réputation
+                  repose sur des résultats concrets, pas sur des contrats forcés. Chaque collaboration commence
+                  par une analyse honnête du potentiel dans votre zone géographique et votre secteur d'activité.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Booking section */}
       <section className="py-12 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-4xl mx-auto">
@@ -124,8 +169,8 @@ const Contact = () => {
             <div className="grid md:grid-cols-3 gap-6">
               {[
                 { num: '01', title: 'Analyse de votre situation', desc: "Vos objectifs de croissance, votre zone d'intervention, votre positionnement actuel" },
-                { num: '02', title: 'Strategie personnalisee', desc: "Plan d'action concret adapte a votre metier et a votre marche local" },
-                { num: '03', title: 'Projection de resultats', desc: "Estimation realiste du volume d'appels et du ROI potentiel pour votre activite" }
+                { num: '02', title: 'Stratégie personnalisée', desc: "Plan d'action concret adapté à votre métier et à votre marché local" },
+                { num: '03', title: 'Projection de résultats', desc: "Estimation réaliste du volume d'appels et du ROI potentiel pour votre activité" }
               ].map((item) => (
                 <div key={item.num} className="text-center">
                   <span className="font-display text-2xl font-bold text-violet-200 mb-3 block">{item.num}</span>

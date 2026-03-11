@@ -188,6 +188,51 @@ const Carreleur = () => {
 
       <section className="py-20 md:py-28 px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block" style={{ backgroundColor: `${metierColor}20`, color: metierColor }}>Expertise Métier</span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4">
+              Le carrelage : un métier visuel qui se vend par l'image
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
+            <p>
+              Parmi tous les métiers du bâtiment, le carrelage est sans doute celui où l'impact visuel du travail fini est le plus immédiat et le plus saisissant. Une salle de bain entièrement carrelée avec des motifs géométriques, un sol en grès cérame grand format posé sans aucun défaut d'alignement, une terrasse en pierre naturelle parfaitement jointoyée : le résultat parle de lui-même. Cette dimension esthétique fait du marketing digital un allié naturel pour les carreleurs, car le contenu visuel est précisément ce qui performe le mieux sur le web et les réseaux sociaux. L'industrie du carrelage bénéficie de manière exceptionnelle de la photographie avant/après, qui constitue le format de contenu le plus engageant pour les artisans du bâtiment.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              Le boom de la rénovation de salles de bain et cuisines
+            </h3>
+            <p>
+              La rénovation de salles de bain et de cuisines représente un marché en croissance constante en France. Les émissions de décoration intérieure, les plateformes comme Pinterest et Instagram ont développé chez les particuliers une culture du design et une exigence esthétique qui profitent directement aux carreleurs professionnels. Le budget moyen d'un projet de carrelage se situe entre 2 000 et 8 000 euros pour une pièce complète, un ticket moyen qui justifie pleinement un investissement en acquisition digitale. Les clients recherchent activement des artisans capables de réaliser les designs qu'ils ont repérés en ligne, et c'est votre portfolio qui fera la différence entre un devis accepté et un prospect perdu.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              Google Images : le canal sous-exploité des métiers visuels
+            </h3>
+            <p>
+              Pour les carreleurs, la présence sur Google Images est un levier d'acquisition souvent négligé. Lorsqu'un particulier recherche « carrelage salle de bain moderne » ou « pose carrelage imitation bois », il parcourt naturellement les résultats images avant même de consulter les sites web. Si vos réalisations apparaissent dans ces résultats, vous captez l'attention d'un prospect déjà en phase d'inspiration, au tout début de son parcours d'achat. Un site web avec des photos correctement optimisées, nommées avec des mots-clés pertinents et accompagnées de balises alt descriptives, génère un trafic qualifié et gratuit que vos concurrents ignorent souvent.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              Se démarquer face au DIY et aux grandes surfaces
+            </h3>
+            <p>
+              Le carrelage fait face à une concurrence particulière : celle du « faites-le vous-même ». Les grandes surfaces de bricolage vendent des kits de pose et des tutoriels vidéo qui peuvent donner l'impression qu'un carrelage réussi est à la portée de tous. Votre communication digitale doit subtilement éduquer le prospect sur la complexité réelle d'une pose de qualité : la préparation du support, la gestion des coupes complexes autour des obstacles, l'étanchéité en pièce humide, l'alignement parfait des grands formats qui ne tolèrent aucune irrégularité du sol. Montrer ces détails techniques à travers des photos de chantier et des descriptions de projets transforme le visiteur sceptique en client convaincu de la nécessité de faire appel à un professionnel.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              Les nouvelles tendances qui créent de la demande
+            </h3>
+            <p>
+              Le marché du carrelage évolue rapidement avec l'apparition de nouvelles tendances. Les carreaux grand format (60x120 cm et au-delà) nécessitent une expertise de pose spécifique et un équipement adapté que les amateurs ne possèdent pas. Le carrelage extérieur pour terrasses sur plots connaît une croissance forte, porté par l'aménagement des espaces extérieurs post-Covid. Les imitations parquet en grès cérame séduisent les clients qui veulent l'esthétique du bois sans ses contraintes d'entretien. Chacune de ces tendances représente une opportunité de vous positionner comme spécialiste sur des requêtes de recherche précises et à forte intention d'achat. Une stratégie de contenu ciblée autour de ces spécialités vous différencie et attire une clientèle prête à investir dans un travail de qualité.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
+        <div className="max-w-4xl mx-auto">
           <div className="card p-8 md:p-10 border-gray-200">
             <h3 className="font-display text-2xl font-bold text-gray-900 mb-6 text-center">
               Pourquoi ces recommandations pour les carreleurs ?

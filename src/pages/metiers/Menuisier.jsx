@@ -186,7 +186,71 @@ const Menuisier = () => {
         </div>
       </section>
 
+      {/* L'ARTISANAT DU BOIS FACE AU DIGITAL */}
       <section className="py-20 md:py-28 px-4 md:px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block" style={{ backgroundColor: `${metierColor}20`, color: metierColor }}>
+              La menuiserie artisanale et le digital
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
+              Menuisier artisan : comment le digital valorise votre savoir-faire unique
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
+            <p>
+              Le menuisier artisan incarne un paradoxe fascinant du marché actuel : dans un monde où la production de masse domine, la demande pour le travail sur-mesure et la qualité artisanale n'a jamais été aussi forte. Les consommateurs, lassés des meubles en kit et des cuisines standardisées, se tournent de plus en plus vers des artisans capables de créer des pièces uniques, adaptées à leurs espaces et à leurs goûts. Mais comment ces clients vous trouvent-ils ? La réponse, de plus en plus souvent, passe par le digital.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Le combat David contre Goliath : artisan vs grande distribution
+            </h3>
+            <p>
+              IKEA, Leroy Merlin, Castorama, Schmidt, Cuisinella... Les enseignes de grande distribution et de cuisine intégrée investissent des millions d'euros en publicité chaque année. Un menuisier indépendant ne peut pas rivaliser sur le terrain du volume publicitaire. En revanche, il dispose d'un avantage que ces enseignes ne pourront jamais offrir : l'unicité de chaque réalisation, le contact direct avec l'artisan qui conçoit et fabrique, la possibilité d'adapter chaque détail aux souhaits du client.
+            </p>
+            <p>
+              Le marketing digital permet au menuisier artisan de jouer sur ce terrain-là. Quand un particulier tape « cuisine sur-mesure bois massif » ou « bibliothèque chêne sur-mesure », il ne cherche pas un meuble en kit. Il cherche un artisan. Si votre site web apparaît dans les résultats avec des photos de vos réalisations et des témoignages de clients comblés, vous n'êtes plus en concurrence avec la grande distribution. Vous êtes dans une catégorie à part.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Le portfolio en ligne : votre atelier vitrine ouvert 24h/24
+            </h3>
+            <p>
+              Un menuisier vend d'abord avec ses yeux. La beauté du grain, la précision des assemblages, l'harmonie des proportions -- tout cela se transmet par l'image bien avant de se toucher du doigt. Votre portfolio en ligne est l'équivalent digital de votre showroom, mais avec un avantage majeur : il est accessible depuis n'importe où, à n'importe quelle heure. Un couple qui rêve d'un dressing sur-mesure parcourra vos réalisations un dimanche soir sur le canapé. Une architecte d'intérieur qui cherche un menuisier pour un projet client consultera votre galerie entre deux rendez-vous.
+            </p>
+            <p>
+              La qualité des photos est primordiale. Des clichés pris au smartphone dans un atelier mal éclairé ne rendent pas justice à votre travail. Investir dans quelques séances photo professionnelles de vos plus belles réalisations, installées chez le client et mises en situation, transforme votre site en un outil de vente redoutable.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Cuisines et salles de bain : le marché porteur de la rénovation
+            </h3>
+            <p>
+              Le marché de la rénovation de cuisines en France représente plusieurs milliards d'euros par an, et les particuliers sont de plus en plus nombreux à préférer une cuisine artisanale à une cuisine industrielle. Le menuisier qui se positionne sur la fabrication de cuisines sur-mesure accède à des projets de 8 000 à 30 000 euros et plus. Les meubles de salle de bain, les dressings et les aménagements sous pente complètent cette offre avec des tickets moyens de 3 000 à 10 000 euros.
+            </p>
+            <p>
+              Pour capter ce marché, votre présence en ligne doit montrer votre capacité à réaliser des projets complets, de la conception à la pose, avec des matériaux nobles et des finitions irréprochables.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Le bois durable : un argument qui séduit de plus en plus
+            </h3>
+            <p>
+              La tendance vers les matériaux écologiques et durables joue pleinement en faveur du menuisier artisan. Le bois issu de forêts gérées durablement, les finitions naturelles à base d'huile ou de cire, la fabrication locale qui réduit l'empreinte carbone : autant d'arguments qui résonnent fortement auprès d'une clientèle sensibilisée aux enjeux environnementaux. Communiquer sur ces engagements via votre site web et vos réseaux sociaux vous différencie des fabricants industriels et justifie des prix supérieurs.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Le bouche-à-oreille amplifié par le digital
+            </h3>
+            <p>
+              Le bouche-à-oreille reste le premier canal d'acquisition pour de nombreux menuisiers. Mais le digital ne remplace pas le bouche-à-oreille : il l'amplifie considérablement. Quand un client satisfait vous recommande à un ami, celui-ci va immédiatement taper votre nom sur Google. S'il trouve un site professionnel avec des photos de réalisations magnifiques et des avis élogieux, la recommandation se transforme en conviction. S'il ne trouve rien, ou pire, un profil Google vide, le doute s'installe. Les avis Google sont le bouche-à-oreille du XXIe siècle : chaque témoignage positif est une recommandation permanente, visible par des centaines de prospects potentiels.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-4xl mx-auto">
           <div className="card p-8 md:p-10 border-gray-200">
             <h3 className="font-display text-2xl font-bold text-gray-900 mb-6 text-center">

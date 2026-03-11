@@ -188,6 +188,51 @@ const Macon = () => {
 
       <section className="py-20 md:py-28 px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block" style={{ backgroundColor: `${metierColor}20`, color: metierColor }}>Expertise Métier</span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4">
+              Comprendre le marché de la maçonnerie pour mieux communiquer
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
+            <p>
+              La maçonnerie constitue la colonne vertébrale du secteur du bâtiment en France. Qu'il s'agisse de construction neuve, d'extension, de surélévation ou de rénovation structurelle, le maçon intervient sur les fondations mêmes de chaque projet immobilier. Aujourd'hui, le marché de la rénovation représente plus de 50 % des dépenses de construction en France, une tendance qui ne cesse de s'accentuer avec les politiques de rénovation énergétique et la raréfaction du foncier en zones urbaines. Pour les maçons indépendants et les petites entreprises de maçonnerie, cette évolution du marché crée à la fois des opportunités considérables et des défis marketing spécifiques.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              Un marché de la rénovation en pleine expansion
+            </h3>
+            <p>
+              Les incitations gouvernementales à la rénovation énergétique, notamment MaPrimeRénov' et les Certificats d'Économies d'Énergie, ont profondément transformé le marché de la maçonnerie. L'isolation thermique par l'extérieur, la reprise de façades, le renforcement structurel pour accueillir des équipements de chauffage modernes : autant de chantiers qui nécessitent l'intervention d'un maçon qualifié. Les projets de rénovation génèrent des tickets moyens compris entre 10 000 et 100 000 euros, voire davantage pour les restructurations complètes d'immeubles anciens. Être visible en ligne sur ces requêtes à forte valeur commerciale est devenu indispensable pour maintenir un carnet de commandes rempli.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              Se différencier face aux grandes entreprises de construction
+            </h3>
+            <p>
+              L'un des principaux défis du maçon indépendant est la concurrence des grandes entreprises de construction qui disposent de budgets marketing conséquents et d'une visibilité naturelle grâce à leur taille. Pourtant, les particuliers et les petits maîtres d'ouvrage recherchent souvent la proximité, la réactivité et le contact humain qu'offre un artisan local. Votre stratégie digitale doit mettre en avant ces atouts : disponibilité, écoute, connaissance du terrain local, et surtout un portfolio de réalisations concrètes qui témoigne de votre savoir-faire. Un site web professionnel présentant vos chantiers avec des photos détaillées des différentes étapes de construction crée une crédibilité que les grandes structures, souvent impersonnelles, peinent à reproduire.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              Le portfolio : votre meilleur commercial
+            </h3>
+            <p>
+              La maçonnerie est un métier de transformation visible et durable. Murs en pierre de taille, briques apparentes, béton architectonique, enduits décoratifs : chaque type de maçonnerie raconte une histoire différente et parle à une clientèle distincte. Photographier vos chantiers sous tous les angles, documenter les étapes clés de la construction, montrer les fondations solides que vous coulez et les murs droits que vous élevez : c'est investir dans le contenu marketing le plus convaincant qui soit. Les clients qui envisagent un projet d'extension ou de construction veulent voir ce que vous savez faire avant de vous confier leur chantier. La connaissance des démarches de permis de construire et de déclaration préalable constitue également un différenciateur précieux à mettre en avant dans votre communication digitale.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              L'éco-construction : un positionnement d'avenir
+            </h3>
+            <p>
+              La tendance vers l'éco-construction et les matériaux biosourcés ouvre de nouvelles perspectives pour les maçons qui savent s'adapter. Briques de chanvre, béton bas carbone, murs en terre crue, réemploi de matériaux : ces techniques attirent une clientèle sensible aux enjeux environnementaux, souvent disposée à investir davantage pour un projet responsable. Communiquer sur ces compétences spécifiques dans votre stratégie digitale vous positionne sur un segment en forte croissance et encore peu concurrentiel en ligne. Les maçons qui adoptent et affichent ces savoir-faire dès maintenant construisent un avantage concurrentiel durable dans un marché qui évolue rapidement vers des pratiques plus vertueuses.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
+        <div className="max-w-4xl mx-auto">
           <div className="card p-8 md:p-10 border-gray-200">
             <h3 className="font-display text-2xl font-bold text-gray-900 mb-6 text-center">
               Pourquoi ces recommandations pour les maçons ?

@@ -186,7 +186,68 @@ const Electricien = () => {
         </div>
       </section>
 
+      {/* L'ELECTRICIEN FACE AUX NOUVELLES TECHNOLOGIES */}
       <section className="py-20 md:py-28 px-4 md:px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block" style={{ backgroundColor: `${metierColor}20`, color: metierColor }}>
+              L'électricité en pleine révolution
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
+              Un métier en pleine mutation : les nouvelles opportunités pour les électriciens
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
+            <p>
+              Le métier d'électricien n'a jamais autant évolué qu'au cours des cinq dernières années. Autrefois cantonné au câblage, aux tableaux électriques et au dépannage, l'électricien d'aujourd'hui installe des bornes de recharge pour véhicules électriques, pose des panneaux photovoltaïques, configure des systèmes domotiques et intègre des solutions de stockage d'énergie. Cette diversification des compétences ouvre des marchés considérables, mais elle impose aussi de repenser entièrement sa communication pour attirer les bons clients.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Les bornes de recharge : un marché en croissance exponentielle
+            </h3>
+            <p>
+              Avec l'accélération des ventes de véhicules électriques en France -- plus de 25 % des immatriculations neuves en 2025 -- la demande d'installation de bornes de recharge à domicile explose. Chaque propriétaire de véhicule électrique a besoin d'une borne Wallbox installée par un électricien qualifié IRVE (Infrastructure de Recharge de Véhicules Électriques). Le ticket moyen de cette prestation se situe entre 1 200 et 2 500 euros, et le volume de demandes ne fait que croître.
+            </p>
+            <p>
+              Pourtant, la plupart des électriciens qui proposent ce service n'ont aucune page dédiée sur leur site web. Les prospects qui tapent « installation borne de recharge + ville » ne trouvent souvent que des plateformes d'intermédiation qui prélèvent des commissions de 15 à 25 %. Un électricien avec une page bien référencée sur cette prestation capte ces clients en direct, sans intermédiaire.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Le solaire résidentiel : l'électricien comme partenaire de la transition
+            </h3>
+            <p>
+              L'autoconsommation photovoltaïque connaît un engouement sans précédent auprès des particuliers français. Les installations résidentielles de panneaux solaires représentent des projets de 8 000 à 20 000 euros, avec des aides gouvernementales qui rendent l'investissement attractif. L'électricien certifié QualiPV ou RGE qui se positionne sur ce créneau accède à un marché à forte marge. Mais la concurrence est forte, notamment de la part d'installateurs spécialisés qui investissent massivement en publicité digitale.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              La domotique et la maison connectée : fidéliser par l'innovation
+            </h3>
+            <p>
+              La domotique n'est plus un gadget réservé aux passionnés de technologie. Les systèmes de gestion de l'éclairage, les volets roulants connectés, les thermostats intelligents et les systèmes d'alarme intégrés sont devenus des prestations courantes. Un électricien qui maîtrise ces technologies peut se positionner comme intégrateur de solutions pour la maison intelligente, avec des projets allant de 500 euros pour un simple thermostat connecté à plus de 5 000 euros pour une installation domotique complète.
+            </p>
+            <p>
+              Le marketing digital permet de cibler spécifiquement les propriétaires intéressés par ces solutions, via des campagnes Google Ads sur des mots-clés comme « installation domotique maison » ou « électricien maison connectée ».
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Urgences et sécurité : les fondamentaux qui ne changent pas
+            </h3>
+            <p>
+              Malgré l'émergence de ces nouveaux marchés, le coeur de métier de l'électricien reste le dépannage et la mise en conformité. Les pannes électriques, les courts-circuits, les tableaux vétustes et les mises aux normes obligatoires avant la vente d'un bien immobilier génèrent un flux constant d'appels. La sécurité électrique est un sujet sur lequel le client ne transige pas : il veut un professionnel certifié, assuré et bien noté. Votre certification Consuel, vos assurances décennales et vos avis clients positifs sont les piliers de votre crédibilité en ligne.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8">
+              Mixte urgence et projet : structurer votre acquisition client
+            </h3>
+            <p>
+              L'électricien a une particularité par rapport aux autres métiers du bâtiment : il doit gérer simultanément des appels d'urgence (panne, court-circuit) et des demandes de projets planifiés (rénovation électrique, installation de borne, pose de panneaux solaires). Ces deux types de clients ont des parcours d'achat radicalement différents. L'un cherche un numéro de téléphone à appeler dans la minute ; l'autre compare des devis pendant plusieurs semaines. Votre stratégie digitale doit adresser ces deux publics de manière distincte, avec des pages d'atterrissage, des messages et des appels à l'action adaptés à chaque situation. Un site web qui ne traite que le dépannage perd les projets planifiés. Un site qui ne met pas en avant l'urgence perd les appels immédiats.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-4xl mx-auto">
           <div className="card p-8 md:p-10 border-gray-200">
             <h3 className="font-display text-2xl font-bold text-gray-900 mb-6 text-center">

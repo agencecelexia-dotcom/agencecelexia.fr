@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
+
 
 const About = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -14,6 +15,30 @@ const About = () => {
     canonical: 'https://agencecelexia.fr/about'
   });
 
+  // Schéma JSON-LD AboutPage + Organization
+  const aboutSchema = useMemo(() => ({
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'À propos - Agence Celexia',
+    description: 'Découvrez comment Agence Celexia aide les artisans à générer des leads qualifiés grâce au marketing digital local.',
+    url: 'https://agencecelexia.fr/about',
+    mainEntity: {
+      '@type': 'Organization',
+      name: 'Agence Celexia',
+      url: 'https://agencecelexia.fr',
+      email: 'agence.celexia@gmail.com',
+      description: 'Agence marketing digital spécialisée dans l\'acquisition client pour les artisans et professionnels du bâtiment.',
+      foundingDate: '2024',
+      areaServed: {
+        '@type': 'Country',
+        name: 'France'
+      },
+      knowsAbout: ['Marketing digital', 'Référencement local', 'Google Ads', 'Acquisition client artisans']
+    }
+  }), []);
+
+  useJsonLd(aboutSchema);
+
   const faqs = [
     { question: "Comment fonctionne votre système publicitaire ?", answer: "Nous utilisons une stratégie de référencement local optimisée qui place votre entreprise en tête des résultats Google lorsque des clients potentiels recherchent vos services dans votre zone géographique. Vous payez uniquement pour les appels qualifiés reçus." },
     { question: "Quel est le coût réel du service ?", answer: "Le premier mois de gestion est inclus dans notre offre de lancement. Ensuite, nos tarifs dépendent de votre volume d'appels souhaité et de votre zone géographique. Nous établissons un devis personnalisé lors de notre premier échange." },
@@ -25,19 +50,6 @@ const About = () => {
     { question: "Travaillez-vous avec des artisans partout en France ?", answer: "Oui, notre système fonctionne dans toutes les régions françaises. La performance dépend de votre secteur d'activité et de la concurrence locale, que nous analysons lors de notre audit initial." }
   ];
 
-  // Schéma JSON-LD pour la page FAQ
-  useJsonLd({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    'mainEntity': faqs.map(faq => ({
-      '@type': 'Question',
-      'name': faq.question,
-      'acceptedAnswer': {
-        '@type': 'Answer',
-        'text': faq.answer
-      }
-    }))
-  });
 
   const services = [
     { num: '01', title: 'Optimisation de votre présence locale', desc: "Configuration professionnelle de votre fiche Google Business Profile : photos de qualité, description optimisée, catégories pertinentes, horaires à jour.", icon: (
@@ -69,7 +81,7 @@ const About = () => {
       <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-4 md:px-6 overflow-hidden">
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-violet-100/30 rounded-full blur-3xl -translate-y-1/3 -translate-x-1/4" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <span className="tag mb-6 inline-block">A propos</span>
+          <span className="tag mb-6 inline-block">À propos</span>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
             Agence marketing digital pour artisans<br />Expert en acquisition client
           </h1>
@@ -217,7 +229,7 @@ const About = () => {
             <div className="space-y-3">
               {[
                 "Fluctuations d'activité imprévisibles",
-                "Dépendance aux prescripteurs ou a la saisonnalité",
+                "Dépendance aux prescripteurs ou à la saisonnalité",
                 "Difficulté à mesurer le ROI des actions marketing",
                 "Manque de temps pour le digital"
               ].map((item, i) => (
@@ -303,9 +315,9 @@ const About = () => {
       <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <span className="tag mb-4 inline-block">Benefices</span>
+            <span className="tag mb-4 inline-block">Bénéfices</span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-              Ce que vous gagnez concretement
+              Ce que vous gagnez concrètement
             </h2>
           </div>
 
@@ -341,7 +353,7 @@ const About = () => {
           <div className="text-center mb-10">
             <span className="tag mb-4 inline-block">Pour qui ?</span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-              Ce service est adapte si vous etes...
+              Ce service est adapté si vous êtes...
             </h2>
           </div>
 
@@ -350,9 +362,9 @@ const About = () => {
               {[
                 { bold: 'Artisan établi', rest: "qui souhaité stabiliser et augmenter son volume d'activité" },
                 { bold: "Chef d'entreprise du bâtiment", rest: 'qui veut réduire sa dépendance aux prescripteurs' },
-                { bold: 'Professionnel des services a domicile', rest: "cherchant à remplir son agenda 2-3 mois a l'avance" },
+                { bold: 'Professionnel des services à domicile', rest: "cherchant à remplir son agenda 2-3 mois à l'avance" },
                 { bold: 'Entrepreneur ambitieux', rest: "qui veut développer son activité de manière structurée" },
-                { bold: 'Artisan pragmatique', rest: "qui préfère déléguer le digital a des experts" }
+                { bold: 'Artisan pragmatique', rest: "qui préfère déléguer le digital à des experts" }
               ].map((item, i) => (
                 <div key={i} className="flex items-start">
                   <span className="w-1.5 h-1.5 rounded-full bg-violet-400 mt-2.5 mr-3.5 flex-shrink-0" />
@@ -376,7 +388,7 @@ const About = () => {
             Discutons de votre projet
           </h2>
           <p className="text-lg text-violet-200 mb-4 max-w-xl mx-auto leading-relaxed">
-            Echangeons 30 minutes pour comprendre votre situation et determiner si notre solution correspond a vos besoins.
+            Échangeons 30 minutes pour comprendre votre situation et déterminer si notre solution correspond à vos besoins.
           </p>
           <p className="text-violet-300 text-sm mb-8">
             Pas de discours commercial. Une conversation franche entre professionnels.
@@ -388,14 +400,14 @@ const About = () => {
                        shadow-lg hover:shadow-xl hover:-translate-y-[1px] active:translate-y-0 active:scale-[0.98]
                        transition-all duration-300 arrow-animate"
           >
-            Reserver un appel strategique
+            Réserver un appel stratégique
             <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
 
           <div className="mt-10 pt-6 border-t border-white/20">
-            <p className="text-sm text-violet-300 mb-1">Vous préfèrez nous ecrire ?</p>
+            <p className="text-sm text-violet-300 mb-1">Vous préférez nous écrire ?</p>
             <a href="mailto:agence.celexia@gmail.com" className="text-lg font-semibold text-white hover:text-violet-100 transition-colors">
               agence.celexia@gmail.com
             </a>
@@ -409,7 +421,7 @@ const About = () => {
           <div className="text-center mb-12">
             <span className="tag mb-4 inline-block">FAQ</span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-              Questions frequentes
+              Questions fréquentes
             </h2>
           </div>
 
@@ -418,6 +430,7 @@ const About = () => {
               <div key={index} className="card overflow-hidden border-gray-200">
                 <button
                   onClick={() => toggleFaq(index)}
+                  aria-expanded={openFaq === index}
                   className="w-full px-6 py-5 text-left flex justify-between items-center
                              hover:bg-gray-50 transition-colors"
                 >

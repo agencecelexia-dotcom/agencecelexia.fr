@@ -188,6 +188,51 @@ const Serrurier = () => {
 
       <section className="py-20 md:py-28 px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block" style={{ backgroundColor: `${metierColor}20`, color: metierColor }}>Expertise Métier</span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4">
+              Serrurerie et marketing digital : restaurer la confiance dans un secteur en crise
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
+            <p>
+              La serrurerie est un métier à part dans le paysage artisanal français. Environ 80 % des recherches « serrurier » sur Google correspondent à des situations d'urgence : porte claquée, clé perdue, serrure bloquée, cambriolage. Cette dimension d'urgence absolue, combinée à un problème endémique d'arnaques en ligne, crée un environnement marketing unique où la confiance est la monnaie la plus précieuse. Les serruriers honnêtes et qualifiés doivent non seulement être visibles, mais aussi prouver activement leur légitimité face à des escrocs qui investissent massivement en publicité pour tromper les consommateurs en détresse.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              Le fléau des faux serruriers : une opportunité pour les vrais professionnels
+            </h3>
+            <p>
+              Le secteur de la serrurerie souffre d'un problème de réputation majeur. Des sociétés peu scrupuleuses, souvent basées à l'étranger, achètent des positions publicitaires sur Google et affichent des numéros locaux qui redirigent vers des centrales d'appels. Les « artisans » envoyés sur place pratiquent des tarifs exorbitants, réalisent des travaux inutiles et facturent parfois trois à cinq fois le prix normal. Cette réalité, largement documentée par les associations de consommateurs et les médias, a créé une méfiance généralisée envers les serruriers trouvés en ligne. Pour un artisan serrurier légitime, cette situation est paradoxalement une opportunité : en affichant de manière transparente votre identité, vos tarifs, vos certifications et vos avis clients vérifiés, vous vous démarquez radicalement de ces opérateurs frauduleux.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              La transparence tarifaire comme avantage concurrentiel
+            </h3>
+            <p>
+              Lorsqu'une personne est enfermée dehors à deux heures du matin, sa priorité est de rentrer chez elle rapidement et sans mauvaise surprise. Afficher des grilles tarifaires claires sur votre site web, avec des fourchettes de prix par type d'intervention (ouverture de porte simple entre 80 et 150 euros, changement de cylindre entre 120 et 250 euros, installation de serrure multipoint entre 500 et 2 000 euros), rassure immédiatement le prospect. Cette transparence, rare dans le secteur, devient votre argument commercial le plus puissant. Couplez-la à un engagement écrit de devis gratuit avant toute intervention et de prix fixe annoncé par téléphone pour les interventions courantes, et vous transformez la méfiance du consommateur en confiance active.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              La disponibilité 24/7 : un impératif technique et marketing
+            </h3>
+            <p>
+              Les urgences de serrurerie ne suivent pas les horaires de bureau. Une porte claquée survient le dimanche soir, un cambriolage est découvert au retour de vacances, une serrure se bloque un jour férié. Votre présence en ligne doit refléter cette disponibilité permanente. Un site web avec un bouton d'appel proéminent et une mention claire « Intervention 24h/24, 7j/7 » convertit significativement mieux qu'un site classique. Google Local est le canal principal d'acquisition pour les serruriers : plus de 70 % des appels d'urgence proviennent directement de la fiche Google Business, souvent depuis un smartphone dans la rue ou sur un palier. L'optimisation de cette fiche avec des horaires d'ouverture étendus, des photos de votre véhicule d'intervention et de vos équipements, ainsi que des réponses rapides aux avis clients, est la base absolue de toute stratégie digitale pour un serrurier.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              Au-delà de l'urgence : développer le marché de la sécurité
+            </h3>
+            <p>
+              Si l'urgence représente la majorité des appels, le marché de l'installation de systèmes de sécurité offre des perspectives de développement à plus forte marge. Serrures connectées, portes blindées, systèmes de contrôle d'accès pour copropriétés, coffres-forts : ces prestations à plus haute valeur ajoutée (500 à 2 000 euros et plus) attirent une clientèle qui anticipe plutôt que de subir. Votre communication digitale doit adresser ces deux segments : l'urgence immédiate avec un message de réassurance et de rapidité, et la sécurité préventive avec un discours de conseil et d'expertise technique. Les certifications professionnelles (A2P, APSAD) et les partenariats avec des marques reconnues (Fichet, Vachette, Bricard) sont des signaux de confiance déterminants qui méritent une place centrale sur votre site web et vos supports digitaux.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
+        <div className="max-w-4xl mx-auto">
           <div className="card p-8 md:p-10 border-gray-200">
             <h3 className="font-display text-2xl font-bold text-gray-900 mb-6 text-center">
               Pourquoi ces recommandations pour les serruriers ?

@@ -188,6 +188,51 @@ const Peintre = () => {
 
       <section className="py-20 md:py-28 px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block" style={{ backgroundColor: `${metierColor}20`, color: metierColor }}>Expertise Métier</span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4">
+              Se démarquer dans le marché ultra-concurrentiel de la peinture
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
+            <p>
+              Le métier de peintre en bâtiment est l'un des plus concurrentiels du secteur artisanal en France. Avec des barrières à l'entrée relativement faibles par rapport à d'autres corps de métier, le nombre de professionnels déclarés est élevé, sans compter la concurrence du travail non déclaré. Dans ce contexte saturé, la différenciation n'est plus une option mais une nécessité absolue. Le marketing digital offre aux peintres professionnels les outils pour se démarquer, construire une identité de marque forte et attirer une clientèle prête à payer le juste prix pour un travail de qualité.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              La spécialisation : votre meilleure arme de différenciation
+            </h3>
+            <p>
+              Dans un marché où des centaines de peintres proposent les mêmes services génériques, la spécialisation est le moyen le plus efficace de sortir du lot. Peinture décorative et effets de matière, application de peintures écologiques et biosourcées, ravalement de façade et traitement de l'humidité, peinture industrielle et de sols, décoration intérieure haut de gamme : chaque spécialisation correspond à une niche de marché avec une clientèle spécifique et souvent moins de concurrence. Votre stratégie digitale doit affirmer cette expertise distinctive. Un peintre qui se présente comme « spécialiste des enduits décoratifs à la chaux » se positionne très différemment d'un « peintre tous travaux » dans l'esprit du prospect.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              L'expertise couleur : un atout marketing sous-estimé
+            </h3>
+            <p>
+              La maîtrise des couleurs et des harmonies chromatiques est un savoir-faire que peu de peintres mettent en avant dans leur communication. Pourtant, c'est souvent ce qui préoccupe le plus les clients : quelles couleurs choisir pour agrandir visuellement une pièce ? Comment créer une ambiance chaleureuse dans un salon nord ? Quelles teintes pour une chambre d'enfant apaisante ? En publiant sur votre site web et vos réseaux sociaux des conseils de colorimétrie, des exemples de palettes harmonieuses et des photos de réalisations commentées avec les références de teintes utilisées, vous démontrez une expertise qui va bien au-delà de la simple application de peinture. Vous devenez un conseiller en décoration, ce qui justifie un positionnement tarifaire supérieur.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              Le défi de la preuve qualité
+            </h3>
+            <p>
+              La peinture présente un défi marketing unique : la qualité réelle du travail ne se révèle qu'après séchage complet, et les défauts de préparation ou d'application n'apparaissent parfois que des semaines plus tard. Un client ne peut pas juger la qualité d'une peinture au moment de la réception comme il le ferait pour un carrelage ou une menuiserie. C'est pourquoi les avis clients sont particulièrement déterminants pour les peintres. Un avis publié plusieurs mois après les travaux, confirmant que la peinture tient parfaitement et que les finitions sont impeccables, a une valeur de persuasion considérable. Encourager vos clients satisfaits à laisser des avis détaillés, idéalement avec des photos de l'intérieur de leur logement quelques mois après votre passage, constitue un investissement marketing à très fort retour.
+            </p>
+
+            <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">
+              Résidentiel et commercial : deux marchés, deux stratégies
+            </h3>
+            <p>
+              Le marché de la peinture se divise en deux segments distincts qui appellent des approches marketing différentes. Le marché résidentiel, avec des projets de 1 000 à 5 000 euros en moyenne, repose sur le volume et la proximité géographique. Le marché commercial, incluant bureaux, commerces, restaurants et hôtels, offre des tickets plus élevés et des relations récurrentes avec des gestionnaires d'immeubles ou des architectes d'intérieur. Votre présence digitale doit parler à ces deux audiences. Un portfolio segmenté présentant d'un côté vos réalisations résidentielles et de l'autre vos chantiers commerciaux permet à chaque type de prospect de se projeter. La tendance actuelle de rénovation des espaces de travail post-pandémie et le mouvement vers les peintures à faible émission de COV créent des opportunités spécifiques que les peintres avisés captent en se positionnant sur ces thématiques dans leur communication en ligne.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
+        <div className="max-w-4xl mx-auto">
           <div className="card p-8 md:p-10 border-gray-200">
             <h3 className="font-display text-2xl font-bold text-gray-900 mb-6 text-center">
               Pourquoi ces recommandations pour les peintres ?
