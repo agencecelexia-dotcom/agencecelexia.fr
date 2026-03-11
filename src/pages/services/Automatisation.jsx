@@ -172,7 +172,7 @@ const Automatisation = () => {
                     <h4 className="font-bold text-gray-900 mb-1">{item.task}</h4>
                     <div className="flex items-center gap-4 text-sm">
                       <span className="text-red-600">Avant: {item.before}</span>
-                      <span className="text-gray-400">→</span>
+                      <span className="text-gray-500">→</span>
                       <span className="text-emerald-600 font-semibold">Après: {item.after}</span>
                     </div>
                   </div>

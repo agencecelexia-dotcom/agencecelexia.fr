@@ -57,8 +57,10 @@ const Home = () => {
         'address': {
           '@type': 'PostalAddress',
           'addressCountry': 'FR',
+          'addressRegion': 'France métropolitaine',
           'addressLocality': 'France'
         },
+        'foundingDate': '2024',
         'areaServed': { '@type': 'Country', 'name': 'France' },
         'knowsLanguage': 'fr',
         'sameAs': [

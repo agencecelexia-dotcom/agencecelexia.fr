@@ -194,7 +194,7 @@ const Header = () => {
 
           {/* Services Mobile */}
           <div className="py-2">
-            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mb-2">Services</p>
+            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider px-3 mb-2">Services</p>
             <div className="space-y-1">
               {services.map((service, i) => (
                 <Link
@@ -212,7 +212,7 @@ const Header = () => {
 
           {/* Métiers Mobile */}
           <div className="py-2">
-            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mb-2">Métiers</p>
+            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider px-3 mb-2">Métiers</p>
             <div className="space-y-1 max-h-60 overflow-y-auto">
               {metiers.map((metier) => (
                 <Link

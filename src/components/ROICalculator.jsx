@@ -63,7 +63,7 @@ const ROICalculator = () => {
                 </option>
               ))}
             </select>
-            <p className="text-sm text-gray-400 mt-2">
+            <p className="text-sm text-gray-500 mt-2">
               Prix par appel : <span className="font-bold text-violet-600">{coutParAppel}€</span>
             </p>
           </div>
@@ -81,7 +81,7 @@ const ROICalculator = () => {
             />
             <div className="text-center mt-2">
               <span className="font-display text-3xl font-bold text-violet-600">{appelsParMois}</span>
-              <span className="text-sm text-gray-400 ml-2">appels/mois</span>
+              <span className="text-sm text-gray-500 ml-2">appels/mois</span>
             </div>
           </div>
 
@@ -98,7 +98,7 @@ const ROICalculator = () => {
             />
             <div className="text-center mt-2">
               <span className="font-display text-3xl font-bold text-violet-600">{tauxDevis}</span>
-              <span className="text-sm text-gray-400 ml-2">devis ({tauxDevis}%)</span>
+              <span className="text-sm text-gray-500 ml-2">devis ({tauxDevis}%)</span>
             </div>
           </div>
 
@@ -115,7 +115,7 @@ const ROICalculator = () => {
             />
             <div className="text-center mt-2">
               <span className="font-display text-3xl font-bold text-violet-600">{tauxClient}</span>
-              <span className="text-sm text-gray-400 ml-2">clients ({tauxClient}%)</span>
+              <span className="text-sm text-gray-500 ml-2">clients ({tauxClient}%)</span>
             </div>
           </div>
 
@@ -135,7 +135,7 @@ const ROICalculator = () => {
                            text-gray-900 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-100
                            transition-all duration-200"
               />
-              <span className="absolute right-5 top-1/2 -translate-y-1/2 text-xl text-gray-400 font-bold">€</span>
+              <span className="absolute right-5 top-1/2 -translate-y-1/2 text-xl text-gray-500 font-bold">€</span>
             </div>
           </div>
 
@@ -208,7 +208,7 @@ const ROICalculator = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   {[1, 3, 6, 12].map((month) => (
                     <div key={month} className="text-center p-3 bg-gray-50 rounded-xl">
-                      <p className="text-xs text-gray-400 mb-1">Mois {month}</p>
+                      <p className="text-xs text-gray-500 mb-1">Mois {month}</p>
                       <p className="font-display text-lg font-bold text-violet-600">
                         +{(beneficeNet * month).toLocaleString()}€
                       </p>
@@ -218,7 +218,7 @@ const ROICalculator = () => {
 
                 {/* Chart */}
                 <div className="mt-5 p-4 rounded-xl bg-gray-50 border border-gray-100">
-                  <p className="text-xs text-gray-400 mb-3 text-center uppercase tracking-wider font-medium">
+                  <p className="text-xs text-gray-500 mb-3 text-center uppercase tracking-wider font-medium">
                     Évolution des bénéfices cumulés
                   </p>
                   <div className="relative h-48 md:h-60">
@@ -264,7 +264,7 @@ const ROICalculator = () => {
                       })}
                     </svg>
                   </div>
-                  <p className="text-center text-xs text-gray-400 mt-2">
+                  <p className="text-center text-xs text-gray-500 mt-2">
                     Bénéfice cumulé sur 12 mois : <span className="font-bold text-violet-600">{(beneficeNet * 12).toLocaleString()}€</span>
                   </p>
                 </div>
@@ -285,7 +285,7 @@ const ROICalculator = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </button>
-                <p className="text-xs text-gray-400 mt-3">
+                <p className="text-xs text-gray-500 mt-3">
                   On vous montre le potentiel réel de votre zone
                 </p>
               </div>

@@ -75,7 +75,7 @@ const MentionsLegales = () => {
             </div>
           </div>
 
-          <p className="text-gray-400 text-sm mt-12">Dernière mise à jour : 11 mars 2026</p>
+          <p className="text-gray-500 text-sm mt-12">Dernière mise à jour : 11 mars 2026</p>
         </div>
       </section>
     </div>

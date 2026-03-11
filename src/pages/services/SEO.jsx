@@ -285,19 +285,19 @@ const SEO = () => {
               </h3>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-400 mt-1">•</span>
+                  <span className="text-gray-500 mt-1">•</span>
                   <span>Coût par clic élevé (5-15€)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-400 mt-1">•</span>
+                  <span className="text-gray-500 mt-1">•</span>
                   <span>Résultats s'arrêtent quand vous arrêtez de payer</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-400 mt-1">•</span>
+                  <span className="text-gray-500 mt-1">•</span>
                   <span>Budget mensuel minimum 1000€</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-400 mt-1">•</span>
+                  <span className="text-gray-500 mt-1">•</span>
                   <span>Concurrence féroce sur les enchères</span>
                 </li>
               </ul>
