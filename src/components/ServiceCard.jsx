@@ -66,7 +66,7 @@ const ServiceCard = ({ service, metier, accentColor = '#7C3AED' }) => {
       </h3>
 
       {/* Description */}
-      <p className="text-sm md:text-base text-gray-500 leading-relaxed mb-5">
+      <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-5">
         {serviceData.description}
       </p>
 

@@ -129,7 +129,7 @@ const SEO = () => {
             <span className="block text-violet-600">dans votre Zone</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-10">
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
             Positionnement optimal sur les recherches locales de votre métier. SEO technique, Google My Business, avis clients.
             <strong className="block mt-2 text-gray-900">Résultats visibles sous 90 jours.</strong>
           </p>
@@ -179,7 +179,7 @@ const SEO = () => {
                   {feature.icon}
                 </div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{feature.desc}</p>
+                <p className="text-sm text-gray-600 leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -235,7 +235,7 @@ const SEO = () => {
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-3">
               Notre méthodologie SEO en 4 étapes
             </h2>
-            <p className="text-gray-500 text-lg">
+            <p className="text-gray-600 text-lg">
               Résultats visibles dès le 3ème mois, position top 3 garantie sous 90 jours
             </p>
           </div>
@@ -251,7 +251,7 @@ const SEO = () => {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-lg font-bold text-gray-900 mb-1">{item.title}</h3>
-                      <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                      <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                   <div className="md:text-right md:min-w-[120px]">

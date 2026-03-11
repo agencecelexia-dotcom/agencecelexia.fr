@@ -9,8 +9,8 @@ const LeadsElectricien = () => {
 
   // Métadonnées SEO pour la page Électricien
   usePageMeta({
-    title: 'Génération de Leads Électricien | Clients Qualifiés pour Électriciens',
-    description: 'Obtenez des appels de clients qualifiés pour votre entreprise d\'électricité. Système de paiement par lead. Dès les premiers jours de publication des campagnes publicitaires. Agence Celexia.',
+    title: 'Leads Électricien | Agence Celexia',
+    description: 'Obtenez des appels de clients qualifiés pour votre entreprise d\'électricité. Paiement par lead. Agence Celexia.',
     canonical: 'https://agencecelexia.fr/leads-electricien'
   });
 
@@ -106,7 +106,7 @@ const LeadsElectricien = () => {
             Génération de Leads Électricien
             <span className="block text-amber-600">Clients Qualifiés Garantis</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-10">
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
             Remplissez votre agenda avec des dépannages urgents, des rénovations électriques et des installations de bornes de recharge.
             Payez uniquement pour les appels de clients réels prêts à engager un électricien.
           </p>
@@ -156,7 +156,7 @@ const LeadsElectricien = () => {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">{benefit.desc}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{benefit.desc}</p>
                   </div>
                 </div>
               </div>
@@ -211,7 +211,7 @@ const LeadsElectricien = () => {
             {faqs.map((faq, i) => (
               <div key={i} className="card p-6 border-gray-200">
                 <h3 className="font-bold text-gray-900 mb-3 text-base">{faq.question}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{faq.answer}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
               </div>
             ))}
           </div>
@@ -224,7 +224,7 @@ const LeadsElectricien = () => {
           <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
             Prêt à remplir votre agenda de chantiers ?
           </h2>
-          <p className="text-lg text-gray-500 mb-8 leading-relaxed">
+          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
             Réservez 30 minutes pour analyser votre zone et estimer votre volume de leads mensuel
           </p>
           <Link to="/contact" className="btn-primary arrow-animate text-base px-8 py-4 inline-flex items-center">

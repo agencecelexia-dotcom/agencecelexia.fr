@@ -36,7 +36,7 @@ const ROICalculator = () => {
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-3">
             Combien vous pourriez gagner ?
           </h2>
-          <p className="text-gray-500 text-lg">
+          <p className="text-gray-600 text-lg">
             Calculez votre retour sur investissement en 30 secondes.
           </p>
         </div>
@@ -155,7 +155,7 @@ const ROICalculator = () => {
               <div className="text-center mb-6">
                 <span className="tag mb-3 inline-block">Résultats</span>
                 <h3 className="font-display text-2xl md:text-3xl font-bold text-gray-900">Vos résultats</h3>
-                <p className="text-gray-500 mt-2 text-sm">
+                <p className="text-gray-600 mt-2 text-sm">
                   Secteur : <span className="text-violet-600 font-semibold">{NICHES[niche].label}</span> |
                   <span className="text-violet-600 font-semibold"> {appelsParMois} appels/mois</span>
                 </p>

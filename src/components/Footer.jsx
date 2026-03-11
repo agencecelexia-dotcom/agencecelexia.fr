@@ -10,9 +10,9 @@ const Footer = () => {
             <Link to="/" className="inline-block mb-4">
               <img
                 src="/logo.png"
-                alt="Agence Celexia - Spécialiste en Local Service Ads pour artisans"
-                className="h-8 opacity-80 hover:opacity-100 transition-opacity"
-                width="32"
+                alt="Agence Celexia - Marketing Digital pour Artisans"
+                className="h-8 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                width="197"
                 height="32"
                 loading="lazy"
               />
@@ -29,7 +29,7 @@ const Footer = () => {
             <div className="flex flex-col gap-3">
               <Link to="/" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Accueil</Link>
               <Link to="/about" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">A Propos</Link>
-              <Link to="/sites-artisans" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Sites Web</Link>
+              <Link to="/services/site-web" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Sites Web</Link>
               <Link to="/contact" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Contact</Link>
             </div>
           </div>

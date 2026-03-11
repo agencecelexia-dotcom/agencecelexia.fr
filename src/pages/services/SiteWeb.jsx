@@ -4,7 +4,7 @@ import { useJsonLd } from '../../hooks/useJsonLd';
 
 const SiteWeb = () => {
   usePageMeta({
-    title: 'Sites Web pour Artisans en 7 Jours | Agence Celexia',
+    title: 'Sites Web Artisans | Agence Celexia',
     description: 'Site web professionnel pour artisans livré en 7 jours. Design moderne, optimisé SEO, responsive. Devis gratuit pour plombiers, électriciens, menuisiers.',
     canonical: 'https://agencecelexia.fr/services/site-web'
   });
@@ -142,7 +142,7 @@ const SiteWeb = () => {
             <span className="block text-violet-600">Livré en 7 Jours</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-10">
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
             Design moderne, optimisé pour convertir vos visiteurs en clients.
             Spécialement conçu pour les artisans et professionnels du bâtiment.
           </p>
@@ -179,7 +179,7 @@ const SiteWeb = () => {
                   {feature.icon}
                 </div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{feature.desc}</p>
+                <p className="text-sm text-gray-600 leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -235,7 +235,7 @@ const SiteWeb = () => {
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-3">
               Exemples de réalisations
             </h2>
-            <p className="text-gray-500 text-lg">
+            <p className="text-gray-600 text-lg">
               Des sites web qui convertissent vos visiteurs en clients
             </p>
           </div>
@@ -268,7 +268,7 @@ const SiteWeb = () => {
             ))}
           </div>
 
-          <p className="text-center mt-10 text-gray-500">
+          <p className="text-center mt-10 text-gray-600">
             <strong className="text-gray-900">Ces sites sont des modèles :</strong> Conçus par nos développeurs, ils sont entièrement duplicables et personnalisables à votre image.
           </p>
         </div>
@@ -282,7 +282,7 @@ const SiteWeb = () => {
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-3">
               De l'idée à la mise en ligne en 7 jours
             </h2>
-            <p className="text-gray-500 text-lg">
+            <p className="text-gray-600 text-lg">
               Un processus simple et transparent, sans surprise
             </p>
           </div>
@@ -298,7 +298,7 @@ const SiteWeb = () => {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-lg font-bold text-gray-900 mb-1">{item.title}</h3>
-                      <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                      <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                   <div className="md:text-right md:min-w-[100px]">
@@ -337,7 +337,7 @@ const SiteWeb = () => {
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 mb-1 text-[15px]">{item.title}</h3>
-                    <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               </div>

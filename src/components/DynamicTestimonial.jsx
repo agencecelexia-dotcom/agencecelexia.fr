@@ -56,7 +56,7 @@ const DynamicTestimonial = ({ metier }) => {
             {/* Infos */}
             <div>
               <p className="font-bold text-gray-900 text-base">{testimonial.name}</p>
-              <p className="text-sm text-gray-500">{testimonial.company}</p>
+              <p className="text-sm text-gray-600">{testimonial.company}</p>
             </div>
           </div>
 
@@ -73,7 +73,7 @@ const DynamicTestimonial = ({ metier }) => {
 
         {/* CTA en dessous du témoignage */}
         <div className="text-center mt-10">
-          <p className="text-gray-500 mb-4">
+          <p className="text-gray-600 mb-4">
             Vous aussi, développez votre activité avec Celexia
           </p>
           <button
