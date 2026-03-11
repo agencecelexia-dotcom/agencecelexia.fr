@@ -34,6 +34,16 @@
   to = "/"
   status = 301
 
+[[redirects]]
+  from = "/leads-electricien"
+  to = "/metiers/electricien"
+  status = 301
+
+[[redirects]]
+  from = "/leads-plombier"
+  to = "/metiers/plombier"
+  status = 301
+
 # 410 Gone - URLs parasites ancien builder
 [[redirects]]
   from = "/tmp/*"

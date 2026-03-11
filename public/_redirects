@@ -5,6 +5,8 @@
 /demo-call /reserver 301
 /onboarding-call /reserver 301
 /banque-alimentaire / 301
+/leads-electricien /metiers/electricien 301
+/leads-plombier /metiers/plombier 301
 
 # 410 Gone - URLs parasites (ancien builder Brevo/Sendinblue)
 /tmp/* /index.html 410
