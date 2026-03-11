@@ -1,11 +1,26 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useJsonLd } from '../../hooks/useJsonLd';
 
 const Pisciniste = () => {
   usePageMeta({
     title: 'Solutions Marketing Digital pour Piscinistes | Agence Celexia',
     description: 'Recommandations personnalisées pour piscinistes : publicité, site web, avis clients. Générez plus de leads qualifiés pour vos projets piscine.',
     canonical: 'https://agencecelexia.fr/metiers/pisciniste'
+  });
+
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://agencecelexia.fr/metiers/pisciniste/#service',
+    'name': 'Marketing Digital pour Piscinistes',
+    'description': 'Solutions de marketing digital sur-mesure pour les piscinistes : generation de leads qualifies, site web portfolio, gestion des avis clients et campagnes email saisonnieres pour maximiser votre chiffre d\'affaires.',
+    'url': 'https://agencecelexia.fr/metiers/pisciniste',
+    'serviceType': 'Marketing Digital',
+    'category': 'Marketing Digital pour Artisans',
+    'provider': { '@id': 'https://agencecelexia.fr/#organization' },
+    'areaServed': { '@type': 'Country', 'name': 'France' },
+    'audience': { '@type': 'Audience', 'audienceType': 'Piscinistes' }
   });
 
   const metierColor = '#1E88E5';

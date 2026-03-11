@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 
@@ -8,6 +9,14 @@ const NotFound = () => {
     description: 'La page que vous recherchez n\'existe pas. Retournez à l\'accueil pour continuer.',
     canonical: 'https://agencecelexia.fr/404'
   });
+
+  useEffect(() => {
+    const meta = document.createElement('meta');
+    meta.name = 'robots';
+    meta.content = 'noindex, nofollow';
+    document.head.appendChild(meta);
+    return () => document.head.removeChild(meta);
+  }, []);
 
   return (
     <div className="bg-white min-h-screen flex items-center justify-center px-4 md:px-6">
