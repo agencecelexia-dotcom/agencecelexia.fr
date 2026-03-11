@@ -594,7 +594,7 @@ function generatePage(template, route) {
   const canonical = `${SITE_URL}${route.path === '/' ? '/' : route.path}`;
   const title = escapeHtml(route.title);
   const description = escapeHtml(route.description);
-  const image = `${SITE_URL}/logo.png`;
+  const image = `${SITE_URL}/og-image.png`;
 
   let html = template;
 

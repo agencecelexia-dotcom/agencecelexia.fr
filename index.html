@@ -2,10 +2,10 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" sizes="32x32" href="/favicon.jpg" />
-    <link rel="icon" type="image/jpeg" sizes="16x16" href="/favicon.jpg" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.jpg" />
-    <link rel="shortcut icon" href="/favicon.jpg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#7C3AED" />
     <meta name="color-scheme" content="light" />
@@ -17,7 +17,7 @@
     <meta property="og:title" content="Agence Celexia | Marketing Digital pour Artisans du Bâtiment" />
     <meta property="og:description" content="Agence marketing digital pour artisans du bâtiment. Publicité locale, sites web, SEO, avis clients, emailing et automatisation." />
     <meta property="og:url" content="https://agencecelexia.fr/" />
-    <meta property="og:image" content="https://agencecelexia.fr/logo.png" />
+    <meta property="og:image" content="https://agencecelexia.fr/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="fr_FR" />
@@ -27,7 +27,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Agence Celexia | Marketing Digital pour Artisans du Bâtiment" />
     <meta name="twitter:description" content="Agence marketing digital pour artisans du bâtiment. Publicité locale, sites web, SEO, avis clients, emailing et automatisation." />
-    <meta name="twitter:image" content="https://agencecelexia.fr/logo.png" />
+    <meta name="twitter:image" content="https://agencecelexia.fr/og-image.png" />
 
     <!-- Manifest for PWA -->
     <link rel="manifest" href="/manifest.json" />
@@ -46,17 +46,21 @@
     </noscript>
     <link rel="preconnect" href="https://app.cal.com" crossorigin />
 
-    <!-- Google Analytics 4 -->
+    <!-- Google Analytics 4 - Consent Mode v2 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VLJ5E084ES"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'wait_for_update': 500
+      });
       gtag('js', new Date());
-      gtag('config', 'G-VLJ5E084ES');
+      gtag('config', 'G-VLJ5E084ES', { 'anonymize_ip': true });
     </script>
-
-    <!-- Google Search Console Verification - Ajouter votre code -->
-    <!-- <meta name="google-site-verification" content="votre-code-verification" /> -->
   </head>
   <body>
     <div id="root"></div>
