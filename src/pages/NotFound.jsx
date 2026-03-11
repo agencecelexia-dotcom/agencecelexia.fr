@@ -43,13 +43,13 @@ const NotFound = () => {
             </svg>
           </Link>
 
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-500 text-sm">
             Vous pouvez aussi <Link to="/contact" className="text-violet-600 hover:text-violet-700 font-semibold">nous contacter</Link> si vous avez des questions.
           </p>
         </div>
 
         <div className="mt-12 pt-8 border-t border-gray-200">
-          <p className="text-xs text-gray-400">
+          <p className="text-xs text-gray-500">
             Pages disponibles : <br />
             <Link to="/" className="text-violet-600 hover:text-violet-700 text-sm">Accueil</Link>
             {' • '}

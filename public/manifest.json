@@ -1,7 +1,7 @@
 {
-  "name": "Agence Celexia - Génération de leads pour artisans",
+  "name": "Agence Celexia - Marketing Digital pour Artisans",
   "short_name": "Agence Celexia",
-  "description": "Système d'acquisition client pour artisans. Payez uniquement pour les appels qualifiés.",
+  "description": "Agence marketing digital pour artisans du bâtiment. Publicité locale, sites web, SEO, avis clients, emailing et automatisation.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

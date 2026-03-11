@@ -302,7 +302,7 @@ const PublicitePerformance = () => {
               <details key={i} className="card p-6 border-gray-200 group cursor-pointer">
                 <summary className="font-bold text-gray-900 cursor-pointer list-none flex items-center justify-between">
                   {item.q}
-                  <svg className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <svg className="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </summary>
