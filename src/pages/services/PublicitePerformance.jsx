@@ -6,7 +6,7 @@ import ROICalculator from '../../components/ROICalculator';
 const PublicitePerformance = () => {
   usePageMeta({
     title: 'Publicité Performance | Agence Celexia',
-    description: 'Payez uniquement pour des appels de clients réels. Positionnement prioritaire sur Google Local. Paiement par appel qualifié pour artisans.',
+    description: 'Payez uniquement pour des appels de clients réels. Positionnement prioritaire sur Google. Paiement par appel qualifié pour artisans.',
     canonical: 'https://agencecelexia.fr/services/publicite-performance'
   });
 
@@ -15,7 +15,7 @@ const PublicitePerformance = () => {
     '@type': 'Service',
     '@id': 'https://agencecelexia.fr/services/publicite-performance/#service',
     'name': 'Publicité à la Performance pour Artisans',
-    'description': 'Système de génération d\'appels qualifiés pour artisans. Positionnement prioritaire sur Google Local Services Ads avec paiement uniquement à l\'appel qualifié.',
+    'description': 'Système de génération d\'appels qualifiés pour artisans. Positionnement prioritaire sur Google avec paiement uniquement à l\'appel qualifié.',
     'url': 'https://agencecelexia.fr/services/publicite-performance',
     'serviceType': 'Publicité digitale à la performance',
     'category': 'Marketing Digital',
@@ -130,7 +130,7 @@ const PublicitePerformance = () => {
     },
     {
       q: 'Comment obtenez-vous un positionnement prioritaire ?',
-      a: 'On utilise Google Local Services Ads, un système publicitaire premium qui positionne votre entreprise au-dessus des résultats organiques et des Google Ads classiques.'
+      a: 'On utilise un système publicitaire premium à la performance qui positionne votre entreprise au-dessus des résultats organiques et des Google Ads classiques.'
     },
     {
       q: 'Que se passe-t-il si je ne suis pas satisfait ?',
@@ -207,7 +207,7 @@ const PublicitePerformance = () => {
           </div>
           <div className="space-y-6 text-gray-600 text-[15px] leading-relaxed">
             <p>
-              La publicité à la performance repose sur le programme <strong className="text-gray-900">Google Local Services Ads</strong> (anciennement Google Garantie). Contrairement aux annonces Google Ads classiques où vous payez au clic — qu'il mène à un appel ou non — notre système vous fait payer uniquement lorsqu'un client potentiel vous contacte directement par téléphone.
+              La publicité à la performance repose sur un système publicitaire premium qui positionne votre entreprise en tête des résultats Google. Contrairement aux annonces Google Ads classiques où vous payez au clic — qu'il mène à un appel ou non — notre système vous fait payer uniquement lorsqu'un client potentiel vous contacte directement par téléphone.
             </p>
             <p>
               Concrètement, votre entreprise apparaît tout en haut des résultats de recherche Google, avant même les annonces Google Ads et les résultats organiques. Lorsqu'un utilisateur recherche « plombier urgence Lyon » ou « électricien Paris 15 », votre fiche apparaît avec votre note Google, vos horaires et un bouton d'appel direct.

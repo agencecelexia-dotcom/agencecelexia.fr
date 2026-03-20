@@ -149,7 +149,7 @@ const Home = () => {
 
   const services = [
     {
-      title: 'Google Local Services Ads',
+      title: 'Publicité à la Performance',
       category: 'Génération Leads',
       description: 'Payez uniquement pour des appels de clients réels. Votre entreprise apparaît en position #1 sur Google avec le badge "Garanti par Google".',
       link: '/services/publicite-performance',

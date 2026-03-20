@@ -12,7 +12,7 @@ export const SERVICES_CONFIG = {
     defaultDescription: 'Paiement uniquement aux appels de clients réels prêts à investir dans vos services',
     defaultBenefits: [
       'Paiement à l\'appel qualifié uniquement',
-      'Position #1 sur Google Local',
+      'Position #1 sur Google',
       'Filtrage automatique des spams',
       'ROI garanti dès les premiers jours'
     ]

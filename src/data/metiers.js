@@ -14,7 +14,7 @@ export const METIERS_DATA = {
         benefits: [
           'Paiement à l\'appel qualifié uniquement',
           'Filtrage automatique des demandes sérieuses',
-          'Position #1 sur Google Local',
+          'Position #1 sur Google',
           'Géolocalisation précise de vos zones d\'intervention'
         ]
       },
@@ -287,7 +287,7 @@ export const METIERS_DATA = {
         benefits: [
           'Paiement à l\'appel qualifié uniquement',
           'Mix création et entretien régulier',
-          'Position #1 sur Google Local',
+          'Position #1 sur Google',
           'Projets valorisant votre expertise'
         ]
       },

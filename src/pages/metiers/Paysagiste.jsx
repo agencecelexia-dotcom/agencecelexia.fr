@@ -50,7 +50,7 @@ const Paysagiste = () => {
       benefits: [
         'Paiement à l\'appel qualifié',
         'Ciblage géographique précis',
-        'Position prioritaire Google Local',
+        'Position prioritaire sur Google',
         'Capture projets aménagement extérieur'
       ],
       prix: `${prixAppel}/appel`,

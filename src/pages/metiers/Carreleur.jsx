@@ -49,7 +49,7 @@ const Carreleur = () => {
       description: 'Génération d\'appels pour projets carrelage intérieur/extérieur',
       benefits: [
         'Paiement à l\'appel qualifié',
-        'Position prioritaire Google Local',
+        'Position prioritaire sur Google',
         'Ciblage projets rénovation',
         'Capture chantiers neufs'
       ],

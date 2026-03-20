@@ -50,7 +50,7 @@ const Menuisier = () => {
       benefits: [
         'Paiement à l\'appel qualifié',
         'Ciblage projets fenêtres/portes/escaliers',
-        'Position prioritaire Google Local',
+        'Position prioritaire sur Google',
         'Capture projets rénovation'
       ],
       prix: `${prixAppel}/appel`,

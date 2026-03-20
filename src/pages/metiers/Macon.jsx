@@ -245,7 +245,7 @@ const Macon = () => {
                 'Un portfolio photo de chantiers terminés est indispensable pour rassurer',
                 'La concurrence locale est forte : les avis clients font la différence',
                 'Les devis ont un cycle long : relances email augmentent la conversion',
-                'La visibilité Google Local est critique pour capter les projets de proximité'
+                'La visibilité sur Google est critique pour capter les projets de proximité'
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <svg className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: metierColor }} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

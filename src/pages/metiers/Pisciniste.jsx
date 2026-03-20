@@ -36,7 +36,7 @@ const Pisciniste = () => {
       description: 'Génération de leads qualifiés pour projets piscine (construction, rénovation, entretien)',
       benefits: [
         'Paiement uniquement à l\'appel qualifié',
-        'Position prioritaire sur Google Local',
+        'Position prioritaire sur Google',
         'Ciblage géographique précis de votre zone',
         'Filtrage des demandes sérieuses'
       ],
