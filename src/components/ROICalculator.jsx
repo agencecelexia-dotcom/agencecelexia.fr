@@ -3,9 +3,9 @@ import { NicheContext, NICHES } from '../context/NicheContext';
 
 const ROICalculator = () => {
   const { niche, handleNicheChange } = useContext(NicheContext);
-  const [appelsParMois, setAppelsParMois] = useState(20);
+  const [appelsParMois, setAppelsParMois] = useState(50);
   const [tauxDevis, setTauxDevis] = useState(50);
-  const [tauxClient, setTauxClient] = useState(30);
+  const [tauxClient, setTauxClient] = useState(50);
   const [valeurContrat, setValeurContrat] = useState(10000);
   const [showResults, setShowResults] = useState(false);
 
@@ -75,7 +75,7 @@ const ROICalculator = () => {
               Combien d'appels par mois souhaitez-vous recevoir ?
             </label>
             <input
-              type="range" min="10" max="100" value={appelsParMois}
+              type="range" min="20" max="300" value={appelsParMois}
               onChange={(e) => setAppelsParMois(Number(e.target.value))}
               className="w-full"
             />
