@@ -14,7 +14,7 @@ const Menuisier = () => {
     '@type': 'Service',
     '@id': 'https://agencecelexia.fr/metiers/menuisier/#service',
     'name': 'Marketing Digital pour Menuisiers',
-    'description': 'Marketing digital dedie aux menuisiers et ebenistes : mise en valeur du savoir-faire artisanal, portfolio de realisations sur-mesure, differenciation face a la grande distribution et generation de projets a forte valeur ajoutee.',
+    'description': 'Marketing digital dédié aux menuisiers et ébénistes : mise en valeur du savoir-faire artisanal, portfolio de réalisations sur-mesure, différenciation face à la grande distribution et génération de projets à forte valeur ajoutée.',
     'url': 'https://agencecelexia.fr/metiers/menuisier',
     'serviceType': 'Marketing Digital',
     'category': 'Marketing Digital pour Artisans',

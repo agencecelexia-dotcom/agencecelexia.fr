@@ -27,7 +27,7 @@ const Chauffagiste = () => {
 
   const metierColor = '#E05024';
   const metierLabel = 'Chauffagiste';
-  const prixAppel = '25€';
+  const prixAppel = '15€';
 
   const recommendations = [
     {

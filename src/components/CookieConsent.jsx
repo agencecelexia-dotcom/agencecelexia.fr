@@ -20,13 +20,6 @@ const CookieConsent = () => {
         'analytics_storage': 'granted'
       });
     }
-    // Load gtag script if not yet loaded
-    if (!document.querySelector('script[src*="googletagmanager"]')) {
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-VLJ5E084ES';
-      document.head.appendChild(script);
-    }
   };
 
   const accept = () => {

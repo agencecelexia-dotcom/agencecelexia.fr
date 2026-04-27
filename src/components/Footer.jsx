@@ -57,6 +57,12 @@ const Footer = () => {
               <Link to="/metiers/couvreur" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Couvreur</Link>
               <Link to="/metiers/menuisier" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Menuisier</Link>
               <Link to="/metiers/paysagiste" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Paysagiste</Link>
+              <Link to="/metiers/macon" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Maçon</Link>
+              <Link to="/metiers/carreleur" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Carreleur</Link>
+              <Link to="/metiers/peintre" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Peintre</Link>
+              <Link to="/metiers/serrurier" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Serrurier</Link>
+              <Link to="/metiers/vitrier" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Vitrier</Link>
+              <Link to="/metiers/pisciniste" className="text-gray-600 hover:text-violet-600 transition-colors text-sm">Pisciniste</Link>
             </div>
           </div>
 
