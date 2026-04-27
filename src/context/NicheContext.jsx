@@ -5,7 +5,7 @@ export const METIERS = {
   pisciniste: { label: 'Pisciniste', prix: 10, color: '#1E88E5' },
   paysagiste: { label: 'Paysagiste', prix: 10, color: '#4CAF50' },
   plombier: { label: 'Plombier', prix: 25, color: '#1EA36F' },
-  chauffagiste: { label: 'Chauffagiste', prix: 25, color: '#E05024' },
+  chauffagiste: { label: 'Chauffagiste', prix: 15, color: '#E05024' },
   electricien: { label: 'Électricien', prix: 20, color: '#F4C20D' },
   menuisier: { label: 'Menuisier', prix: 20, color: '#BF6C2E' },
   couvreur: { label: 'Couvreur', prix: 20, color: '#6D4C41' },
