@@ -5,7 +5,7 @@ import { useJsonLd } from '../../hooks/useJsonLd';
 const SiteWeb = () => {
   usePageMeta({
     title: 'Sites Web Artisans | Agence Celexia',
-    description: 'Site web professionnel pour artisans livré en 7 jours. Design moderne, optimisé SEO, responsive. Devis gratuit pour plombiers, électriciens, menuisiers.',
+    description: 'Site web professionnel pour artisans livré en 7 jours. Design moderne, optimisé SEO, responsive. Devis gratuit pour plombiers, couvreurs, menuisiers et autres artisans.',
     canonical: 'https://agencecelexia.fr/services/site-web'
   });
 
@@ -17,7 +17,7 @@ const SiteWeb = () => {
     'description': 'Conception et développement de sites web professionnels pour artisans, livrés en 7 jours. Design responsive, optimisé SEO et conversion.',
     'url': 'https://agencecelexia.fr/services/site-web',
     'serviceType': 'Création de site web',
-    'category': 'Marketing Digital',
+    'category': 'Service complémentaire artisans',
     'provider': { '@id': 'https://agencecelexia.fr/#organization' },
     'areaServed': { '@type': 'Country', 'name': 'France' },
     'audience': { '@type': 'Audience', 'audienceType': 'Artisans et professionnels du bâtiment' },
@@ -202,7 +202,7 @@ const SiteWeb = () => {
               Aujourd'hui, <strong className="text-gray-900">97% des consommateurs recherchent un artisan en ligne</strong> avant de prendre contact. Un site web professionnel n'est plus une option, c'est votre vitrine numérique permanente. Sans site, vous êtes invisible pour la majorité de vos clients potentiels, qui se tourneront vers vos concurrents mieux référencés.
             </p>
             <p>
-              Chez Celexia, nous concevons des sites spécifiquement pensés pour les métiers de l'artisanat. Contrairement à une agence web généraliste qui vous proposera un site vitrine standard, nous connaissons les attentes des clients qui recherchent un plombier, un électricien, un menuisier ou un pisciniste. Chaque élément de votre site est optimisé pour transformer un visiteur en demande de devis.
+              Chez Celexia, nous concevons des sites spécifiquement pensés pour les métiers de l'artisanat. Contrairement à une agence web généraliste qui vous proposera un site vitrine standard, nous connaissons les attentes des clients qui recherchent un plombier, un couvreur, un menuisier ou un constructeur de piscines. Chaque élément de votre site est optimisé pour transformer un visiteur en demande de devis.
             </p>
             <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">Ce que comprend votre site web artisan</h3>
             <p>

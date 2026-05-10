@@ -18,7 +18,7 @@ const PublicitePerformance = () => {
     'description': 'Système de génération d\'appels qualifiés pour artisans. Positionnement prioritaire sur Google avec paiement uniquement à l\'appel qualifié.',
     'url': 'https://agencecelexia.fr/services/publicite-performance',
     'serviceType': 'Publicité digitale à la performance',
-    'category': 'Marketing Digital',
+    'category': 'Service complémentaire artisans',
     'provider': { '@id': 'https://agencecelexia.fr/#organization' },
     'areaServed': { '@type': 'Country', 'name': 'France' },
     'audience': { '@type': 'Audience', 'audienceType': 'Artisans et professionnels du bâtiment' },
@@ -130,7 +130,7 @@ const PublicitePerformance = () => {
     },
     {
       q: 'Comment obtenez-vous un positionnement prioritaire ?',
-      a: 'On utilise un système publicitaire premium à la performance qui positionne votre entreprise au-dessus des résultats organiques et des Google Ads classiques.'
+      a: 'Nous activons un dispositif d\'acquisition à la performance qui place votre entreprise en haut des résultats locaux pour vos requêtes prioritaires, sans que vous ayez à gérer une régie publicitaire.'
     },
     {
       q: 'Que se passe-t-il si je ne suis pas satisfait ?',
@@ -207,10 +207,10 @@ const PublicitePerformance = () => {
           </div>
           <div className="space-y-6 text-gray-600 text-[15px] leading-relaxed">
             <p>
-              La publicité à la performance repose sur un système publicitaire premium qui positionne votre entreprise en tête des résultats Google. Contrairement aux annonces Google Ads classiques où vous payez au clic — qu'il mène à un appel ou non — notre système vous fait payer uniquement lorsqu'un client potentiel vous contacte directement par téléphone.
+              La publicité à la performance repose sur un dispositif d'acquisition local qui positionne votre entreprise en haut des résultats de recherche dans votre zone d'intervention. Contrairement aux régies au clic où vous payez chaque clic, qu'il aboutisse ou non à un appel, notre dispositif facture uniquement les appels qualifiés que vous recevez.
             </p>
             <p>
-              Concrètement, votre entreprise apparaît tout en haut des résultats de recherche Google, avant même les annonces Google Ads et les résultats organiques. Lorsqu'un utilisateur recherche « plombier urgence Lyon » ou « électricien Paris 15 », votre fiche apparaît avec votre note Google, vos horaires et un bouton d'appel direct.
+              Concrètement, votre entreprise apparaît tout en haut des résultats locaux. Lorsqu'un utilisateur recherche « plombier urgence Lyon » ou « couvreur Bordeaux », votre fiche apparaît avec votre note, vos horaires et un bouton d'appel direct.
             </p>
             <h3 className="font-display text-xl font-bold text-gray-900 mt-8 mb-3">Notre processus de qualification des appels</h3>
             <p>

@@ -17,7 +17,7 @@ const Automatisation = () => {
     'description': 'Service d\'automatisation des processus administratifs pour artisans. CRM artisan, devis automatiques, relances intelligentes, rappels RDV, facturation et collecte d\'avis automatisés.',
     'url': 'https://agencecelexia.fr/services/automatisation',
     'serviceType': 'Automatisation de processus métier',
-    'category': 'Marketing Digital',
+    'category': 'Service complémentaire artisans',
     'provider': { '@id': 'https://agencecelexia.fr/#organization' },
     'areaServed': { '@type': 'Country', 'name': 'France' },
     'audience': { '@type': 'Audience', 'audienceType': 'Artisans et professionnels du bâtiment' },

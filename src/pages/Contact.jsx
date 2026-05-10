@@ -2,12 +2,13 @@ import { useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
+import { initCalInline, CAL_INLINE_ID } from '../lib/cal';
 
 const Contact = () => {
   // Métadonnées SEO pour la page Contact
   usePageMeta({
-    title: 'Contact | Agence Celexia – Appel Gratuit',
-    description: 'Réservez un appel stratégique gratuit de 30 min avec Agence Celexia. Analyse de visibilité, recommandations et projection de résultats pour artisans.',
+    title: 'Contact | Agence Celexia',
+    description: 'Réservez un appel découverte gratuit de 30 min avec Agence Celexia pour comprendre comment notre apport d\'affaires peut développer votre activité d\'artisan.',
     canonical: 'https://agencecelexia.fr/contact'
   });
 
@@ -19,19 +20,19 @@ const Contact = () => {
         '@type': 'ContactPage',
         '@id': 'https://agencecelexia.fr/contact#contactpage',
         'name': 'Contactez Agence Celexia',
-        'description': 'Réservez un appel stratégique gratuit de 30 minutes pour analyser votre potentiel de croissance digitale.',
+        'description': 'Réservez un appel découverte gratuit de 30 minutes pour évaluer ensemble votre potentiel d\'apport d\'affaires.',
         'url': 'https://agencecelexia.fr/contact',
         'inLanguage': 'fr-FR',
         'isPartOf': { '@id': 'https://agencecelexia.fr/#website' },
         'about': { '@id': 'https://agencecelexia.fr/contact#localbusiness' },
         'datePublished': '2024-10-01',
-        'dateModified': '2026-03-11'
+        'dateModified': '2026-05-10'
       },
       {
         '@type': 'LocalBusiness',
         '@id': 'https://agencecelexia.fr/contact#localbusiness',
         'name': 'Agence Celexia',
-        'description': 'Agence marketing digital spécialisée pour artisans et professionnels du bâtiment. SEO local, publicité à la performance, création de sites web.',
+        'description': 'Agence d\'apport d\'affaires pour artisans. Commission 10 % sur devis signés.',
         'url': 'https://agencecelexia.fr',
         'telephone': '+33651725756',
         'email': 'agence.celexia@gmail.com',
@@ -62,46 +63,7 @@ const Contact = () => {
   useJsonLd(jsonLdSchema);
 
   useEffect(() => {
-    (function (C, A, L) {
-      let p = function (a, ar) { a.q.push(ar); };
-      let d = C.document;
-      C.Cal = C.Cal || function () {
-        let cal = C.Cal;
-        let ar = arguments;
-        if (!cal.loaded) {
-          cal.ns = {};
-          cal.q = cal.q || [];
-          d.head.appendChild(d.createElement("script")).src = A;
-          cal.loaded = true;
-        }
-        if (ar[0] === L) {
-          const api = function () { p(api, arguments); };
-          const namespace = ar[1];
-          api.q = api.q || [];
-          if(typeof namespace === "string"){
-            cal.ns[namespace] = cal.ns[namespace] || api;
-            p(cal.ns[namespace], ar);
-            p(cal, ["initNamespace", namespace]);
-          } else p(cal, ar);
-          return;
-        }
-        p(cal, ar);
-      };
-    })(window, "https://app.cal.com/embed/embed.js", "init");
-
-    window.Cal("init", "rdv-decouverte-240-appels-an-garantis", {origin:"https://app.cal.com"});
-
-    window.Cal.ns["rdv-decouverte-240-appels-an-garantis"]("inline", {
-      elementOrSelector:"#my-cal-inline-rdv-decouverte-240-appels-an-garantis",
-      config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
-      calLink: "agence-celexia-1qyn93/rdv-decouverte-240-appels-an-garantis",
-    });
-
-    window.Cal.ns["rdv-decouverte-240-appels-an-garantis"]("ui", {
-      "cssVarsPerTheme":{"light":{"cal-brand":"#7C3AED"},"dark":{"cal-brand":"#7C3AED"}},
-      "hideEventTypeDetails":false,
-      "layout":"month_view"
-    });
+    initCalInline();
   }, []);
 
   return (
@@ -112,10 +74,11 @@ const Contact = () => {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="tag mb-6 inline-block">Contact</span>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight mb-6">
-            Réservez votre appel stratégique
+            Réservez votre appel découverte
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-            30 minutes d'échange pour comprendre comment nos solutions peuvent développer votre activité.
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            30 minutes pour valider que notre apport d'affaires est adapté à votre activité d'artisan
+            et estimer ensemble le volume de chantiers que nous pouvons vous apporter.
           </p>
         </div>
       </section>
@@ -161,10 +124,10 @@ const Contact = () => {
           <div className="text-center mb-10">
             <span className="tag mb-4 inline-block">Nos engagements</span>
             <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight mb-4">
-              Pourquoi prendre rendez-vous avec Agence Celexia ?
+              Pourquoi prendre rendez-vous avec Celexia
             </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Un appel stratégique conçu pour vous apporter de la valeur, que vous deveniez client ou non.
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+              Un appel découverte conçu pour vous apporter de la valeur, que vous deveniez client ou non.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
@@ -175,14 +138,13 @@ const Contact = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Un audit gratuit et sans engagement</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Pendant 30 minutes, nous analysons en profondeur votre situation actuelle : votre visibilité
-                sur Google, la qualité et la quantité de vos avis clients, votre positionnement par rapport
-                à la concurrence locale, et les opportunités de croissance dans votre zone d'intervention.
-                Cet audit vous permet de comprendre exactement où vous en êtes et quels leviers activer
-                pour attirer davantage de clients qualifiés. Vous repartez avec une vision claire de votre
-                présence digitale, même si vous décidez de ne pas aller plus loin avec nous.
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Un appel gratuit et sans engagement</h3>
+              <p className="text-base text-gray-600 leading-relaxed">
+                Pendant 30 minutes, nous regardons ensemble votre activité, votre zone d'intervention,
+                votre panier moyen et votre capacité à absorber des chantiers supplémentaires. On valide
+                que notre modèle d'apport d'affaires est adapté à votre situation et on estime un volume
+                réaliste d'appels que nous pouvons vous apporter. Vous repartez avec une vision claire,
+                même si vous décidez de ne pas aller plus loin avec nous.
               </p>
             </div>
 
@@ -193,14 +155,12 @@ const Contact = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Des recommandations concrètes et chiffrées</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Nous vous présentons un plan d'action personnalisé avec des projections de résultats
-                réalistes basées sur les données de votre marché local. Nombre d'appels estimés par mois,
-                coût par acquisition client, retour sur investissement prévu sur trois, six et douze mois.
-                Chaque recommandation est accompagnée d'exemples concrets tirés de nos collaborations
-                avec d'autres artisans de votre secteur. Vous repartez avec une feuille de route
-                opérationnelle et détaillée, que vous choisissiez ou non de travailler avec nous.
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Des projections concrètes et chiffrées</h3>
+              <p className="text-base text-gray-600 leading-relaxed">
+                Nous vous présentons une estimation réaliste basée sur les données de votre marché local :
+                volume d'appels par mois, taux de conversion attendu en devis signés, montant cible de
+                commission, projection sur trois, six et douze mois. Chaque chiffre est explicité et
+                contextualisé pour que vous puissiez décider en pleine connaissance de cause.
               </p>
             </div>
 
@@ -211,15 +171,13 @@ const Contact = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Expertise spécifique artisans et bâtiment</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Nous travaillons exclusivement avec les artisans et professionnels du bâtiment depuis
-                la création de l'agence. Plombiers, électriciens, menuisiers, couvreurs, piscinistes,
-                paysagistes, peintres, maçons, carreleurs, serruriers, vitriers et chauffagistes :
-                nous connaissons les spécificités de chaque métier et adaptons nos stratégies en
-                conséquence. Cette spécialisation nous permet de déployer des campagnes plus efficaces,
-                avec des mots-clés ciblés, des messages adaptés à votre clientèle et une connaissance
-                approfondie des cycles saisonniers propres à chaque corps de métier.
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Expertise spécifique artisans</h3>
+              <p className="text-base text-gray-600 leading-relaxed">
+                Nous travaillons exclusivement avec les artisans et les professionnels des services
+                à l'habitat. 19 métiers accompagnés, de la plomberie à l'arboriculture, en passant par
+                la couverture, les piscines, les fenêtres, les diagnostics immobiliers et les portes
+                de garage. Cette spécialisation nous permet de calibrer chaque dispositif en fonction
+                des spécificités de votre métier : panier moyen, urgence, saisonnalité, parcours d'achat.
               </p>
             </div>
 
@@ -230,15 +188,13 @@ const Contact = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Transparence totale et honnêteté</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Si notre solution n'est pas adaptée à votre situation, nous vous le dirons franchement.
-                Notre réputation repose sur des résultats concrets et mesurables, pas sur des contrats
-                forcés ou des promesses irréalistes. Chaque collaboration commence par une analyse
-                honnête du potentiel dans votre zone géographique et votre secteur d'activité. Nous
-                préférons refuser un client plutôt que de proposer un service qui ne lui apportera pas
-                de résultats satisfaisants. Cette approche nous a permis de construire des partenariats
-                durables fondés sur la confiance et la performance réelle.
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Transparence totale</h3>
+              <p className="text-base text-gray-600 leading-relaxed">
+                Si notre modèle n'est pas adapté à votre situation, nous vous le dirons franchement.
+                Notre rémunération étant uniquement liée aux devis effectivement signés, nous n'avons
+                aucun intérêt à embarquer un artisan pour qui le dispositif ne fonctionnera pas.
+                Cette approche nous permet de construire des partenariats durables fondés sur la confiance
+                et le résultat partagé.
               </p>
             </div>
           </div>
@@ -251,10 +207,10 @@ const Contact = () => {
           <div className="text-center mb-10">
             <span className="tag mb-4 inline-block">Réservation</span>
             <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight mb-4">
-              Réservez votre appel stratégique
+              Réservez votre appel découverte
             </h2>
-            <p className="text-gray-600 text-lg">
-              Un échange sans engagement pour évaluer le potentiel de notre solution.
+            <p className="text-base md:text-lg text-gray-600">
+              Un échange sans engagement pour évaluer si notre apport d'affaires est adapté à votre activité.
             </p>
           </div>
 
@@ -265,9 +221,9 @@ const Contact = () => {
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { num: '01', title: 'Analyse de votre situation', desc: "Vos objectifs de croissance, votre zone d'intervention, votre positionnement actuel" },
-                { num: '02', title: 'Stratégie personnalisée', desc: "Plan d'action concret adapté à votre métier et à votre marché local" },
-                { num: '03', title: 'Projection de résultats', desc: "Estimation réaliste du volume d'appels et du ROI potentiel pour votre activité" }
+                { num: '01', title: 'Votre activité', desc: "Métier, zone d'intervention, panier moyen, capacité à absorber des chantiers supplémentaires" },
+                { num: '02', title: 'Adéquation du modèle', desc: 'Validation que l\'apport d\'affaires à 10 % sur devis signés est adapté à votre situation' },
+                { num: '03', title: 'Projection chiffrée', desc: 'Estimation réaliste du volume de chantiers que nous pouvons vous apporter' }
               ].map((item) => (
                 <div key={item.num} className="text-center">
                   <span className="font-display text-2xl font-bold text-violet-200 mb-3 block">{item.num}</span>
@@ -281,7 +237,7 @@ const Contact = () => {
           {/* Cal.com Widget */}
           <div className="bg-white rounded-2xl p-4 md:p-6 shadow-soft border border-gray-200/80">
             <div
-              id="my-cal-inline-rdv-decouverte-240-appels-an-garantis"
+              id={CAL_INLINE_ID}
               style={{width:'100%', height:'700px', overflow:'scroll', borderRadius: '12px'}}
             ></div>
           </div>

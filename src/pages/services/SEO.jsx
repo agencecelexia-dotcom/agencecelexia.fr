@@ -17,7 +17,7 @@ const SEO = () => {
     'description': 'Service de référencement naturel local pour artisans. Optimisation Google My Business, SEO technique, contenu optimisé et backlinks de qualité. Résultats visibles sous 90 jours.',
     'url': 'https://agencecelexia.fr/services/seo',
     'serviceType': 'Référencement naturel SEO local',
-    'category': 'Marketing Digital',
+    'category': 'Service complémentaire artisans',
     'provider': { '@id': 'https://agencecelexia.fr/#organization' },
     'areaServed': { '@type': 'Country', 'name': 'France' },
     'audience': { '@type': 'Audience', 'audienceType': 'Artisans et professionnels du bâtiment' },
@@ -199,7 +199,7 @@ const SEO = () => {
           </div>
           <div className="space-y-6 text-gray-600 text-[15px] leading-relaxed">
             <p>
-              Le référencement local (Local SEO) est la branche du SEO qui vise à positionner votre entreprise sur les recherches géolocalisées. Quand un particulier tape <strong className="text-gray-900">« plombier Marseille »</strong>, <strong className="text-gray-900">« électricien près de chez moi »</strong> ou <strong className="text-gray-900">« menuisier 69 »</strong>, Google affiche en priorité les entreprises locales pertinentes. Notre mission est de vous placer dans ces résultats, idéalement dans le « Pack Local » — les trois premiers résultats qui apparaissent avec la carte Google Maps.
+              Le référencement local (Local SEO) est la branche du SEO qui vise à positionner votre entreprise sur les recherches géolocalisées. Quand un particulier tape <strong className="text-gray-900">« plombier Marseille »</strong>, <strong className="text-gray-900">« couvreur près de chez moi »</strong> ou <strong className="text-gray-900">« menuisier 69 »</strong>, Google affiche en priorité les entreprises locales pertinentes. Notre mission est de vous placer dans ces résultats, idéalement dans le « Pack Local » — les trois premiers résultats qui apparaissent avec la carte Google Maps.
             </p>
             <p>
               Le Pack Local capte à lui seul <strong className="text-gray-900">44% des clics</strong> sur les recherches à intention locale. Être positionné dans ce top 3 signifie capter presque la moitié du trafic de recherche pour vos mots-clés cibles. Pour un artisan, c'est la différence entre un téléphone qui sonne régulièrement et un carnet de commandes vide.
@@ -281,20 +281,20 @@ const SEO = () => {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="card p-6 border-gray-200">
               <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-                <span className="text-red-500">❌</span> Publicité Google Ads
+                <span className="text-red-500">❌</span> Régie publicitaire payante
               </h3>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-start gap-2">
                   <span className="text-gray-500 mt-1">•</span>
-                  <span>Coût par clic élevé (5-15€)</span>
+                  <span>Coût par clic élevé</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-gray-500 mt-1">•</span>
-                  <span>Résultats s'arrêtent quand vous arrêtez de payer</span>
+                  <span>Le trafic s'arrête quand vous arrêtez de payer</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-gray-500 mt-1">•</span>
-                  <span>Budget mensuel minimum 1000€</span>
+                  <span>Budget mensuel important pour rester visible</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-gray-500 mt-1">•</span>

@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { NicheContext } from '../context/NicheContext';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { getMetierLabel } from '../context/NicheContext';
+import { initCalInline } from '../lib/cal';
 
 const BookingStrategy = () => {
   const [searchParams] = useSearchParams();
@@ -20,51 +21,14 @@ const BookingStrategy = () => {
 
   // Métadonnées SEO
   usePageMeta({
-    title: `Réserver un audit stratégique | Agence Celexia${niche ? ` - ${metierLabel}` : ''}`,
-    description: '30 minutes pour analyser votre situation et évaluer le potentiel de croissance de votre activité. Sans engagement. Gratuit.',
+    title: `Réserver un appel découverte | Agence Celexia${niche ? ` - ${metierLabel}` : ''}`,
+    description: '30 minutes pour comprendre votre activité, valider que notre apport d\'affaires est adapté et estimer le volume de chantiers que nous pouvons vous apporter. Gratuit, sans engagement.',
     canonical: 'https://agencecelexia.fr/reserver'
   });
 
   // Initialisation Cal.com
   useEffect(() => {
-    (function (C, A, L) {
-      let p = function (a, ar) { a.q.push(ar); };
-      let d = C.document;
-      C.Cal = C.Cal || function () {
-        let cal = C.Cal;
-        let ar = arguments;
-        if (!cal.loaded) {
-          cal.ns = {};
-          cal.q = cal.q || [];
-          d.head.appendChild(d.createElement("script")).src = A;
-          cal.loaded = true;
-        }
-        if (ar[0] === L) {
-          const api = function () { p(api, arguments); };
-          const namespace = ar[1];
-          api.q = api.q || [];
-          if(typeof namespace === "string"){
-            cal.ns[namespace] = cal.ns[namespace] || api;
-            p(cal.ns[namespace], ar);
-            p(cal, ["initNamespace", namespace]);
-          } else p(cal, ar);
-          return;
-        }
-        p(cal, ar);
-      };
-    })(window, "https://app.cal.com/embed/embed.js", "init");
-
-    window.Cal("init", "rdv-decouverte-240-appels-an-garantis", {origin:"https://app.cal.com"});
-    window.Cal.ns["rdv-decouverte-240-appels-an-garantis"]("inline", {
-      elementOrSelector:"#my-cal-inline-booking",
-      config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
-      calLink: "agence-celexia-1qyn93/rdv-decouverte-240-appels-an-garantis",
-    });
-    window.Cal.ns["rdv-decouverte-240-appels-an-garantis"]("ui", {
-      "cssVarsPerTheme":{"light":{"cal-brand":"#7C3AED"},"dark":{"cal-brand":"#7C3AED"}},
-      "hideEventTypeDetails":false,
-      "layout":"month_view"
-    });
+    initCalInline({ elementOrSelector: '#my-cal-inline-booking' });
   }, []);
 
   return (
@@ -74,14 +38,15 @@ const BookingStrategy = () => {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-100/30 rounded-full blur-3xl -translate-y-1/4 translate-x-1/4" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <span className="tag mb-6 inline-block">Audit Stratégique Gratuit</span>
+          <span className="tag mb-6 inline-block">Appel découverte gratuit</span>
 
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
-            Réservez votre audit stratégique
+            Réservez votre appel découverte
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-8">
-            30 minutes pour analyser votre situation actuelle et identifier les opportunités de croissance pour votre activité.
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-8">
+            30 minutes pour valider que notre apport d'affaires est adapté à votre activité d'artisan
+            et estimer ensemble le volume de chantiers que nous pouvons vous apporter.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-gray-500">
@@ -121,9 +86,9 @@ const BookingStrategy = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Analyse de votre situation</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Volume d'activité actuel, canaux d'acquisition, budget marketing, objectifs de croissance
+              <h3 className="font-bold text-gray-900 mb-2">Votre activité aujourd'hui</h3>
+              <p className="text-base text-gray-600 leading-relaxed">
+                Métier, zone d'intervention, panier moyen, capacité à absorber des chantiers supplémentaires
               </p>
             </div>
 
@@ -133,9 +98,9 @@ const BookingStrategy = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Potentiel de croissance</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Estimation du volume de leads disponibles dans votre zone, opportunités de marché, ROI prévisionnel
+              <h3 className="font-bold text-gray-900 mb-2">Potentiel apport d'affaires</h3>
+              <p className="text-base text-gray-600 leading-relaxed">
+                Estimation du volume d'appels qualifiés que nous pouvons vous apporter dans votre zone, projection de chiffre d'affaires
               </p>
             </div>
 
@@ -145,9 +110,9 @@ const BookingStrategy = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Stratégie sur-mesure</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Plan d'action personnalisé, mix de services adaptés, timeline de déploiement, investissement recommandé
+              <h3 className="font-bold text-gray-900 mb-2">Adéquation du modèle</h3>
+              <p className="text-base text-gray-600 leading-relaxed">
+                Validation que notre fonctionnement (10 % sur devis signés, sans engagement) est adapté à votre métier et votre cycle commercial
               </p>
             </div>
 
@@ -158,8 +123,8 @@ const BookingStrategy = () => {
                 </svg>
               </div>
               <h3 className="font-bold text-gray-900 mb-2">Modèle économique clair</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Tarification transparente, garantie de résultats, conditions de paiement à la performance
+              <p className="text-base text-gray-600 leading-relaxed">
+                10 % sur devis signés. 0 € de frais fixes. 0 engagement. On répond à toutes vos questions chiffrées.
               </p>
             </div>
           </div>
@@ -193,10 +158,10 @@ const BookingStrategy = () => {
       <section className="py-12 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-sm font-bold text-gray-900 mb-4 tracking-wide uppercase">
-            Investissez quand ça marche, sinon c'est gratuit
+            Vous payez 10 % uniquement sur les devis signés. Sinon, vous ne payez rien.
           </p>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Découvrez comment nous pouvons développer votre activité avec des solutions adaptées à votre métier.
+          <p className="text-base text-gray-600 max-w-2xl mx-auto">
+            Notre rémunération dépend de vos résultats. Pas de signature, pas de facture.
           </p>
         </div>
       </section>

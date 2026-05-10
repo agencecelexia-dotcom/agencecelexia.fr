@@ -17,7 +17,7 @@ const AvisClients = () => {
     'description': 'Système automatisé de collecte et gestion des avis Google pour artisans. Collecte par SMS et email, réponses IA, alertes avis négatifs et suivi de réputation en temps réel.',
     'url': 'https://agencecelexia.fr/services/avis-clients',
     'serviceType': 'Gestion de réputation en ligne',
-    'category': 'Marketing Digital',
+    'category': 'Service complémentaire artisans',
     'provider': { '@id': 'https://agencecelexia.fr/#organization' },
     'areaServed': { '@type': 'Country', 'name': 'France' },
     'audience': { '@type': 'Audience', 'audienceType': 'Artisans et professionnels du bâtiment' },

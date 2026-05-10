@@ -3,92 +3,127 @@ import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 
-
 const About = () => {
   const [openFaq, setOpenFaq] = useState(null);
   const toggleFaq = (index) => setOpenFaq(openFaq === index ? null : index);
 
-  // Métadonnées SEO pour la page À propos
   usePageMeta({
-    title: 'À propos | Agence Celexia – Notre Histoire',
-    description: 'Découvrez comment Agence Celexia aide les artisans à générer des leads qualifiés. Transparence, expertise métier, résultats mesurables.',
+    title: 'À propos | Agence Celexia',
+    description: 'Découvrez Agence Celexia, agence d\'apport d\'affaires pour artisans. Modèle 100 % à la performance, 10 % sur devis signés, sans engagement.',
     canonical: 'https://agencecelexia.fr/about'
   });
 
-  // Schéma JSON-LD AboutPage + Organization
   const aboutSchema = useMemo(() => ({
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
     name: 'À propos - Agence Celexia',
-    description: 'Découvrez comment Agence Celexia aide les artisans à générer des leads qualifiés grâce au marketing digital local.',
+    description: 'Découvrez Agence Celexia, agence d\'apport d\'affaires pour artisans.',
     url: 'https://agencecelexia.fr/about',
     mainEntity: {
       '@type': 'Organization',
       name: 'Agence Celexia',
       url: 'https://agencecelexia.fr',
       email: 'agence.celexia@gmail.com',
-      description: 'Agence marketing digital spécialisée dans l\'acquisition client pour les artisans et professionnels du bâtiment.',
+      description: 'Agence d\'apport d\'affaires pour artisans : nous générons les appels qualifiés, les artisans payent 10 % uniquement sur les devis signés.',
       foundingDate: '2024',
-      areaServed: {
-        '@type': 'Country',
-        name: 'France'
-      },
-      knowsAbout: ['Marketing digital', 'Référencement local', 'Google Ads', 'Acquisition client artisans']
+      areaServed: { '@type': 'Country', name: 'France' },
+      knowsAbout: ['Apport d\'affaires', 'Acquisition client artisans', 'Génération de leads qualifiés']
     },
     datePublished: '2024-10-01',
-    dateModified: '2026-03-11'
+    dateModified: '2026-05-10'
   }), []);
 
   useJsonLd(aboutSchema);
 
   const faqs = [
-    { question: "Comment fonctionne votre système publicitaire ?", answer: "Nous utilisons une stratégie de référencement local optimisée qui place votre entreprise en tête des résultats Google lorsque des clients potentiels recherchent vos services dans votre zone géographique. Vous payez uniquement pour les appels qualifiés reçus." },
-    { question: "Quel est le coût réel du service ?", answer: "Le premier mois de gestion est inclus dans notre offre de lancement. Ensuite, nos tarifs dépendent de votre volume d'appels souhaité et de votre zone géographique. Nous établissons un devis personnalisé lors de notre premier échange." },
-    { question: "Sous combien de temps puis-je espérer les premiers résultats ?", answer: "Une fois votre compte configuré et validé par Google, les premiers appels arrivent dès les premiers jours de publication des campagnes publicitaires. La montée en puissance se fait progressivement sur les 2-3 premiers mois." },
-    { question: "Quels types d'artisans accompagnez-vous ?", answer: "Nous travaillons avec tous les corps de métiers du bâtiment et des services à domicile : plombiers, électriciens, menuisiers, couvreurs, serruriers, paysagistes, CCT10, installateurs de piscines, et bien d'autres." },
-    { question: "Dois-je gérer quelque chose techniquement ?", answer: "Non. Nous prenons en charge l'intégralité de la partie technique : création de compte, optimisation, gestion quotidienne des campagnes, et reporting. Vous vous concentrez sur votre métier, nous gérons votre visibilité digitale." },
-    { question: "Y a-t-il un engagement de durée ?", answer: "Nous privilégions la transparence et la confiance. Nos contrats sont flexibles et nous travaillons sur la base de résultats concrets. Discutons de vos objectifs pour définir ensemble le cadre de collaboration qui vous convient." },
-    { question: "Que se passe-t-il si je ne suis pas satisfait ?", answer: "Si après le premier mois, les résultats ne correspondent pas aux objectifs définis ensemble, le client est libre de décider de poursuivre ou non la collaboration." },
-    { question: "Travaillez-vous avec des artisans partout en France ?", answer: "Oui, notre système fonctionne dans toutes les régions françaises. La performance dépend de votre secteur d'activité et de la concurrence locale, que nous analysons lors de notre audit initial." }
+    {
+      question: 'Comment fonctionne votre apport d\'affaires ?',
+      answer: 'Nous prenons en charge toute la mécanique d\'acquisition locale pour faire sonner votre téléphone avec des prospects sérieux. Vous chiffrez et signez. Vous nous reversez 10 % du devis signé.'
+    },
+    {
+      question: 'Combien je paie exactement ?',
+      answer: '10 % du montant TTC de chaque devis signé grâce à un appel apporté par Celexia. Pas de frais d\'entrée, pas de mensualité, pas d\'abonnement.'
+    },
+    {
+      question: 'Quels artisans accompagnez-vous ?',
+      answer: 'Nous travaillons avec 19 métiers d\'artisans et de services à l\'habitat : plomberie, couverture, menuiserie, chauffagistes, piscines, paysage, fenêtres, portes de garage, diagnostics immobiliers, déménagement, arboriculture, et d\'autres encore.'
+    },
+    {
+      question: 'Y a-t-il un engagement de durée ?',
+      answer: 'Non. Aucune durée minimum, aucun frais de sortie. Vous arrêtez quand vous voulez. Notre seule garantie de rester, c\'est de continuer à vous apporter des chantiers rentables.'
+    },
+    {
+      question: 'Que se passe-t-il si un appel ne signe pas ?',
+      answer: 'Vous ne payez rien. Notre rôle est justement de filtrer en amont pour ne vous transmettre que des demandes sérieuses. Quand un appel ne se transforme pas, c\'est notre risque.'
+    },
+    {
+      question: 'Travaillez-vous partout en France ?',
+      answer: 'Oui, sur toute la France métropolitaine. Nous adaptons les zones d\'intervention à votre capacité de déplacement et à votre planning.'
+    },
+    {
+      question: 'Sous combien de temps les premiers appels arrivent ?',
+      answer: 'Une fois le dispositif d\'acquisition lancé, les premiers appels arrivent généralement dans les premières semaines. Le rythme se stabilise sur les 2-3 premiers mois.'
+    },
+    {
+      question: 'Puis-je continuer mes propres canaux d\'acquisition en parallèle ?',
+      answer: 'Bien sûr. Vous restez maître de votre activité. Notre rôle est d\'ajouter du flux qualifié, pas de vous remplacer.'
+    }
   ];
 
-
-  const services = [
-    { num: '01', title: 'Optimisation de votre présence locale', desc: "Configuration professionnelle de votre fiche Google Business Profile : photos de qualité, description optimisée, catégories pertinentes, horaires à jour.", icon: (
-      <svg className="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-    )},
-    { num: '02', title: "Stratégie d'avis clients", desc: "Mise en place d'un système automatisé de collecte d'avis positifs. Nous transformons vos clients satisfaits en ambassadeurs.", icon: (
-      <svg className="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
-    )},
-    { num: '03', title: 'Campagnes publicitaires ciblées', desc: "Vous apparaissez en première position lorsque des clients potentiels recherchent vos services. Vous ne payez que pour les contacts qualifiés.", icon: (
-      <svg className="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
-    )},
-    { num: '04', title: 'Gestion et optimisation continue', desc: "Suivi quotidien de vos performances, ajustements stratégiques, reporting transparent et recommandations mensuelles.", icon: (
-      <svg className="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-    )}
+  const steps = [
+    {
+      num: '01',
+      title: 'Diagnostic et calibrage',
+      desc: 'Nous étudions votre métier, votre zone, votre panier moyen et votre capacité à absorber des chantiers supplémentaires. On calibre le bon volume.'
+    },
+    {
+      num: '02',
+      title: 'Lancement du dispositif d\'acquisition',
+      desc: 'Nous activons les leviers d\'acquisition locaux nécessaires pour faire sonner votre téléphone avec des prospects sérieux dans votre zone.'
+    },
+    {
+      num: '03',
+      title: 'Vous traitez les appels',
+      desc: 'Les appels arrivent directement chez vous. Vous prenez le rendez-vous, vous chiffrez le devis, vous signez. Nous n\'intervenons jamais dans votre relation client.'
+    },
+    {
+      num: '04',
+      title: 'Vous reversez 10 % sur signé',
+      desc: 'Sur les devis effectivement signés, vous nous reversez 10 % du montant TTC. Le reste de votre marge est à vous, intégralement.'
+    }
   ];
 
   const values = [
-    { title: 'Transparence totale', desc: "Accès complet à vos statistiques en temps réel. Vous savez exactement combien vous dépensez et quel est votre ROI." },
-    { title: 'Engagement résultats', desc: "Notre rémunération est liée à votre satisfaction. Pas de résultats, on ajuste jusqu'à y arriver." },
-    { title: 'Expertise métier', desc: "Nous connaissons les spécificités de l'artisanat : saisonnalité, zones d'intervention, typologie de clients." },
-    { title: 'Communication directe', desc: "Un interlocuteur dédié qui connaît votre dossier. Pas de plateforme impersonnelle." },
-    { title: 'Formation incluse', desc: "Nous vous expliquons chaque action et chaque métrique. Vous montez en compétence avec nous." },
-    { title: 'Réactivité maximum', desc: "Ajustements en temps réel sur vos campagnes. Réponse sous 24h à vos sollicitations." }
+    { title: 'Transparence totale', desc: 'Vous voyez les appels arriver, vous suivez vos signatures, vous savez exactement ce que vous nous devez et pourquoi.' },
+    { title: 'Engagement résultats', desc: 'Notre rémunération dépend uniquement des chantiers signés. Pas de signature, pas de facture.' },
+    { title: 'Expertise artisans', desc: 'Nous travaillons exclusivement avec les artisans : nous connaissons saisons, parcours d\'achat et objections.' },
+    { title: 'Communication directe', desc: 'Un interlocuteur dédié qui connaît votre dossier. Pas de plateforme impersonnelle.' },
+    { title: 'Sans engagement', desc: 'Aucune durée minimum, aucun frais de sortie. Vous arrêtez quand vous voulez.' },
+    { title: 'Réactivité', desc: 'Réponse sous 24 h ouvrées et ajustement rapide du dispositif quand votre activité évolue.' }
+  ];
+
+  const audience = [
+    { bold: 'Artisan établi', rest: 'qui souhaite stabiliser et augmenter son volume d\'activité' },
+    { bold: 'Chef d\'entreprise du bâtiment', rest: 'qui veut réduire sa dépendance aux prescripteurs' },
+    { bold: 'Professionnel des services à l\'habitat', rest: 'cherchant à remplir son planning sur plusieurs semaines' },
+    { bold: 'Entrepreneur', rest: 'qui veut développer son activité sans investir en frais fixes' },
+    { bold: 'Artisan pragmatique', rest: 'qui préfère payer uniquement quand ça signe' }
   ];
 
   return (
     <div className="bg-white">
       {/* HERO */}
       <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-4 md:px-6 overflow-hidden">
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-violet-100/30 rounded-full blur-3xl -translate-y-1/3 -translate-x-1/4" />
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-violet-100/30 rounded-full blur-3xl -translate-y-1/3 -translate-x-1/4" aria-hidden="true" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="tag mb-6 inline-block">À propos</span>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
-            Agence marketing digital pour artisans<br />Expert en acquisition client
+            Agence d'apport d'affaires
+            <span className="block text-violet-600">pour artisans</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-            Acquisition de clients qualifiés, visibilité locale optimisée, croissance maîtrisée.
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            Nous amenons les appels qualifiés. Vous payez 10 % uniquement sur les devis signés.
+            Pas de frais fixes, pas d'engagement, pas de mauvaise surprise.
           </p>
         </div>
       </section>
@@ -99,195 +134,73 @@ const About = () => {
           <div className="text-center mb-12">
             <span className="tag mb-4 inline-block">Notre histoire</span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-              Thomas & Antoine : une amitié au service des artisans
+              Thomas &amp; Antoine, au service des artisans
             </h2>
           </div>
 
           <div className="card p-8 md:p-10 border-gray-200 mb-8">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="w-14 h-14 rounded-2xl bg-violet-100 flex items-center justify-center flex-shrink-0">
-                <svg className="w-7 h-7 text-violet-600" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="font-display text-2xl font-bold text-gray-900 mb-2">Tout commence par une passion commune</h3>
-                <p className="text-gray-600 text-sm">Deux amis d'enfance unis par l'informatique et l'envie d'aider</p>
-              </div>
-            </div>
-
-            <div className="space-y-4 text-gray-600 text-[15px] leading-relaxed">
-              <p>
-                <strong className="text-gray-900">Thomas et Antoine se connaissent depuis le collège.</strong> Déjà à l'époque,
-                ils passaient leurs après-midis à bidouiller des sites web, à comprendre comment Google fonctionnait, à explorer
-                les possibilités infinies du digital. Cette passion ne les a jamais quittés.
-              </p>
-              <p>
-                En grandissant, ils ont vu leurs proches artisans — plombiers, électriciens, menuisiers — galérer à trouver
-                des clients malgré leur excellent savoir-faire. <span className="text-violet-600 font-semibold">Le paradoxe était
-                frappant</span> : ces professionnels hautement qualifiés n'avaient pas accès aux outils digitaux qui auraient pu
-                transformer leur activité.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="card p-7 border-gray-200">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
-                  <svg className="w-6 h-6 text-blue-600" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                </div>
-                <h3 className="font-display text-lg font-bold text-gray-900">Thomas</h3>
-              </div>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Spécialiste du marketing digital et de l'acquisition client. Passionné par les stratégies qui génèrent des
-                résultats concrets et mesurables. <strong className="text-gray-900">Sa devise :</strong> "Un client satisfait
-                est notre meilleure publicité."
-              </p>
-            </div>
-
-            <div className="card p-7 border-gray-200">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center">
-                  <svg className="w-6 h-6 text-emerald-600" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                </div>
-                <h3 className="font-display text-lg font-bold text-gray-900">Antoine</h3>
-              </div>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Expert en développement web et optimisation technique. Convaincu que la technologie doit être accessible à tous.
-                <strong className="text-gray-900"> Son credo :</strong> "Simplifier le complexe pour rendre le digital accessible."
-              </p>
-            </div>
-          </div>
-
-          <div className="card-violet p-8 md:p-10">
-            <div className="flex items-start gap-5">
-              <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0">
-                <svg className="w-7 h-7 text-white" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="font-display text-2xl font-bold text-white mb-4">La philosophie qui nous guide</h3>
-                <div className="space-y-3 text-white text-sm leading-relaxed">
-                  <p>
-                    <strong className="text-white">Nos clients gagnent avant nous.</strong> Cette phrase resonne dans chaque
-                    décision que nous prenons. Si un artisan ne génère pas de résultats concrets avec nos services, nous
-                    considérons que nous avons échoué.
-                  </p>
-                  <p>
-                    Nous croyons fermement que <strong className="text-white">partager notre savoir avec les nouvelles
-                    générations d'entrepreneurs</strong> est essentiel pour faire grandir tout le marché. Quand les artisans
-                    français réussissent, c'est toute l'économie locale qui en profite.
-                  </p>
-                  <p className="pt-2 border-t border-white/20">
-                    <strong className="text-white text-base">Notre mission :</strong> Démocratiser l'accès au marketing digital
-                    pour que chaque artisan, quelle que soit sa taille, puisse développer son activité de manière sereine et
-                    rentable.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8 text-center">
-            <p className="text-gray-600 text-sm leading-relaxed max-w-2xl mx-auto">
-              Aujourd'hui, Agence Celexia est le fruit de cette amitié et de cette passion commune.
-              <strong className="text-gray-900"> Une équipe soudée, des valeurs fortes, et une seule obsession :
-              votre réussite.</strong>
+            <p className="text-base text-gray-600 leading-relaxed mb-4">
+              Thomas et Antoine se connaissent depuis le collège. Très tôt, ils ont vu leurs proches artisans
+              galérer à remplir leur planning malgré un savoir-faire impeccable. À l'inverse, des concurrents moins
+              compétents captaient les chantiers grâce à une meilleure visibilité en ligne.
             </p>
+            <p className="text-base text-gray-600 leading-relaxed mb-4">
+              Le constat était simple : <strong className="text-gray-900">les artisans n'ont ni le temps,
+              ni l'envie de devenir experts en acquisition client</strong>. Ils veulent juste recevoir des appels
+              de gens qui ont un vrai projet, et chiffrer correctement.
+            </p>
+            <p className="text-base text-gray-600 leading-relaxed">
+              Celexia est née de cette idée : <strong className="text-gray-900">on prend en charge la partie acquisition,
+              vous prenez en charge la partie chantier, et on partage le résultat</strong>. 10 % uniquement sur les
+              devis signés. Sans engagement. Sans frais fixes.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="card p-7 border-gray-200">
+              <h3 className="font-display text-lg font-bold text-gray-900 mb-2">Thomas</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Co-fondateur. Spécialiste de l'acquisition client locale. Sa devise : "Un artisan qui signe est notre meilleure publicité."
+              </p>
+            </div>
+            <div className="card p-7 border-gray-200">
+              <h3 className="font-display text-lg font-bold text-gray-900 mb-2">Antoine</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Co-fondateur. Expert en automatisation et systèmes de qualification. Son credo : "Si on filtre bien en amont,
+                tout devient plus simple en aval."
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CONSTAT */}
+      {/* MÉTHODE */}
       <section className="py-20 md:py-28 px-4 md:px-6">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-10">
-            <span className="tag mb-4 inline-block">Le constat</span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-              Ce qui nous a poussé à agir
-            </h2>
-          </div>
-
-          <div className="space-y-5 text-gray-600 text-[17px] leading-relaxed">
-            <p>
-              Depuis plusieurs années, nous observons un paradoxe dans le secteur de l'artisanat :
-              <strong className="text-gray-900"> des professionnels hautement qualifiés qui peinent à remplir leur carnet de commandes</strong>,
-              non par manque de compétences, mais par manque de visibilité.
-            </p>
-            <p>
-              Les méthodes traditionnelles (bouche-à-oreille, annuaires, flyers) ne suffisent plus quand
-              <span className="text-violet-600 font-semibold"> 87% des recherches de services commencent sur Google</span>.
-            </p>
-          </div>
-
-          <div className="card p-6 md:p-8 mt-10 border-gray-200">
-            <h3 className="font-display text-lg font-bold text-gray-900 mb-5">Les défis quotidiens des artisans</h3>
-            <div className="space-y-3">
-              {[
-                "Fluctuations d'activité imprévisibles",
-                "Dépendance aux prescripteurs ou à la saisonnalité",
-                "Difficulté à mesurer le ROI des actions marketing",
-                "Manque de temps pour le digital"
-              ].map((item, i) => (
-                <div key={i} className="flex items-center text-gray-600">
-                  <span className="w-1.5 h-1.5 rounded-full bg-violet-400 mr-3 flex-shrink-0" />
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <p className="text-lg font-semibold text-center text-violet-600 mt-10">
-            Nous avons créé Agence Celexia pour résoudre ces problèmes.
-          </p>
-        </div>
-      </section>
-
-      {/* SERVICES */}
-      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <span className="tag mb-4 inline-block">Notre méthode</span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-3">
-              Notre méthode d'acquisition client
+              Quatre étapes, zéro surprise
             </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Un système complet qui transforme votre visibilité en flux régulier de demandes qualifiées.
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Un process clair, pensé pour des artisans qui n'ont pas de temps à perdre en réunions.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {services.map((service) => (
-              <div key={service.num} className="card p-7 group border-gray-200 hover:border-violet-200">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center text-violet-600 flex-shrink-0
-                                 group-hover:bg-violet-600 group-hover:text-white transition-colors duration-300">
-                    {service.icon}
-                  </div>
-                  <div>
-                    <span className="text-xs font-mono text-gray-300">{service.num}</span>
-                    <h3 className="text-base font-bold text-gray-900">{service.title}</h3>
-                  </div>
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed ml-14">{service.desc}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {steps.map((step) => (
+              <div key={step.num} className="card p-7 group border-gray-200 hover:border-violet-200">
+                <span className="font-display text-4xl font-bold text-violet-200 block mb-3">{step.num}</span>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
+                <p className="text-base text-gray-600 leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
-
-          <p className="text-base font-medium text-center mt-12 text-gray-600">
-            <span className="text-gray-900 font-semibold">Résultat :</span> vous vous concentrez sur votre métier pendant que nous générons vos opportunités.
-          </p>
         </div>
       </section>
 
-      {/* VALUES */}
-      <section className="py-20 md:py-28 px-4 md:px-6">
+      {/* VALEURS */}
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <span className="tag mb-4 inline-block">Engagements</span>
@@ -299,79 +212,36 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {values.map((value, i) => (
               <div key={i} className="card p-6 group border-gray-200 hover:border-violet-200">
-                <div className="w-9 h-9 rounded-lg bg-violet-100 flex items-center justify-center mb-4
-                               group-hover:bg-violet-600 transition-colors duration-300">
+                <div className="w-9 h-9 rounded-lg bg-violet-100 flex items-center justify-center mb-4 group-hover:bg-violet-600 transition-colors duration-300">
                   <span className="text-violet-600 font-bold text-xs group-hover:text-white transition-colors duration-300">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                 </div>
-                <h3 className="text-base font-bold text-gray-900 mb-2">{value.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{value.desc}</p>
+                <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2">{value.title}</h3>
+                <p className="text-base text-gray-600 leading-relaxed">{value.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* BENEFITS */}
-      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-10">
-            <span className="tag mb-4 inline-block">Bénéfices</span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-              Ce que vous gagnez concrètement
-            </h2>
-          </div>
-
-          <div className="card p-7 md:p-9 border-gray-200">
-            <div className="space-y-5">
-              {[
-                { title: 'Flux régulier de demandes qualifiées', desc: "Votre téléphone sonne régulièrement avec des prospects intéressés." },
-                { title: 'Prévisibilité financière', desc: "Projetez votre CA sur 2-3 mois grâce à un pipeline constant." },
-                { title: 'Pouvoir de négociation', desc: "Sélectionnez les projets les plus rentables." },
-                { title: "Sérénité d'entrepreneur", desc: "Votre système d'acquisition fonctionne en automatique." },
-                { title: 'Développement maîtrisé', desc: "Embauche, matériel, expansion : la croissance devient un choix." }
-              ].map((item, i) => (
-                <div key={i} className="flex items-start group">
-                  <span className="flex-shrink-0 w-7 h-7 rounded-lg bg-emerald-100 flex items-center justify-center mr-3.5 mt-0.5">
-                    <svg className="w-3.5 h-3.5 text-emerald-600" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 text-[15px] mb-0.5">{item.title}</h3>
-                    <p className="text-sm text-gray-600">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* TARGET AUDIENCE */}
+      {/* POUR QUI */}
       <section className="py-20 md:py-28 px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <span className="tag mb-4 inline-block">Pour qui ?</span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-              Ce service est adapté si vous êtes...
+              Notre apport d'affaires est adapté si vous êtes...
             </h2>
           </div>
 
           <div className="card-violet p-7 md:p-9">
             <div className="space-y-4">
-              {[
-                { bold: 'Artisan établi', rest: "qui souhaite stabiliser et augmenter son volume d'activité" },
-                { bold: "Chef d'entreprise du bâtiment", rest: 'qui veut réduire sa dépendance aux prescripteurs' },
-                { bold: 'Professionnel des services à domicile', rest: "cherchant à remplir son agenda 2-3 mois à l'avance" },
-                { bold: 'Entrepreneur ambitieux', rest: "qui veut développer son activité de manière structurée" },
-                { bold: 'Artisan pragmatique', rest: "qui préfère déléguer le digital à des experts" }
-              ].map((item, i) => (
+              {audience.map((item, i) => (
                 <div key={i} className="flex items-start">
-                  <span className="w-1.5 h-1.5 rounded-full bg-violet-400 mt-2.5 mr-3.5 flex-shrink-0" />
-                  <p className="text-gray-900">
-                    <strong className="text-gray-900">{item.bold}</strong> {item.rest}
+                  <span className="w-1.5 h-1.5 rounded-full bg-white/70 mt-2.5 mr-3.5 flex-shrink-0" />
+                  <p className="text-white">
+                    <strong className="text-white">{item.bold}</strong> {item.rest}
                   </p>
                 </div>
               ))}
@@ -382,34 +252,33 @@ const About = () => {
 
       {/* CTA */}
       <section className="py-20 md:py-28 px-4 md:px-6 bg-violet-600 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-violet-500/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-violet-700/30 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-violet-500/30 rounded-full blur-3xl" aria-hidden="true" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-violet-700/30 rounded-full blur-3xl" aria-hidden="true" />
 
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
             Discutons de votre projet
           </h2>
-          <p className="text-lg text-violet-200 mb-4 max-w-xl mx-auto leading-relaxed">
-            Échangeons 30 minutes pour comprendre votre situation et déterminer si notre solution correspond à vos besoins.
+          <p className="text-base md:text-lg text-violet-100 mb-4 max-w-xl mx-auto leading-relaxed">
+            30 minutes pour valider que notre modèle est adapté à votre activité et estimer ensemble
+            le volume de chantiers que nous pouvons vous apporter.
           </p>
-          <p className="text-violet-300 text-sm mb-8">
+          <p className="text-violet-200 text-sm mb-8">
             Pas de discours commercial. Une conversation franche entre professionnels.
           </p>
 
           <Link
-            to="/contact"
-            className="inline-flex items-center justify-center bg-white text-violet-600 px-8 py-4 rounded-xl font-semibold text-base
-                       shadow-lg hover:shadow-xl hover:-translate-y-[1px] active:translate-y-0 active:scale-[0.98]
-                       transition-all duration-300 arrow-animate"
+            to="/reserver"
+            className="inline-flex items-center justify-center bg-white text-violet-600 px-8 py-4 rounded-xl font-semibold text-base shadow-lg hover:shadow-xl hover:-translate-y-[1px] active:translate-y-0 active:scale-[0.98] transition-all duration-300 arrow-animate"
           >
-            Réserver un appel stratégique
+            Réserver un appel découverte
             <svg className="ml-2 w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
 
           <div className="mt-10 pt-6 border-t border-white/20">
-            <p className="text-sm text-violet-300 mb-1">Vous préférez nous écrire ?</p>
+            <p className="text-sm text-violet-200 mb-1">Vous préférez nous écrire ?</p>
             <a href="mailto:agence.celexia@gmail.com" className="text-lg font-semibold text-white hover:text-violet-100 transition-colors">
               agence.celexia@gmail.com
             </a>
@@ -433,10 +302,9 @@ const About = () => {
                 <button
                   onClick={() => toggleFaq(index)}
                   aria-expanded={openFaq === index}
-                  className="w-full px-6 py-5 text-left flex justify-between items-center
-                             hover:bg-gray-50 transition-colors"
+                  className="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
                 >
-                  <span className="text-[15px] font-semibold text-gray-900 pr-4">{faq.question}</span>
+                  <span className="text-base font-semibold text-gray-900 pr-4">{faq.question}</span>
                   <span className={`text-violet-600 flex-shrink-0 transition-transform duration-300 ${openFaq === index ? 'rotate-45' : ''}`}>
                     <svg className="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -444,7 +312,7 @@ const About = () => {
                   </span>
                 </button>
                 <div className={`overflow-hidden transition-all duration-400 ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <div className="px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
+                  <div className="px-6 pb-5 text-base text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
                     {faq.answer}
                   </div>
                 </div>

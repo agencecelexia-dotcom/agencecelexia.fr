@@ -1,37 +1,31 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useJsonLd } from '../hooks/useJsonLd';
+import { METIERS } from '../context/NicheContext';
 
 const Breadcrumbs = () => {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter(x => x);
 
+  const metierLabels = Object.fromEntries(
+    Object.entries(METIERS).map(([slug, data]) => [slug, data.label])
+  );
+
   const pageNames = {
     'about': 'À propos',
     'contact': 'Contact',
-    'sites-artisans': 'Sites Web Artisans',
+    'sites-artisans': 'Sites web artisans',
     'reserver': 'Réserver',
     'mentions-legales': 'Mentions légales',
     'politique-confidentialite': 'Politique de confidentialité',
     'services': 'Services',
     'metiers': 'Métiers',
-    'publicite-performance': 'Publicité à la Performance',
-    'site-web': 'Création de Site Web',
+    'publicite-performance': 'Publicité à la performance',
+    'site-web': 'Création de site web',
     'seo': 'Référencement SEO',
-    'avis-clients': 'Avis Clients',
-    'emailing': 'Email Marketing',
+    'avis-clients': 'Avis clients',
+    'emailing': 'Email marketing',
     'automatisation': 'Automatisation',
-    'pisciniste': 'Pisciniste',
-    'paysagiste': 'Paysagiste',
-    'plombier': 'Plombier',
-    'chauffagiste': 'Chauffagiste',
-    'electricien': 'Électricien',
-    'menuisier': 'Menuisier',
-    'couvreur': 'Couvreur',
-    'macon': 'Maçon',
-    'carreleur': 'Carreleur',
-    'peintre': 'Peintre',
-    'serrurier': 'Serrurier',
-    'vitrier': 'Vitrier'
+    ...metierLabels,
   };
 
   const breadcrumbs = [{ name: 'Accueil', path: '/' }];

@@ -66,7 +66,7 @@ const Header = () => {
         <Link to="/" className="flex items-center group" onClick={closeMenu}>
           <img
             src="/logo.png"
-            alt="Agence Celexia - Marketing Digital pour Artisans"
+            alt="Agence Celexia - Apport d'affaires pour artisans"
             className="h-8 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
             width="197"
             height="32"
@@ -168,7 +168,7 @@ const Header = () => {
           </Link>
 
           <Link to="/reserver" className="btn-primary ml-3 arrow-animate">
-            Réserver un appel
+            Réserver un appel découverte
             <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -245,7 +245,7 @@ const Header = () => {
             className="btn-primary mt-2 arrow-animate justify-center"
             onClick={closeMenu}
           >
-            Réserver un appel
+            Réserver un appel découverte
             <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>

@@ -48,7 +48,7 @@ const PolitiqueConfidentialite = () => {
               <p>Vos données sont traitées pour les finalités suivantes :</p>
               <ul className="list-disc pl-6 mt-2 space-y-1">
                 <li>Gestion des prises de rendez-vous et suivi commercial</li>
-                <li>Fourniture de nos services de marketing digital</li>
+                <li>Fourniture de nos services d'apport d'affaires et services complémentaires</li>
                 <li>Amélioration de notre site internet et de l'expérience utilisateur</li>
                 <li>Envoi de communications commerciales (avec votre consentement)</li>
                 <li>Respect de nos obligations légales</li>

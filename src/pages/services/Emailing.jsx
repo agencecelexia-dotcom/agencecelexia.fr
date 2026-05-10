@@ -17,7 +17,7 @@ const Emailing = () => {
     'description': 'Service de campagnes email automatisées pour artisans. Relances devis, promotions saisonnières, rappels entretien et reconquête de clients inactifs avec CRM intégré.',
     'url': 'https://agencecelexia.fr/services/emailing',
     'serviceType': 'Email marketing automatisé',
-    'category': 'Marketing Digital',
+    'category': 'Service complémentaire artisans',
     'provider': { '@id': 'https://agencecelexia.fr/#organization' },
     'areaServed': { '@type': 'Country', 'name': 'France' },
     'audience': { '@type': 'Audience', 'audienceType': 'Artisans et professionnels du bâtiment' },

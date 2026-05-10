@@ -1,421 +1,294 @@
-// Données personnalisées par métier pour personnalisation dynamique du site
-export const METIERS_DATA = {
-  pisciniste: {
-    hero: {
-      tag: 'Génération de leads piscines',
-      title: 'Remplissez votre agenda avec des projets de piscines',
-      subtitle: 'Construction, rénovation, entretien',
-      description: 'Recevez des appels de clients qualifiés prêts à investir dans leur projet piscine. Paiement uniquement aux appels qualifiés.'
-    },
-    services: {
-      publicitePerformance: {
-        title: 'Appels Qualifiés Garantis',
-        description: 'Recevez uniquement des appels de clients réels prêts à construire ou rénover leur piscine',
-        benefits: [
-          'Paiement à l\'appel qualifié uniquement',
-          'Filtrage automatique des demandes sérieuses',
-          'Position #1 sur Google',
-          'Géolocalisation précise de vos zones d\'intervention'
-        ]
-      },
-      siteWeb: {
-        title: 'Site Web Professionnel Pisciniste',
-        description: 'Un site vitrine optimisé pour convertir vos visiteurs en clients',
-        benefits: [
-          'Design moderne spécial piscinistes',
-          'Galerie photos de réalisations piscines',
-          'Formulaire devis construction/rénovation',
-          'Section entretien et SAV intégrée'
-        ]
-      },
-      avisClients: {
-        title: 'Gestion d\'Avis Automatisée',
-        description: 'Collectez et affichez automatiquement les avis de vos clients satisfaits',
-        benefits: [
-          'Demande automatique après chaque projet',
-          'Affichage sur Google, votre site et réseaux',
-          'Réponses automatiques aux avis',
-          'Augmente votre crédibilité locale'
-        ]
-      },
-      emailing: {
-        title: 'E-mailing & Séquences Automatisées',
-        description: 'Restez en contact avec vos prospects et clients pour maximiser vos conversions',
-        benefits: [
-          'Séquences de relance automatiques',
-          'Newsletters saisonnières (ouverture, hivernage)',
-          'Offres promotionnelles ciblées',
-          'Fidélisation clients existants'
-        ]
-      },
-      automatisation: {
-        title: 'Automatisation Marketing',
-        description: 'Gagnez du temps avec des processus automatisés de A à Z',
-        benefits: [
-          'Qualification automatique des demandes',
-          'Attribution intelligente des leads',
-          'Rappels de suivi automatiques',
-          'Dashboard temps réel de vos performances'
-        ]
-      }
-    },
-    testimonial: {
-      company: 'Piscines Expert Paris',
-      name: 'Marc D., Gérant',
-      text: 'En 4 mois, nous avons doublé notre chiffre d\'affaires grâce aux leads qualifiés Celexia. Chaque appel est un vrai projet, pas de touristes. Le ROI est incroyable.',
-      results: '+120% de CA',
-      metric: '45 projets signés en 6 mois'
-    }
-  },
+// Contenu personnalisé par métier pour la page /metiers/:slug.
+// La liste des métiers, slugs, couleurs et prix de référence vit dans ../context/NicheContext.jsx.
+// Ici on stocke uniquement le contenu éditorial spécifique (accroche, audience, FAQ).
 
-  plombier: {
-    hero: {
-      tag: 'Génération de leads plomberie',
-      title: 'Développez votre activité de plomberie',
-      subtitle: 'Dépannage, installation, rénovation',
-      description: 'Recevez des appels de clients en urgence ou avec des projets de rénovation. Paiement uniquement aux appels qualifiés.'
-    },
-    services: {
-      publicitePerformance: {
-        title: 'Appels Urgents & Projets Qualifiés',
-        description: 'Recevez des appels de clients ayant besoin d\'un plombier maintenant ou pour leurs travaux',
-        benefits: [
-          'Paiement à l\'appel qualifié uniquement',
-          'Mix urgences 24/7 et projets planifiés',
-          'Position #1 sur Google pour "plombier [votre ville]"',
-          'Filtrage automatique spam et fausses urgences'
-        ]
-      },
-      siteWeb: {
-        title: 'Site Web Pro Plomberie',
-        description: 'Un site optimisé pour urgences et devis en ligne',
-        benefits: [
-          'Bouton d\'urgence visible 24/7',
-          'Formulaire devis rapide',
-          'Galerie avant/après de rénovations',
-          'Section certifications et garanties'
-        ]
-      },
-      avisClients: {
-        title: 'Avis Clients Automatisés',
-        description: 'Construisez votre réputation locale avec des avis 5 étoiles',
-        benefits: [
-          'SMS automatique post-intervention',
-          'Affichage sur Google My Business',
-          'Badge "Plombier recommandé" sur votre site',
-          'Gestion des avis négatifs'
-        ]
-      },
-      emailing: {
-        title: 'Campagnes Email Ciblées',
-        description: 'Convertissez vos devis en chantiers et fidélisez vos clients',
-        benefits: [
-          'Relances automatiques devis non signés',
-          'Offres entretien chaudière annuel',
-          'Conseils plomberie préventive',
-          'Promotions printemps/automne'
-        ]
-      },
-      automatisation: {
-        title: 'Automatisation Complète',
-        description: 'Optimisez votre temps et concentrez-vous sur les interventions',
-        benefits: [
-          'Répartition auto urgences/projets',
-          'Planning interventions optimisé',
-          'Facturation automatisée',
-          'Suivi satisfaction client'
-        ]
+export const METIERS_CONTENT = {
+  'amenagement-paysager': {
+    accroche: 'Aménagez plus de jardins, de terrasses et d\'espaces verts en laissant Celexia remplir votre carnet de commandes.',
+    audience: [
+      'Création de jardins, terrasses et allées',
+      'Engazonnement et plantations',
+      'Maçonnerie paysagère et clôtures végétales',
+      'Contrats d\'entretien réguliers'
+    ],
+    faqExtra: [
+      {
+        q: 'Vous différenciez les projets de création et d\'entretien ?',
+        a: 'Oui. Nous calibrons les flux selon votre mix idéal (création vs entretien), pour stabiliser votre activité toute l\'année.'
       }
-    },
-    testimonial: {
-      company: 'Plomberie Dupont Lyon',
-      name: 'Thomas D., Artisan plombier',
-      text: 'Avant Celexia, je perdais 50% de mon temps au téléphone avec des gens qui cherchaient juste des prix. Maintenant, 80% des appels se transforment en intervention. Game changer.',
-      results: '+85 appels/mois',
-      metric: 'Taux conversion 78%'
-    }
+    ]
   },
-
-  electricien: {
-    hero: {
-      tag: 'Génération de leads électricité',
-      title: 'Multipliez vos chantiers électriques',
-      subtitle: 'Dépannage, installation, mise aux normes',
-      description: 'Recevez des appels de particuliers et professionnels pour vos services électriques. Paiement uniquement aux appels qualifiés.'
-    },
-    services: {
-      publicitePerformance: {
-        title: 'Leads Électricité Qualifiés',
-        description: 'Urgences électriques, rénovations et mises aux normes - que des vrais projets',
-        benefits: [
-          'Paiement à l\'appel qualifié uniquement',
-          'Urgences électriques prioritaires',
-          'Position #1 sur "électricien [votre ville]"',
-          'Segmentation particuliers/professionnels'
-        ]
-      },
-      siteWeb: {
-        title: 'Site Web Électricien Pro',
-        description: 'Rassurez vos clients avec un site professionnel et certifié',
-        benefits: [
-          'Mise en avant certifications (Qualifelec, RGE)',
-          'Section sécurité et normes électriques',
-          'Devis en ligne avec configurateur',
-          'Urgences électriques 24/7 visible'
-        ]
-      },
-      avisClients: {
-        title: 'Réputation Électricien',
-        description: 'Devenez l\'électricien de référence de votre zone',
-        benefits: [
-          'Collecte avis après chaque intervention',
-          'Badge "Électricien certifié 5 étoiles"',
-          'Témoignages vidéo clients (option)',
-          'Réponses professionnelles automatiques'
-        ]
-      },
-      emailing: {
-        title: 'Email Marketing Électricité',
-        description: 'Transformez vos devis en chantiers signés',
-        benefits: [
-          'Relances intelligentes devis',
-          'Campagnes mise aux normes (loi)',
-          'Offres borne électrique/photovoltaïque',
-          'Newsletter conseils sécurité'
-        ]
-      },
-      automatisation: {
-        title: 'Automatisation Chantiers',
-        description: 'Gérez plus de chantiers avec moins d\'administratif',
-        benefits: [
-          'Qualification auto des demandes',
-          'Planning optimisé par zone',
-          'Envoi automatique certificats conformité',
-          'Suivi chantiers temps réel'
-        ]
+  'bardage': {
+    accroche: 'Recevez des projets de bardage bois, composite ou métallique de particuliers et de professionnels prêts à investir.',
+    audience: [
+      'Pose de bardage bois, composite, fibre-ciment ou métal',
+      'Rénovation et isolation par l\'extérieur (ITE)',
+      'Maisons individuelles, locaux pros',
+      'Chantiers neufs comme rénovation'
+    ],
+    faqExtra: [
+      {
+        q: 'Vous gérez les demandes liées à la rénovation énergétique ?',
+        a: 'Oui. Nous sommes habitués aux projets ITE (Isolation Thermique par l\'Extérieur) qui mobilisent des aides à la rénovation : nous vous transmettons les demandes solides.'
       }
-    },
-    testimonial: {
-      company: 'Électricité Martin Marseille',
-      name: 'Julien M., Chef d\'entreprise',
-      text: 'En 3 mois on est passés de 2 à 5 électriciens tellement on a de chantiers. Celexia nous amène 60+ projets par mois, qualité au top. Mon meilleur investissement business.',
-      results: '+300% de chiffre',
-      metric: '60 projets/mois'
-    }
+    ]
   },
-
-  menuisier: {
-    hero: {
-      tag: 'Génération de leads menuiserie',
-      title: 'Remplissez votre carnet de commandes',
-      subtitle: 'Menuiserie, agencement, rénovation',
-      description: 'Recevez des demandes de clients pour vos prestations de menuiserie sur-mesure. Paiement uniquement aux appels qualifiés.'
-    },
-    services: {
-      publicitePerformance: {
-        title: 'Projets Menuiserie Qualifiés',
-        description: 'Fenêtres, portes, placards, terrasses - des clients prêts à investir dans vos créations',
-        benefits: [
-          'Paiement à l\'appel qualifié uniquement',
-          'Projets sur-mesure valorisant votre savoir-faire',
-          'Position #1 sur "menuisier [votre ville]"',
-          'Filtrage automatique petits bricolages'
-        ]
-      },
-      siteWeb: {
-        title: 'Site Web Menuisier',
-        description: 'Mettez en valeur vos réalisations avec un portfolio professionnel',
-        benefits: [
-          'Galerie photos avant/après triée par projet',
-          'Configurateur fenêtres/portes en ligne',
-          'Présentation savoir-faire artisanal',
-          'Certifications et labels qualité'
-        ]
-      },
-      avisClients: {
-        title: 'Avis & Recommandations',
-        description: 'Transformez vos clients satisfaits en ambassadeurs',
-        benefits: [
-          'Demande automatique fin de chantier',
-          'Photos clients de vos réalisations',
-          'Badge "Menuisier recommandé"',
-          'Partage avis sur réseaux sociaux'
-        ]
-      },
-      emailing: {
-        title: 'Campagnes Email Menuiserie',
-        description: 'Restez dans l\'esprit de vos prospects entre la demande et le projet',
-        benefits: [
-          'Relances devis avec visuels 3D',
-          'Conseils entretien bois/menuiseries',
-          'Offres promotionnelles saisonnières',
-          'Programme de parrainage client'
-        ]
-      },
-      automatisation: {
-        title: 'Gestion Projets Automatisée',
-        description: 'Concentrez-vous sur votre métier, on s\'occupe de la gestion',
-        benefits: [
-          'Qualification auto des demandes',
-          'Planification chantiers optimisée',
-          'Suivi avancement projets',
-          'Facturation et relances paiement'
-        ]
+  'clotures': {
+    accroche: 'Faites grimper le volume de vos chantiers de pose de clôtures, portails et automatismes.',
+    audience: [
+      'Clôtures rigides, panneaux occultants, grillage',
+      'Clôtures bois, composite, alu',
+      'Portails motorisés et automatismes',
+      'Particuliers et copropriétés'
+    ],
+    faqExtra: [
+      {
+        q: 'Les demandes incluent-elles la fourniture matériel ?',
+        a: 'Oui. Nous transmettons les demandes complètes (fourniture + pose) comme les demandes de pose seule, selon votre fonctionnement.'
       }
-    },
-    testimonial: {
-      company: 'Menuiserie Bois & Création',
-      name: 'Antoine L., Menuisier',
-      text: 'J\'ai enfin pu embaucher un apprenti grâce à Celexia. Les leads sont ultra qualifiés, souvent des projets à 10-15k€. Ma boîte a explosé en 6 mois, merci !',
-      results: '+180% projets signés',
-      metric: 'Panier moyen 12k€'
-    }
+    ]
   },
-
-  // Métiers suivants (paysagiste, chauffagiste, couvreur, etc.) seront ajoutés en Phase 6
-  paysagiste: {
-    hero: {
-      tag: 'Génération de leads paysagisme',
-      title: 'Développez votre activité d\'aménagement extérieur',
-      subtitle: 'Jardins, terrasses, entretien espaces verts',
-      description: 'Recevez des projets d\'aménagement paysager et d\'entretien. Paiement uniquement aux appels qualifiés.'
-    },
-    services: {
-      publicitePerformance: {
-        title: 'Projets Paysagers Qualifiés',
-        description: 'Création de jardins, terrasses, entretien - des clients prêts à investir',
-        benefits: [
-          'Paiement à l\'appel qualifié uniquement',
-          'Mix création et entretien régulier',
-          'Position #1 sur Google',
-          'Projets valorisant votre expertise'
-        ]
-      },
-      siteWeb: {
-        title: 'Site Web Paysagiste',
-        description: 'Inspirez vos clients avec un portfolio visuel époustouflant',
-        benefits: [
-          'Galerie photos jardins avant/après',
-          'Portfolio par type (moderne, zen, méditerranéen)',
-          'Devis en ligne avec plans 3D',
-          'Section entretien et contrats annuels'
-        ]
-      },
-      avisClients: {
-        title: 'Avis Clients Paysagisme',
-        description: 'Construisez votre réputation de paysagiste de référence',
-        benefits: [
-          'Collecte automatique post-chantier',
-          'Photos de jardins par vos clients',
-          'Badge "Paysagiste recommandé"',
-          'Partage avant/après sur réseaux'
-        ]
-      },
-      emailing: {
-        title: 'Email Marketing Paysagiste',
-        description: 'Fidélisez et développez votre portefeuille clients',
-        benefits: [
-          'Conseils jardinage saisonniers',
-          'Offres entretien printemps/automne',
-          'Relances devis aménagement',
-          'Programme fidélité entretien'
-        ]
-      },
-      automatisation: {
-        title: 'Automatisation Paysagisme',
-        description: 'Optimisez votre planning et votre rentabilité',
-        benefits: [
-          'Planning tournées entretien optimisé',
-          'Qualification auto création vs entretien',
-          'Rappels clients contrats annuels',
-          'Facturation récurrente automatique'
-        ]
+  'constructeurs-piscines': {
+    accroche: 'Signez plus de constructions de piscines : nous nous chargeons d\'attirer les vrais projets, vous chiffrez et signez.',
+    audience: [
+      'Piscines coque polyester ou maçonnées',
+      'Piscines béton sur-mesure',
+      'Pisciniers complets (terrassement, dallage, locaux techniques)',
+      'Maisons neuves et rénovations'
+    ],
+    faqExtra: [
+      {
+        q: 'Vous filtrez les "curieux" qui demandent juste un prix ?',
+        a: 'Oui. Notre qualification écarte les demandes peu sérieuses pour ne vous transmettre que les contacts ayant un budget réel et un projet identifié.'
       }
-    },
-    testimonial: {
-      company: 'Jardins & Paysages Provence',
-      name: 'Pierre R., Paysagiste',
-      text: 'Les contrats d\'entretien annuels générés par Celexia ont stabilisé ma trésorerie. En plus, je signe 4-5 gros projets de création par mois. Que du bonheur.',
-      results: '+25 contrats annuels',
-      metric: '4-5 créations/mois'
-    }
+    ]
   },
-
-  chauffagiste: {
-    hero: {
-      tag: 'Génération de leads chauffage',
-      title: 'Multipliez vos installations et dépannages',
-      subtitle: 'Installation, dépannage, entretien',
-      description: 'Recevez des appels de clients pour installations et urgences chauffage. Paiement uniquement aux appels qualifiés.'
-    },
-    services: {
-      publicitePerformance: {
-        title: 'Leads Chauffagiste Qualifiés',
-        description: 'Urgences, installations neuves, remplacements - mix parfait pour votre activité',
-        benefits: [
-          'Paiement à l\'appel qualifié uniquement',
-          'Urgences hivernales prioritaires',
-          'Position #1 sur "chauffagiste [ville]"',
-          'Projets PAC, chaudières, climatisation'
-        ]
-      },
-      siteWeb: {
-        title: 'Site Web Chauffagiste Pro',
-        description: 'Rassurez et convertissez avec un site professionnel',
-        benefits: [
-          'Urgences 24/7 bien visibles',
-          'Simulateur aides de l\'État (MaPrimeRénov)',
-          'Comparateur chaudières/PAC',
-          'Certifications RGE mise en avant'
-        ]
-      },
-      avisClients: {
-        title: 'Réputation Chauffagiste',
-        description: 'Devenez le chauffagiste de confiance de votre secteur',
-        benefits: [
-          'Avis collectés après chaque intervention',
-          'Badge "Chauffagiste RGE 5 étoiles"',
-          'Témoignages économies d\'énergie',
-          'Réponses automatiques professionnelles'
-        ]
-      },
-      emailing: {
-        title: 'Email Marketing Chauffage',
-        description: 'Maximisez vos conversions et contrats d\'entretien',
-        benefits: [
-          'Relances devis PAC/chaudières',
-          'Campagnes entretien annuel obligatoire',
-          'Infos aides État/primes énergie',
-          'Offres climatisation été'
-        ]
-      },
-      automatisation: {
-        title: 'Automatisation Chauffagiste',
-        description: 'Gérez efficacement urgences et planifications',
-        benefits: [
-          'Répartition auto urgences/projets',
-          'Rappels automatiques contrats entretien',
-          'Planning interventions optimisé',
-          'Certificats conformité automatiques'
-        ]
+  'couverture': {
+    accroche: 'Couverture neuve, rénovation, démoussage, étanchéité : on vous apporte les chantiers, vous gardez la main commerciale.',
+    audience: [
+      'Réfection complète de toiture',
+      'Démoussage, traitement, hydrofuge',
+      'Réparation de fuite, urgence après tempête',
+      'Couverture tuile, ardoise, zinc, bac acier'
+    ],
+    faqExtra: [
+      {
+        q: 'Vous pouvez nous amener des urgences (fuites, tempêtes) ?',
+        a: 'Oui. Nos dispositifs sont calibrés pour capter aussi les demandes urgentes, à fort taux de conversion.'
       }
-    },
-    testimonial: {
-      company: 'Chauffage Confort Bordeaux',
-      name: 'Sébastien T., Gérant',
-      text: 'Celexia m\'a permis de structurer mon entreprise. Les contrats d\'entretien assurent ma trésorerie, et les installations PAC me font vivre. 40+ projets par mois maintenant.',
-      results: '+250% de CA',
-      metric: '40 installations/mois'
-    }
-  }
+    ]
+  },
+  'chauffagistes': {
+    accroche: 'Installations de chaudières, pompes à chaleur, dépannages et entretien : remplissez votre planning toute l\'année.',
+    audience: [
+      'Installation de chaudières, PAC, climatisations',
+      'Dépannage et entretien annuel',
+      'Rénovation énergétique (MaPrimeRénov\', CEE)',
+      'Particuliers, syndics, professionnels'
+    ],
+    faqExtra: [
+      {
+        q: 'Les demandes éligibles aux aides sont-elles bien identifiées ?',
+        a: 'Oui. Nous identifions les projets éligibles aux aides à la rénovation énergétique pour vous transmettre des demandes prêtes à être chiffrées avec ce paramètre.'
+      }
+    ]
+  },
+  'demenagement': {
+    accroche: 'Studios, maisons, déménagements pros : on vous apporte les demandes, vous chiffrez le devis adapté.',
+    audience: [
+      'Déménagements particuliers (studio à grande maison)',
+      'Déménagements d\'entreprises et bureaux',
+      'Garde-meubles et stockage',
+      'Trajets locaux, longue distance, internationaux'
+    ],
+    faqExtra: [
+      {
+        q: 'Comment gérez-vous la saisonnalité forte du déménagement ?',
+        a: 'Nous lissons l\'apport sur l\'année et accélérons les volumes en haute saison (mars à octobre), avec des dispositifs spécifiques pour les fins de mois.'
+      }
+    ]
+  },
+  'diagnostics-immobiliers': {
+    accroche: 'DPE, amiante, plomb, électricité, gaz, termites : remplissez votre agenda de missions de diagnostic réglementaire.',
+    audience: [
+      'Diagnostics avant vente / location',
+      'Audits énergétiques',
+      'Repérages amiante avant travaux',
+      'Particuliers, agents immobiliers, notaires'
+    ],
+    faqExtra: [
+      {
+        q: 'Vous travaillez avec les agences immobilières aussi ?',
+        a: 'Oui. Nous identifions les apporteurs (agences, notaires, syndics) en plus des demandes particuliers, selon votre cible préférée.'
+      }
+    ]
+  },
+  'entretien-piscine': {
+    accroche: 'Mise en service, hivernage, contrats annuels et SAV : industrialisez l\'arrivée de demandes d\'entretien piscine.',
+    audience: [
+      'Hivernage et remise en service',
+      'Contrats d\'entretien annuels',
+      'Recherche de fuite, SAV, dépannage',
+      'Bassins privés et collectifs'
+    ],
+    faqExtra: [
+      {
+        q: 'Vous m\'aidez à signer surtout des contrats récurrents ?',
+        a: 'Oui. Nous priorisons les demandes orientées contrat annuel, qui sécurisent votre chiffre d\'affaires sur la saison suivante.'
+      }
+    ]
+  },
+  'fondations': {
+    accroche: 'Reprise en sous-œuvre, micropieux, fondations spéciales : on capte les chantiers techniques, vous chiffrez sereinement.',
+    audience: [
+      'Reprise en sous-œuvre',
+      'Micropieux, longrines, radiers',
+      'Constructions neuves et extensions',
+      'Particuliers, maîtres d\'œuvre, architectes'
+    ],
+    faqExtra: [
+      {
+        q: 'Les demandes sont-elles techniquement qualifiées ?',
+        a: 'Oui. Vu la technicité du métier, notre qualification écarte les demandes hors scope pour ne vous transmettre que des projets cohérents.'
+      }
+    ]
+  },
+  'menuiserie': {
+    accroche: 'Sur-mesure, agencement, dressings, escaliers, terrasses : remplissez votre carnet de commandes en menuiserie.',
+    audience: [
+      'Menuiserie intérieure (placards, dressings, escaliers)',
+      'Agencement sur-mesure',
+      'Terrasses bois et claustras',
+      'Particuliers et architectes'
+    ],
+    faqExtra: [
+      {
+        q: 'Vous faites bien la différence avec les fenêtres / volets ?',
+        a: 'Oui. Si vous voulez aussi capter ce flux, nous activons en parallèle le dispositif "Services liés aux fenêtres".'
+      }
+    ]
+  },
+  'plomberie': {
+    accroche: 'Dépannages d\'urgence, rénovations de salle de bain, installations sanitaires : remplissez votre planning de plombier.',
+    audience: [
+      'Dépannages : fuites, débouchages, chauffe-eau',
+      'Rénovation de salle de bain et cuisine',
+      'Installations sanitaires neuves',
+      'Maintenance et entretien chaudière'
+    ],
+    faqExtra: [
+      {
+        q: 'On peut prioriser urgence ou rénovation selon mon planning ?',
+        a: 'Oui. Vous pouvez nous indiquer le mix souhaité (par exemple 60 % urgences / 40 % rénovations) et nous calibrons en conséquence.'
+      }
+    ]
+  },
+  'nettoyage-vitres': {
+    accroche: 'Vitres résidentielles, vitrines, façades : on remplit votre planning de chantiers de nettoyage de vitres.',
+    audience: [
+      'Particuliers (maisons individuelles)',
+      'Commerçants et restaurants',
+      'Bureaux et copropriétés',
+      'Contrats récurrents et prestations ponctuelles'
+    ],
+    faqExtra: [
+      {
+        q: 'Vous favorisez les contrats récurrents ?',
+        a: 'Oui. Les contrats récurrents sont le cœur de la rentabilité du métier : nous priorisons les demandes orientées dans ce sens.'
+      }
+    ]
+  },
+  'revetement-sol': {
+    accroche: 'Parquet, vinyle, carrelage, sol souple : remplissez votre planning de chantiers de pose et rénovation de sol.',
+    audience: [
+      'Pose de parquet (massif, contrecollé, stratifié)',
+      'Sols vinyles, lino, sols souples',
+      'Carrelage et faïence',
+      'Ponçage, vitrification, rénovation'
+    ],
+    faqExtra: [
+      {
+        q: 'Vous gérez la diversité des matériaux ?',
+        a: 'Oui. Vous nous indiquez vos spécialités, on calibre le ciblage pour vous transmettre les demandes pertinentes.'
+      }
+    ]
+  },
+  'restauration-degat-eaux': {
+    accroche: 'Sinistres dégât des eaux, urgences inondation, séchage et assainissement : remplissez votre planning de chantiers post-sinistre.',
+    audience: [
+      'Pompage, séchage, déshumidification',
+      'Démolition et remise en état',
+      'Coordination avec assurances',
+      'Particuliers, copropriétés, professionnels'
+    ],
+    faqExtra: [
+      {
+        q: 'Le rythme des sinistres est imprévisible — comment ça marche ?',
+        a: 'Nos dispositifs amplifient les fenêtres de demande (météo, périodes de gel, saison des orages) pour vous apporter du flux quand le besoin explose.'
+      }
+    ]
+  },
+  'fenetres': {
+    accroche: 'Pose et remplacement de fenêtres, baies vitrées, volets : remplissez votre planning de chantiers menuiserie extérieure.',
+    audience: [
+      'Remplacement de fenêtres PVC, alu, bois',
+      'Baies vitrées, vérandas, portes-fenêtres',
+      'Volets roulants, battants, persiennes',
+      'Rénovation énergétique (CEE, MaPrimeRénov\')'
+    ],
+    faqExtra: [
+      {
+        q: 'Les demandes sont-elles éligibles aux aides ?',
+        a: 'Souvent oui. Nous identifions les projets éligibles MaPrimeRénov\' / CEE pour vous les transmettre prêts à chiffrer.'
+      }
+    ]
+  },
+  'plans-de-travail': {
+    accroche: 'Plans de travail en pierre, quartz, granit, céramique ou bois : on vous apporte les chantiers, vous gardez la main commerciale.',
+    audience: [
+      'Plans de cuisine (quartz, granit, céramique, dekton)',
+      'Plans de salle de bain',
+      'Plans sur-mesure pour pros (restaurants, hôtels)',
+      'Pose seule ou fourniture + pose'
+    ],
+    faqExtra: [
+      {
+        q: 'Vous travaillez avec des cuisinistes / architectes ?',
+        a: 'Oui. Nous pouvons aussi cibler les apporteurs B2B (cuisinistes, architectes, agenceurs) en plus des particuliers.'
+      }
+    ]
+  },
+  'portes-garage': {
+    accroche: 'Pose, motorisation, dépannage de portes de garage : remplissez votre carnet de commandes sur ce métier précis.',
+    audience: [
+      'Portes sectionnelles, basculantes, enroulables',
+      'Motorisations et automatismes',
+      'Réparation et SAV',
+      'Particuliers et copropriétés'
+    ],
+    faqExtra: [
+      {
+        q: 'Vous gérez les marques que je distribue ?',
+        a: 'Vous nous indiquez vos marques et gammes : on aligne les messages pour ne vous transmettre que les demandes compatibles.'
+      }
+    ]
+  },
+  'arboriculture': {
+    accroche: 'Élagage, abattage, soins aux arbres : on remplit votre planning d\'arboriste-grimpeur ou élagueur.',
+    audience: [
+      'Élagage, taille de formation, taille douce',
+      'Abattage et démontage par démontage',
+      'Diagnostics phytosanitaires',
+      'Particuliers, copropriétés, collectivités'
+    ],
+    faqExtra: [
+      {
+        q: 'Vous savez gérer les demandes urgentes (chute de branche, tempête) ?',
+        a: 'Oui. Nous activons des dispositifs spécifiques en cas de tempête ou de pic météo pour vous apporter du flux d\'urgence.'
+      }
+    ]
+  },
 };
 
-// Fonction utilitaire pour récupérer les données d'un métier
-export const getMetierData = (metier) => {
-  return METIERS_DATA[metier] || METIERS_DATA.pisciniste; // Fallback sur pisciniste
-};
-
-// Fonction pour vérifier si un métier a des données
-export const hasMetierData = (metier) => {
-  return !!METIERS_DATA[metier];
-};
+export const getMetierContent = (slug) => METIERS_CONTENT[slug] || null;
+export const hasMetierContent = (slug) => Boolean(METIERS_CONTENT[slug]);

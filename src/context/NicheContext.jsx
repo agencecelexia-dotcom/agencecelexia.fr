@@ -1,54 +1,49 @@
 import { createContext, useState, useEffect } from 'react';
 
-// Configuration complète des 12 métiers avec prix et couleurs accent
+// Liste des 19 métiers cibles du modèle apport d'affaires.
+// La clé sert de slug d'URL (/metiers/<slug>).
 export const METIERS = {
-  pisciniste: { label: 'Pisciniste', prix: 10, color: '#1E88E5' },
-  paysagiste: { label: 'Paysagiste', prix: 10, color: '#4CAF50' },
-  plombier: { label: 'Plombier', prix: 25, color: '#1EA36F' },
-  chauffagiste: { label: 'Chauffagiste', prix: 15, color: '#E05024' },
-  electricien: { label: 'Électricien', prix: 20, color: '#F4C20D' },
-  menuisier: { label: 'Menuisier', prix: 20, color: '#BF6C2E' },
-  couvreur: { label: 'Couvreur', prix: 20, color: '#6D4C41' },
-  macon: { label: 'Maçon', prix: 18, color: '#9E9E9E' },
-  carreleur: { label: 'Carreleur', prix: 18, color: '#795548' },
-  peintre: { label: 'Peintre', prix: 15, color: '#E91E63' },
-  serrurier: { label: 'Serrurier', prix: 22, color: '#607D8B' },
-  vitrier: { label: 'Vitrier', prix: 22, color: '#00BCD4' }
+  'amenagement-paysager': { label: 'Aménagement paysager', prix: 15, color: '#16A34A' },
+  'bardage': { label: 'Bardage', prix: 18, color: '#78716C' },
+  'clotures': { label: 'Clôtures', prix: 15, color: '#A16207' },
+  'constructeurs-piscines': { label: 'Constructeurs de piscines', prix: 20, color: '#0EA5E9' },
+  'couverture': { label: 'Couverture', prix: 20, color: '#6B7280' },
+  'chauffagistes': { label: 'Chauffagistes', prix: 15, color: '#EF4444' },
+  'demenagement': { label: 'Déménagement', prix: 12, color: '#F59E0B' },
+  'diagnostics-immobiliers': { label: 'Diagnostics immobiliers', prix: 15, color: '#8B5CF6' },
+  'entretien-piscine': { label: 'Entretien de piscine', prix: 12, color: '#06B6D4' },
+  'fondations': { label: 'Fondations', prix: 22, color: '#52525B' },
+  'menuiserie': { label: 'Menuiserie', prix: 18, color: '#92400E' },
+  'plomberie': { label: 'Plomberie', prix: 15, color: '#1EA36F' },
+  'nettoyage-vitres': { label: 'Nettoyage de vitres', prix: 10, color: '#0891B2' },
+  'revetement-sol': { label: 'Revêtement de sol', prix: 15, color: '#A8A29E' },
+  'restauration-degat-eaux': { label: 'Restauration après dégât des eaux', prix: 25, color: '#0284C7' },
+  'fenetres': { label: 'Fenêtres', prix: 18, color: '#64748B' },
+  'plans-de-travail': { label: 'Plans de travail', prix: 18, color: '#374151' },
+  'portes-garage': { label: 'Portes de garage', prix: 18, color: '#475569' },
+  'arboriculture': { label: 'Arboriculture', prix: 15, color: '#15803D' },
 };
 
 // Alias NICHES pour rétrocompatibilité
 export const NICHES = METIERS;
 
-// Fonction utilitaire pour récupérer la couleur accent d'un métier
-export const getMetierColor = (metier) => {
-  return METIERS[metier]?.color || '#7C3AED'; // Fallback sur violet principal
-};
+export const getMetierColor = (metier) => METIERS[metier]?.color || '#7C3AED';
+export const getMetierLabel = (metier) => METIERS[metier]?.label || 'Artisan';
 
-// Fonction utilitaire pour récupérer le label d'un métier
-export const getMetierLabel = (metier) => {
-  return METIERS[metier]?.label || 'Artisan';
-};
+const DEFAULT_METIER = 'plomberie';
 
 export const NicheContext = createContext();
 
 export const NicheProvider = ({ children }) => {
-  // Récupérer le métier depuis localStorage ou URL params au chargement
   const getInitialMetier = () => {
-    // 1. Vérifier URL params
     const urlParams = new URLSearchParams(window.location.search);
     const urlMetier = urlParams.get('metier');
-    if (urlMetier && METIERS[urlMetier]) {
-      return urlMetier;
-    }
+    if (urlMetier && METIERS[urlMetier]) return urlMetier;
 
-    // 2. Vérifier localStorage
     const storedMetier = localStorage.getItem('selectedMetier');
-    if (storedMetier && METIERS[storedMetier]) {
-      return storedMetier;
-    }
+    if (storedMetier && METIERS[storedMetier]) return storedMetier;
 
-    // 3. Défaut: pisciniste
-    return 'pisciniste';
+    return DEFAULT_METIER;
   };
 
   const initialMetier = getInitialMetier();
@@ -60,15 +55,11 @@ export const NicheProvider = ({ children }) => {
       console.warn(`Métier inconnu: ${newNiche}`);
       return;
     }
-
     setNiche(newNiche);
     setPrixParAppel(METIERS[newNiche].prix);
-
-    // Sauvegarder dans localStorage pour persistance
     localStorage.setItem('selectedMetier', newNiche);
   };
 
-  // Synchroniser avec URL params au chargement
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const urlMetier = urlParams.get('metier');
