@@ -1,9 +1,10 @@
 // Constantes Cal.com centralisées.
 // IMPORTANT : si le slug de l'event Cal.com côté agence-celexia-1qyn93 change,
 // modifier UNIQUEMENT CAL_NAMESPACE ici.
-export const CAL_NAMESPACE = 'rdv-decouverte-apport-daffaires';
+export const CAL_NAMESPACE = 'apport-d-affaires';
 export const CAL_USER = 'agence-celexia-1qyn93';
 export const CAL_LINK = `${CAL_USER}/${CAL_NAMESPACE}`;
+export const CAL_URL = `https://cal.com/${CAL_LINK}`;
 export const CAL_BRAND_COLOR = '#7C3AED';
 export const CAL_CTA_LABEL = 'Réserver un appel découverte';
 export const CAL_INLINE_ID = `my-cal-inline-${CAL_NAMESPACE}`;

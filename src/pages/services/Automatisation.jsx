@@ -305,18 +305,17 @@ const Automatisation = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { name: 'Google Calendar', icon: '📅' },
-              { name: 'Gmail', icon: '✉️' },
-              { name: 'Google Drive', icon: '💾' },
-              { name: 'Brevo', icon: '📧' },
-              { name: 'Notion', icon: '📝' },
-              { name: 'Slack', icon: '💬' },
-              { name: 'Stripe', icon: '💳' },
-              { name: 'WhatsApp', icon: '💬' }
-            ].map((tool, i) => (
-              <div key={i} className="card p-4 border-gray-200 text-center group hover:border-violet-200 transition-all">
-                <div className="text-4xl mb-2">{tool.icon}</div>
-                <p className="text-sm font-semibold text-gray-700">{tool.name}</p>
+              'Google Calendar',
+              'Gmail',
+              'Google Drive',
+              'Brevo',
+              'Notion',
+              'Slack',
+              'Stripe',
+              'WhatsApp',
+            ].map((name) => (
+              <div key={name} className="card p-5 border-gray-200 text-center group hover:border-violet-200 transition-all">
+                <p className="text-base font-semibold text-gray-800">{name}</p>
               </div>
             ))}
           </div>

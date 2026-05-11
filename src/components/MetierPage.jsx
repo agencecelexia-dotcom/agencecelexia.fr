@@ -4,7 +4,7 @@ import { METIERS } from '../context/NicheContext';
 import { getMetierContent } from '../data/metiers';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
-import { initCalInline, CAL_INLINE_ID } from '../lib/cal';
+import { initCalInline, CAL_INLINE_ID, CAL_URL } from '../lib/cal';
 
 const STEPS = [
   {
@@ -264,6 +264,18 @@ const MetierPage = () => {
               id={CAL_INLINE_ID}
               style={{width:'100%', height:'600px', overflow:'scroll', borderRadius: '12px'}}
             ></div>
+          </div>
+
+          {/* Fallback : lien externe si le widget ne charge pas */}
+          <div className="text-center mt-6">
+            <a
+              href={CAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-white/90 hover:text-white underline underline-offset-2 transition-colors"
+            >
+              Le calendrier ne charge pas ? Ouvrir directement sur cal.com
+            </a>
           </div>
 
           <div className="text-center mt-8 text-white/90">

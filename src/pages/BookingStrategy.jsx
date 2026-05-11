@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { NicheContext } from '../context/NicheContext';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { getMetierLabel } from '../context/NicheContext';
-import { initCalInline } from '../lib/cal';
+import { initCalInline, CAL_URL } from '../lib/cal';
 
 const BookingStrategy = () => {
   const [searchParams] = useSearchParams();
@@ -143,6 +143,18 @@ const BookingStrategy = () => {
               id="my-cal-inline-booking"
               style={{width:'100%', height:'600px', overflow:'scroll', borderRadius: '12px'}}
             ></div>
+          </div>
+
+          {/* Fallback : lien externe si le widget ne charge pas */}
+          <div className="text-center mt-4">
+            <a
+              href={CAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-gray-500 hover:text-violet-600 underline underline-offset-2 transition-colors"
+            >
+              Le calendrier ne charge pas ? Ouvrir directement sur cal.com
+            </a>
           </div>
 
           <div className="text-center mt-8 text-gray-600">

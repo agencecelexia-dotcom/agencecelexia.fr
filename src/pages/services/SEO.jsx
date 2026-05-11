@@ -281,7 +281,11 @@ const SEO = () => {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="card p-6 border-gray-200">
               <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-                <span className="text-red-500">❌</span> Régie publicitaire payante
+                <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+                Régie publicitaire payante
               </h3>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-start gap-2">
@@ -305,7 +309,10 @@ const SEO = () => {
 
             <div className="card p-6 border-violet-200 bg-violet-50/30">
               <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-                <span className="text-emerald-500">✓</span> Référencement SEO
+                <svg className="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                Référencement SEO
               </h3>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-start gap-2">

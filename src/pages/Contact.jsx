@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
-import { initCalInline, CAL_INLINE_ID } from '../lib/cal';
+import { initCalInline, CAL_INLINE_ID, CAL_URL } from '../lib/cal';
 
 const Contact = () => {
   // Métadonnées SEO pour la page Contact
@@ -240,6 +240,18 @@ const Contact = () => {
               id={CAL_INLINE_ID}
               style={{width:'100%', height:'700px', overflow:'scroll', borderRadius: '12px'}}
             ></div>
+          </div>
+
+          {/* Fallback : lien externe si le widget ne charge pas */}
+          <div className="text-center mt-4">
+            <a
+              href={CAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-gray-500 hover:text-violet-600 underline underline-offset-2 transition-colors"
+            >
+              Le calendrier ne charge pas ? Ouvrir directement sur cal.com
+            </a>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-8 text-gray-600 text-sm">
