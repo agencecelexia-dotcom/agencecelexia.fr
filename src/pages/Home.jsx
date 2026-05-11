@@ -273,19 +273,111 @@ const Home = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Exemple concret */}
-          <div className="mt-12 max-w-3xl mx-auto card p-6 md:p-8 border-violet-200 bg-violet-50/40">
-            <p className="text-sm font-semibold text-violet-700 uppercase tracking-wider mb-3">Un exemple concret</p>
-            <p className="text-base md:text-lg text-gray-800 leading-relaxed">
-              Marc, plombier à Nogent-sur-Marne, signe avec Celexia. Le lendemain, un particulier tape
-              « plombier Nogent-sur-Marne » sur Google. Il tombe sur la fiche de Marc en premier. Il appelle.
-              Marc visite, chiffre un remplacement de chauffe-eau à{' '}
-              <span className="whitespace-nowrap">1&nbsp;800&nbsp;€ TTC</span>. Le particulier signe.
-              <strong className="block mt-3 text-gray-900">
-                Marc reverse <span className="whitespace-nowrap">180&nbsp;€</span> à Celexia. Il garde{' '}
-                <span className="whitespace-nowrap">1&nbsp;620&nbsp;€</span>. Et c'est tout.
-              </strong>
+      {/* CAS CONCRET - Sébastien, pisciniste */}
+      <section className="py-20 md:py-28 px-4 md:px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="tag mb-4 inline-block">Un cas concret</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
+              Le premier mois de Sébastien,<br className="hidden sm:block" /> pisciniste à Aix-en-Provence
+            </h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+              Comment on accompagne un artisan de la signature au premier paiement de commission.
+            </p>
+          </div>
+
+          <ol className="space-y-4">
+            {[
+              {
+                num: '01',
+                title: 'Signature et audit',
+                desc: "Sébastien signe avec Celexia. On démarre par un audit de sa zone : volume de projets piscines sur Aix et alentours, panier moyen attendu, capacité d'absorption de son équipe. On calibre l'objectif ensemble."
+              },
+              {
+                num: '02',
+                title: 'Mise en place du CRM',
+                desc: "On configure son CRM personnalisé : un numéro de téléphone dédié pour tracer chaque appel, le suivi des devis en temps réel, le calcul automatique de la commission. Sébastien y a accès depuis son téléphone."
+              },
+              {
+                num: '03',
+                title: "Lancement de l'acquisition",
+                desc: "On active le dispositif. Quand un particulier cherche « pisciniste Aix-en-Provence » sur Google, c'est la fiche de Sébastien qui apparaît en premier, avec ses photos de chantiers, ses avis et son numéro."
+              },
+              {
+                num: '04',
+                title: 'Premiers appels qualifiés',
+                desc: "Les premiers appels arrivent dès la première semaine. Notre équipe filtre en amont : on écarte les démarcheurs, les hors-zone et les demandes peu sérieuses. Sébastien ne reçoit que des particuliers avec un vrai projet."
+              },
+              {
+                num: '05',
+                title: 'Visites et devis',
+                desc: "Sébastien rappelle les prospects, prend rendez-vous, visite les terrains, chiffre les projets. Il envoie les devis comme il l'a toujours fait. Nous n'intervenons jamais dans sa relation commerciale."
+              },
+              {
+                num: '06',
+                title: 'Signatures du mois',
+                desc: (
+                  <>
+                    Trois projets sont signés sur le premier mois : une construction de piscine à{' '}
+                    <span className="whitespace-nowrap font-semibold text-gray-900">50&nbsp;000&nbsp;€</span>, une rénovation complète à{' '}
+                    <span className="whitespace-nowrap font-semibold text-gray-900">20&nbsp;000&nbsp;€</span> et un contrat d'entretien annuel à{' '}
+                    <span className="whitespace-nowrap font-semibold text-gray-900">9&nbsp;000&nbsp;€</span>. Total :{' '}
+                    <span className="whitespace-nowrap font-semibold text-gray-900">79&nbsp;000&nbsp;€</span> de CA signé.
+                  </>
+                )
+              },
+              {
+                num: '07',
+                title: 'Règlement et transparence',
+                desc: (
+                  <>
+                    Sébastien reverse 10 % à Celexia, soit{' '}
+                    <span className="whitespace-nowrap font-semibold text-gray-900">7&nbsp;900&nbsp;€</span>. Il garde{' '}
+                    <span className="whitespace-nowrap font-semibold text-gray-900">71&nbsp;100&nbsp;€</span>. Tout est tracé dans son CRM :
+                    il sait à l'euro près ce qu'il nous doit, et pourquoi. Pas de discussion.
+                  </>
+                )
+              }
+            ].map((step) => (
+              <li key={step.num} className="card p-5 md:p-6 border-gray-200 flex gap-4 md:gap-6">
+                <span className="flex-shrink-0 font-display text-3xl md:text-4xl font-bold text-violet-200 leading-none">{step.num}</span>
+                <div>
+                  <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
+                  <p className="text-base text-gray-600 leading-relaxed">{step.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          {/* Encart bilan */}
+          <div className="mt-10 card p-6 md:p-8 border-violet-200 bg-violet-600 text-white">
+            <p className="text-sm font-semibold text-violet-200 uppercase tracking-wider mb-4">Bilan du premier mois</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div>
+                <p className="font-display text-3xl md:text-4xl font-bold text-white mb-1">
+                  <span className="whitespace-nowrap">79&nbsp;000&nbsp;€</span>
+                </p>
+                <p className="text-sm text-violet-100">de CA signé par Sébastien</p>
+              </div>
+              <div>
+                <p className="font-display text-3xl md:text-4xl font-bold text-white mb-1">
+                  <span className="whitespace-nowrap">7&nbsp;900&nbsp;€</span>
+                </p>
+                <p className="text-sm text-violet-100">reversés à Celexia (10 %)</p>
+              </div>
+              <div>
+                <p className="font-display text-3xl md:text-4xl font-bold text-white mb-1">
+                  <span className="whitespace-nowrap">71&nbsp;100&nbsp;€</span>
+                </p>
+                <p className="text-sm text-violet-100">restent dans la poche de Sébastien</p>
+              </div>
+            </div>
+            <p className="mt-6 text-sm text-violet-100">
+              Cas type pour un pisciniste constructeur sur une zone à fort potentiel comme la PACA.
+              Les volumes réels dépendent de votre métier, votre zone et votre capacité d'absorption — on en parle pendant l'appel découverte.
             </p>
           </div>
         </div>
