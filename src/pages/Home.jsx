@@ -221,15 +221,15 @@ const Home = () => {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-100/30 rounded-full blur-3xl -translate-y-1/4 translate-x-1/4" aria-hidden="true" />
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
-          <span className="tag mb-6 inline-block">Agence Celexia</span>
+          <span className="tag mb-6 inline-block">Apport d'affaires pour artisans</span>
 
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
-            Agence d'apport d'affaires
-            <span className="block text-violet-600">pour artisans.</span>
+            On vous amène les appels.
+            <span className="block text-violet-600">Vous payez 10 % uniquement sur les devis signés.</span>
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
-            Commission de 10 % uniquement sur les devis signés.
+            Pour les artisans. Sans engagement, sans frais fixes.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -280,8 +280,12 @@ const Home = () => {
             <p className="text-base md:text-lg text-gray-800 leading-relaxed">
               Marc, plombier à Nogent-sur-Marne, signe avec Celexia. Le lendemain, un particulier tape
               « plombier Nogent-sur-Marne » sur Google. Il tombe sur la fiche de Marc en premier. Il appelle.
-              Marc visite, chiffre un remplacement de chauffe-eau à 1 800 € TTC. Le particulier signe.
-              <strong className="block mt-3 text-gray-900">Marc reverse 180 € à Celexia. Il garde 1 620 €. Et c'est tout.</strong>
+              Marc visite, chiffre un remplacement de chauffe-eau à{' '}
+              <span className="whitespace-nowrap">1&nbsp;800&nbsp;€ TTC</span>. Le particulier signe.
+              <strong className="block mt-3 text-gray-900">
+                Marc reverse <span className="whitespace-nowrap">180&nbsp;€</span> à Celexia. Il garde{' '}
+                <span className="whitespace-nowrap">1&nbsp;620&nbsp;€</span>. Et c'est tout.
+              </strong>
             </p>
           </div>
         </div>
