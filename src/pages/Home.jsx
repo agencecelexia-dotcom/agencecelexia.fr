@@ -221,16 +221,15 @@ const Home = () => {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-100/30 rounded-full blur-3xl -translate-y-1/4 translate-x-1/4" aria-hidden="true" />
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
-          <span className="tag mb-6 inline-block">Apport d'affaires pour artisans</span>
+          <span className="tag mb-6 inline-block">Agence Celexia</span>
 
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
-            On vous amène les appels.
-            <span className="block text-violet-600">Vous payez 10 % seulement sur les devis signés.</span>
+            Agence d'apport d'affaires
+            <span className="block text-violet-600">pour artisans.</span>
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
-            Un particulier cherche un artisan près de chez lui sur Google. Votre entreprise apparaît en premier. Il appelle.
-            Vous chiffrez. Si le devis est signé, vous nous reversez 10 %. Sinon, vous ne nous payez rien.
+            Commission de 10 % uniquement sur les devis signés.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -247,7 +246,7 @@ const Home = () => {
           </div>
 
           <p className="mt-8 text-sm text-gray-500">
-            Sans engagement · 0 € de frais fixes · Commission seulement sur résultats
+            Sans engagement · 0 € de frais fixes
           </p>
         </div>
       </section>
@@ -312,17 +311,16 @@ const Home = () => {
         </div>
       </section>
 
-      {/* OUTIL DE SUIVI (CRM offert) */}
+      {/* CRM */}
       <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <span className="tag mb-4 inline-block">Outil inclus</span>
+            <span className="tag mb-4 inline-block">CRM</span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
               Vous voyez exactement ce que ce partenariat vous rapporte
             </h2>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              Nous mettons en place un outil de suivi personnalisé pour votre activité. Il est inclus, sans frais supplémentaire.
-              Vous y voyez tout, en direct.
+              Nous mettons en place un CRM personnalisé pour votre activité. Vous y voyez tout, en direct.
             </p>
           </div>
 
