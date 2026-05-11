@@ -82,27 +82,6 @@ const SiteWeb = () => {
     }
   ];
 
-  const portfolio = [
-    {
-      title: 'Plomberie Dupont',
-      category: 'Plomberie',
-      features: ['Formulaire de contact', 'Galerie photos', 'Zone d\'intervention', 'Avis clients'],
-      color: 'blue'
-    },
-    {
-      title: 'Électricité Martin',
-      category: 'Électricité',
-      features: ['Présentation services', 'Urgences 24/7', 'Devis en ligne', 'Certifications'],
-      color: 'amber'
-    },
-    {
-      title: 'Piscine Expert',
-      category: 'Piscines',
-      features: ['Galerie photos', 'Devis gratuit', 'Entretien', 'Rénovation'],
-      color: 'cyan'
-    }
-  ];
-
   const process = [
     {
       step: '01',
@@ -156,9 +135,6 @@ const SiteWeb = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
-            <a href="#exemples" className="btn-ghost text-base px-8 py-4">
-              Voir des exemples
-            </a>
           </div>
         </div>
       </section>
@@ -226,53 +202,6 @@ const SiteWeb = () => {
               Nous intégrons également un système de suivi des conversions pour mesurer précisément combien de visiteurs deviennent des contacts. Ce suivi vous permet de connaître votre coût d'acquisition client et d'optimiser votre investissement marketing en continu. En moyenne, nos sites artisans génèrent entre 15 et 40 demandes de devis par mois, selon le secteur d'activité et la zone géographique couverte.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* PORTFOLIO */}
-      <section id="exemples" className="py-20 md:py-28 px-4 md:px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <span className="tag mb-4 inline-block">Portfolio</span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-3">
-              Exemples de réalisations
-            </h2>
-            <p className="text-gray-600 text-lg">
-              Des sites web qui convertissent vos visiteurs en clients
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {portfolio.map((item, i) => (
-              <div key={i} className="card overflow-hidden border-gray-200 group hover:border-violet-200 transition-all duration-300">
-                <div className={`h-48 bg-gradient-to-br ${
-                  item.color === 'blue' ? 'from-blue-400 to-blue-600' :
-                  item.color === 'amber' ? 'from-amber-400 to-amber-600' :
-                  'from-emerald-400 to-emerald-600'
-                } flex items-center justify-center text-white font-display text-2xl font-bold`}>
-                  {item.title}
-                </div>
-                <div className="p-6">
-                  <span className="inline-block px-3 py-1 rounded-full bg-violet-100 text-violet-700 text-xs font-semibold mb-4">
-                    {item.category}
-                  </span>
-                  <h3 className="text-lg font-bold text-gray-900 mb-4">{item.title}</h3>
-                  <div className="space-y-2">
-                    {item.features.map((feature, j) => (
-                      <div key={j} className="flex items-center text-sm text-gray-600">
-                        <span className="w-1.5 h-1.5 rounded-full bg-violet-400 mr-2" />
-                        {feature}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-center mt-10 text-gray-600">
-            <strong className="text-gray-900">Ces sites sont des modèles :</strong> Conçus par nos développeurs, ils sont entièrement duplicables et personnalisables à votre image.
-          </p>
         </div>
       </section>
 
