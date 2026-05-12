@@ -118,12 +118,11 @@ const About = () => {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="tag mb-6 inline-block">À propos</span>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
-            Agence d'apport d'affaires
-            <span className="block text-violet-600">pour artisans</span>
+            On vous amène les appels.
+            <span className="block text-violet-600">Vous payez 10 % uniquement sur les devis signés.</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-            Nous amenons les appels qualifiés. Vous payez 10 % uniquement sur les devis signés.
-            Pas de frais fixes, pas d'engagement, pas de mauvaise surprise.
+            Pour les artisans. Sans engagement, sans frais fixes.
           </p>
         </div>
       </section>

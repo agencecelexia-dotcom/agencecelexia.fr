@@ -224,12 +224,13 @@ const Home = () => {
           <span className="tag mb-6 inline-block">Apport d'affaires pour artisans</span>
 
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
-            On vous amène les appels.
-            <span className="block text-violet-600">Vous payez 10 % uniquement sur les devis signés.</span>
+            Agence d'apport d'affaires
+            <span className="block text-violet-600">pour artisans</span>
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
-            Pour les artisans. Sans engagement, sans frais fixes.
+            Nous amenons les appels qualifiés. Vous payez 10 % uniquement sur les devis signés.
+            Pas de frais fixes, pas d'engagement, pas de mauvaise surprise.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
