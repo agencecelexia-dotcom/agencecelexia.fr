@@ -6,7 +6,7 @@ export const METIERS = {
   'amenagement-paysager': { label: 'Aménagement paysager', prix: 15, color: '#16A34A' },
   'bardage': { label: 'Bardage', prix: 18, color: '#78716C' },
   'clotures': { label: 'Clôtures', prix: 15, color: '#A16207' },
-  'constructeurs-piscines': { label: 'Constructeurs de piscines', prix: 20, color: '#0EA5E9' },
+  'constructeurs-piscines': { label: 'Constructeurs de piscines', prix: 10, color: '#0EA5E9' },
   'couverture': { label: 'Couverture', prix: 20, color: '#6B7280' },
   'chauffagistes': { label: 'Chauffagistes', prix: 15, color: '#EF4444' },
   'demenagement': { label: 'Déménagement', prix: 12, color: '#F59E0B' },
