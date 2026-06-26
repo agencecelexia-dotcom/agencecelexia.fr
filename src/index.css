@@ -24,20 +24,22 @@
 
 @layer components {
   /* ============================================
-     BUTTONS - SaaS style with animations
+     BUTTONS
      ============================================ */
 
   .btn-primary {
     @apply relative inline-flex items-center justify-center
-           bg-violet-600 text-white
+           text-white
            px-7 py-3.5 rounded-xl font-semibold text-[15px]
            shadow-btn
            transition-all duration-300 ease-out
            overflow-hidden;
+    background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
   }
 
   .btn-primary:hover {
-    @apply bg-violet-700 shadow-btn-hover -translate-y-[1px];
+    @apply shadow-btn-hover -translate-y-[1px];
+    background: linear-gradient(135deg, #6D28D9 0%, #5B21B6 100%);
   }
 
   .btn-primary:active {
@@ -45,7 +47,6 @@
     transition-duration: 100ms;
   }
 
-  /* Shimmer sweep on hover */
   .btn-primary::after {
     content: '';
     @apply absolute inset-0 opacity-0;
@@ -81,6 +82,23 @@
     transition-duration: 100ms;
   }
 
+  .btn-white {
+    @apply relative inline-flex items-center justify-center
+           bg-white text-violet-600
+           px-7 py-3.5 rounded-xl font-semibold text-[15px]
+           shadow-btn
+           transition-all duration-300 ease-out;
+  }
+
+  .btn-white:hover {
+    @apply bg-violet-50 shadow-card -translate-y-[1px];
+  }
+
+  .btn-white:active {
+    @apply translate-y-0 shadow-btn scale-[0.98];
+    transition-duration: 100ms;
+  }
+
   .btn-ghost {
     @apply relative inline-flex items-center justify-center
            text-gray-700
@@ -111,6 +129,33 @@
     @apply shadow-card-hover border-gray-200 -translate-y-[2px];
   }
 
+  .card-glass {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    @apply rounded-2xl border border-white/40
+           shadow-soft
+           transition-all duration-300 ease-out;
+  }
+
+  .card-glass:hover {
+    background: rgba(255, 255, 255, 0.8);
+    @apply shadow-card-hover -translate-y-[2px];
+  }
+
+  .card-dark {
+    @apply rounded-2xl border border-white/10
+           shadow-dark-card
+           transition-all duration-300 ease-out;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .card-dark:hover {
+    @apply -translate-y-[2px];
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(124, 58, 237, 0.3);
+  }
+
   .card-violet {
     @apply bg-gradient-to-br from-violet-600 to-violet-700 rounded-2xl border border-violet-500/30
            shadow-soft
@@ -132,6 +177,42 @@
   }
 
   /* ============================================
+     GLASS MORPHISM
+     ============================================ */
+
+  .glass {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .glass-dark {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* ============================================
+     GRADIENT TEXT
+     ============================================ */
+
+  .gradient-text {
+    background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-light {
+    background: linear-gradient(135deg, #A78BFA 0%, #DDD6FE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ============================================
      BADGES / TAGS
      ============================================ */
 
@@ -140,6 +221,53 @@
            px-3.5 py-1.5 rounded-full
            text-xs font-semibold uppercase tracking-wider
            bg-violet-50 text-violet-600 border border-violet-100;
+  }
+
+  .tag-glass {
+    @apply inline-flex items-center
+           px-4 py-2 rounded-full
+           text-sm font-medium;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  /* ============================================
+     BACKGROUNDS & PATTERNS
+     ============================================ */
+
+  .dots-bg {
+    background-image: radial-gradient(circle, rgba(124, 58, 237, 0.07) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .dots-bg-dark {
+    background-image: radial-gradient(circle, rgba(124, 58, 237, 0.15) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .section-dark {
+    background: #0C0A14;
+    color: white;
+  }
+
+  .gradient-border {
+    @apply relative rounded-2xl;
+  }
+
+  .gradient-border::before {
+    content: '';
+    @apply absolute -inset-px rounded-2xl;
+    background: linear-gradient(135deg, #7C3AED, #A78BFA, #7C3AED);
+    z-index: -1;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  .gradient-border:hover::before {
+    opacity: 1;
   }
 
   /* ============================================
@@ -186,7 +314,7 @@
   }
 
   /* ============================================
-     CUSTOM ANIMATIONS
+     ANIMATIONS & INTERACTIONS
      ============================================ */
 
   .hover-lift {
@@ -197,7 +325,6 @@
     @apply -translate-y-1;
   }
 
-  /* Arrow animation for CTAs */
   .arrow-animate svg,
   .arrow-animate .arrow-icon {
     @apply transition-transform duration-300;
@@ -206,6 +333,25 @@
   .arrow-animate:hover svg,
   .arrow-animate:hover .arrow-icon {
     @apply translate-x-1;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-glow:hover {
+    @apply shadow-glow;
+  }
+
+  /* Icon container that flips color on group hover */
+  .icon-box {
+    @apply w-14 h-14 rounded-2xl flex items-center justify-center
+           transition-all duration-300 ease-out;
+  }
+
+  .icon-box-sm {
+    @apply w-10 h-10 rounded-xl flex items-center justify-center
+           transition-all duration-300 ease-out;
   }
 }
 
@@ -216,7 +362,7 @@
 }
 
 /* ============================================
-   GLOBAL KEYFRAMES (not Tailwind)
+   GLOBAL KEYFRAMES
    ============================================ */
 
 @keyframes shimmerSweep {

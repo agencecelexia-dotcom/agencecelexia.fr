@@ -89,8 +89,8 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-white ${
-          scrolled ? 'shadow-soft border-b border-gray-100' : ''
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          scrolled ? 'bg-white/80 backdrop-blur-xl shadow-soft border-b border-gray-100/80' : 'bg-white'
         }`}
       >
         <nav className="max-w-6xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between" aria-label="Navigation principale">
