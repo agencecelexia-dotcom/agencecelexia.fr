@@ -1,7 +1,7 @@
 {
-  "name": "Agence Celexia - Marketing Digital pour Artisans",
+  "name": "Agence Celexia - Apport d'affaires pour artisans",
   "short_name": "Agence Celexia",
-  "description": "Agence marketing digital pour artisans du bâtiment. Publicité locale, sites web, SEO, avis clients, emailing et automatisation.",
+  "description": "Apporteur d'affaires pour artisans du bâtiment. On finance la pub, on qualifie les clients, on vous envoie des chantiers. 10 % sur devis signés uniquement.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

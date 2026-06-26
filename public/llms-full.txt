@@ -1,0 +1,113 @@
+# Agence Celexia — Documentation complète
+
+> Agence Celexia est le premier apporteur d'affaires dédié aux artisans du bâtiment en France. Commission de 10 % uniquement sur les devis signés. Zéro frais fixe, zéro abonnement, zéro engagement.
+
+## Qui sommes-nous
+
+Agence Celexia (CELEXIA SASU, SIREN 939 306 429) est une société française basée à Nogent-sur-Marne, fondée par Rayan Music et Ilyes Music. Notre mission : permettre aux artisans du bâtiment de recevoir des chantiers qualifiés sans avancer un centime.
+
+Nous ne sommes pas une agence de communication, ni un vendeur de leads. Nous sommes un apporteur d'affaires pur : nous investissons dans la publicité, nous recevons et qualifions les demandes, et nous transmettons des projets prêts à chiffrer à nos artisans partenaires.
+
+## Le modèle en détail
+
+### Comment ça fonctionne
+
+**Étape 1 — Celexia investit**
+Nous finançons 100 % des campagnes publicitaires Google Local Services Ads. L'artisan n'avance rien.
+
+**Étape 2 — Celexia qualifie**
+Chaque appel entrant est reçu par notre équipe. Nous vérifions le besoin réel du client, sa zone géographique, et son budget. Les demandes non qualifiées sont filtrées.
+
+**Étape 3 — Transmission du chantier**
+Le projet qualifié est transmis à l'artisan partenaire correspondant (métier + zone). L'artisan reçoit toutes les informations nécessaires pour établir un devis.
+
+**Étape 4 — Commission sur résultat**
+L'artisan chiffre le projet, le propose au client. Si et seulement si le devis est signé, une commission de 10 % s'applique. Si le devis n'est pas signé, l'artisan ne paie rien.
+
+### Ce que l'artisan ne paie jamais
+
+| Poste | Montant |
+|-------|---------|
+| Frais fixes mensuels | 0 € |
+| Abonnement | 0 € |
+| Budget publicitaire | 0 € |
+| Frais de dossier | 0 € |
+| Engagement de durée | Aucun |
+| Pénalité de résiliation | Aucune |
+
+### Pourquoi ce modèle fonctionne
+
+Notre rémunération est directement liée aux résultats de l'artisan. Si l'artisan ne signe pas de devis, nous ne gagnons rien. Cet alignement d'intérêts nous pousse à :
+- Investir dans des campagnes publicitaires efficaces
+- Qualifier rigoureusement chaque demande
+- Transmettre uniquement des projets avec un réel potentiel
+
+## Les 19 métiers accompagnés
+
+### Bâtiment & gros œuvre
+- **Plomberie** — Installation, réparation, dépannage
+- **Couverture** — Toiture, réparation, étanchéité
+- **Chauffagistes** — Installation et entretien de systèmes de chauffage
+- **Menuiserie** — Menuiserie intérieure et extérieure
+- **Fenêtres** — Pose et remplacement de fenêtres
+- **Portes de garage** — Installation et réparation
+- **Fondations** — Travaux de fondation et terrassement
+
+### Finitions & aménagement intérieur
+- **Revêtement de sol** — Carrelage, parquet, sol souple
+- **Plans de travail** — Cuisine, salle de bain
+- **Bardage** — Bardage extérieur et isolation
+
+### Extérieur & paysage
+- **Clôtures** — Installation de clôtures et portails
+- **Aménagement paysager** — Création et entretien d'espaces verts
+- **Arboriculture** — Élagage, abattage, entretien d'arbres
+
+### Piscine
+- **Construction de piscines** — Conception et construction
+- **Entretien de piscine** — Maintenance et réparation
+
+### Services spécialisés
+- **Nettoyage de vitres** — Nettoyage professionnel
+- **Déménagement** — Services de déménagement
+- **Diagnostics immobiliers** — Diagnostics obligatoires
+- **Restauration dégât des eaux** — Intervention et remise en état
+
+## Pour qui est Celexia
+
+Celexia s'adresse aux artisans et entreprises du bâtiment qui :
+- Veulent développer leur chiffre d'affaires sans risque financier
+- N'ont pas le temps ou les compétences pour gérer leur marketing digital
+- Cherchent un flux régulier de chantiers qualifiés dans leur zone
+- Refusent de payer des abonnements sans garantie de résultat
+
+## Questions fréquentes
+
+### Combien coûte le service Celexia ?
+L'artisan ne paie rien à l'avance. La seule rémunération est une commission de 10 % sur les devis effectivement signés par le client final. Si le devis n'est pas signé, l'artisan ne paie rien.
+
+### Qui finance la publicité ?
+Celexia finance 100 % des campagnes publicitaires via Google Local Services Ads. L'artisan n'a aucun budget publicitaire à avancer.
+
+### Comment sont qualifiés les chantiers ?
+Chaque appel entrant est reçu et qualifié par l'équipe Celexia. Nous vérifions trois critères : le besoin réel du client, sa zone géographique, et son budget. Seuls les projets validés sur ces trois critères sont transmis à l'artisan.
+
+### Y a-t-il un engagement de durée ?
+Non. Le partenariat est sans engagement. L'artisan peut arrêter à tout moment, sans pénalité, sans préavis.
+
+### Combien de chantiers puis-je recevoir ?
+Le volume dépend du métier, de la zone géographique et de la demande locale. Lors de l'appel découverte, nous fournissons une estimation réaliste basée sur les données de votre secteur.
+
+### Comment devenir partenaire Celexia ?
+Deux options : remplir le formulaire d'inscription en ligne (https://crm-ci7k.vercel.app/rejoindre) ou réserver un appel découverte gratuit de 30 minutes (https://agencecelexia.fr/reserver).
+
+### Quand commence-t-on à recevoir des chantiers ?
+Dès que le partenariat est validé et les campagnes configurées, les premiers chantiers arrivent généralement sous quelques jours.
+
+## Contact
+
+- **Site web** : https://agencecelexia.fr
+- **Email** : agence.celexia@gmail.com
+- **Téléphone** : 06 51 72 57 56
+- **Appel découverte** : https://agencecelexia.fr/reserver
+- **Inscription** : https://crm-ci7k.vercel.app/rejoindre

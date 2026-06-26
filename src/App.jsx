@@ -20,8 +20,9 @@ const NotFound = lazy(() => import('./pages/NotFound'));
 const MetierPage = lazy(() => import('./components/MetierPage'));
 
 const LoadingFallback = () => (
-  <div className="min-h-screen flex items-center justify-center">
-    <div className="w-8 h-8 border-3 border-violet-200 border-t-violet-600 rounded-full animate-spin" />
+  <div className="min-h-screen flex items-center justify-center" role="status" aria-label="Chargement en cours">
+    <div className="w-8 h-8 border-3 border-violet-200 border-t-violet-600 rounded-full animate-spin" aria-hidden="true" />
+    <span className="sr-only">Chargement en cours...</span>
   </div>
 );
 
@@ -31,9 +32,15 @@ function App() {
       <Router>
         <ScrollToTop />
         <div className="min-h-screen flex flex-col">
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-violet-600 focus:text-white focus:rounded-lg focus:text-sm focus:font-semibold"
+          >
+            Aller au contenu principal
+          </a>
           <Header />
           <Breadcrumbs />
-          <main className="flex-grow">
+          <main id="main-content" className="flex-grow">
             <Suspense fallback={<LoadingFallback />}>
               <Routes>
                 <Route path="/" element={<Home />} />

@@ -43,24 +43,62 @@ const ORG_LD = {
   '@type': ['Organization', 'ProfessionalService'],
   '@id': 'https://agencecelexia.fr/#organization',
   name: 'Agence Celexia',
+  legalName: 'CELEXIA SASU',
   url: 'https://agencecelexia.fr',
   logo: { '@type': 'ImageObject', url: 'https://agencecelexia.fr/logo.png', width: 605, height: 98 },
   image: 'https://agencecelexia.fr/logo.png',
-  description: 'Apporteur d\'affaires pour artisans du bâtiment. On finance la publicité, on qualifie les clients, on vous envoie des chantiers. Vous ne payez 10 % que sur les devis signés. Sans avance, sans engagement.',
+  description: 'Apporteur d\'affaires pour artisans du bâtiment en France. Celexia finance 100 % de la publicité, qualifie les demandes de chantiers et transmet aux artisans partenaires les projets prêts à chiffrer. Commission de 10 % sur devis signés uniquement, sans avance de frais ni engagement.',
+  slogan: 'On gagne quand vous gagnez',
   priceRange: '€€',
-  serviceType: 'Apport d\'affaires pour artisans',
+  serviceType: 'Apport d\'affaires pour artisans du bâtiment',
   telephone: '+33651725756',
   email: 'agence.celexia@gmail.com',
-  address: { '@type': 'PostalAddress', addressCountry: 'FR', addressRegion: 'France métropolitaine', addressLocality: 'France' },
+  address: { '@type': 'PostalAddress', addressCountry: 'FR', addressRegion: 'Île-de-France', addressLocality: 'Nogent-sur-Marne' },
   foundingDate: '2024',
+  taxID: 'SIREN 939 306 429',
   areaServed: { '@type': 'Country', name: 'France' },
   knowsLanguage: 'fr',
+  knowsAbout: [
+    'Apport d\'affaires pour artisans',
+    'Génération de leads qualifiés bâtiment',
+    'Acquisition client locale',
+    'Publicité Google Ads pour artisans',
+    'Qualification de chantiers'
+  ],
   sameAs: ['https://www.facebook.com/agencecelexia', 'https://www.linkedin.com/company/agence-celexia'],
   founder: [
-    { '@type': 'Person', name: 'Thomas', jobTitle: 'Co-fondateur' },
-    { '@type': 'Person', name: 'Antoine', jobTitle: 'Co-fondateur' }
+    { '@type': 'Person', '@id': 'https://agencecelexia.fr/#rayan', name: 'Rayan Music', jobTitle: 'Co-fondateur', worksFor: { '@id': 'https://agencecelexia.fr/#organization' } },
+    { '@type': 'Person', '@id': 'https://agencecelexia.fr/#ilyes', name: 'Ilyes Music', jobTitle: 'Co-fondateur', worksFor: { '@id': 'https://agencecelexia.fr/#organization' } }
   ],
-  contactPoint: { '@type': 'ContactPoint', telephone: '+33651725756', email: 'agence.celexia@gmail.com', contactType: 'customer service', availableLanguage: 'French' }
+  contactPoint: { '@type': 'ContactPoint', telephone: '+33651725756', email: 'agence.celexia@gmail.com', contactType: 'customer service', availableLanguage: 'French', areaServed: 'FR' }
+};
+
+const FAQ_LD = {
+  '@type': 'FAQPage',
+  '@id': 'https://agencecelexia.fr/#faq',
+  mainEntity: [
+    { '@type': 'Question', name: 'Combien coûte l\'apport d\'affaires Celexia ?', acceptedAnswer: { '@type': 'Answer', text: '10 % du montant TTC de chaque devis signé grâce à un chantier transmis par Celexia. C\'est tout. Aucun frais d\'entrée, aucun abonnement, aucun budget pub à votre charge.' } },
+    { '@type': 'Question', name: 'Et si je ne signe pas le chantier ?', acceptedAnswer: { '@type': 'Answer', text: 'Vous ne payez rien. La facturation ne se déclenche que sur devis signé. C\'est notre risque, pas le vôtre.' } },
+    { '@type': 'Question', name: 'Dois-je avancer un budget publicitaire ?', acceptedAnswer: { '@type': 'Answer', text: 'Non. Celexia finance 100 % de la publicité. Vous n\'avancez rien, jamais.' } },
+    { '@type': 'Question', name: 'Y a-t-il un engagement de durée ?', acceptedAnswer: { '@type': 'Answer', text: 'Aucun. Pas de durée minimum, pas de préavis, pas de frais de sortie. Vous arrêtez quand vous voulez.' } },
+    { '@type': 'Question', name: 'Les chantiers sont-ils qualifiés ?', acceptedAnswer: { '@type': 'Answer', text: 'Oui. Chaque appel est qualifié avant de vous être transmis : on vérifie le besoin, la zone d\'intervention, le budget et le sérieux de la demande.' } },
+    { '@type': 'Question', name: 'Quels métiers acceptez-vous ?', acceptedAnswer: { '@type': 'Answer', text: 'Nous accompagnons 19 métiers d\'artisans du bâtiment, de la plomberie aux piscines en passant par la couverture, la maçonnerie et le paysage.' } },
+    { '@type': 'Question', name: 'Comment se passe le paiement de la commission ?', acceptedAnswer: { '@type': 'Answer', text: 'Quand un devis est signé par le client, vous nous reversez 10 % du montant. On définit ensemble un rythme de règlement, le plus souvent mensuel.' } },
+    { '@type': 'Question', name: 'Je peux continuer à trouver des clients de mon côté ?', acceptedAnswer: { '@type': 'Answer', text: 'Bien sûr. Vous restez 100 % maître de votre activité. Notre rôle est d\'ajouter du flux qualifié, pas de vous remplacer.' } }
+  ]
+};
+
+const HOWTO_LD = {
+  '@type': 'HowTo',
+  '@id': 'https://agencecelexia.fr/#howto',
+  name: 'Comment fonctionne l\'apport d\'affaires Celexia pour les artisans',
+  description: 'Celexia finance la publicité, qualifie les appels et transmet les chantiers aux artisans. 4 étapes, zéro paperasse.',
+  step: [
+    { '@type': 'HowToStep', position: 1, name: 'Celexia finance et lance la publicité', text: 'Celexia investit 100 % du budget publicitaire. Votre métier est positionné en tête des résultats Google dans votre zone. Vous n\'avancez rien.' },
+    { '@type': 'HowToStep', position: 2, name: 'Les appels sont reçus et qualifiés', text: 'Les particuliers appellent. Avant de vous transmettre un projet, Celexia vérifie le besoin, la zone, le budget et le sérieux de la demande.' },
+    { '@type': 'HowToStep', position: 3, name: 'Le chantier qualifié vous est transmis', text: 'Vous recevez uniquement des projets qui correspondent à votre métier, votre zone et votre capacité.' },
+    { '@type': 'HowToStep', position: 4, name: 'Vous chiffrez, signez et payez 10 %', text: 'Vous gérez la relation commerciale. Vous ne reversez 10 % que sur les devis effectivement signés. Pas de signature = pas de facture.' }
+  ]
 };
 
 const baseRoutes = [
@@ -90,9 +128,11 @@ const baseRoutes = [
           description: 'Agence d\'apport d\'affaires pour artisans. Appels clients qualifiés, paiement 10 % sur devis signés uniquement.',
           inLanguage: 'fr-FR',
           datePublished: '2024-10-01',
-          dateModified: '2026-05-10'
+          dateModified: '2026-06-26'
         },
         ORG_LD,
+        FAQ_LD,
+        HOWTO_LD,
       ]
     },
   },
@@ -108,7 +148,7 @@ const baseRoutes = [
       url: 'https://agencecelexia.fr/about',
       mainEntity: ORG_LD,
       datePublished: '2024-10-01',
-      dateModified: '2026-05-10'
+      dateModified: '2026-06-26'
     },
   },
   {
@@ -127,7 +167,7 @@ const baseRoutes = [
           inLanguage: 'fr-FR',
           isPartOf: { '@id': 'https://agencecelexia.fr/#website' },
           datePublished: '2024-10-01',
-          dateModified: '2026-05-10'
+          dateModified: '2026-06-26'
         },
         {
           '@type': 'LocalBusiness',
@@ -181,7 +221,7 @@ const metierRoutes = Object.entries(METIERS).map(([slug, label]) => ({
     areaServed: { '@type': 'Country', name: 'France' },
     audience: { '@type': 'Audience', audienceType: label },
     datePublished: '2024-10-01',
-    dateModified: '2026-05-10'
+    dateModified: '2026-06-26'
   },
 }));
 

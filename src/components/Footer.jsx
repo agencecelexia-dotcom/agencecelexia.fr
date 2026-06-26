@@ -24,7 +24,7 @@ const Footer = () => {
                 loading="lazy"
               />
             </Link>
-            <p className="text-white/40 text-sm leading-relaxed max-w-sm">
+            <p className="text-white/60 text-sm leading-relaxed max-w-sm">
               Apporteur d'affaires pour artisans du bâtiment. On finance la publicité,
               on qualifie les clients, on vous envoie des chantiers. Vous ne payez 10 %
               que sur les devis signés. Sans avance, sans engagement.
@@ -45,24 +45,24 @@ const Footer = () => {
 
           {/* Navigation */}
           <div>
-            <h4 className="text-xs font-semibold text-white/30 uppercase tracking-wider mb-5">Navigation</h4>
+            <h4 className="text-xs font-semibold text-white/50 uppercase tracking-wider mb-5">Navigation</h4>
             <div className="flex flex-col gap-3">
-              <Link to="/" className="text-white/50 hover:text-violet-400 transition-colors text-sm">Accueil</Link>
-              <Link to="/about" className="text-white/50 hover:text-violet-400 transition-colors text-sm">À propos</Link>
-              <Link to="/contact" className="text-white/50 hover:text-violet-400 transition-colors text-sm">Contact</Link>
-              <Link to="/reserver" className="text-white/50 hover:text-violet-400 transition-colors text-sm">Réserver un appel</Link>
+              <Link to="/" className="text-white/70 hover:text-violet-400 transition-colors text-sm">Accueil</Link>
+              <Link to="/about" className="text-white/70 hover:text-violet-400 transition-colors text-sm">À propos</Link>
+              <Link to="/contact" className="text-white/70 hover:text-violet-400 transition-colors text-sm">Contact</Link>
+              <Link to="/reserver" className="text-white/70 hover:text-violet-400 transition-colors text-sm">Réserver un appel</Link>
             </div>
           </div>
 
           {/* Métiers */}
           <div>
-            <h4 className="text-xs font-semibold text-white/30 uppercase tracking-wider mb-5">Métiers</h4>
+            <h4 className="text-xs font-semibold text-white/50 uppercase tracking-wider mb-5">Métiers</h4>
             <div className="flex flex-col gap-2">
               {metiers.map((m) => (
                 <Link
                   key={m.slug}
                   to={`/metiers/${m.slug}`}
-                  className="text-white/50 hover:text-violet-400 transition-colors text-sm"
+                  className="text-white/70 hover:text-violet-400 transition-colors text-sm"
                 >
                   {m.label}
                 </Link>
@@ -72,14 +72,14 @@ const Footer = () => {
 
           {/* Légal & Contact */}
           <div>
-            <h4 className="text-xs font-semibold text-white/30 uppercase tracking-wider mb-5">Légal &amp; Contact</h4>
+            <h4 className="text-xs font-semibold text-white/50 uppercase tracking-wider mb-5">Légal &amp; Contact</h4>
             <div className="flex flex-col gap-3">
-              <Link to="/mentions-legales" className="text-white/50 hover:text-violet-400 transition-colors text-sm">Mentions légales</Link>
-              <Link to="/politique-confidentialite" className="text-white/50 hover:text-violet-400 transition-colors text-sm">Politique de confidentialité</Link>
-              <a href="mailto:agence.celexia@gmail.com" className="text-white/50 hover:text-violet-400 transition-colors text-sm">
+              <Link to="/mentions-legales" className="text-white/70 hover:text-violet-400 transition-colors text-sm">Mentions légales</Link>
+              <Link to="/politique-confidentialite" className="text-white/70 hover:text-violet-400 transition-colors text-sm">Politique de confidentialité</Link>
+              <a href="mailto:agence.celexia@gmail.com" className="text-white/70 hover:text-violet-400 transition-colors text-sm">
                 agence.celexia@gmail.com
               </a>
-              <a href="tel:+33651725756" className="text-white/50 hover:text-violet-400 transition-colors text-sm">
+              <a href="tel:+33651725756" className="text-white/70 hover:text-violet-400 transition-colors text-sm">
                 06 51 72 57 56
               </a>
             </div>
@@ -88,12 +88,12 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="pt-8 border-t border-white/[0.06] flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/25 text-xs">
+          <p className="text-white/50 text-xs">
             &copy; {new Date().getFullYear()} CELEXIA SASU &middot; SIREN 939 306 429 &middot; Nogent-sur-Marne. Tous droits réservés.
           </p>
           <div className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-white/30 text-xs">Système actif</span>
+            <span className="text-white/50 text-xs">Système actif</span>
           </div>
         </div>
       </div>
