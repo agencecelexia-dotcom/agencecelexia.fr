@@ -6,6 +6,16 @@
 /onboarding-call /reserver 301
 /banque-alimentaire / 301
 
+# Anciennes pages de prestation (ancien modèle) → accueil (apport d'affaires)
+/services/publicite-performance / 301
+/services/site-web / 301
+/services/seo / 301
+/services/avis-clients / 301
+/services/emailing / 301
+/services/automatisation / 301
+/services/* / 301
+/sites-artisans / 301
+
 # 410 Gone - URLs parasites (ancien builder Brevo/Sendinblue)
 /tmp/* /index.html 410
 

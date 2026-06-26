@@ -34,14 +34,20 @@
   to = "/"
   status = 301
 
+# Anciennes pages de prestation (ancien modèle) → accueil (apport d'affaires)
 [[redirects]]
-  from = "/leads-electricien"
-  to = "/metiers/electricien"
+  from = "/services/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/sites-artisans"
+  to = "/"
   status = 301
 
 [[redirects]]
   from = "/leads-plombier"
-  to = "/metiers/plombier"
+  to = "/metiers/plomberie"
   status = 301
 
 # 410 Gone - URLs parasites ancien builder

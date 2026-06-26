@@ -13,18 +13,10 @@ const Breadcrumbs = () => {
   const pageNames = {
     'about': 'À propos',
     'contact': 'Contact',
-    'sites-artisans': 'Sites web artisans',
     'reserver': 'Réserver',
     'mentions-legales': 'Mentions légales',
     'politique-confidentialite': 'Politique de confidentialité',
-    'services': 'Services',
     'metiers': 'Métiers',
-    'publicite-performance': 'Publicité à la performance',
-    'site-web': 'Création de site web',
-    'seo': 'Référencement SEO',
-    'avis-clients': 'Avis clients',
-    'emailing': 'Email marketing',
-    'automatisation': 'Automatisation',
     ...metierLabels,
   };
 

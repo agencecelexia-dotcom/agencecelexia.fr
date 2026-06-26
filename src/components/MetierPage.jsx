@@ -5,22 +5,23 @@ import { getMetierContent } from '../data/metiers';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { initCalInline, CAL_INLINE_ID, CAL_URL } from '../lib/cal';
+import { REGISTER_URL } from '../lib/links';
 
 const STEPS = [
   {
     num: '01',
-    title: 'On vous amène les appels qualifiés',
-    desc: 'Nous prenons en charge toute la mécanique d\'acquisition pour faire sonner votre téléphone avec des prospects sérieux dans votre zone.'
+    title: 'On finance la pub et on génère les demandes',
+    desc: 'Celexia investit 100 % du budget publicitaire et positionne votre métier en tête des résultats Google dans votre zone. Vous n\'avancez rien.'
   },
   {
     num: '02',
-    title: 'Vous chiffrez et signez le devis',
-    desc: 'Vous gérez le client comme d\'habitude : échange, visite, devis. Nous n\'intervenons jamais dans la relation commerciale.'
+    title: 'On qualifie et on vous transmet le chantier',
+    desc: 'On reçoit les appels, on vérifie le besoin, la zone et le budget, puis on vous transmet uniquement les projets prêts à chiffrer.'
   },
   {
     num: '03',
-    title: 'Vous nous reversez 10 % du devis signé',
-    desc: 'Pas de devis signé, pas de facture. Pas de frais fixes, pas d\'engagement minimum.'
+    title: 'Vous signez, vous payez 10 %',
+    desc: 'Vous gérez la relation commerciale comme d\'habitude. Pas de devis signé = pas de facture. Pas de frais fixes, pas d\'engagement.'
   }
 ];
 
@@ -52,7 +53,7 @@ const MetierPage = () => {
   usePageMeta({
     title: metier ? `Apport d'affaires ${label} | Agence Celexia` : 'Métier | Agence Celexia',
     description: metier
-      ? `Agence d'apport d'affaires pour ${label.toLowerCase()}. Nous vous amenons les appels qualifiés, vous payez 10 % uniquement sur les devis signés.`
+      ? `Agence d'apport d'affaires pour ${label.toLowerCase()}. On finance la pub, on qualifie les clients, on vous transmet les chantiers. Vous payez 10 % uniquement sur les devis signés.`
       : '',
     canonical: metier ? `https://agencecelexia.fr/metiers/${slug}` : 'https://agencecelexia.fr/'
   });
@@ -123,11 +124,19 @@ const MetierPage = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link to="/reserver" className="btn-primary arrow-animate text-base px-8 py-4 w-full sm:w-auto justify-center">
-              Réserver un appel découverte
+            <a
+              href={REGISTER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary arrow-animate text-base px-8 py-4 w-full sm:w-auto justify-center"
+            >
+              Recevoir des chantiers
               <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
+            </a>
+            <Link to="/reserver" className="btn-secondary text-base px-8 py-4 w-full sm:w-auto justify-center">
+              Réserver un appel découverte
             </Link>
           </div>
 

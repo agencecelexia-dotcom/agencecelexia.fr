@@ -46,7 +46,7 @@ const ORG_LD = {
   url: 'https://agencecelexia.fr',
   logo: { '@type': 'ImageObject', url: 'https://agencecelexia.fr/logo.png', width: 605, height: 98 },
   image: 'https://agencecelexia.fr/logo.png',
-  description: 'Agence d\'apport d\'affaires pour artisans : nous amenons les appels clients qualifiés, vous payez 10 % uniquement sur les devis signés.',
+  description: 'Apporteur d\'affaires pour artisans du bâtiment. On finance la publicité, on qualifie les clients, on vous envoie des chantiers. Vous ne payez 10 % que sur les devis signés. Sans avance, sans engagement.',
   priceRange: '€€',
   serviceType: 'Apport d\'affaires pour artisans',
   telephone: '+33651725756',
@@ -67,7 +67,7 @@ const baseRoutes = [
   {
     path: '/',
     title: 'Agence Celexia | Apport d\'affaires pour artisans',
-    description: 'Agence d\'apport d\'affaires pour artisans. Nous générons les appels clients qualifiés, vous payez 10 % uniquement sur les devis signés. Sans engagement, sans frais fixes.',
+    description: 'Apporteur d\'affaires pour artisans du bâtiment. On finance la pub, on qualifie les clients, on vous envoie des chantiers. Vous ne payez 10 % que sur les devis signés. Sans avance, sans engagement.',
     jsonLd: {
       '@context': 'https://schema.org',
       '@graph': [
@@ -162,44 +162,13 @@ const baseRoutes = [
     title: 'Politique de confidentialité | Agence Celexia',
     description: 'Politique de confidentialité et de protection des données personnelles du site agencecelexia.fr. Conformité RGPD.',
   },
-  // Services complémentaires
-  {
-    path: '/services/publicite-performance',
-    title: 'Publicité à la performance | Agence Celexia',
-    description: 'Service complémentaire d\'apport d\'appels qualifiés pour artisans. Vous ne payez que sur les appels qualifiés réellement reçus.',
-  },
-  {
-    path: '/services/site-web',
-    title: 'Création de site web pour artisans | Agence Celexia',
-    description: 'Site web professionnel rapide, livré en 7 jours, conçu pour convertir les visiteurs en demandes de devis. Service complémentaire à l\'apport d\'affaires.',
-  },
-  {
-    path: '/services/seo',
-    title: 'Référencement SEO local artisans | Agence Celexia',
-    description: 'Sortez en tête sur Google dans votre zone d\'intervention. SEO local et optimisation Google Business Profile pour artisans.',
-  },
-  {
-    path: '/services/avis-clients',
-    title: 'Gestion des avis clients | Agence Celexia',
-    description: 'Collecte automatique d\'avis Google après chaque chantier, gestion de réputation, réponses assistées. Service complémentaire à l\'apport d\'affaires.',
-  },
-  {
-    path: '/services/emailing',
-    title: 'Email marketing pour artisans | Agence Celexia',
-    description: 'Relances automatiques de devis, fidélisation, campagnes saisonnières. Service complémentaire à l\'apport d\'affaires.',
-  },
-  {
-    path: '/services/automatisation',
-    title: 'Automatisation des relances et de l\'admin | Agence Celexia',
-    description: 'Industrialisez vos relances, devis, rappels et factures. Gagnez des heures par semaine. Service complémentaire à l\'apport d\'affaires.',
-  },
 ];
 
 // Génère automatiquement une route pour chacun des 19 métiers
 const metierRoutes = Object.entries(METIERS).map(([slug, label]) => ({
   path: `/metiers/${slug}`,
   title: `Apport d'affaires ${label} | Agence Celexia`,
-  description: `Agence d'apport d'affaires pour ${label.toLowerCase()}. Nous vous amenons les appels qualifiés, vous payez 10 % uniquement sur les devis signés.`,
+  description: `Agence d'apport d'affaires pour ${label.toLowerCase()}. On finance la pub, on qualifie les clients, on vous transmet les chantiers. Vous payez 10 % uniquement sur les devis signés.`,
   jsonLd: {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -222,18 +191,10 @@ const routes = [...baseRoutes, ...metierRoutes];
 const pageNames = {
   about: 'À propos',
   contact: 'Contact',
-  'sites-artisans': 'Sites web artisans',
   reserver: 'Réserver',
   'mentions-legales': 'Mentions légales',
   'politique-confidentialite': 'Politique de confidentialité',
-  services: 'Services',
   metiers: 'Métiers',
-  'publicite-performance': 'Publicité à la performance',
-  'site-web': 'Création de site web',
-  seo: 'Référencement SEO',
-  'avis-clients': 'Avis clients',
-  emailing: 'Email marketing',
-  automatisation: 'Automatisation',
   ...METIERS,
 };
 

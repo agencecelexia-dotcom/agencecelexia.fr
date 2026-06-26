@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
+import { REGISTER_URL } from '../lib/links';
 
 const About = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -24,7 +25,7 @@ const About = () => {
       name: 'Agence Celexia',
       url: 'https://agencecelexia.fr',
       email: 'agence.celexia@gmail.com',
-      description: 'Agence d\'apport d\'affaires pour artisans : nous générons les appels qualifiés, les artisans payent 10 % uniquement sur les devis signés.',
+      description: 'Apporteur d\'affaires pour artisans du bâtiment. On finance la pub, on qualifie les clients, on vous envoie des chantiers. Vous ne payez 10 % que sur les devis signés.',
       foundingDate: '2024',
       areaServed: { '@type': 'Country', name: 'France' },
       knowsAbout: ['Apport d\'affaires', 'Acquisition client artisans', 'Génération de leads qualifiés']
@@ -38,7 +39,7 @@ const About = () => {
   const faqs = [
     {
       question: 'Comment fonctionne votre apport d\'affaires ?',
-      answer: 'Nous prenons en charge toute la mécanique d\'acquisition locale pour faire sonner votre téléphone avec des prospects sérieux. Vous chiffrez et signez. Vous nous reversez 10 % du devis signé.'
+      answer: 'Nous finançons 100 % de la publicité et qualifions chaque demande avant de vous la transmettre. Vous recevez des chantiers prêts à chiffrer. Vous nous reversez 10 % uniquement sur les devis signés.'
     },
     {
       question: 'Combien je paie exactement ?',
@@ -61,8 +62,8 @@ const About = () => {
       answer: 'Oui, sur toute la France métropolitaine. Nous adaptons les zones d\'intervention à votre capacité de déplacement et à votre planning.'
     },
     {
-      question: 'Sous combien de temps les premiers appels arrivent ?',
-      answer: 'Une fois le dispositif d\'acquisition lancé, les premiers appels arrivent généralement dans les premières semaines. Le rythme se stabilise sur les 2-3 premiers mois.'
+      question: 'Sous combien de temps les premiers chantiers arrivent ?',
+      answer: 'Une fois le dispositif d\'acquisition lancé, les premiers chantiers qualifiés vous sont transmis généralement dans les premières semaines. Le rythme se stabilise sur les 2-3 premiers mois.'
     },
     {
       question: 'Puis-je continuer mes propres canaux d\'acquisition en parallèle ?',
@@ -78,13 +79,13 @@ const About = () => {
     },
     {
       num: '02',
-      title: 'Lancement du dispositif d\'acquisition',
-      desc: 'Nous activons les leviers d\'acquisition locaux nécessaires pour faire sonner votre téléphone avec des prospects sérieux dans votre zone.'
+      title: 'On finance la pub et on lance l\'acquisition',
+      desc: 'Celexia investit 100 % du budget publicitaire et active les leviers d\'acquisition locaux pour générer des demandes sérieuses dans votre zone.'
     },
     {
       num: '03',
-      title: 'Vous traitez les appels',
-      desc: 'Les appels arrivent directement chez vous. Vous prenez le rendez-vous, vous chiffrez le devis, vous signez. Nous n\'intervenons jamais dans votre relation client.'
+      title: 'On qualifie et on vous transmet les chantiers',
+      desc: 'On reçoit les demandes, on vérifie le besoin, la zone et le budget, puis on vous transmet uniquement les projets prêts à chiffrer.'
     },
     {
       num: '04',
@@ -118,11 +119,11 @@ const About = () => {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="tag mb-6 inline-block">À propos</span>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
-            On vous amène les appels.
-            <span className="block text-violet-600">Vous payez 10 % uniquement sur les devis signés.</span>
+            On finance la pub, on qualifie les clients,
+            <span className="block text-violet-600">on vous envoie des chantiers.</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-            Pour les artisans. Sans engagement, sans frais fixes.
+            Vous ne payez 10 % que sur les devis signés. Sans engagement, sans avance, sans frais fixes.
           </p>
         </div>
       </section>
@@ -266,15 +267,25 @@ const About = () => {
             Pas de discours commercial. Une conversation franche entre professionnels.
           </p>
 
-          <Link
-            to="/reserver"
-            className="inline-flex items-center justify-center bg-white text-violet-600 px-8 py-4 rounded-xl font-semibold text-base shadow-lg hover:shadow-xl hover:-translate-y-[1px] active:translate-y-0 active:scale-[0.98] transition-all duration-300 arrow-animate"
-          >
-            Réserver un appel découverte
-            <svg className="ml-2 w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a
+              href={REGISTER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-white text-violet-600 px-8 py-4 rounded-xl font-semibold text-base shadow-lg hover:shadow-xl hover:-translate-y-[1px] active:translate-y-0 active:scale-[0.98] transition-all duration-300"
+            >
+              Recevoir des chantiers
+              <svg className="ml-2 w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+            <Link
+              to="/reserver"
+              className="inline-flex items-center justify-center border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-base hover:bg-white/10 transition-colors"
+            >
+              Réserver un appel découverte
+            </Link>
+          </div>
 
           <div className="mt-10 pt-6 border-t border-white/20">
             <p className="text-sm text-violet-200 mb-1">Vous préférez nous écrire ?</p>

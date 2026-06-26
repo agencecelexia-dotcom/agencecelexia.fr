@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { initCalInline, CAL_INLINE_ID, CAL_URL } from '../lib/cal';
+import { REGISTER_URL } from '../lib/links';
 
 const Contact = () => {
   // Métadonnées SEO pour la page Contact
@@ -76,10 +77,24 @@ const Contact = () => {
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight mb-6">
             Réservez votre appel découverte
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-8">
             30 minutes pour valider que notre apport d'affaires est adapté à votre activité d'artisan
             et estimer ensemble le volume de chantiers que nous pouvons vous apporter.
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a
+              href={REGISTER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary arrow-animate text-base px-8 py-4 w-full sm:w-auto justify-center"
+            >
+              Devenir partenaire
+              <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+          <p className="mt-4 text-sm text-gray-500">Sans engagement · 10 % uniquement sur devis signés · Aucune avance</p>
         </div>
       </section>
 
@@ -158,9 +173,9 @@ const Contact = () => {
               <h3 className="text-lg font-bold text-gray-900 mb-3">Des projections concrètes et chiffrées</h3>
               <p className="text-base text-gray-600 leading-relaxed">
                 Nous vous présentons une estimation réaliste basée sur les données de votre marché local :
-                volume d'appels par mois, taux de conversion attendu en devis signés, montant cible de
-                commission, projection sur trois, six et douze mois. Chaque chiffre est explicité et
-                contextualisé pour que vous puissiez décider en pleine connaissance de cause.
+                nombre de chantiers qualifiés transmis par mois, taux de conversion attendu en devis signés,
+                montant cible de commission, projection sur trois, six et douze mois. Chaque chiffre est
+                explicité et contextualisé pour que vous puissiez décider en pleine connaissance de cause.
               </p>
             </div>
 

@@ -100,7 +100,7 @@ const BookingStrategy = () => {
               </div>
               <h3 className="font-bold text-gray-900 mb-2">Potentiel apport d'affaires</h3>
               <p className="text-base text-gray-600 leading-relaxed">
-                Estimation du volume d'appels qualifiés que nous pouvons vous apporter dans votre zone, projection de chiffre d'affaires
+                Estimation du volume de chantiers qualifiés que nous pouvons vous transmettre dans votre zone, projection de chiffre d'affaires
               </p>
             </div>
 

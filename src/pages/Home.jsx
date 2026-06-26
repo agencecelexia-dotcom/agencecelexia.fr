@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { initCalInline, CAL_INLINE_ID, CAL_URL } from '../lib/cal';
+import { REGISTER_URL } from '../lib/links';
 import { METIERS } from '../context/NicheContext';
 
 const Home = () => {
@@ -10,8 +11,8 @@ const Home = () => {
   const calRef = useRef(null);
 
   usePageMeta({
-    title: "Agence Celexia | Apport d'affaires pour artisans",
-    description: "Agence d'apport d'affaires pour artisans. Nous vous amenons les appels de clients. Vous payez 10 % seulement sur les devis signés. Sans frais fixes, sans engagement.",
+    title: "Agence Celexia | Apport d'affaires pour artisans du bâtiment",
+    description: "Recevez des chantiers qualifiés sans avancer un centime. Celexia finance la publicité, qualifie les clients et vous transmet des projets prêts à chiffrer. Vous ne payez que 10 % sur les devis signés. Sans engagement.",
     canonical: 'https://agencecelexia.fr/'
   });
 
@@ -23,7 +24,7 @@ const Home = () => {
         '@id': 'https://agencecelexia.fr/#website',
         url: 'https://agencecelexia.fr',
         name: 'Agence Celexia',
-        description: "Agence d'apport d'affaires pour artisans. Commission 10 % sur devis signés.",
+        description: "Apport d'affaires pour artisans du bâtiment. Commission 10 % sur devis signés uniquement.",
         inLanguage: 'fr-FR',
         publisher: { '@id': 'https://agencecelexia.fr/#organization' }
       },
@@ -31,13 +32,13 @@ const Home = () => {
         '@type': 'WebPage',
         '@id': 'https://agencecelexia.fr/#webpage',
         url: 'https://agencecelexia.fr',
-        name: "Agence Celexia | Apport d'affaires pour artisans",
+        name: "Agence Celexia | Apport d'affaires pour artisans du bâtiment",
         isPartOf: { '@id': 'https://agencecelexia.fr/#website' },
         about: { '@id': 'https://agencecelexia.fr/#organization' },
-        description: "Agence d'apport d'affaires pour artisans. Appels de clients qualifiés. 10 % sur devis signés seulement.",
+        description: "Celexia finance la publicité, qualifie les clients et transmet des chantiers prêts à chiffrer aux artisans partenaires. 10 % sur devis signés, sans avance, sans engagement.",
         inLanguage: 'fr-FR',
         datePublished: '2024-10-01',
-        dateModified: '2026-05-11'
+        dateModified: '2026-06-26'
       },
       {
         '@type': ['Organization', 'ProfessionalService'],
@@ -46,12 +47,12 @@ const Home = () => {
         url: 'https://agencecelexia.fr',
         logo: { '@type': 'ImageObject', url: 'https://agencecelexia.fr/logo.png', width: 605, height: 98 },
         image: 'https://agencecelexia.fr/logo.png',
-        description: "Agence d'apport d'affaires pour artisans : nous amenons les appels de clients, vous payez 10 % seulement sur les devis signés.",
+        description: "Apporteur d'affaires pour artisans du bâtiment. Celexia finance la publicité, qualifie les clients et transmet des chantiers qualifiés. Commission 10 % sur devis signés uniquement.",
         priceRange: '€€',
         serviceType: "Apport d'affaires pour artisans",
         telephone: '+33651725756',
         email: 'agence.celexia@gmail.com',
-        address: { '@type': 'PostalAddress', addressCountry: 'FR', addressRegion: 'France métropolitaine', addressLocality: 'France' },
+        address: { '@type': 'PostalAddress', addressCountry: 'FR', addressRegion: 'Île-de-France', addressLocality: 'Nogent-sur-Marne' },
         foundingDate: '2024',
         areaServed: { '@type': 'Country', name: 'France' },
         knowsLanguage: 'fr',
@@ -65,7 +66,6 @@ const Home = () => {
     ]
   });
 
-  // Lazy load Cal.com via IntersectionObserver
   useEffect(() => {
     if (!calRef.current) return;
     const observer = new IntersectionObserver(
@@ -87,130 +87,104 @@ const Home = () => {
   const steps = [
     {
       num: '01',
-      title: 'On vous amène les appels',
-      desc: "Un particulier cherche un artisan près de chez lui sur Google. Votre entreprise apparaît en premier. Il appelle directement votre numéro. C'est notre travail."
+      title: 'On finance et on lance la publicité',
+      desc: "Celexia investit 100 % du budget publicitaire. On positionne votre métier en tête des résultats Google dans votre zone. Vous n'avancez rien."
     },
     {
       num: '02',
-      title: 'Vous chiffrez et signez le devis',
-      desc: "Vous traitez le client comme d'habitude. Vous visitez le chantier. Vous chiffrez. Vous envoyez le devis. Nous n'intervenons jamais dans votre relation commerciale."
+      title: 'On reçoit et on qualifie les appels',
+      desc: "Les particuliers appellent. Avant de vous transmettre un projet, on vérifie le besoin, la zone, le budget et le sérieux de la demande."
     },
     {
       num: '03',
-      title: 'Vous nous reversez 10 % sur les devis signés',
-      desc: "Quand un devis est signé, vous nous reversez 10 % du montant. Si le client ne signe pas, vous ne nous devez rien. Pas de frais fixes, pas d'abonnement, pas d'engagement."
+      title: 'On vous transmet le chantier qualifié',
+      desc: "Vous recevez uniquement des projets qui correspondent à votre métier, votre zone et votre capacité. Pas de démarcheurs, pas de curieux."
+    },
+    {
+      num: '04',
+      title: 'Vous chiffrez, vous signez, vous payez 10 %',
+      desc: "Vous gérez la relation commerciale comme d'habitude. Vous ne nous reversez 10 % que sur les devis effectivement signés. Pas de signature = pas de facture."
     }
   ];
 
   const pillars = [
     {
-      title: 'Vous payez seulement quand ça marche',
-      desc: "Pas de frais fixes. Pas d'abonnement. Tant que vous ne signez pas de devis, vous ne payez rien. On gagne quand vous gagnez."
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      ),
+      title: 'Aucune avance de budget',
+      desc: "C'est nous qui finançons la publicité, pas vous. Vous n'avancez pas un centime. Le risque est 100 % de notre côté."
     },
     {
-      title: 'Vous arrêtez quand vous voulez',
-      desc: "Aucun engagement de durée. Vous testez sans risque. Si vous ne signez pas assez de devis, vous arrêtez. Sans frais, sans préavis."
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      ),
+      title: 'Paiement au résultat uniquement',
+      desc: "10 % sur les devis signés. Pas de devis signé = pas de facture. On gagne quand vous gagnez."
     },
     {
-      title: 'Vous savez exactement ce que vous nous devez',
-      desc: "Tous les appels, tous les devis, tous les paiements : c'est tracé dans votre outil de suivi personnel. Aucun calcul à faire de votre côté."
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
+        </svg>
+      ),
+      title: 'Sans engagement',
+      desc: "Aucune durée minimum, aucun préavis, aucun frais de sortie. Vous testez, vous arrêtez quand vous voulez."
     },
     {
-      title: 'Nous ne travaillons qu\'avec des artisans',
-      desc: "Nous connaissons votre métier, vos saisons, vos clients. Le dispositif est calibré pour votre activité, pas pour un avocat ou une boulangerie."
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+      ),
+      title: 'Des chantiers qualifiés, pas des leads froids',
+      desc: "On qualifie chaque appel avant de vous le transmettre : besoin réel, zone, budget. Vous ne perdez pas de temps avec des curieux."
     }
   ];
 
-  const stats = [
-    { value: '10 %', label: 'de commission, uniquement sur les devis signés' },
-    { value: '0 €', label: "de frais fixes, pas d'abonnement mensuel" },
-    { value: '0', label: 'engagement : vous arrêtez quand vous voulez' },
-    { value: '19', label: "métiers d'artisans accompagnés" }
-  ];
-
-  const crmPoints = [
-    'Tous les appels que nous vous transmettons, datés et tracés',
-    'Vos devis envoyés, leur montant et leur statut (en attente, signé, refusé)',
-    "Le chiffre d'affaires que vous signez grâce à nous",
-    'Le calcul automatique des 10 % de commission',
-    'Une vue claire, mois après mois, de ce que ce partenariat vous rapporte'
-  ];
-
-  const complementaires = [
-    {
-      title: 'Site internet',
-      description: 'Un site rapide pensé pour transformer un visiteur en demande de devis.',
-      link: '/services/site-web',
-      icon: (p) => (
-        <svg {...p} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-      )
-    },
-    {
-      title: 'Référencement local',
-      description: 'Apparaître dans les premiers résultats Google de votre ville.',
-      link: '/services/seo',
-      icon: (p) => (
-        <svg {...p} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      )
-    },
-    {
-      title: 'Avis clients',
-      description: 'Récolter automatiquement des avis 5 étoiles après chaque chantier.',
-      link: '/services/avis-clients',
-      icon: (p) => (
-        <svg {...p} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      )
-    },
-    {
-      title: 'Emails de relance',
-      description: "Relancer vos devis et vos anciens clients sans y passer du temps.",
-      link: '/services/emailing',
-      icon: (p) => (
-        <svg {...p} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      )
-    },
-    {
-      title: 'Automatisation',
-      description: 'Vos rappels, vos factures et votre suivi gérés automatiquement.',
-      link: '/services/automatisation',
-      icon: (p) => (
-        <svg {...p} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-      )
-    }
+  const noPay = [
+    { label: 'Pas de frais fixe', icon: '✕' },
+    { label: "Pas d'abonnement", icon: '✕' },
+    { label: 'Pas de budget pub à avancer', icon: '✕' },
+    { label: "Pas d'engagement", icon: '✕' },
   ];
 
   const faq = [
     {
-      q: 'Comment vous trouvez les clients pour moi ?',
-      a: "Quand un particulier cherche un artisan près de chez lui sur Google (par exemple « plombier Nogent-sur-Marne » ou « couvreur près de chez moi »), notre dispositif fait apparaître votre entreprise en haut des résultats. Le particulier appelle directement votre numéro."
+      q: 'Combien ça coûte ?',
+      a: "10 % du montant TTC de chaque devis signé grâce à un chantier transmis par Celexia. C'est tout. Aucun frais d'entrée, aucun abonnement, aucun budget pub à votre charge."
     },
     {
-      q: 'Combien je vais vous payer ?',
-      a: "10 % du montant TTC de chaque devis que vous signez grâce à un appel apporté par Celexia. Si vous ne signez pas le devis, vous ne payez rien. Aucun frais d'entrée, aucun abonnement mensuel."
+      q: "Et si je ne signe pas le chantier ?",
+      a: "Vous ne payez rien. La facturation ne se déclenche que sur devis signé. C'est notre risque, pas le vôtre."
     },
     {
-      q: "Quand est-ce que je vous règle ?",
-      a: "Quand le devis est signé par le client. On définit ensemble un rythme de règlement (mensuel le plus souvent). Tout est tracé dans votre outil de suivi personnel — vous voyez exactement ce que vous nous devez et pourquoi."
+      q: 'Dois-je avancer un budget publicitaire ?',
+      a: "Non. Celexia finance 100 % de la publicité. Vous n'avancez rien, jamais."
     },
     {
-      q: "Et si l'appel ne devient pas un devis signé ?",
-      a: "Vous ne payez rien. C'est notre risque, pas le vôtre. Notre travail est justement de filtrer les demandes en amont pour ne vous transmettre que des particuliers sérieux."
+      q: "Y a-t-il un engagement de durée ?",
+      a: "Aucun. Pas de durée minimum, pas de préavis, pas de frais de sortie. Vous arrêtez quand vous voulez."
     },
     {
-      q: 'Je suis engagé combien de temps ?',
-      a: "Zéro. Aucune durée minimum, aucun préavis, aucun frais de sortie. Vous arrêtez quand vous voulez. Notre seule garantie de rester, c'est de continuer à vous apporter des chantiers rentables."
+      q: 'Les chantiers sont-ils qualifiés ?',
+      a: "Oui. Chaque appel est qualifié avant de vous être transmis : on vérifie le besoin, la zone d'intervention, le budget et le sérieux de la demande."
     },
     {
-      q: "Vous travaillez avec mon métier ?",
-      a: "Nous accompagnons 19 métiers d'artisans, de la plomberie à l'arboriculture. Si votre métier ne figure pas dans la liste, parlons-en lors de l'appel découverte — on vous dira franchement si on peut vous aider."
+      q: 'Comment se passe le paiement de la commission ?',
+      a: "Quand un devis est signé par le client, vous nous reversez 10 % du montant. On définit ensemble un rythme de règlement, le plus souvent mensuel. Tout est tracé dans un outil de suivi — vous voyez exactement ce que vous devez et pourquoi."
     },
     {
-      q: 'Vous travaillez sur toute la France ?',
-      a: "Oui, sur toute la France métropolitaine. On adapte la zone d'intervention à votre capacité de déplacement et à votre planning."
+      q: 'Quels métiers acceptez-vous ?',
+      a: "Nous accompagnons 19 métiers d'artisans du bâtiment, de la plomberie aux piscines en passant par la couverture, la maçonnerie et le paysage. Si votre métier ne figure pas dans la liste, parlons-en — on vous dira franchement si on peut vous aider."
     },
     {
       q: "Je peux continuer à trouver des clients de mon côté ?",
-      a: "Bien sûr. Vous restez 100 % maître de votre activité. Notre rôle est juste d'ajouter du flux qualifié, pas de vous remplacer."
+      a: "Bien sûr. Vous restez 100 % maître de votre activité. Notre rôle est d'ajouter du flux qualifié, pas de vous remplacer."
     }
   ];
 
@@ -224,30 +198,48 @@ const Home = () => {
           <span className="tag mb-6 inline-block">Apport d'affaires pour artisans</span>
 
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
-            Agence d'apport d'affaires
-            <span className="block text-violet-600">pour artisans</span>
+            Recevez des chantiers qualifiés
+            <span className="block text-violet-600">sans avancer un centime</span>
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
-            Nous amenons les appels qualifiés. Vous payez 10 % uniquement sur les devis signés.
-            Pas de frais fixes, pas d'engagement, pas de mauvaise surprise.
+            On finance la pub, on qualifie les clients, on vous envoie des chantiers.
+            Vous ne payez 10 % que sur ce que vous signez. Sans engagement, sans avance.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link to="/reserver" className="btn-primary arrow-animate text-base px-8 py-4 w-full sm:w-auto justify-center">
-              Réserver un appel découverte
+            <a
+              href={REGISTER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary arrow-animate text-base px-8 py-4 w-full sm:w-auto justify-center"
+            >
+              Recevoir des chantiers
               <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12 5 19 12 12 19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
               </svg>
-            </Link>
+            </a>
             <a href="#comment-ca-marche" className="btn-ghost text-base px-8 py-4 w-full sm:w-auto justify-center">
-              Voir comment ça marche
+              Comment ça marche
             </a>
           </div>
 
           <p className="mt-8 text-sm text-gray-500">
-            Sans engagement · 0 € de frais fixes
+            Sans engagement · Aucune avance · Réponse sous 24 h
+          </p>
+        </div>
+      </section>
+
+      {/* LE PROBLÈME */}
+      <section className="py-16 md:py-20 px-4 md:px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-xl md:text-2xl font-semibold text-gray-900 leading-relaxed">
+            Trop d'agences vous font payer la publicité <span className="text-violet-600">sans aucun résultat garanti</span>.
+            Vous avancez le budget, vous prenez le risque, et quand ça ne marche pas,
+            c'est votre argent qui est parti.
+          </p>
+          <p className="mt-4 text-lg text-gray-600">
+            Chez Celexia, c'est l'inverse : <strong className="text-gray-900">c'est nous qui finançons, c'est nous qui prenons le risque.</strong> Vous ne payez que lorsque vous avez déjà gagné l'affaire.
           </p>
         </div>
       </section>
@@ -258,14 +250,14 @@ const Home = () => {
           <div className="text-center mb-14">
             <span className="tag mb-4 inline-block">Comment ça marche</span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4">
-              Trois étapes, zéro paperasse
+              Quatre étapes, zéro paperasse
             </h2>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              Pas de réunions interminables, pas de tableaux Excel à remplir. Vous faites votre métier, on s'occupe de la suite.
+              Vous faites votre métier, on s'occupe de vous trouver des chantiers.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {steps.map((step) => (
               <div key={step.num} className="card p-7 md:p-8 border-gray-200 group hover:border-violet-200">
                 <span className="font-display text-5xl font-bold text-violet-200 block mb-4">{step.num}</span>
@@ -277,114 +269,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CAS CONCRET - Sébastien, pisciniste */}
-      <section className="py-20 md:py-28 px-4 md:px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-14">
-            <span className="tag mb-4 inline-block">Un cas concret</span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
-              Le premier mois de Sébastien,<br className="hidden sm:block" /> pisciniste à Aix-en-Provence
-            </h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              Comment on accompagne un artisan de la signature au premier paiement de commission.
-            </p>
-          </div>
-
-          <ol className="space-y-4">
-            {[
-              {
-                num: '01',
-                title: 'Signature et audit',
-                desc: "Sébastien signe avec Celexia. On démarre par un audit de sa zone : volume de projets piscines sur Aix et alentours, panier moyen attendu, capacité d'absorption de son équipe. On calibre l'objectif ensemble."
-              },
-              {
-                num: '02',
-                title: 'Mise en place du CRM',
-                desc: "On configure son CRM personnalisé : un numéro de téléphone dédié pour tracer chaque appel, le suivi des devis en temps réel, le calcul automatique de la commission. Sébastien y a accès depuis son téléphone."
-              },
-              {
-                num: '03',
-                title: "Lancement de l'acquisition",
-                desc: "On active le dispositif. Quand un particulier cherche « pisciniste Aix-en-Provence » sur Google, c'est la fiche de Sébastien qui apparaît en premier, avec ses photos de chantiers, ses avis et son numéro."
-              },
-              {
-                num: '04',
-                title: 'Premiers appels qualifiés',
-                desc: "Les premiers appels arrivent dès la première semaine. Notre équipe filtre en amont : on écarte les démarcheurs, les hors-zone et les demandes peu sérieuses. Sébastien ne reçoit que des particuliers avec un vrai projet."
-              },
-              {
-                num: '05',
-                title: 'Visites et devis',
-                desc: "Sébastien rappelle les prospects, prend rendez-vous, visite les terrains, chiffre les projets. Il envoie les devis comme il l'a toujours fait. Nous n'intervenons jamais dans sa relation commerciale."
-              },
-              {
-                num: '06',
-                title: 'Signatures du mois',
-                desc: (
-                  <>
-                    Trois projets sont signés sur le premier mois : une construction de piscine à{' '}
-                    <span className="whitespace-nowrap font-semibold text-gray-900">50&nbsp;000&nbsp;€</span>, une rénovation complète à{' '}
-                    <span className="whitespace-nowrap font-semibold text-gray-900">20&nbsp;000&nbsp;€</span> et un contrat d'entretien annuel à{' '}
-                    <span className="whitespace-nowrap font-semibold text-gray-900">9&nbsp;000&nbsp;€</span>. Total :{' '}
-                    <span className="whitespace-nowrap font-semibold text-gray-900">79&nbsp;000&nbsp;€</span> de CA signé.
-                  </>
-                )
-              },
-              {
-                num: '07',
-                title: 'Règlement et transparence',
-                desc: (
-                  <>
-                    Sébastien reverse 10 % à Celexia, soit{' '}
-                    <span className="whitespace-nowrap font-semibold text-gray-900">7&nbsp;900&nbsp;€</span>. Il garde{' '}
-                    <span className="whitespace-nowrap font-semibold text-gray-900">71&nbsp;100&nbsp;€</span>. Tout est tracé dans son CRM :
-                    il sait à l'euro près ce qu'il nous doit, et pourquoi. Pas de discussion.
-                  </>
-                )
-              }
-            ].map((step) => (
-              <li key={step.num} className="card p-5 md:p-6 border-gray-200 flex gap-4 md:gap-6">
-                <span className="flex-shrink-0 font-display text-3xl md:text-4xl font-bold text-violet-200 leading-none">{step.num}</span>
-                <div>
-                  <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
-                  <p className="text-base text-gray-600 leading-relaxed">{step.desc}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-
-          {/* Encart bilan */}
-          <div className="mt-10 card p-6 md:p-8 border-violet-200 bg-violet-600 text-white">
-            <p className="text-sm font-semibold text-violet-200 uppercase tracking-wider mb-4">Bilan du premier mois</p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div>
-                <p className="font-display text-3xl md:text-4xl font-bold text-white mb-1">
-                  <span className="whitespace-nowrap">79&nbsp;000&nbsp;€</span>
-                </p>
-                <p className="text-sm text-violet-100">de CA signé par Sébastien</p>
-              </div>
-              <div>
-                <p className="font-display text-3xl md:text-4xl font-bold text-white mb-1">
-                  <span className="whitespace-nowrap">7&nbsp;900&nbsp;€</span>
-                </p>
-                <p className="text-sm text-violet-100">reversés à Celexia (10 %)</p>
-              </div>
-              <div>
-                <p className="font-display text-3xl md:text-4xl font-bold text-white mb-1">
-                  <span className="whitespace-nowrap">71&nbsp;100&nbsp;€</span>
-                </p>
-                <p className="text-sm text-violet-100">restent dans la poche de Sébastien</p>
-              </div>
-            </div>
-            <p className="mt-6 text-sm text-violet-100">
-              Cas type pour un pisciniste constructeur sur une zone à fort potentiel comme la PACA.
-              Les volumes réels dépendent de votre métier, votre zone et votre capacité d'absorption — on en parle pendant l'appel découverte.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* POURQUOI CELEXIA */}
+      {/* POURQUOI CELEXIA — 4 PILIERS */}
       <section className="py-20 md:py-28 px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
@@ -400,6 +285,9 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {pillars.map((p) => (
               <div key={p.title} className="card p-7 md:p-8 border-gray-200 group hover:border-violet-200">
+                <div className="w-12 h-12 rounded-xl bg-violet-100 text-violet-600 flex items-center justify-center mb-5 group-hover:bg-violet-600 group-hover:text-white transition-colors">
+                  {p.icon}
+                </div>
                 <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">{p.title}</h3>
                 <p className="text-base text-gray-600 leading-relaxed">{p.desc}</p>
               </div>
@@ -408,49 +296,13 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CRM */}
+      {/* POUR QUI — GRILLE MÉTIERS */}
       <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="tag mb-4 inline-block">CRM</span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
-              Vous voyez exactement ce que ce partenariat vous rapporte
-            </h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              Nous mettons en place un CRM personnalisé pour votre activité. Vous y voyez tout, en direct.
-            </p>
-          </div>
-
-          <div className="card p-6 md:p-10 border-gray-200 bg-white">
-            <ul className="space-y-4">
-              {crmPoints.map((point) => (
-                <li key={point} className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center mt-0.5">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  </span>
-                  <span className="text-base text-gray-800 leading-relaxed">{point}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-8 pt-6 border-t border-gray-100">
-              <p className="text-base md:text-lg text-gray-900 font-semibold">
-                Vous savez ce que vous gagnez. Vous savez ce que vous nous devez. Aucun calcul de votre côté, aucune discussion.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* MÉTIERS */}
-      <section className="py-20 md:py-28 px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
-            <span className="tag mb-4 inline-block">Nos métiers</span>
+            <span className="tag mb-4 inline-block">Pour qui</span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
-              {metiers.length} métiers d'artisans accompagnés
+              {metiers.length} métiers du bâtiment accompagnés
             </h2>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Chaque dispositif est calibré pour votre métier : urgence, panier moyen, saisonnalité, zone d'intervention.
@@ -478,79 +330,92 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CHIFFRES / ENGAGEMENTS */}
-      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
-        <div className="max-w-5xl mx-auto">
+      {/* CE QUE VOUS NE PAYEZ PAS */}
+      <section className="py-20 md:py-28 px-4 md:px-6">
+        <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <span className="tag mb-4 inline-block">Nos engagements</span>
+            <span className="tag mb-4 inline-block">Transparence totale</span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
-              Quatre chiffres, zéro astérisque
+              Ce que vous ne payez pas
             </h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              Notre modèle tient en quatre chiffres. Aucune mention en bas de contrat, aucune mauvaise surprise.
-            </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {stats.map((s) => (
-              <div key={s.label} className="card p-6 md:p-8 text-center border-gray-200">
-                <p className="font-display text-4xl md:text-5xl font-bold text-violet-600 mb-2">{s.value}</p>
-                <p className="text-sm text-gray-600 leading-relaxed">{s.label}</p>
-              </div>
-            ))}
+          <div className="card p-8 md:p-10 border-gray-200">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              {noPay.map((item) => (
+                <div key={item.label} className="flex items-center gap-3 p-4 rounded-xl bg-red-50">
+                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-red-100 text-red-500 flex items-center justify-center font-bold text-sm">
+                    {item.icon}
+                  </span>
+                  <span className="text-base font-semibold text-gray-900">{item.label}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-3 p-5 rounded-xl bg-emerald-50 border border-emerald-100">
+              <span className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+              <span className="text-lg font-bold text-gray-900">
+                Uniquement 10 % sur les devis signés
+              </span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SERVICES COMPLÉMENTAIRES */}
-      <section className="py-20 md:py-28 px-4 md:px-6">
-        <div className="max-w-5xl mx-auto">
+      {/* TÉMOIGNAGES (placeholder) */}
+      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
+        <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <span className="tag mb-4 inline-block">Services complémentaires</span>
-            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight mb-4">
-              Au-delà de l'apport d'affaires
+            <span className="tag mb-4 inline-block">Ils nous font confiance</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
+              Ce que disent nos partenaires
             </h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              Notre cœur de métier reste l'apport d'affaires. Si vous voulez aussi un site internet, du référencement,
-              de la gestion d'avis ou des emails de relance, on peut aussi vous accompagner sur ces volets, à la carte.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {complementaires.map((c) => {
-              const CIcon = c.icon;
-              return (
-                <Link
-                  key={c.link}
-                  to={c.link}
-                  className="card p-6 border-gray-200 group hover:border-violet-200 transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-violet-100 text-violet-600 flex items-center justify-center mb-4 group-hover:bg-violet-600 group-hover:text-white transition-colors">
-                    <CIcon className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2 group-hover:text-violet-600 transition-colors">{c.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed mb-4">{c.description}</p>
-                  <span className="inline-flex items-center text-violet-600 font-semibold text-sm group-hover:text-violet-700 transition-colors">
-                    En savoir plus
-                    <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
-                      <line x1="5" y1="12" x2="19" y2="12"/>
-                      <polyline points="12 5 19 12 12 19"/>
-                    </svg>
-                  </span>
-                </Link>
-              );
-            })}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="card p-7 md:p-8 border-gray-200 border-dashed">
+              <div className="flex items-center gap-1 mb-4 text-amber-400">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                  </svg>
+                ))}
+              </div>
+              <p className="text-base text-gray-600 leading-relaxed italic mb-4">
+                "Témoignage à venir — espace réservé pour un artisan partenaire."
+              </p>
+              <p className="text-sm font-semibold text-gray-900">Partenaire artisan</p>
+              <p className="text-sm text-gray-500">Métier · Ville</p>
+            </div>
+            <div className="card p-7 md:p-8 border-gray-200 border-dashed">
+              <div className="flex items-center gap-1 mb-4 text-amber-400">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                  </svg>
+                ))}
+              </div>
+              <p className="text-base text-gray-600 leading-relaxed italic mb-4">
+                "Témoignage à venir — espace réservé pour un artisan partenaire."
+              </p>
+              <p className="text-sm font-semibold text-gray-900">Partenaire artisan</p>
+              <p className="text-sm text-gray-500">Métier · Ville</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-20 md:py-28 px-4 md:px-6 bg-gray-50/50">
+      <section className="py-20 md:py-28 px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <span className="tag mb-4 inline-block">Questions fréquentes</span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
-              Tout ce que vous voulez savoir avant l'appel
+              Tout ce que vous voulez savoir
             </h2>
             <p className="text-base md:text-lg text-gray-600">
               Si une question n'a pas sa réponse ici, on en parle directement.
@@ -584,7 +449,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CAL.COM BOOKING */}
+      {/* CTA FINAL + CAL.COM */}
       <section ref={calRef} id="contact" className="py-20 md:py-28 px-4 md:px-6 bg-violet-600 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-violet-500/30 rounded-full blur-3xl" aria-hidden="true" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-violet-700/30 rounded-full blur-3xl" aria-hidden="true" />
@@ -592,13 +457,35 @@ const Home = () => {
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-10">
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
-              Réservez votre appel découverte
+              Prêt à recevoir des chantiers ?
             </h2>
-            <p className="text-base md:text-lg text-violet-100 max-w-2xl mx-auto">
-              30 minutes au téléphone pour qu'on comprenne votre activité et qu'on regarde ensemble combien
-              de chantiers on peut vous apporter.
+            <p className="text-base md:text-lg text-violet-100 max-w-2xl mx-auto mb-8">
+              Inscrivez-vous pour rejoindre le réseau, ou réservez un appel pour en discuter.
+              Sans engagement, réponse sous 24 h.
             </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+              <a
+                href={REGISTER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-white text-violet-600 font-semibold px-8 py-4 rounded-xl text-base hover:bg-violet-50 transition-colors w-full sm:w-auto"
+              >
+                Recevoir des chantiers
+                <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </a>
+              <Link
+                to="/reserver"
+                className="inline-flex items-center justify-center border-2 border-white/30 text-white font-semibold px-8 py-4 rounded-xl text-base hover:bg-white/10 transition-colors w-full sm:w-auto"
+              >
+                Réserver un appel découverte
+              </Link>
+            </div>
           </div>
+
+          <p className="text-center text-sm text-violet-200 mb-6">Ou choisissez directement un créneau :</p>
 
           <div className="bg-white rounded-2xl p-4 md:p-6 shadow-2xl">
             {!calLoaded && (
@@ -615,7 +502,6 @@ const Home = () => {
             ></div>
           </div>
 
-          {/* Fallback : lien externe si le widget ne charge pas */}
           <div className="text-center mt-6">
             <a
               href={CAL_URL}

@@ -29,7 +29,9 @@
     { "source": "/contact-3625", "destination": "/contact", "statusCode": 301 },
     { "source": "/demo-call", "destination": "/reserver", "statusCode": 301 },
     { "source": "/onboarding-call", "destination": "/reserver", "statusCode": 301 },
-    { "source": "/banque-alimentaire", "destination": "/", "statusCode": 301 }
+    { "source": "/banque-alimentaire", "destination": "/", "statusCode": 301 },
+    { "source": "/services/:path*", "destination": "/", "statusCode": 301 },
+    { "source": "/sites-artisans", "destination": "/", "statusCode": 301 }
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
