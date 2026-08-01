@@ -21,6 +21,46 @@ Déjà en place et à ne pas régresser : `public/llms.txt` + `llms-full.txt`,
 (25 URLs), graphe JSON-LD complet (Organization, FAQPage, HowTo, LocalBusiness,
 BreadcrumbList, Service), skip link et `prefers-reduced-motion`.
 
+## Décision d'architecture : on reste sur React/Vite (2 août 2026)
+
+**Décision : ne pas migrer vers Astro. La refonte se fait sur React 19 + Vite.**
+Tranché après mesure, pour clore le sujet — ne pas rouvrir sans élément nouveau.
+
+Pourquoi :
+
+1. **Le gain SEO d'Astro est déjà acquis.** `prerender-meta.mjs` produit 25
+   fichiers HTML statiques portant chacun ses `title`, `canonical`, OG et
+   JSON-LD. Googlebot n'a pas besoin d'exécuter de JS pour les lire. Vérifié
+   par contrôle croisé sitemap ↔ `dist/` : zéro écart. Migrer rachèterait un
+   bénéfice déjà obtenu.
+2. **Le coût est une réécriture complète** : 8 pages, `MetierPage`, tous les
+   composants partagés, plus le remplacement du pipeline de pré-rendu.
+   `NicheContext` est de l'état client réel (localStorage + paramètre d'URL) :
+   c'est le cas qui s'accommode le plus mal du modèle zéro-JS d'Astro.
+3. **Deux refontes simultanées sont indiagnosticables.** Changer le design,
+   la copy *et* le framework en même temps rend impossible d'attribuer une
+   régression SEO ou de conversion. La chaîne SEO actuelle fonctionne ; on ne
+   la met pas en jeu pendant qu'on touche au reste.
+4. **Le vrai levier de perf ne dépend pas du framework** — voir ci-dessous.
+
+Le contre-argument honnête : Astro servirait cette brochure avec ~0 ko de JS
+contre **85 ko gzip aujourd'hui sur l'accueil**. Sur la seule livraison, Astro
+est supérieur. On y renonce pour une question de coût, de risque et de calendrier,
+pas parce que React serait meilleur ici.
+
+**Ce qui rouvrirait la décision** : un blog à volume (les content collections
+d'Astro deviennent décisives) ; un LCP mobile toujours mauvais *après* le
+travail sur le bundle ; ou l'abandon de l'état client partagé entre pages.
+
+### Levier de perf identifié, à traiter dans la refonte
+
+Accueil : **85,1 ko gzip de JS** (`index` 62,1 + `vendor` 15,8 + `Home` 7,3 +
+divers). Le `manualChunks` de [vite.config.js](vite.config.js) **ne fait pas ce
+qu'il annonce** : il déclare isoler `react`, `react-dom` et `react-router-dom`
+dans `vendor`, mais `react-dom` se retrouve dans le chunk `index` (62 ko gzip)
+tandis que `vendor` n'en pèse que 15,8. À corriger — c'est un gain de cache
+inter-pages sans rien changer au design.
+
 ## Skills projet
 
 Chargés automatiquement selon le contexte, dans [.claude/skills/](.claude/skills/) :
