@@ -1,4 +1,80 @@
+# agencecelexia.fr — site vitrine Agence Celexia
+
+## Stack réelle
+
+**React 19 + Vite 7 + react-router-dom 7 + Tailwind CSS 3.4**, en SPA, déployée
+sur Vercel ([vercel.json](vercel.json)) et Netlify ([netlify.toml](netlify.toml)).
+
+> ⚠️ **Ce n'est pas un projet Astro.** Il n'y a ni `.astro`, ni SSG, ni îlots,
+> ni zéro-JS par défaut. Toute recommandation supposant Astro (`astro-seo`,
+> `@astrojs/sitemap`, AstroWind comme template de base) ne s'applique pas telle
+> quelle et demande une migration explicite. À l'inverse, les bibliothèques
+> React sont compatibles ici.
+
+Le SEO ne repose pas sur le framework mais sur un **pré-rendu post-build** :
+`npm run build` = `vite build && node scripts/prerender-meta.mjs`. Ce script
+génère un `index.html` statique par route avec ses meta et son JSON-LD. **Une
+route absente de ce script est invisible pour Google.**
+
+Déjà en place et à ne pas régresser : `public/llms.txt` + `llms-full.txt`,
+`public/robots.txt` (crawlers IA explicitement autorisés), `public/sitemap.xml`
+(25 URLs), graphe JSON-LD complet (Organization, FAQPage, HowTo, LocalBusiness,
+BreadcrumbList, Service), skip link et `prefers-reduced-motion`.
+
+## Skills projet
+
+Chargés automatiquement selon le contexte, dans [.claude/skills/](.claude/skills/) :
+
+| Skill | Quand |
+|---|---|
+| `celexia-routes` | Ajouter / renommer / supprimer une route, une page ou un métier. Décrit le contrat de synchronisation multi-fichiers (App.jsx ↔ prerender-meta.mjs ↔ NicheContext.jsx ↔ sitemap.xml ↔ llms.txt). |
+| `celexia-copy` | Écrire ou réécrire du texte visible. Contient les faits d'offre vérifiés et l'interdiction des promesses chiffrées inventées. |
+| `celexia-ui` | Créer une section ou un composant, intégrer un bloc Tailwind externe. Tokens, composants partagés, conversion HTML→JSX, a11y, perf. |
+
+Skills SEO génériques installés globalement dans `~/.claude/skills/`
+(plugin `claude-seo`, vendorisé dans [claude-seo/](claude-seo/)) : `seo`,
+`seo-audit`, `seo-technical`, `seo-content`, `seo-schema`, `seo-sitemap`,
+`seo-images`, `seo-geo`, `seo-plan`, `seo-programmatic`,
+`seo-competitor-pages`, `seo-hreflang`, `seo-page` — plus 6 sous-agents dans
+`~/.claude/agents/`.
+
+## Références clonées en local
+
+Dans [references/](references/), **gitignoré** (mettre à jour avec `git pull`) :
+
+| Repo | Rôle |
+|---|---|
+| `hyperui` | Source de blocs Tailwind à copier-coller. Fichiers HTML bruts dans `public/examples/marketing/<catégorie>/`. Conversion JSX décrite dans `celexia-ui`. |
+| `front-end-checklist` | Checklist qualité (HTML, SEO, perf, a11y) à passer avant mise en production. |
+| `llms-txt` | Spécification canonique de `llms.txt`, pour faire évoluer le nôtre. |
+| `landing-pages-resources` | Frameworks de copywriting et structure de landing page. |
+| `awesome-claude-code` | Index pour trouver skills, hooks et MCP. |
+| `astrowind` | Référence de patterns Astro. **Utile uniquement en cas de migration vers Astro** — ne pas s'en inspirer tel quel pour du React. |
+
+## Environnement
+
+- **Node.js 24.18.1 (LTS) + npm 11.16.0**, installés dans `/usr/local/bin`.
+  `npm install` et `npm run build` fonctionnent. Build de référence : 62 modules,
+  ~600 ms, **25 pages pré-rendues** (6 pages de base + 19 métiers).
+- `public/proposition/` est une page statique servie hors routeur React, en
+  `noindex, nofollow`, volontairement absente du sitemap (outil commercial
+  par client — voir [GUIDE_PAGE_PROPOSITION.md](GUIDE_PAGE_PROPOSITION.md)).
+  C'est normal qu'elle apparaisse dans `dist/` sans être dans `sitemap.xml`.
+- Dette technique connue, à traiter avant la refonte : `npm audit` remonte
+  **13 vulnérabilités (11 hautes)**, et `caniuse-lite` a 10 mois
+  (`npx update-browserslist-db@latest`). Ne pas lancer `npm audit fix --force`
+  sans vérifier le build ensuite.
+- Python disponible : 3.9.6 — insuffisant pour les hooks de `claude-seo`
+  (3.10+ requis), qui n'ont volontairement pas été installés.
+- Connecteurs MCP à autoriser côté claude.ai : Google Calendar, N8N, Notion,
+  Zapier.
+
+---
+
 # N8N & Claude - Système d'Automatisation Intelligent
+
+> Section héritée, sans rapport avec le site ci-dessus. Concerne l'automatisation
+> N8N dans [N8N & Claude/](N8N%20&%20Claude/).
 
 ## 🎯 Objectif
 
