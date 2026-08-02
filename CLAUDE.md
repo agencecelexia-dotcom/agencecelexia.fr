@@ -16,10 +16,18 @@ Le SEO ne repose pas sur le framework mais sur un **pré-rendu post-build** :
 génère un `index.html` statique par route avec ses meta et son JSON-LD. **Une
 route absente de ce script est invisible pour Google.**
 
+Depuis la refonte, `prerender-meta.mjs` **importe** les métiers et la FAQ depuis
+`src/data/` : plus aucune liste dupliquée. Seul `public/sitemap.xml` reste à
+mettre à jour à la main.
+
 Déjà en place et à ne pas régresser : `public/llms.txt` + `llms-full.txt`,
 `public/robots.txt` (crawlers IA explicitement autorisés), `public/sitemap.xml`
-(25 URLs), graphe JSON-LD complet (Organization, FAQPage, HowTo, LocalBusiness,
+(9 URLs), graphe JSON-LD complet (Organization, FAQPage, HowTo, LocalBusiness,
 BreadcrumbList, Service), skip link et `prefers-reduced-motion`.
+
+**Deux règles absolues sur le contenu** : ne jamais décrire les canaux
+d'acquisition, et ne jamais publier de terme du contrat de partenariat (durée,
+préavis, non-contournement, délais). Voir le skill `celexia-copy`.
 
 ## Décision d'architecture : on reste sur React/Vite (2 août 2026)
 
@@ -52,14 +60,14 @@ pas parce que React serait meilleur ici.
 d'Astro deviennent décisives) ; un LCP mobile toujours mauvais *après* le
 travail sur le bundle ; ou l'abandon de l'état client partagé entre pages.
 
-### Levier de perf identifié, à traiter dans la refonte
+### Découpage des bundles — corrigé le 2 août 2026
 
-Accueil : **85,1 ko gzip de JS** (`index` 62,1 + `vendor` 15,8 + `Home` 7,3 +
-divers). Le `manualChunks` de [vite.config.js](vite.config.js) **ne fait pas ce
-qu'il annonce** : il déclare isoler `react`, `react-dom` et `react-router-dom`
-dans `vendor`, mais `react-dom` se retrouve dans le chunk `index` (62 ko gzip)
-tandis que `vendor` n'en pèse que 15,8. À corriger — c'est un gain de cache
-inter-pages sans rien changer au design.
+La forme déclarative `manualChunks: { vendor: [...] }` ne capturait pas
+`react-dom`, puisque l'application importe `react-dom/client` (identifiant de
+module différent). React se retrouvait dans le chunk applicatif, invalidé à
+chaque déploiement. [vite.config.js](vite.config.js) utilise désormais la forme
+fonction, qui range tout `node_modules` dans `vendor`. Le poids total est
+inchangé (~85 ko gzip sur l'accueil) : le gain est en cache, pas en octets.
 
 ## Skills projet
 
@@ -94,8 +102,11 @@ Dans [references/](references/), **gitignoré** (mettre à jour avec `git pull`)
 ## Environnement
 
 - **Node.js 24.18.1 (LTS) + npm 11.16.0**, installés dans `/usr/local/bin`.
-  `npm install` et `npm run build` fonctionnent. Build de référence : 62 modules,
-  ~600 ms, **25 pages pré-rendues** (6 pages de base + 19 métiers).
+  `npm install` et `npm run build` fonctionnent. Build de référence : 61 modules,
+  ~600 ms, **9 pages pré-rendues** (5 pages de base + 4 métiers).
+- **Ne jamais vérifier le pré-rendu via `npx vite preview`** : son repli SPA sert
+  `dist/index.html` pour toutes les routes, tous les titres paraissent alors
+  identiques. Contrôler les fichiers de `dist/` directement.
 - `public/proposition/` est une page statique servie hors routeur React, en
   `noindex, nofollow`, volontairement absente du sitemap (outil commercial
   par client — voir [GUIDE_PAGE_PROPOSITION.md](GUIDE_PAGE_PROPOSITION.md)).

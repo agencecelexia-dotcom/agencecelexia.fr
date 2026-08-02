@@ -28,11 +28,14 @@ dans le `<head>`.
 > Googlebot et les crawlers IA** — pas de title propre, pas de canonical, pas de
 > JSON-LD, et un accès direct à l'URL renvoie le HTML générique.
 
-Les hooks [usePageMeta](src/hooks/usePageMeta.js) et
-[useJsonLd](src/hooks/useJsonLd.js) ne corrigent rien côté crawler : ils
-s'exécutent au runtime, après hydratation. Ils servent l'UX (onglet, partages
-après navigation client), pas l'indexation. **Ne jamais les considérer comme
-suffisants.**
+Le hook [usePageMeta](src/hooks/usePageMeta.js) ne corrige rien côté crawler :
+il s'exécute au runtime, après hydratation. Il sert l'UX (titre d'onglet lors
+d'une navigation client), pas l'indexation. **Ne jamais le considérer comme
+suffisant.**
+
+Il n'y a plus de hook `useJsonLd` : émettre du JSON-LD au runtime créait un
+doublon avec celui injecté par le pré-rendu. Le script de pré-rendu est la
+**source unique** des données structurées.
 
 ## Checklist — ajouter une route « simple »
 
@@ -55,26 +58,32 @@ Ajouter aussi un lien interne réel depuis [Header](src/components/Header.jsx) o
 
 ## Checklist — ajouter un métier
 
-Les 19 métiers partagent une route paramétrée `/metiers/:slug` rendue par
+Les 4 métiers partagent une route paramétrée `/metiers/:slug` rendue par
 [src/components/MetierPage.jsx](src/components/MetierPage.jsx). Le slug est la
-clé de l'objet. Il faut modifier **les 3 listes, qui sont dupliquées** :
+clé de l'objet.
 
-1. **[src/context/NicheContext.jsx](src/context/NicheContext.jsx)** → `METIERS`
-   (format `'slug': { label, color }`) — source de vérité runtime.
-2. **[scripts/prerender-meta.mjs](scripts/prerender-meta.mjs)** → `METIERS`
-   (format `'slug': 'Label'`) — le commentaire du fichier dit explicitement
-   « À garder synchronisé avec NicheContext.METIERS ». Le `metierRoutes` en
-   dérive et génère `title`, `description` et un JSON-LD `Service`.
-3. **[public/sitemap.xml](public/sitemap.xml)** → une `<url>`
-   `/metiers/<slug>`.
+**Depuis la refonte d'août 2026, la liste n'est plus dupliquée.**
+[scripts/prerender-meta.mjs](scripts/prerender-meta.mjs) **importe**
+`METIERS` depuis [src/data/metiers.js](src/data/metiers.js) (c'est possible
+parce que le fichier est du JS pur, sans JSX, et que le projet est en
+`"type": "module"`). Ajouter une entrée dans `metiers.js` génère donc
+automatiquement la route pré-rendue, ses meta et son JSON-LD.
 
-> **Vérification obligatoire après coup :** le nombre d'entrées doit être
-> identique dans les trois. Aujourd'hui : 19 métiers, et
-> `grep -c "<url>" public/sitemap.xml` doit valoir **6 + nombre de métiers**
-> (25 actuellement).
+Il reste **deux** fichiers à mettre à jour à la main :
 
-Le pré-rendu ne connaît pas `color` ; l'inverse est vrai pour les meta. Ne pas
-supposer qu'un seul fichier suffit.
+1. **[src/data/metiers.js](src/data/metiers.js)** → `METIERS`, source de vérité
+   unique (`label`, `labelCourt`, `color`, `titre`, `accroche`, `budget`,
+   `projets`, `faq`).
+2. **[public/sitemap.xml](public/sitemap.xml)** → une `<url>` `/metiers/<slug>`.
+   C'est le seul fichier réellement désynchronisable.
+
+> **Vérification :** `grep -c "<url>" public/sitemap.xml` doit valoir
+> **5 + nombre de métiers**. Aujourd'hui : 4 métiers, **9 URLs**.
+
+Même chose pour [src/data/offre.js](src/data/offre.js) : `ETAPES` et
+`FAQ_COMMUNE` alimentent à la fois l'affichage et les schémas `HowTo` et
+`FAQPage`. Modifier la FAQ visible met automatiquement à jour le JSON-LD — c'est
+voulu, un `FAQPage` sans FAQ visible étant une non-conformité Google.
 
 ## Checklist — renommer ou supprimer une URL
 
@@ -135,7 +144,13 @@ comm -23 /tmp/sm.txt /tmp/gen.txt   # dans le sitemap mais pas pré-rendu -> à 
 comm -13 /tmp/sm.txt /tmp/gen.txt   # pré-rendu mais absent du sitemap -> à corriger
 ```
 
-Référence actuelle (build validé) : 25 URLs au sitemap, 25 routes pré-rendues,
-zéro écart. La seule sortie attendue de la seconde commande est `/proposition`
-— page statique de `public/`, en `noindex, nofollow`, volontairement hors
-sitemap. Toute autre ligne est un bug.
+Référence actuelle (build validé le 2 août 2026) : **9 URLs au sitemap, 9 routes
+pré-rendues**, zéro écart. La seule sortie attendue de la seconde commande est
+`/proposition` — page statique de `public/`, en `noindex, nofollow`,
+volontairement hors sitemap. Toute autre ligne est un bug.
+
+> **Piège de test :** `npx vite preview` applique un repli SPA qui sert
+> `dist/index.html` pour toutes les routes. Tous les titres paraissent alors
+> identiques, ce qui **n'est pas** représentatif de la production. Vercel et
+> Netlify servent le fichier statique avant d'appliquer la réécriture. Toujours
+> vérifier le pré-rendu sur les fichiers de `dist/`, jamais via le preview.

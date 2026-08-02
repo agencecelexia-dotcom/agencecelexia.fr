@@ -28,21 +28,34 @@ Demander avant d'ajouter une dépendance UI.
 
 Définis dans [tailwind.config.js](tailwind.config.js) :
 
-- **Couleurs** : échelle `violet.50 → violet.950` (marque, `violet-600 #7C3AED`
-  = accent principal), `dark` / `dark.50` / `dark.100` / `dark.200` (sections
-  sombres), alias `primary-purple`, `dark-gray`, `light-gray`.
-  Chaque métier a en plus une couleur d'accent dans `METIERS`
-  ([NicheContext.jsx](src/context/NicheContext.jsx)), lue via `getMetierColor()`.
-- **Typo** : `font-display` (Clash Display, titres) et `font-sans`
-  (Plus Jakarta Sans, corps). Ne pas introduire de troisième famille.
-- **Ombres** : `shadow-soft`, `shadow-card`, `shadow-card-hover`,
-  `shadow-violet`, `shadow-violet-lg/xl`, `shadow-glow`, `shadow-glow-lg`,
-  `shadow-btn`, `shadow-btn-hover`, `shadow-dark-card`.
-- **Dégradés** : `bg-gradient-violet`, `bg-gradient-violet-dark`,
-  `bg-gradient-radial`.
-- **Animations** : `animate-fade-up`, `fade-in`, `slide-up`, `scale-in`,
-  `shimmer`, `float`, `float-slow`, `float-reverse`, `pulse-slow`, `bounce-sm`,
-  `wiggle`, `press`, `gradient-x`, `glow-pulse`, `marquee`.
+**Le site est clair de bout en bout. Aucune section à fond sombre, footer
+compris.** Le rythme vient de l'alternance blanc / `chaux-100` et des filets de
+cuivre, jamais de blocs sombres. Bordures fines plutôt qu'ombres portées.
+
+- **Couleurs** : fond de base **blanc**. `chaux.50/100/200/300` (sections
+  alternées, blanc cassé chaud), `ardoise.600→900` (texte, **jamais en fond de
+  section**), `cuivre.50→700` (**accent unique** : filets, numéros, boutons),
+  `patine` (états positifs), `acier.200→600` (texte secondaire, bordures).
+  Chaque métier a une teinte matière désaturée dans `METIERS`
+  ([src/data/metiers.js](src/data/metiers.js)), utilisée par petites touches
+  seulement — elle ne concurrence jamais le cuivre.
+- **Typo** : une seule superfamille, **Archivo variable** self-hostée
+  (`public/fonts/`), axes `wght` 100-900 et `wdth` 62-125 %. `font-display` et
+  `font-sans` pointent tous deux dessus. Les chasses passent par les utilitaires
+  `.font-narrow` (78 %), `.font-normal-width`, `.font-expanded` (112 %).
+  **Ne pas ajouter de seconde famille** : c'est un fichier de plus au chargement.
+- **Ombres** : `shadow-soft`, `shadow-card`, `shadow-card-hover`, volontairement
+  discrètes. Pas d'ombre colorée, pas de halo.
+- **Dégradés** : aucun. C'est délibéré.
+- **Animations** : `animate-fade-up`, `fade-in`, `slide-up`. Les quinze autres
+  ont été supprimées lors de la refonte — ne pas les réintroduire.
+
+> **Contraintes de contraste, vérifiées au calcul.** `cuivre-500` sur blanc
+> plafonne à **4,45:1**, sous le seuil AA. Donc : `cuivre-600` pour tout texte
+> et tout fond de bouton (5,88:1), `cuivre-500` réservé aux éléments non
+> textuels (icônes décoratives, filets, anneau de focus). `acier-500` sur blanc
+> ne vaut que 3,22:1 : **jamais de texte en `acier-500`**, utiliser `acier-600`
+> (4,93:1). Texte de lecture toujours en `ardoise-700`/`800`.
 
 Avant d'écrire une valeur en dur (`#7C3AED`, `shadow-[0_4px...]`), vérifier
 qu'un token ne couvre pas déjà le besoin. Si un token manque vraiment,
@@ -55,9 +68,12 @@ l'ajouter à `tailwind.config.js` plutôt que de le coder en dur dans un composa
   `className`, `delay` (ms). **Respecte déjà `prefers-reduced-motion`** en
   affichant immédiatement. C'est l'alternative zéro-dépendance à
   `framer-motion` : l'utiliser pour tout effet d'entrée, en cascade via `delay`.
-- **[CTAButton](src/components/CTAButton.jsx)** — variantes `primary`,
-  `secondary`, `white`. Rend un `<Link>` si `to` est fourni, sinon un `<button>`
-  avec `onClick`. Ne pas recréer de bouton ad hoc.
+- **[CTAButton](src/components/CTAButton.jsx)** — variantes `primary` et
+  `secondary`. Rend un `<a target="_blank">` si `href` est fourni (c'est le cas
+  du bouton d'inscription), un `<Link>` si `to`, sinon un `<button>` avec
+  `onClick`. Props utiles : `withArrow`, `full`. Ne pas recréer de bouton ad hoc.
+  Le libellé vient toujours de `CTA_LABEL` et l'URL de `registerUrl('<page>')`
+  ([src/lib/links.js](src/lib/links.js)) — jamais d'URL en dur.
 - **[Breadcrumbs](src/components/Breadcrumbs.jsx)**, [Header](src/components/Header.jsx),
   [Footer](src/components/Footer.jsx), [ScrollToTop](src/components/ScrollToTop.jsx),
   [CookieConsent](src/components/CookieConsent.jsx) sont montés globalement dans
@@ -88,7 +104,7 @@ C'est du **HTML Tailwind pur**. Conversion en JSX, systématiquement :
    `stroke-linecap` → `strokeLinecap`, `fill-rule` → `fillRule`.
 5. `<!-- … -->` → `{/* … */}`.
 6. **Remapper les couleurs** : HyperUI sort en `indigo-*`/`blue-*`/`gray-*`.
-   Passer sur `violet-*` et les tokens ci-dessus. Un bloc laissé en indigo se
+   Passer sur `cuivre-*`, `ardoise-*` et `chaux-*`. Un bloc laissé en indigo se
    voit immédiatement.
 7. Remplacer les `<a href>` internes par `<Link to>` de `react-router-dom`, et
    les boutons d'action par `CTAButton`.
@@ -97,9 +113,13 @@ C'est du **HTML Tailwind pur**. Conversion en JSX, systématiquement :
    [celexia-copy](.claude/skills/celexia-copy/SKILL.md) — ne jamais laisser du
    lorem ipsum ou de l'anglais en place.
 
-Les variantes `-dark.html` sont utiles comme référence pour les sections
-sombres, qui utilisent ici la palette `dark.*` (pas `dark:` de Tailwind : le
-site n'a pas de bascule de thème, les sections sombres sont un choix de design).
+**Ignorer les variantes `-dark.html`** : le site n'a aucune section sombre et
+pas de bascule de thème. Partir systématiquement de la version claire.
+
+10. Ajouter l'en-tête de section signature si le bloc devient une section à part
+    entière : un `<div className="section-label">` contenant un
+    `<span className="section-num">` et un `<span className="section-kicker">`.
+    Le filet de cuivre est produit par le `::after` de `.section-label`.
 
 ## Accessibilité — le niveau déjà atteint
 
@@ -112,7 +132,7 @@ Ne pas régresser sur ce qui existe :
 - `aria-hidden="true"` sur les éléments purement décoratifs.
 - `prefers-reduced-motion` respecté par `Reveal`.
 
-Pour tout nouveau bloc : contraste suffisant sur fond violet et sur fond `dark`,
+Pour tout nouveau bloc : contrastes conformes AA selon le tableau ci-dessus,
 focus visible au clavier, `alt` réel sur les images informatives (`alt=""` sur
 les décoratives), libellés associés aux champs de formulaire, cibles tactiles
 ≥ 44 px.

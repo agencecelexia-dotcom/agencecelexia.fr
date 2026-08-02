@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================
+   POLICE — Archivo variable, self-hostée.
+   Un seul fichier par sous-ensemble, axes wght 100-900 et wdth 62-125 %.
+   Remplace Plus Jakarta Sans + Clash Display et supprime deux origines tierces.
+   ============================================ */
+
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url('/fonts/archivo-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url('/fonts/archivo-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 @layer base {
   * {
     -webkit-font-smoothing: antialiased;
@@ -14,352 +44,146 @@
     }
   }
 
+  /* Focus visible en cuivre, contrasté sur blanc comme sur chaux. */
   *:focus-visible {
-    outline: 2px solid #7C3AED;
+    outline: 2px solid #B4622C;
     outline-offset: 2px;
-    border-radius: 4px;
+    border-radius: 2px;
   }
 
   body {
-    @apply font-sans text-gray-900 bg-white;
+    @apply font-sans text-ardoise-800 bg-white;
   }
 
   ::selection {
-    background: rgba(124, 58, 237, 0.15);
-    color: #111827;
+    background: rgba(180, 98, 44, 0.15);
+    color: #12161B;
+  }
+
+  /* Chiffres alignés : les montants et les numéros de section ne dansent pas. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
   }
 }
 
 @layer components {
   /* ============================================
-     BUTTONS
+     BOUTONS — aplats, pas de dégradé, pas d'ombre portée marquée.
+
+     Le fond est cuivre-600 et non cuivre-500 : blanc sur cuivre-500 plafonne à
+     4,45:1, sous le seuil AA de 4,5. Sur cuivre-600 on est à 5,88:1.
+     Le cuivre-500 reste réservé aux surfaces non textuelles (filets, icônes).
      ============================================ */
 
   .btn-primary {
-    @apply relative inline-flex items-center justify-center
-           text-white
-           px-7 py-3.5 rounded-xl font-semibold text-[15px]
-           shadow-btn
-           transition-all duration-300 ease-out
-           overflow-hidden;
-    background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+    @apply inline-flex items-center justify-center gap-2
+           bg-cuivre-600 text-white
+           px-6 py-3.5 rounded-md
+           font-semibold text-[15px] leading-none
+           border border-cuivre-600
+           transition-colors duration-200 ease-out;
   }
 
   .btn-primary:hover {
-    @apply shadow-btn-hover -translate-y-[1px];
-    background: linear-gradient(135deg, #6D28D9 0%, #5B21B6 100%);
+    @apply bg-cuivre-700 border-cuivre-700;
   }
 
   .btn-primary:active {
-    @apply translate-y-0 shadow-btn scale-[0.98];
-    transition-duration: 100ms;
-  }
-
-  .btn-primary::after {
-    content: '';
-    @apply absolute inset-0 opacity-0;
-    background: linear-gradient(
-      105deg,
-      transparent 40%,
-      rgba(255, 255, 255, 0.2) 50%,
-      transparent 60%
-    );
-    transition: opacity 0.3s ease;
-  }
-
-  .btn-primary:hover::after {
-    @apply opacity-100;
-    animation: shimmerSweep 0.6s ease-out;
+    @apply bg-cuivre-700 border-cuivre-700;
   }
 
   .btn-secondary {
-    @apply relative inline-flex items-center justify-center
-           bg-white text-violet-600
-           border-2 border-violet-200
-           px-7 py-3.5 rounded-xl font-semibold text-[15px]
-           shadow-btn
-           transition-all duration-300 ease-out;
+    @apply inline-flex items-center justify-center gap-2
+           bg-white text-ardoise-800
+           px-6 py-3.5 rounded-md
+           font-semibold text-[15px] leading-none
+           border border-acier-300
+           transition-colors duration-200 ease-out;
   }
 
   .btn-secondary:hover {
-    @apply border-violet-300 bg-violet-50 shadow-card -translate-y-[1px];
-  }
-
-  .btn-secondary:active {
-    @apply translate-y-0 shadow-btn scale-[0.98];
-    transition-duration: 100ms;
-  }
-
-  .btn-white {
-    @apply relative inline-flex items-center justify-center
-           bg-white text-violet-600
-           px-7 py-3.5 rounded-xl font-semibold text-[15px]
-           shadow-btn
-           transition-all duration-300 ease-out;
-  }
-
-  .btn-white:hover {
-    @apply bg-violet-50 shadow-card -translate-y-[1px];
-  }
-
-  .btn-white:active {
-    @apply translate-y-0 shadow-btn scale-[0.98];
-    transition-duration: 100ms;
+    @apply border-ardoise-800 bg-chaux-50;
   }
 
   .btn-ghost {
-    @apply relative inline-flex items-center justify-center
-           text-gray-700
-           px-5 py-2.5 rounded-lg font-medium text-[15px]
-           transition-all duration-300 ease-out;
+    @apply inline-flex items-center justify-center
+           text-ardoise-700
+           px-4 py-2.5 rounded-md
+           font-medium text-[15px]
+           transition-colors duration-200 ease-out;
   }
 
   .btn-ghost:hover {
-    @apply text-violet-600 bg-violet-50;
-  }
-
-  .btn-ghost:active {
-    @apply scale-[0.97] bg-violet-100;
-    transition-duration: 100ms;
+    @apply text-cuivre-600 bg-chaux-100;
   }
 
   /* ============================================
-     CARDS
+     SURFACES — bordure fine plutôt qu'ombre.
      ============================================ */
 
   .card {
-    @apply bg-white rounded-2xl border border-gray-200/80
-           shadow-soft
-           transition-all duration-300 ease-out;
+    @apply bg-white rounded-lg border border-acier-200
+           transition-colors duration-200 ease-out;
   }
 
   .card:hover {
-    @apply shadow-card-hover border-gray-200 -translate-y-[2px];
+    @apply border-cuivre-300;
   }
 
-  .card-glass {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    @apply rounded-2xl border border-white/40
-           shadow-soft
-           transition-all duration-300 ease-out;
-  }
-
-  .card-glass:hover {
-    background: rgba(255, 255, 255, 0.8);
-    @apply shadow-card-hover -translate-y-[2px];
-  }
-
-  .card-dark {
-    @apply rounded-2xl border border-white/10
-           shadow-dark-card
-           transition-all duration-300 ease-out;
-    background: rgba(255, 255, 255, 0.05);
-  }
-
-  .card-dark:hover {
-    @apply -translate-y-[2px];
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(124, 58, 237, 0.3);
-  }
-
-  .card-violet {
-    @apply bg-gradient-to-br from-violet-600 to-violet-700 rounded-2xl border border-violet-500/30
-           shadow-soft
-           transition-all duration-300 ease-out text-white;
-  }
-
-  .card-violet p,
-  .card-violet span,
-  .card-violet li {
-    @apply text-white;
-  }
-
-  .card-violet strong {
-    @apply text-white font-bold;
-  }
-
-  .card-violet:hover {
-    @apply shadow-violet border-violet-400/40 -translate-y-[2px];
+  .card-chaux {
+    @apply bg-chaux-100 rounded-lg border border-chaux-300;
   }
 
   /* ============================================
-     GLASS MORPHISM
+     ÉLÉMENT SIGNATURE — numérotation de section sur filet de cuivre.
+     Le numéro s'appuie sur un filet d'1 px qui traverse la largeur.
+     C'est le seul geste graphique du site.
      ============================================ */
 
-  .glass {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+  .section-label {
+    @apply flex items-center gap-4 mb-8 md:mb-12;
   }
 
-  .glass-dark {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  /* ============================================
-     GRADIENT TEXT
-     ============================================ */
-
-  .gradient-text {
-    background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .gradient-text-light {
-    background: linear-gradient(135deg, #A78BFA 0%, #DDD6FE 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* ============================================
-     BADGES / TAGS
-     ============================================ */
-
-  .tag {
-    @apply inline-flex items-center
-           px-3.5 py-1.5 rounded-full
-           text-xs font-semibold uppercase tracking-wider
-           bg-violet-50 text-violet-600 border border-violet-100;
-  }
-
-  .tag-glass {
-    @apply inline-flex items-center
-           px-4 py-2 rounded-full
-           text-sm font-medium;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  }
-
-  /* ============================================
-     BACKGROUNDS & PATTERNS
-     ============================================ */
-
-  .dots-bg {
-    background-image: radial-gradient(circle, rgba(124, 58, 237, 0.07) 1px, transparent 1px);
-    background-size: 24px 24px;
-  }
-
-  .dots-bg-dark {
-    background-image: radial-gradient(circle, rgba(124, 58, 237, 0.15) 1px, transparent 1px);
-    background-size: 24px 24px;
-  }
-
-  .section-dark {
-    background: #0C0A14;
-    color: white;
-  }
-
-  .gradient-border {
-    @apply relative rounded-2xl;
-  }
-
-  .gradient-border::before {
+  .section-label::after {
     content: '';
-    @apply absolute -inset-px rounded-2xl;
-    background: linear-gradient(135deg, #7C3AED, #A78BFA, #7C3AED);
-    z-index: -1;
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
+    @apply flex-1 h-px bg-cuivre-200;
   }
 
-  .gradient-border:hover::before {
-    opacity: 1;
+  /* 11 px : trop petit pour compter comme « grand texte », donc cuivre-600
+     (5,88:1 sur blanc) et non cuivre-500 (4,45:1, sous le seuil). */
+  .section-num {
+    @apply font-narrow tabular
+           text-[11px] font-bold uppercase tracking-[0.22em]
+           text-cuivre-600;
+  }
+
+  .section-kicker {
+    @apply font-narrow
+           text-[11px] font-bold uppercase tracking-[0.22em]
+           text-acier-600;
+  }
+
+  .rule-cuivre {
+    @apply h-px w-full bg-cuivre-200 border-0;
   }
 
   /* ============================================
-     SECTION UTILITIES
+     MISE EN PAGE
      ============================================ */
 
   .section {
-    @apply py-20 px-6 md:px-12 lg:px-24;
+    @apply py-16 md:py-24 px-5 md:px-8;
   }
 
   .container-custom {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-6xl mx-auto;
   }
 
-  .section-divider {
-    @apply w-12 h-1 bg-violet-600 rounded-full;
-  }
-
-  /* ============================================
-     FORM INPUTS
-     ============================================ */
-
-  input[type="range"] {
-    @apply appearance-none w-full h-1.5 rounded-full bg-gray-200 outline-none cursor-pointer;
-  }
-
-  input[type="range"]::-webkit-slider-thumb {
-    @apply appearance-none w-5 h-5 rounded-full bg-violet-600 cursor-pointer
-           shadow-violet transition-all duration-200;
-    border: 3px solid white;
-  }
-
-  input[type="range"]::-webkit-slider-thumb:hover {
-    @apply scale-125 shadow-violet-lg;
-  }
-
-  input[type="range"]::-webkit-slider-thumb:active {
-    @apply scale-110;
-  }
-
-  input[type="range"]::-moz-range-thumb {
-    @apply w-5 h-5 rounded-full bg-violet-600 cursor-pointer border-[3px] border-white
-           shadow-violet transition-all duration-200;
-  }
-
-  /* ============================================
-     ANIMATIONS & INTERACTIONS
-     ============================================ */
-
-  .hover-lift {
-    @apply transition-all duration-300 ease-out;
-  }
-
-  .hover-lift:hover {
-    @apply -translate-y-1;
-  }
-
-  .arrow-animate svg,
-  .arrow-animate .arrow-icon {
-    @apply transition-transform duration-300;
-  }
-
-  .arrow-animate:hover svg,
-  .arrow-animate:hover .arrow-icon {
-    @apply translate-x-1;
-  }
-
-  .hover-glow {
-    @apply transition-all duration-300 ease-out;
-  }
-
-  .hover-glow:hover {
-    @apply shadow-glow;
-  }
-
-  /* Icon container that flips color on group hover */
-  .icon-box {
-    @apply w-14 h-14 rounded-2xl flex items-center justify-center
-           transition-all duration-300 ease-out;
-  }
-
-  .icon-box-sm {
-    @apply w-10 h-10 rounded-xl flex items-center justify-center
-           transition-all duration-300 ease-out;
+  .tag {
+    @apply inline-flex items-center
+           px-3 py-1 rounded-full
+           font-narrow text-[11px] font-bold uppercase tracking-[0.16em]
+           bg-cuivre-50 text-cuivre-700 border border-cuivre-100;
   }
 }
 
@@ -367,15 +191,19 @@
   .text-balance {
     text-wrap: balance;
   }
-}
 
-/* ============================================
-   GLOBAL KEYFRAMES
-   ============================================ */
+  /* Chasses de la police variable. Trois largeurs, une seule famille. */
+  .font-narrow {
+    font-stretch: 78%;
+  }
 
-@keyframes shimmerSweep {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  .font-normal-width {
+    font-stretch: 100%;
+  }
+
+  .font-expanded {
+    font-stretch: 112%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

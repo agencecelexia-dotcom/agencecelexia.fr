@@ -1,13 +1,13 @@
 {
   "name": "Agence Celexia - Apport d'affaires pour artisans",
   "short_name": "Agence Celexia",
-  "description": "Apporteur d'affaires pour artisans du bâtiment. On finance la pub, on qualifie les clients, on vous envoie des chantiers. 10 % sur devis signés uniquement.",
+  "description": "Celexia trouve et finance les demandes de chantiers, les qualifie, puis les transmet à un seul artisan. 10 % sur les devis signés uniquement.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#ffffff",
-  "theme_color": "#7C3AED",
+  "theme_color": "#ffffff",
   "categories": ["business"],
   "icons": [
     {
@@ -21,20 +21,6 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Réserver un appel",
-      "short_name": "Appel",
-      "description": "Réservez votre appel stratégique gratuit",
-      "url": "/reserver",
-      "icons": [
-        {
-          "src": "/icon-192x192.png",
-          "sizes": "192x192"
-        }
-      ]
     }
   ]
 }

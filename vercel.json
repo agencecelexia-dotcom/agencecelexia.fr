@@ -17,7 +17,13 @@
       ]
     },
     {
-      "source": "/(.*\\.(?:png|jpg|jpeg|gif|svg|ico|woff2))",
+      "source": "/fonts/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*\\.(?:png|jpg|jpeg|gif|svg|ico))",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
       ]
@@ -27,11 +33,33 @@
     { "source": "/privacy-policy", "destination": "/politique-confidentialite", "statusCode": 301 },
     { "source": "/terms-and-conditions", "destination": "/mentions-legales", "statusCode": 301 },
     { "source": "/contact-3625", "destination": "/contact", "statusCode": 301 },
-    { "source": "/demo-call", "destination": "/reserver", "statusCode": 301 },
-    { "source": "/onboarding-call", "destination": "/reserver", "statusCode": 301 },
     { "source": "/banque-alimentaire", "destination": "/", "statusCode": 301 },
     { "source": "/services/:path*", "destination": "/", "statusCode": 301 },
-    { "source": "/sites-artisans", "destination": "/", "statusCode": 301 }
+    { "source": "/sites-artisans", "destination": "/", "statusCode": 301 },
+
+    { "source": "/reserver", "destination": "/", "statusCode": 301 },
+    { "source": "/demo-call", "destination": "/", "statusCode": 301 },
+    { "source": "/onboarding-call", "destination": "/", "statusCode": 301 },
+
+    { "source": "/metiers/bardage", "destination": "/metiers/facade-ite", "statusCode": 301 },
+    { "source": "/metiers/fondations", "destination": "/metiers/maconnerie", "statusCode": 301 },
+    { "source": "/metiers/entretien-piscine", "destination": "/metiers/constructeurs-piscines", "statusCode": 301 },
+
+    { "source": "/metiers/amenagement-paysager", "destination": "/", "statusCode": 301 },
+    { "source": "/metiers/clotures", "destination": "/", "statusCode": 301 },
+    { "source": "/metiers/chauffagistes", "destination": "/", "statusCode": 301 },
+    { "source": "/metiers/demenagement", "destination": "/", "statusCode": 301 },
+    { "source": "/metiers/diagnostics-immobiliers", "destination": "/", "statusCode": 301 },
+    { "source": "/metiers/menuiserie", "destination": "/", "statusCode": 301 },
+    { "source": "/metiers/plomberie", "destination": "/", "statusCode": 301 },
+    { "source": "/metiers/nettoyage-vitres", "destination": "/", "statusCode": 301 },
+    { "source": "/metiers/revetement-sol", "destination": "/", "statusCode": 301 },
+    { "source": "/metiers/restauration-degat-eaux", "destination": "/", "statusCode": 301 },
+    { "source": "/metiers/fenetres", "destination": "/", "statusCode": 301 },
+    { "source": "/metiers/plans-de-travail", "destination": "/", "statusCode": 301 },
+    { "source": "/metiers/portes-garage", "destination": "/", "statusCode": 301 },
+    { "source": "/metiers/arboriculture", "destination": "/", "statusCode": 301 },
+    { "source": "/leads-plombier", "destination": "/", "statusCode": 301 }
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }

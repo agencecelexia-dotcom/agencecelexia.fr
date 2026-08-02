@@ -31,13 +31,31 @@ doit être répercuté dans les trois.**
   Pas de signature = pas de facture.
 - **Zéro** frais d'entrée, abonnement, engagement de durée, préavis, pénalité de
   sortie.
-- Périmètre : **19 métiers** du bâtiment, France. Liste faisant foi :
-  `METIERS` dans [src/context/NicheContext.jsx](src/context/NicheContext.jsx).
+- Périmètre : **4 métiers** à chantiers ≥ 10 000 € — construction de piscines,
+  couverture, façade/ITE, maçonnerie. France entière. Liste faisant foi :
+  `METIERS` dans [src/data/metiers.js](src/data/metiers.js).
 - Entité : CELEXIA SASU, SIREN 939 306 429, Nogent-sur-Marne (Île-de-France).
   Fondateurs : Rayan Music et Ilyes Music. Slogan : « On gagne quand vous
   gagnez ».
-- Contact : 06 51 72 57 56 — agence.celexia@gmail.com. Conversion principale :
-  l'appel découverte gratuit de 30 min (`/reserver`).
+- Contact : 06 51 72 57 56 — agence.celexia@gmail.com. **Conversion unique :
+  l'inscription en ligne** (`registerUrl()` dans [src/lib/links.js](src/lib/links.js)),
+  au libellé `CTA_LABEL`, identique partout. Il n'y a plus de prise de
+  rendez-vous ni d'embed Cal.com.
+
+## Deux interdictions absolues, propres à ce site
+
+**1. Ne jamais décrire les canaux d'acquisition.** Ni « Google », ni « Ads », ni
+« campagnes », ni « référencement ». C'est le métier de Celexia et c'est ce
+qu'elle finance à la place de l'artisan. La formulation retenue assume le refus
+(« on ne dira pas comment on les trouve ») et compense par une précision totale
+sur ce qui est transmis. Esquiver mollement ferait passer Celexia pour un
+revendeur de leads, exactement ce qu'elle n'est pas.
+
+**2. Ne jamais publier de terme contractuel.** Ni durée, ni préavis, ni clause
+de non-contournement, ni délai de paiement. Et surtout ne pas écrire l'inverse :
+les mentions « sans engagement » et « aucun préavis » ont été retirées de tout
+le site parce qu'elles contredisaient le contrat réel. Le site ne dit plus rien
+sur la durée. Seul chiffre contractuel autorisé : **10 %**.
 
 ## Interdiction : les promesses chiffrées inventées
 

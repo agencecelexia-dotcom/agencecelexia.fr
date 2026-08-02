@@ -1,9 +1,16 @@
-# Netlify configuration
+# Configuration Netlify
 [build]
   command = "npm run build"
   publish = "dist"
 
-# Redirections 301 - Anciennes URLs vers nouvelles pages
+# ---------------------------------------------------------------------------
+# Redirections 301
+#
+# ⚠️ Ces règles doivent rester alignées avec vercel.json (le site est déployé
+# sur les deux) et avec src/lib/legacyRoutes.js (filet de sécurité côté client).
+# ---------------------------------------------------------------------------
+
+# Anciennes URLs génériques
 [[redirects]]
   from = "/privacy-policy"
   to = "/politique-confidentialite"
@@ -20,21 +27,11 @@
   status = 301
 
 [[redirects]]
-  from = "/demo-call"
-  to = "/reserver"
-  status = 301
-
-[[redirects]]
-  from = "/onboarding-call"
-  to = "/reserver"
-  status = 301
-
-[[redirects]]
   from = "/banque-alimentaire"
   to = "/"
   status = 301
 
-# Anciennes pages de prestation (ancien modèle) → accueil (apport d'affaires)
+# Anciennes pages de prestation (modèle abandonné) → accueil
 [[redirects]]
   from = "/services/*"
   to = "/"
@@ -45,18 +42,122 @@
   to = "/"
   status = 301
 
+# Prise de rendez-vous supprimée : la conversion unique est l'inscription en ligne
 [[redirects]]
-  from = "/leads-plombier"
-  to = "/metiers/plomberie"
+  from = "/reserver"
+  to = "/"
   status = 301
 
-# 410 Gone - URLs parasites ancien builder
+[[redirects]]
+  from = "/demo-call"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/onboarding-call"
+  to = "/"
+  status = 301
+
+# Métiers retirés lors du recentrage sur 4 métiers.
+# Trois gardent une continuité thématique :
+[[redirects]]
+  from = "/metiers/bardage"
+  to = "/metiers/facade-ite"
+  status = 301
+
+[[redirects]]
+  from = "/metiers/fondations"
+  to = "/metiers/maconnerie"
+  status = 301
+
+[[redirects]]
+  from = "/metiers/entretien-piscine"
+  to = "/metiers/constructeurs-piscines"
+  status = 301
+
+# Les autres n'ont plus d'équivalent :
+[[redirects]]
+  from = "/metiers/amenagement-paysager"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/metiers/clotures"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/metiers/chauffagistes"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/metiers/demenagement"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/metiers/diagnostics-immobiliers"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/metiers/menuiserie"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/metiers/plomberie"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/metiers/nettoyage-vitres"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/metiers/revetement-sol"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/metiers/restauration-degat-eaux"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/metiers/fenetres"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/metiers/plans-de-travail"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/metiers/portes-garage"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/metiers/arboriculture"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/leads-plombier"
+  to = "/"
+  status = 301
+
+# 410 Gone - URLs parasites d'un ancien builder
 [[redirects]]
   from = "/tmp/*"
   to = "/index.html"
   status = 410
 
-# SPA fallback - doit rester en dernier
+# Repli SPA - doit rester en dernier
 [[redirects]]
   from = "/*"
   to = "/index.html"
