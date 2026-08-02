@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { METIERS } from '../data/metiers';
 
 const NotFound = () => {
-  // Métadonnées SEO pour la page 404
   usePageMeta({
-    title: 'Page non trouvée - Agence Celexia',
-    description: 'La page que vous recherchez n\'existe pas. Retournez à l\'accueil pour continuer.',
-    canonical: ''
+    title: 'Page introuvable | Agence Celexia',
+    description: 'Cette page n’existe pas ou a été déplacée.',
+    canonical: '',
   });
 
   useEffect(() => {
@@ -19,47 +19,42 @@ const NotFound = () => {
   }, []);
 
   return (
-    <div className="bg-white min-h-screen flex items-center justify-center px-4 md:px-6">
-      <div className="text-center max-w-md">
-        <div className="mb-8">
-          <div className="text-9xl font-bold text-violet-600/20 mb-4">404</div>
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Oups ! Page non trouvée
-          </h1>
-          <p className="text-lg text-gray-600 mb-8">
-            La page que vous recherchez n'existe pas ou a été déplacée.
-          </p>
-        </div>
+    <section className="section">
+      <div className="max-w-2xl mx-auto">
+        <p className="section-num">Erreur 404</p>
+        <h1 className="mt-5 font-display font-expanded font-black text-ardoise-900 text-3xl md:text-4xl tracking-tight">
+          Cette page n’existe pas.
+        </h1>
+        <p className="mt-6 text-lg text-ardoise-700 leading-relaxed">
+          L’adresse est peut-être erronée, ou la page a été retirée lors de la refonte du site.
+        </p>
+        <hr className="rule-cuivre my-10" />
 
-        <div className="space-y-3">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center bg-violet-600 text-white px-8 py-4 rounded-xl font-semibold
-                       hover:bg-violet-700 transition-colors duration-300 arrow-animate"
-          >
-            Retour à l'accueil
-            <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
-
-          <p className="text-gray-500 text-sm">
-            Vous pouvez aussi <Link to="/contact" className="text-violet-600 hover:text-violet-700 font-semibold">nous contacter</Link> si vous avez des questions.
-          </p>
-        </div>
-
-        <div className="mt-12 pt-8 border-t border-gray-200">
-          <p className="text-xs text-gray-500">
-            Pages disponibles : <br />
-            <Link to="/" className="text-violet-600 hover:text-violet-700 text-sm">Accueil</Link>
-            {' • '}
-            <Link to="/about" className="text-violet-600 hover:text-violet-700 text-sm">À propos</Link>
-            {' • '}
-            <Link to="/contact" className="text-violet-600 hover:text-violet-700 text-sm">Contact</Link>
-          </p>
-        </div>
+        <p className="section-kicker mb-5">Où aller</p>
+        <ul className="space-y-3">
+          <li>
+            <Link to="/" className="text-cuivre-600 underline underline-offset-2 hover:text-cuivre-700">
+              Comment fonctionne Celexia
+            </Link>
+          </li>
+          {Object.entries(METIERS).map(([slug, data]) => (
+            <li key={slug}>
+              <Link
+                to={`/metiers/${slug}`}
+                className="text-cuivre-600 underline underline-offset-2 hover:text-cuivre-700"
+              >
+                {data.label}
+              </Link>
+            </li>
+          ))}
+          <li>
+            <Link to="/contact" className="text-cuivre-600 underline underline-offset-2 hover:text-cuivre-700">
+              Nous contacter
+            </Link>
+          </li>
+        </ul>
       </div>
-    </div>
+    </section>
   );
 };
 

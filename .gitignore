@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Repos de référence clonés pour Claude Code (voir CLAUDE.md > Références)
+references/

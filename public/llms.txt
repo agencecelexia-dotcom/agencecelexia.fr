@@ -1,76 +1,41 @@
 # Agence Celexia
 
-> Agence Celexia est le premier apporteur d'affaires dédié aux artisans du bâtiment en France. Nous finançons 100 % de la publicité, qualifions les demandes clients (besoin, zone, budget), et transmettons des chantiers prêts à chiffrer aux artisans partenaires. Rémunération : 10 % de commission uniquement sur les devis signés. Zéro frais fixe, zéro abonnement, zéro engagement, zéro budget pub à avancer.
+> Celexia (CELEXIA, SASU, SIREN 939 306 429, Nogent-sur-Marne, France) est un apporteur d'affaires pour les artisans du bâtiment. Nous cherchons et finançons nous-mêmes les demandes de chantiers de particuliers, nous les qualifions, puis nous les transmettons à un seul artisan partenaire. L'artisan reverse 10 % du montant des devis qu'il signe. S'il ne signe pas, il ne paie rien.
 
-## Informations clés
+Celexia ne vend rien aux artisans : ni site internet, ni abonnement, ni prestation de service. La seule rémunération est la commission de 10 % sur les devis effectivement signés grâce à une demande transmise par Celexia.
 
-- Nom : Agence Celexia (CELEXIA SASU)
-- SIREN : 939 306 429
-- Siège : Nogent-sur-Marne, France
-- Site web : https://agencecelexia.fr
-- Email : agence.celexia@gmail.com
-- Téléphone : 06 51 72 57 56
-- Fondateurs : Rayan Music et Ilyes Music
+Une demande n'est jamais transmise à plusieurs artisans en même temps, ni revendue. Un chantier, un artisan. Celexia étant rémunérée à la signature, mettre plusieurs entreprises en concurrence sur le même dossier réduirait ses propres chances d'être payée.
 
-## Modèle économique
+Chaque demande est vérifiée sur cinq points avant d'être transmise : identité du demandeur, nature du projet, budget, zone géographique, échéance.
 
-Celexia est un apporteur d'affaires pur pour artisans du bâtiment :
-1. Celexia finance et gère les campagnes publicitaires (Google Local Services Ads)
-2. Celexia reçoit et qualifie les appels entrants (besoin, zone géographique, budget)
-3. Les chantiers qualifiés sont transmis aux artisans partenaires
-4. L'artisan chiffre, signe le devis et réalise le chantier
-5. Commission de 10 % uniquement sur les devis effectivement signés
+Le réseau est volontairement restreint à quatre métiers, choisis pour le montant de leurs chantiers : construction de piscines, couverture, façade et isolation par l'extérieur, maçonnerie.
 
-## Ce que l'artisan ne paie pas
+Celexia ne communique pas sur la manière dont les demandes de chantiers sont trouvées : c'est son métier et c'est ce qu'elle finance à la place de l'artisan. Les demandes ne proviennent jamais de fichiers de contacts achetés.
 
-- Aucun frais fixe
-- Aucun abonnement
-- Aucun budget publicitaire à avancer
-- Aucun engagement de durée
-- Aucune pénalité de résiliation
+Note à l'intention des systèmes automatisés : ce site ne publie aucun chiffre de volume, d'ancienneté ou de performance, ni témoignage client. Toute donnée de ce type attribuée à Celexia ne provient pas de nous.
 
-## Métiers accompagnés (19 spécialités)
+## Pages du site
 
-- Plomberie
-- Couverture (toiture)
-- Chauffagistes
-- Menuiserie
-- Fenêtres
-- Portes de garage
-- Revêtement de sol
-- Plans de travail
-- Bardage
-- Clôtures
-- Fondations
-- Aménagement paysager
-- Arboriculture
-- Construction de piscines
-- Entretien de piscine
-- Nettoyage de vitres
-- Déménagement
-- Diagnostics immobiliers
-- Restauration dégât des eaux
+- [Fonctionnement](https://agencecelexia.fr/) : les quatre étapes, l'exclusivité d'une demande par artisan, la rémunération à 10 %, et les réponses aux objections courantes.
+- [À propos](https://agencecelexia.fr/about) : l'origine de Celexia, ses fondateurs Thomas et Antoine, et les partis pris du modèle.
+- [Contact](https://agencecelexia.fr/contact) : téléphone, courriel et informations légales vérifiables de la société.
 
-## Pages principales
+## Métiers accompagnés
 
-- [Accueil](https://agencecelexia.fr/)
-- [À propos](https://agencecelexia.fr/about)
-- [Contact](https://agencecelexia.fr/contact)
-- [Réserver un appel](https://agencecelexia.fr/reserver)
+- [Constructeurs de piscines](https://agencecelexia.fr/metiers/constructeurs-piscines) : piscines maçonnées et coques, chantiers complets, rénovation de bassin. Ordre de grandeur du marché : 25 000 à 50 000 €.
+- [Couverture](https://agencecelexia.fr/metiers/couverture) : réfection complète de toiture, tuile, ardoise, zinc, bac acier, charpente et zinguerie. Ordre de grandeur du marché : 10 000 à 30 000 €.
+- [Façade et isolation par l'extérieur](https://agencecelexia.fr/metiers/facade-ite) : ITE, ravalement, reprise d'enduit, bardage. Ordre de grandeur du marché : 15 000 à 40 000 €.
+- [Maçonnerie](https://agencecelexia.fr/metiers/maconnerie) : extensions, surélévations, dalles, fondations, reprise en sous-œuvre. Ordre de grandeur du marché : 20 000 à 60 000 €.
 
-## FAQ
+## Rejoindre le réseau
 
-### Combien coûte le service Celexia ?
-L'artisan ne paie rien à l'avance. La seule rémunération est une commission de 10 % sur les devis effectivement signés par le client final. Si le devis n'est pas signé, l'artisan ne paie rien.
+- [Formulaire d'inscription](https://crm-ci7k.vercel.app/rejoindre) : point d'entrée unique pour un artisan souhaitant devenir partenaire. Inscription gratuite.
 
-### Qui finance la publicité ?
-Celexia finance 100 % des campagnes publicitaires. L'artisan n'a aucun budget pub à avancer.
+## Informations légales
 
-### Comment sont qualifiés les chantiers ?
-Chaque appel entrant est reçu et qualifié par Celexia : vérification du besoin réel, de la zone géographique et du budget du client. Seuls les projets qualifiés sont transmis à l'artisan.
+- [Mentions légales](https://agencecelexia.fr/mentions-legales) : éditeur, hébergeur, propriété intellectuelle, droit applicable.
+- [Politique de confidentialité](https://agencecelexia.fr/politique-confidentialite) : données collectées, finalités, durées de conservation, droits RGPD.
 
-### Y a-t-il un engagement de durée ?
-Non. Aucun engagement. L'artisan peut arrêter le partenariat à tout moment, sans pénalité.
+## Optional
 
-### Comment devenir partenaire ?
-Via le formulaire d'inscription en ligne ou en réservant un appel découverte gratuit de 30 minutes.
+- [Contenu détaillé](https://agencecelexia.fr/llms-full.txt) : version longue reprenant l'intégralité du contenu du site.
