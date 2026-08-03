@@ -82,7 +82,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-white border-b border-acier-200">
+      <header className="sticky top-0 z-40 bg-white border-b border-brume-200">
         <nav className="max-w-6xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between" aria-label="Navigation principale">
           <Link to="/" className="flex items-center" onClick={closeMenu}>
             <img
@@ -110,16 +110,16 @@ const Header = () => {
               </button>
 
               {isMetiersOpen && (
-                <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg border border-acier-300 py-1.5 shadow-card">
+                <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg border border-brume-300 py-1.5 shadow-card">
                   {metiers.map((metier) => (
                     <Link
                       key={metier.slug}
                       to={metier.path}
                       onClick={() => setIsMetiersOpen(false)}
-                      className="flex items-center gap-3 px-4 py-2.5 hover:bg-chaux-100 transition-colors"
+                      className="flex items-center gap-3 px-4 py-2.5 hover:bg-brume-100 transition-colors"
                     >
                       <span className="w-2.5 h-2.5 rounded-sm flex-shrink-0" style={{ backgroundColor: metier.color }} aria-hidden="true" />
-                      <span className="text-sm font-medium text-ardoise-800">{metier.label}</span>
+                      <span className="text-sm font-medium text-encre-800">{metier.label}</span>
                     </Link>
                   ))}
                 </div>
@@ -143,15 +143,15 @@ const Header = () => {
           <button
             type="button"
             onClick={() => setIsMenuOpen(true)}
-            className="md:hidden w-11 h-11 -mr-2 flex items-center justify-center rounded-md hover:bg-chaux-100 transition-colors"
+            className="md:hidden w-11 h-11 -mr-2 flex items-center justify-center rounded-md hover:bg-brume-100 transition-colors"
             aria-label="Ouvrir le menu"
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu-overlay"
           >
             <span className="w-5 h-4 flex flex-col justify-between" aria-hidden="true">
-              <span className="w-full h-[2px] bg-ardoise-800 rounded-full" />
-              <span className="w-full h-[2px] bg-ardoise-800 rounded-full" />
-              <span className="w-full h-[2px] bg-ardoise-800 rounded-full" />
+              <span className="w-full h-[2px] bg-encre-800 rounded-full" />
+              <span className="w-full h-[2px] bg-encre-800 rounded-full" />
+              <span className="w-full h-[2px] bg-encre-800 rounded-full" />
             </span>
           </button>
         </nav>
@@ -169,17 +169,17 @@ const Header = () => {
         style={{ height: '100dvh' }}
       >
         <div className="flex flex-col h-full">
-          <div className="flex items-center justify-between px-5 h-16 border-b border-acier-200 flex-shrink-0">
+          <div className="flex items-center justify-between px-5 h-16 border-b border-brume-200 flex-shrink-0">
             <Link to="/" onClick={closeMenu} className="flex items-center">
               <img src="/logo.png" alt="Agence Celexia — accueil" className="h-8 w-auto" width="197" height="32" />
             </Link>
             <button
               type="button"
               onClick={closeMenu}
-              className="w-11 h-11 -mr-2 flex items-center justify-center rounded-md hover:bg-chaux-100 transition-colors"
+              className="w-11 h-11 -mr-2 flex items-center justify-center rounded-md hover:bg-brume-100 transition-colors"
               aria-label="Fermer le menu"
             >
-              <Icon.X className="w-6 h-6 text-ardoise-800" />
+              <Icon.X className="w-6 h-6 text-encre-800" />
             </button>
           </div>
 
@@ -190,33 +190,33 @@ const Header = () => {
                 key={metier.slug}
                 to={metier.path}
                 onClick={closeMenu}
-                className="flex items-center gap-3 py-4 border-b border-acier-200 text-lg font-semibold text-ardoise-800"
+                className="flex items-center gap-3 py-4 border-b border-brume-200 text-lg font-semibold text-encre-800"
               >
                 <span className="w-2.5 h-2.5 rounded-sm flex-shrink-0" style={{ backgroundColor: metier.color }} aria-hidden="true" />
                 <span className="flex-1">{metier.label}</span>
-                <Icon.ArrowRight className="w-5 h-5 text-acier-400" />
+                <Icon.ArrowRight className="w-5 h-5 text-brume-300" />
               </Link>
             ))}
 
             <Link
               to="/about"
               onClick={closeMenu}
-              className="flex items-center justify-between py-4 border-b border-acier-200 text-lg font-semibold text-ardoise-800"
+              className="flex items-center justify-between py-4 border-b border-brume-200 text-lg font-semibold text-encre-800"
             >
               À propos
-              <Icon.ArrowRight className="w-5 h-5 text-acier-400" />
+              <Icon.ArrowRight className="w-5 h-5 text-brume-300" />
             </Link>
             <Link
               to="/contact"
               onClick={closeMenu}
-              className="flex items-center justify-between py-4 border-b border-acier-200 text-lg font-semibold text-ardoise-800"
+              className="flex items-center justify-between py-4 border-b border-brume-200 text-lg font-semibold text-encre-800"
             >
               Contact
-              <Icon.ArrowRight className="w-5 h-5 text-acier-400" />
+              <Icon.ArrowRight className="w-5 h-5 text-brume-300" />
             </Link>
           </div>
 
-          <div className="flex-shrink-0 p-5 border-t border-acier-200 bg-white">
+          <div className="flex-shrink-0 p-5 border-t border-brume-200 bg-white">
             <a
               href={registerUrl('menu-mobile')}
               target="_blank"
@@ -227,7 +227,7 @@ const Header = () => {
               {CTA_LABEL}
               <Icon.ArrowRight className="w-5 h-5" />
             </a>
-            <p className="mt-3 text-center text-xs text-acier-600">
+            <p className="mt-3 text-center text-xs text-encre-600">
               Inscription gratuite · Vous ne payez que sur devis signé
             </p>
           </div>

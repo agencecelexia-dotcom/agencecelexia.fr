@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 
-const linkClass = 'text-cuivre-600 underline underline-offset-2 hover:text-cuivre-700';
+const linkClass = 'text-violet-600 underline underline-offset-2 hover:text-violet-700';
 
 const MentionsLegales = () => {
   usePageMeta({
@@ -15,38 +15,38 @@ const MentionsLegales = () => {
     <section className="section">
       <div className="max-w-3xl mx-auto">
         <p className="section-kicker mb-5">Informations légales</p>
-        <h1 className="font-display font-expanded font-black text-ardoise-900 text-3xl md:text-4xl tracking-tight">
+        <h1 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md">
           Mentions légales
         </h1>
-        <hr className="rule-cuivre mt-8 mb-10" />
+        <hr className="rule-violet mt-8 mb-10" />
 
-        <div className="space-y-10 text-ardoise-700 leading-relaxed">
+        <div className="space-y-10 text-encre-700 leading-relaxed">
           <div>
-            <h2 className="font-display font-bold text-xl text-ardoise-900 mb-3">1. Éditeur du site</h2>
+            <h2 className="font-display font-bold text-xl text-encre-900 mb-3">1. Éditeur du site</h2>
             <p>
-              Le site <strong className="text-ardoise-900">agencecelexia.fr</strong> est édité par :
+              Le site <strong className="text-encre-900">agencecelexia.fr</strong> est édité par :
             </p>
             <ul className="list-disc pl-6 mt-3 space-y-1.5">
-              <li><strong className="text-ardoise-900">Raison sociale :</strong> CELEXIA</li>
-              <li><strong className="text-ardoise-900">Forme juridique :</strong> Société par actions simplifiée unipersonnelle (SASU)</li>
-              <li><strong className="text-ardoise-900">SIREN :</strong> <span className="tabular">939 306 429</span></li>
-              <li><strong className="text-ardoise-900">Siège social :</strong> Nogent-sur-Marne, France</li>
+              <li><strong className="text-encre-900">Raison sociale :</strong> CELEXIA</li>
+              <li><strong className="text-encre-900">Forme juridique :</strong> Société par actions simplifiée unipersonnelle (SASU)</li>
+              <li><strong className="text-encre-900">SIREN :</strong> <span className="tabular">939 306 429</span></li>
+              <li><strong className="text-encre-900">Siège social :</strong> Nogent-sur-Marne, France</li>
               <li>
-                <strong className="text-ardoise-900">Téléphone :</strong>{' '}
+                <strong className="text-encre-900">Téléphone :</strong>{' '}
                 <a href="tel:+33651725756" className={linkClass}>06 51 72 57 56</a>
               </li>
               <li>
-                <strong className="text-ardoise-900">Courriel :</strong>{' '}
+                <strong className="text-encre-900">Courriel :</strong>{' '}
                 <a href="mailto:agence.celexia@gmail.com" className={linkClass}>agence.celexia@gmail.com</a>
               </li>
-              <li><strong className="text-ardoise-900">Directeurs de la publication :</strong> Thomas et Antoine, co-fondateurs</li>
+              <li><strong className="text-encre-900">Directeurs de la publication :</strong> Thomas et Antoine, co-fondateurs</li>
             </ul>
           </div>
 
           <div>
-            <h2 className="font-display font-bold text-xl text-ardoise-900 mb-3">2. Hébergeur</h2>
+            <h2 className="font-display font-bold text-xl text-encre-900 mb-3">2. Hébergeur</h2>
             <ul className="list-disc pl-6 space-y-1.5">
-              <li><strong className="text-ardoise-900">Vercel Inc.</strong></li>
+              <li><strong className="text-encre-900">Vercel Inc.</strong></li>
               <li>440 N Barranca Ave #4133, Covina, CA 91723, États-Unis</li>
               <li>
                 <a href="https://vercel.com" className={linkClass} target="_blank" rel="noopener noreferrer">
@@ -57,7 +57,7 @@ const MentionsLegales = () => {
           </div>
 
           <div>
-            <h2 className="font-display font-bold text-xl text-ardoise-900 mb-3">3. Propriété intellectuelle</h2>
+            <h2 className="font-display font-bold text-xl text-encre-900 mb-3">3. Propriété intellectuelle</h2>
             <p>
               L’ensemble des contenus présents sur le site agencecelexia.fr (textes, images,
               graphismes, logo, icônes, logiciels) est protégé par le droit d’auteur et le droit
@@ -68,7 +68,7 @@ const MentionsLegales = () => {
           </div>
 
           <div>
-            <h2 className="font-display font-bold text-xl text-ardoise-900 mb-3">4. Limitation de responsabilité</h2>
+            <h2 className="font-display font-bold text-xl text-encre-900 mb-3">4. Limitation de responsabilité</h2>
             <p>
               CELEXIA s’efforce de fournir des informations aussi précises que possible sur le
               site. Elle ne peut toutefois être tenue responsable des omissions, des inexactitudes
@@ -77,7 +77,7 @@ const MentionsLegales = () => {
           </div>
 
           <div>
-            <h2 className="font-display font-bold text-xl text-ardoise-900 mb-3">5. Cookies</h2>
+            <h2 className="font-display font-bold text-xl text-encre-900 mb-3">5. Cookies</h2>
             <p>
               Le site utilise des cookies de mesure d’audience, soumis à votre consentement. Vous
               pouvez également configurer votre navigateur pour les refuser. Pour en savoir plus,
@@ -90,7 +90,7 @@ const MentionsLegales = () => {
           </div>
 
           <div>
-            <h2 className="font-display font-bold text-xl text-ardoise-900 mb-3">6. Droit applicable</h2>
+            <h2 className="font-display font-bold text-xl text-encre-900 mb-3">6. Droit applicable</h2>
             <p>
               Les présentes mentions légales sont régies par le droit français. En cas de litige,
               les tribunaux français sont compétents.
@@ -98,7 +98,7 @@ const MentionsLegales = () => {
           </div>
         </div>
 
-        <p className="text-sm text-acier-600 mt-12 pt-6 border-t border-acier-200">
+        <p className="text-sm text-encre-600 mt-12 pt-6 border-t border-brume-200">
           Dernière mise à jour : 2 août 2026
         </p>
       </div>

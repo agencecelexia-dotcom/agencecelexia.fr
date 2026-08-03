@@ -25,3 +25,6 @@ dist-ssr
 
 # Repos de référence clonés pour Claude Code (voir CLAUDE.md > Références)
 references/
+
+# Bundle SSR intermédiaire (généré par npm run build)
+dist-ssr

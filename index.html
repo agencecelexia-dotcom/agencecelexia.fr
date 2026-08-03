@@ -9,13 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#FFFFFF" />
     <meta name="color-scheme" content="light" />
-    <meta name="description" content="Celexia trouve et finance les demandes de chantiers, les qualifie, puis les transmet à un seul artisan. Vous chiffrez, vous signez, vous reversez 10 %. Rien à avancer." />
+    <meta name="description" content="Apporteur d'affaires pour artisans. Nous finançons et qualifions les demandes de chantiers, puis les transmettons à un seul artisan. 15 % sur devis signé." />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Agence Celexia | Apport d'affaires pour artisans" />
-    <meta property="og:description" content="Celexia trouve et finance les demandes de chantiers, les qualifie, puis les transmet à un seul artisan. Vous chiffrez, vous signez, vous reversez 10 %. Rien à avancer." />
+    <meta property="og:description" content="Apporteur d'affaires pour artisans. Nous finançons et qualifions les demandes de chantiers, puis les transmettons à un seul artisan. 15 % sur devis signé." />
     <meta property="og:url" content="https://agencecelexia.fr/" />
     <meta property="og:image" content="https://agencecelexia.fr/og-image.png" />
     <meta property="og:image:width" content="1200" />
@@ -27,7 +27,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Agence Celexia | Apport d'affaires pour artisans" />
-    <meta name="twitter:description" content="Celexia trouve et finance les demandes de chantiers, les qualifie, puis les transmet à un seul artisan. Vous chiffrez, vous signez, vous reversez 10 %. Rien à avancer." />
+    <meta name="twitter:description" content="Apporteur d'affaires pour artisans. Nous finançons et qualifions les demandes de chantiers, puis les transmettons à un seul artisan. 15 % sur devis signé." />
     <meta name="twitter:image" content="https://agencecelexia.fr/og-image.png" />
 
     <!-- Manifest for PWA -->
@@ -43,6 +43,12 @@
          Le sous-ensemble latin couvre le français ; latin-ext ne se charge
          qu'en cas de besoin via son unicode-range. -->
     <link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Marque le document comme « JavaScript actif », avant tout rendu.
+         Les animations d'apparition ne se déclenchent que sous cette classe :
+         sans JavaScript, le contenu reste visible au lieu de rester à opacité 0,
+         ce qui compte pour les moteurs et pour les visiteurs en cas d'échec de chargement. -->
+    <script>document.documentElement.classList.add('js')</script>
 
     <!-- Google Analytics 4 - Consent Mode v2 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VLJ5E084ES"></script>
@@ -62,13 +68,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-    <noscript>
-      <div style="padding:2rem;max-width:600px;margin:0 auto;font-family:sans-serif">
-        <h1>Agence Celexia - Apport d'affaires pour artisans</h1>
-        <p>Celexia trouve et finance les demandes de chantiers, les qualifie, puis les transmet à un seul artisan. Vous chiffrez, vous signez, vous reversez 10 % sur les devis signés. Rien à avancer.</p>
-        <p>Contact : <a href="mailto:agence.celexia@gmail.com">agence.celexia@gmail.com</a> | <a href="tel:+33651725756">06 51 72 57 56</a></p>
-      </div>
-    </noscript>
+    <script type="module" src="/src/entry-client.jsx"></script>
   </body>
 </html>

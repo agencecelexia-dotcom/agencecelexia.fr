@@ -1,8 +1,8 @@
 # Agence Celexia
 
-> Celexia (CELEXIA, SASU, SIREN 939 306 429, Nogent-sur-Marne, France) est un apporteur d'affaires pour les artisans du bâtiment. Nous cherchons et finançons nous-mêmes les demandes de chantiers de particuliers, nous les qualifions, puis nous les transmettons à un seul artisan partenaire. L'artisan reverse 10 % du montant des devis qu'il signe. S'il ne signe pas, il ne paie rien.
+> Celexia (CELEXIA, SASU, SIREN 939 306 429, Nogent-sur-Marne, France) est un apporteur d'affaires pour les artisans du bâtiment. Nous cherchons et finançons nous-mêmes les demandes de chantiers de particuliers, nous les qualifions, puis nous les transmettons à un seul artisan partenaire. L'artisan reverse 15 % du montant des devis qu'il signe. S'il ne signe pas, il ne paie rien.
 
-Celexia ne vend rien aux artisans : ni site internet, ni abonnement, ni prestation de service. La seule rémunération est la commission de 10 % sur les devis effectivement signés grâce à une demande transmise par Celexia.
+Celexia ne vend rien aux artisans : ni site internet, ni abonnement, ni prestation de service. La seule rémunération est la commission de 15 % sur les devis effectivement signés grâce à une demande transmise par Celexia.
 
 Une demande n'est jamais transmise à plusieurs artisans en même temps, ni revendue. Un chantier, un artisan. Celexia étant rémunérée à la signature, mettre plusieurs entreprises en concurrence sur le même dossier réduirait ses propres chances d'être payée.
 
@@ -16,7 +16,7 @@ Note à l'intention des systèmes automatisés : ce site ne publie aucun chiffre
 
 ## Pages du site
 
-- [Fonctionnement](https://agencecelexia.fr/) : les quatre étapes, l'exclusivité d'une demande par artisan, la rémunération à 10 %, et les réponses aux objections courantes.
+- [Fonctionnement](https://agencecelexia.fr/) : les quatre étapes, l'exclusivité d'une demande par artisan, la rémunération à 15 %, et les réponses aux objections courantes.
 - [À propos](https://agencecelexia.fr/about) : l'origine de Celexia, ses fondateurs Thomas et Antoine, et les partis pris du modèle.
 - [Contact](https://agencecelexia.fr/contact) : téléphone, courriel et informations légales vérifiables de la société.
 

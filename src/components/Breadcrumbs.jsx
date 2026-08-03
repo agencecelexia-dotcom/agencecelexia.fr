@@ -40,29 +40,29 @@ const Breadcrumbs = () => {
   if (location.pathname === '/') return null;
 
   return (
-    <nav className="border-b border-acier-200 bg-white py-3 px-5 md:px-8" aria-label="Fil d'Ariane">
+    <nav className="border-b border-brume-200 bg-white py-3 px-5 md:px-8" aria-label="Fil d'Ariane">
       <div className="max-w-6xl mx-auto">
         <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
           {breadcrumbs.map((crumb, index) => (
             <li key={crumb.path} className="flex items-center gap-2">
               {index > 0 && (
-                <span className="text-acier-400" aria-hidden="true">
+                <span className="text-brume-300" aria-hidden="true">
                   /
                 </span>
               )}
               {index === breadcrumbs.length - 1 ? (
-                <span className="text-ardoise-800 font-medium" aria-current="page">
+                <span className="text-encre-800 font-medium" aria-current="page">
                   {crumb.name}
                 </span>
               ) : crumb.clickable !== false ? (
                 <Link
                   to={crumb.path}
-                  className="text-acier-600 hover:text-cuivre-600 underline-offset-2 hover:underline transition-colors"
+                  className="text-encre-600 hover:text-violet-600 underline-offset-2 hover:underline transition-colors"
                 >
                   {crumb.name}
                 </Link>
               ) : (
-                <span className="text-acier-600">{crumb.name}</span>
+                <span className="text-encre-600">{crumb.name}</span>
               )}
             </li>
           ))}

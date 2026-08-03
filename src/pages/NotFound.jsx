@@ -22,18 +22,18 @@ const NotFound = () => {
     <section className="section">
       <div className="max-w-2xl mx-auto">
         <p className="section-num">Erreur 404</p>
-        <h1 className="mt-5 font-display font-expanded font-black text-ardoise-900 text-3xl md:text-4xl tracking-tight">
+        <h1 className="mt-5 font-display font-medium text-encre-900 text-display-sm md:text-display-md">
           Cette page n’existe pas.
         </h1>
-        <p className="mt-6 text-lg text-ardoise-700 leading-relaxed">
+        <p className="mt-6 text-lg text-encre-700 leading-relaxed">
           L’adresse est peut-être erronée, ou la page a été retirée lors de la refonte du site.
         </p>
-        <hr className="rule-cuivre my-10" />
+        <hr className="rule-violet my-10" />
 
         <p className="section-kicker mb-5">Où aller</p>
         <ul className="space-y-3">
           <li>
-            <Link to="/" className="text-cuivre-600 underline underline-offset-2 hover:text-cuivre-700">
+            <Link to="/" className="text-violet-600 underline underline-offset-2 hover:text-violet-700">
               Comment fonctionne Celexia
             </Link>
           </li>
@@ -41,14 +41,14 @@ const NotFound = () => {
             <li key={slug}>
               <Link
                 to={`/metiers/${slug}`}
-                className="text-cuivre-600 underline underline-offset-2 hover:text-cuivre-700"
+                className="text-violet-600 underline underline-offset-2 hover:text-violet-700"
               >
                 {data.label}
               </Link>
             </li>
           ))}
           <li>
-            <Link to="/contact" className="text-cuivre-600 underline underline-offset-2 hover:text-cuivre-700">
+            <Link to="/contact" className="text-violet-600 underline underline-offset-2 hover:text-violet-700">
               Nous contacter
             </Link>
           </li>

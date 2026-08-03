@@ -33,14 +33,14 @@ const About = () => {
   return (
     <>
       {/* ============ HERO ============ */}
-      <section className="px-5 md:px-8 pt-14 pb-14 md:pt-20 md:pb-20">
+      <section className="px-5 md:px-8 pt-16 pb-16 md:pt-28 md:pb-24">
         <div className="container-custom">
           <div className="max-w-3xl">
             <p className="section-kicker mb-6">Qui nous sommes</p>
-            <h1 className="font-display font-expanded font-black text-ardoise-900 text-[2rem] leading-[1.1] sm:text-4xl md:text-5xl tracking-tight text-balance">
+            <h1 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md text-balance">
               Nous ne vendons rien aux artisans.
             </h1>
-            <p className="mt-7 text-lg md:text-xl text-ardoise-700 leading-relaxed max-w-prose">
+            <p className="mt-7 text-lg md:text-xl text-encre-700 leading-relaxed max-w-prose">
               Celexia est un apporteur d’affaires : nous cherchons les chantiers, nous les
               qualifions, et nous les transmettons. Nous ne facturons ni site web, ni
               abonnement, ni prestation. Notre seule rémunération est un pourcentage des devis
@@ -51,7 +51,7 @@ const About = () => {
       </section>
 
       {/* ============ 01 — L'ORIGINE ============ */}
-      <section className="section bg-chaux-100 border-y border-chaux-300">
+      <section className="section bg-brume-100 border-y border-brume-300">
         <div className="container-custom">
           <div className="section-label">
             <span className="section-num">01</span>
@@ -60,10 +60,10 @@ const About = () => {
 
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
             <Reveal>
-              <h2 className="font-display font-expanded font-black text-ardoise-900 text-3xl md:text-4xl tracking-tight text-balance">
+              <h2 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md text-balance">
                 Thomas et Antoine
               </h2>
-              <div className="mt-7 space-y-4 text-ardoise-700 leading-relaxed">
+              <div className="mt-7 space-y-4 text-encre-700 leading-relaxed">
                 <p>
                   Ils se connaissent depuis le collège. Autour d’eux, des artisans au savoir-faire
                   solide passaient leurs soirées à courir après des devis, pendant que des
@@ -72,7 +72,7 @@ const About = () => {
                 </p>
                 <p>
                   Le constat était simple :{' '}
-                  <strong className="text-ardoise-900 font-semibold">
+                  <strong className="text-encre-900 font-semibold">
                     un artisan n’a ni le temps ni l’envie de devenir un spécialiste de la
                     prospection
                   </strong>
@@ -89,31 +89,31 @@ const About = () => {
 
             <Reveal delay={80}>
               <div className="grid gap-4 sm:grid-cols-2">
-                <div className="bg-white border border-acier-200 rounded-lg p-6">
-                  <span className="font-display font-expanded font-black text-2xl text-cuivre-500" aria-hidden="true">
+                <div className="bg-white border border-brume-200 rounded-lg p-6">
+                  <span className="font-display font-medium text-2xl text-violet-500" aria-hidden="true">
                     T
                   </span>
-                  <h3 className="mt-3 font-display font-bold text-lg text-ardoise-900">Thomas</h3>
-                  <p className="mt-2 text-sm text-ardoise-700 leading-relaxed">
+                  <h3 className="mt-3 font-display font-bold text-lg text-encre-900">Thomas</h3>
+                  <p className="mt-2 text-sm text-encre-700 leading-relaxed">
                     Co-fondateur. Il s’occupe de la recherche des chantiers et des relations avec
                     les artisans partenaires.
                   </p>
                 </div>
-                <div className="bg-white border border-acier-200 rounded-lg p-6">
-                  <span className="font-display font-expanded font-black text-2xl text-cuivre-500" aria-hidden="true">
+                <div className="bg-white border border-brume-200 rounded-lg p-6">
+                  <span className="font-display font-medium text-2xl text-violet-500" aria-hidden="true">
                     A
                   </span>
-                  <h3 className="mt-3 font-display font-bold text-lg text-ardoise-900">Antoine</h3>
-                  <p className="mt-2 text-sm text-ardoise-700 leading-relaxed">
+                  <h3 className="mt-3 font-display font-bold text-lg text-encre-900">Antoine</h3>
+                  <p className="mt-2 text-sm text-encre-700 leading-relaxed">
                     Co-fondateur. Il s’occupe de la qualification des demandes et des outils qui
                     la rendent régulière.
                   </p>
                 </div>
-                <div className="sm:col-span-2 bg-white border border-acier-200 rounded-lg p-6">
+                <div className="sm:col-span-2 bg-white border border-brume-200 rounded-lg p-6">
                   <p className="section-kicker mb-3">La société</p>
-                  <p className="text-sm text-ardoise-700 leading-relaxed">
+                  <p className="text-sm text-encre-700 leading-relaxed">
                     CELEXIA, société par actions simplifiée immatriculée en France sous le SIREN{' '}
-                    <span className="tabular font-semibold text-ardoise-900">939 306 429</span>,
+                    <span className="tabular font-semibold text-encre-900">939 306 429</span>,
                     dont le siège est à Nogent-sur-Marne. Ces informations sont publiques et
                     vérifiables.
                   </p>
@@ -132,7 +132,7 @@ const About = () => {
             <span className="section-kicker">Nos partis pris</span>
           </div>
           <Reveal>
-            <h2 className="font-display font-expanded font-black text-ardoise-900 text-3xl md:text-4xl tracking-tight max-w-2xl text-balance">
+            <h2 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md max-w-2xl text-balance">
               Quatre choix, et ce qu’ils nous coûtent.
             </h2>
           </Reveal>
@@ -141,8 +141,8 @@ const About = () => {
             {PRINCIPES.map((principe, i) => (
               <Reveal key={principe.titre} delay={i * 60}>
                 <div className="card h-full p-7">
-                  <h3 className="font-display font-bold text-lg text-ardoise-900">{principe.titre}</h3>
-                  <p className="mt-3 text-ardoise-700 leading-relaxed">{principe.desc}</p>
+                  <h3 className="font-display font-bold text-lg text-encre-900">{principe.titre}</h3>
+                  <p className="mt-3 text-encre-700 leading-relaxed">{principe.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -150,19 +150,19 @@ const About = () => {
         </div>
       </section>
 
-      {/* ============ CONVERSION ============ */}
-      <section className="section bg-chaux-100 border-y border-chaux-300">
+      {/* ============ CONVERSION (bande profonde) ============ */}
+      <section className="section-lg bande sur-fonce">
         <div className="container-custom">
           <Reveal>
             <div className="max-w-2xl">
-              <h2 className="font-display font-expanded font-black text-ardoise-900 text-3xl md:text-4xl tracking-tight text-balance">
+              <h2 className="font-display font-medium text-white text-display-sm md:text-display-md text-balance">
                 Inscrivez votre entreprise.
               </h2>
-              <p className="mt-6 text-lg text-ardoise-700 leading-relaxed">
+              <p className="mt-8 text-lg md:text-xl text-violet-200 leading-relaxed text-pretty">
                 Quelques minutes suffisent. Nous vérifions ensuite que nous pouvons vous être
                 utiles sur votre secteur, et nous revenons vers vous.
               </p>
-              <div className="mt-9">
+              <div className="mt-12">
                 <CTAButton href={registerUrl('about')}>{CTA_LABEL}</CTAButton>
               </div>
             </div>

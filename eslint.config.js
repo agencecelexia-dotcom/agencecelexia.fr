@@ -10,7 +10,7 @@ export default defineConfig([
   // `public/proposition/` est un mini-site vanilla autonome, servi tel quel et
   // hors du graphe de build Vite : ses fonctions sont appelées depuis le HTML,
   // ce qu'ESLint ne peut pas voir.
-  globalIgnores(['dist', 'references', 'claude-seo', 'N8N & Claude', 'public/proposition']),
+  globalIgnores(['dist', 'dist-ssr', 'references', 'claude-seo', 'N8N & Claude', 'public/proposition']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [
