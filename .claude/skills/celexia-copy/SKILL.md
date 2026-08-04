@@ -21,22 +21,28 @@ doit être répercuté dans les trois.**
 
 - Celexia est **apporteur d'affaires**, pas une agence de prestation. Elle ne
   vend ni site web, ni abonnement, ni prestation SEO à l'artisan.
-- Celexia **finance 100 % de la publicité** (Google Local Services Ads).
-  L'artisan n'avance aucun budget pub.
-- Celexia **reçoit et qualifie les appels** : besoin, zone d'intervention,
-  budget, sérieux de la demande.
+- Celexia **finance elle-même la recherche des chantiers**. L'artisan n'avance
+  rien. **Ne jamais nommer le canal** — voir l'interdiction n° 1 plus bas.
+- Celexia **qualifie chaque demande sur cinq points** : identité, projet,
+  budget, zone, calendrier (`POINTS_QUALIFIES` dans `src/data/metiers.js`).
 - Les chantiers qualifiés sont transmis à l'artisan, qui **chiffre et signe
   lui-même**. Celexia ne gère pas la relation commerciale.
-- Rémunération : **10 % du montant TTC des devis effectivement signés**.
+- Rémunération : **15 % du montant TTC des devis effectivement signés**.
+  Le taux vit dans la constante `TAUX` de [src/lib/links.js](src/lib/links.js),
+  qui alimente aussi le paramètre `?taux=` du lien d'inscription : les deux ne
+  doivent jamais diverger.
   Pas de signature = pas de facture.
-- **Zéro** frais d'entrée, abonnement, engagement de durée, préavis, pénalité de
-  sortie.
+- **Zéro** frais d'entrée, zéro abonnement, aucun budget à avancer. En revanche
+  **ne rien dire de la durée, du préavis ni de la sortie** : ce sont des termes
+  contractuels, voir l'interdiction n° 2.
+- **Une demande n'est transmise qu'à un seul artisan.** Jamais revendue.
+  L'argument est mécanique : payés à la signature, nous n'avons aucun intérêt à
+  mettre cinq entreprises en concurrence.
 - Périmètre : **4 métiers** à chantiers ≥ 10 000 € — construction de piscines,
   couverture, façade/ITE, maçonnerie. France entière. Liste faisant foi :
   `METIERS` dans [src/data/metiers.js](src/data/metiers.js).
 - Entité : CELEXIA SASU, SIREN 939 306 429, Nogent-sur-Marne (Île-de-France).
-  Fondateurs : Rayan Music et Ilyes Music. Slogan : « On gagne quand vous
-  gagnez ».
+  Fondateurs : **Thomas et Antoine**. Slogan : « On gagne quand vous gagnez ».
 - Contact : 06 51 72 57 56 — agence.celexia@gmail.com. **Conversion unique :
   l'inscription en ligne** (`registerUrl()` dans [src/lib/links.js](src/lib/links.js)),
   au libellé `CTA_LABEL`, identique partout. Il n'y a plus de prise de
@@ -55,7 +61,7 @@ revendeur de leads, exactement ce qu'elle n'est pas.
 de non-contournement, ni délai de paiement. Et surtout ne pas écrire l'inverse :
 les mentions « sans engagement » et « aucun préavis » ont été retirées de tout
 le site parce qu'elles contredisaient le contrat réel. Le site ne dit plus rien
-sur la durée. Seul chiffre contractuel autorisé : **10 %**.
+sur la durée. Seul chiffre contractuel autorisé : **15 %**.
 
 ## Interdiction : les promesses chiffrées inventées
 
@@ -69,7 +75,7 @@ Ne jamais écrire, sauf donnée réelle fournie par le client et sourcée :
 | Interdit | Pourquoi | Remplacer par |
 |---|---|---|
 | « Résultats garantis », « ou remboursé » | Promesse contractuelle non tenue par l'offre | « Vous ne payez que sur devis signé » |
-| « Position #1 sur Google » | Non maîtrisable, trompeur | « Positionnement prioritaire dans votre zone » |
+| « Position #1 sur Google » | Non maîtrisable, et nomme le canal | Ne rien dire de l'acquisition |
 | « +300 % de trafic », « ROI 42:1 », « 4,8/5 » | Chiffres inventés | Bénéfice qualitatif, ou rien |
 | « 15 h gagnées par semaine » | Statistique fabriquée | « Vous ne courez plus après les devis » |
 | Avis, notes, logos clients fictifs | Faux témoignage | Preuve réelle uniquement |
@@ -78,8 +84,8 @@ Formulations sûres : « objectif de… », « potentiel de… », « selon votr
 activité… », « jusqu'à… » (si un plafond réel existe).
 
 **La bonne nouvelle : l'offre n'a pas besoin de gonfler les chiffres.** Le seul
-argument nécessaire est le renversement du risque — Celexia avance l'argent de
-la pub et n'est payée que si l'artisan signe. C'est concret, vérifiable, et plus
+argument nécessaire est le renversement du risque — Celexia avance l'argent et
+n'est payée que si l'artisan signe. C'est concret, vérifiable, et plus
 fort qu'un pourcentage inventé. Construire la copy là-dessus.
 
 ## Le lecteur
@@ -93,7 +99,7 @@ Ce qu'il se demande, dans l'ordre :
 1. Combien ça me coûte si ça ne marche pas ? → **zéro**, le dire tôt.
 2. C'est encore un abonnement ? → **non**, le dire explicitement.
 3. Les demandes sont sérieuses ou c'est du tout-venant ? → qualification.
-4. Je suis coincé combien de temps ? → **aucun engagement**.
+4. Je vais être en concurrence avec quatre autres ? → **non, un seul artisan**.
 5. Qui je dois appeler et quand ? → CTA unique.
 
 Écrire pour cette liste, dans cet ordre. Toute section qui ne répond à aucune de
@@ -118,9 +124,10 @@ ces questions est candidate à la suppression.
 3. **Levée d'objection** — celle qui correspond à la position dans la page.
 4. **CTA** — verbe d'action + absence de risque.
 
-CTA : « Réserver un appel de 30 min », « Voir si mon métier est couvert ».
-Éviter « En savoir plus », « Découvrir », « Soumettre ». Préciser la gratuité et
-l'absence d'engagement à côté du bouton, pas dedans.
+Le libellé du bouton est **toujours** `CTA_LABEL` (`src/lib/links.js`), identique
+partout. Éviter « En savoir plus », « Découvrir », « Soumettre ». Préciser la
+gratuité de l'inscription à côté du bouton, jamais dedans — et sans parler
+d'engagement.
 
 ## Cohérence technique du texte
 
@@ -129,9 +136,11 @@ l'absence d'engagement à côté du bouton, pas dedans.
   [celexia-routes](.claude/skills/celexia-routes/SKILL.md).
 - Une `description` de page se change **aussi** dans `prerender-meta.mjs`
   (c'est elle que Google lit), pas seulement dans le composant React.
-- Meta description : ~155 caractères, avec le prix ou le « sans engagement ».
+- Meta description : **~150 caractères maximum**, au-delà Google tronque.
+  Y faire figurer le taux.
 - Un seul `<h1>` par page ; la hiérarchie `h2`/`h3` doit suivre le sens, pas la
   taille voulue à l'écran.
-- Pages métiers : le texte est générique et paramétré par le label du métier.
-  Écrire des tournures qui restent correctes pour les 19 labels, y compris les
-  plus longs (« Restauration après dégât des eaux »).
+- Pages métiers : chaque métier a son `titre` et son `accroche` propres dans
+  `src/data/metiers.js`, mais les blocs partagés (étapes, FAQ) doivent rester
+  corrects pour les 4 libellés, y compris le plus long (« Façade et isolation
+  par l'extérieur »).

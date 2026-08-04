@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 /* ============================================
-   POLICE — Archivo variable, self-hostée.
-   Un seul fichier par sous-ensemble, axes wght 100-900 et wdth 62-125 %.
-   Remplace Plus Jakarta Sans + Clash Display et supprime deux origines tierces.
+   POLICES — self-hostées, aucune origine tierce.
+   Archivo : interface et texte courant (variable, wght + wdth).
+   Newsreader : titres uniquement (variable, opsz + wght).
    ============================================ */
 
 @font-face {
@@ -32,6 +32,17 @@
     U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/newsreader-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 @layer base {
   * {
     -webkit-font-smoothing: antialiased;
@@ -44,23 +55,34 @@
     }
   }
 
-  /* Focus visible en cuivre, contrasté sur blanc comme sur chaux. */
   *:focus-visible {
-    outline: 2px solid #B4622C;
-    outline-offset: 2px;
+    outline: 2px solid #6E32E6;
+    outline-offset: 3px;
     border-radius: 2px;
   }
 
+  /* Sur les bandes violet profond, l'anneau de focus doit rester visible. */
+  .sur-fonce *:focus-visible {
+    outline-color: #CFB9FF;
+  }
+
   body {
-    @apply font-sans text-ardoise-800 bg-white;
+    @apply font-sans text-encre-800 bg-white;
+    font-size: 17px;
+    line-height: 1.65;
   }
 
   ::selection {
-    background: rgba(180, 98, 44, 0.15);
-    color: #12161B;
+    background: rgba(140, 82, 255, 0.18);
+    color: #120E1A;
   }
 
-  /* Chiffres alignés : les montants et les numéros de section ne dansent pas. */
+  /* Titres au serif, avec une optique adaptée aux grandes tailles. */
+  h1, h2, h3 {
+    @apply font-display;
+    font-optical-sizing: auto;
+  }
+
   .tabular {
     font-variant-numeric: tabular-nums;
   }
@@ -68,111 +90,127 @@
 
 @layer components {
   /* ============================================
-     BOUTONS — aplats, pas de dégradé, pas d'ombre portée marquée.
-
-     Le fond est cuivre-600 et non cuivre-500 : blanc sur cuivre-500 plafonne à
-     4,45:1, sous le seuil AA de 4,5. Sur cuivre-600 on est à 5,88:1.
-     Le cuivre-500 reste réservé aux surfaces non textuelles (filets, icônes).
+     BOUTONS — aplats. Blanc sur violet 600 : conforme AA.
      ============================================ */
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2
-           bg-cuivre-600 text-white
-           px-6 py-3.5 rounded-md
-           font-semibold text-[15px] leading-none
-           border border-cuivre-600
+    @apply inline-flex items-center justify-center gap-2.5
+           bg-violet-600 text-white
+           px-7 py-4 rounded-lg
+           font-sans font-semibold text-[15px] leading-none tracking-[0.01em]
+           border border-violet-600
            transition-colors duration-200 ease-out;
   }
 
-  .btn-primary:hover {
-    @apply bg-cuivre-700 border-cuivre-700;
-  }
-
-  .btn-primary:active {
-    @apply bg-cuivre-700 border-cuivre-700;
-  }
+  .btn-primary:hover { @apply bg-violet-700 border-violet-700; }
+  .btn-primary:active { @apply bg-violet-800 border-violet-800; }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2
-           bg-white text-ardoise-800
-           px-6 py-3.5 rounded-md
-           font-semibold text-[15px] leading-none
-           border border-acier-300
+    @apply inline-flex items-center justify-center gap-2.5
+           bg-white text-encre-800
+           px-7 py-4 rounded-lg
+           font-sans font-semibold text-[15px] leading-none tracking-[0.01em]
+           border border-brume-300
            transition-colors duration-200 ease-out;
   }
 
-  .btn-secondary:hover {
-    @apply border-ardoise-800 bg-chaux-50;
+  .btn-secondary:hover { @apply border-encre-800 bg-brume-50; }
+
+  /* Variante posée sur les bandes violet profond. */
+  .sur-fonce .btn-secondary {
+    @apply bg-transparent text-white border-violet-300;
+  }
+  .sur-fonce .btn-secondary:hover {
+    @apply bg-white/10 border-white;
   }
 
   .btn-ghost {
     @apply inline-flex items-center justify-center
-           text-ardoise-700
-           px-4 py-2.5 rounded-md
-           font-medium text-[15px]
+           text-encre-700
+           px-4 py-2.5 rounded-lg
+           font-sans font-medium text-[15px]
            transition-colors duration-200 ease-out;
   }
 
-  .btn-ghost:hover {
-    @apply text-cuivre-600 bg-chaux-100;
-  }
+  .btn-ghost:hover { @apply text-violet-600 bg-violet-50; }
 
   /* ============================================
-     SURFACES — bordure fine plutôt qu'ombre.
+     SURFACES
      ============================================ */
 
   .card {
-    @apply bg-white rounded-lg border border-acier-200
+    @apply bg-white rounded-xl border border-brume-300
            transition-colors duration-200 ease-out;
   }
+  .card:hover { @apply border-violet-300; }
 
-  .card:hover {
-    @apply border-cuivre-300;
+  .card-brume {
+    @apply bg-brume-50 rounded-xl border border-brume-200;
   }
 
-  .card-chaux {
-    @apply bg-chaux-100 rounded-lg border border-chaux-300;
+  /* Carte posée sur une bande profonde. */
+  .card-fonce {
+    @apply rounded-xl border border-white/10 bg-white/[0.04]
+           transition-colors duration-200 ease-out;
+  }
+  .card-fonce:hover { @apply border-violet-300/40; }
+
+  /* ============================================
+     BANDE PLEINE LARGEUR — l'élément de rythme du site.
+     Deux ou trois par page, jamais deux consécutives.
+     ============================================ */
+
+  .bande {
+    @apply bg-violet-900 text-white;
   }
 
   /* ============================================
-     ÉLÉMENT SIGNATURE — numérotation de section sur filet de cuivre.
-     Le numéro s'appuie sur un filet d'1 px qui traverse la largeur.
-     C'est le seul geste graphique du site.
+     SIGNATURE — numérotation de section sur filet
      ============================================ */
 
   .section-label {
-    @apply flex items-center gap-4 mb-8 md:mb-12;
+    @apply flex items-center gap-5 mb-10 md:mb-14;
   }
 
   .section-label::after {
     content: '';
-    @apply flex-1 h-px bg-cuivre-200;
+    @apply flex-1 h-px bg-brume-300;
   }
 
-  /* 11 px : trop petit pour compter comme « grand texte », donc cuivre-600
-     (5,88:1 sur blanc) et non cuivre-500 (4,45:1, sous le seuil). */
-  .section-num {
-    @apply font-narrow tabular
-           text-[11px] font-bold uppercase tracking-[0.22em]
-           text-cuivre-600;
+  .sur-fonce .section-label::after {
+    @apply bg-white/20;
   }
+
+  .section-num {
+    @apply font-sans tabular
+           text-[11px] font-bold uppercase tracking-[0.24em]
+           text-violet-600;
+  }
+
+  .sur-fonce .section-num { @apply text-violet-300; }
 
   .section-kicker {
-    @apply font-narrow
-           text-[11px] font-bold uppercase tracking-[0.22em]
-           text-acier-600;
+    @apply font-sans
+           text-[11px] font-bold uppercase tracking-[0.24em]
+           text-encre-600;
   }
 
-  .rule-cuivre {
-    @apply h-px w-full bg-cuivre-200 border-0;
+  .sur-fonce .section-kicker { @apply text-violet-200; }
+
+  .rule-violet {
+    @apply h-px w-full bg-brume-300 border-0;
   }
 
   /* ============================================
-     MISE EN PAGE
+     MISE EN PAGE — nettement plus aérée que la v1
      ============================================ */
 
   .section {
-    @apply py-16 md:py-24 px-5 md:px-8;
+    @apply py-20 md:py-32 px-5 md:px-8;
+  }
+
+  .section-lg {
+    @apply py-24 md:py-40 px-5 md:px-8;
   }
 
   .container-custom {
@@ -181,29 +219,37 @@
 
   .tag {
     @apply inline-flex items-center
-           px-3 py-1 rounded-full
-           font-narrow text-[11px] font-bold uppercase tracking-[0.16em]
-           bg-cuivre-50 text-cuivre-700 border border-cuivre-100;
+           px-3.5 py-1.5 rounded-full
+           font-sans text-[11px] font-bold uppercase tracking-[0.16em]
+           bg-violet-50 text-violet-700 border border-violet-100;
   }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
 
-  /* Chasses de la police variable. Trois largeurs, une seule famille. */
-  .font-narrow {
-    font-stretch: 78%;
-  }
+  /* Chasse resserrée d'Archivo, pour les libellés en capitales. */
+  .font-narrow { font-stretch: 78%; }
+}
 
-  .font-normal-width {
-    font-stretch: 100%;
-  }
+/* ============================================
+   APPARITION AU DÉFILEMENT
 
-  .font-expanded {
-    font-stretch: 112%;
-  }
+   L'état masqué n'existe QUE si JavaScript est actif (classe `js` posée en tête
+   de index.html). Sans JavaScript — cas des moteurs IA et des robots d'aperçu —
+   le contenu pré-rendu reste pleinement visible au lieu de rester à opacité 0.
+   ============================================ */
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.js .reveal.reveal-visible {
+  opacity: 1;
+  transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -213,4 +259,5 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  .js .reveal { opacity: 1; transform: none; }
 }

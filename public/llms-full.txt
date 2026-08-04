@@ -1,6 +1,6 @@
 # Agence Celexia — Documentation complète
 
-> Celexia est un apporteur d'affaires pour les artisans du bâtiment en France. Nous cherchons et finançons les demandes de chantiers de particuliers, nous les qualifions, puis nous les transmettons à un seul artisan partenaire. Commission de 10 % sur les devis signés uniquement.
+> Celexia est un apporteur d'affaires pour les artisans du bâtiment en France. Nous cherchons et finançons les demandes de chantiers de particuliers, nous les qualifions, puis nous les transmettons à un seul artisan partenaire. Commission de 15 % sur les devis signés uniquement.
 
 ## La société
 
@@ -26,7 +26,7 @@ Le fonctionnement tient en quatre étapes :
 1. **Celexia cherche les projets et les finance.** Aller chercher des particuliers qui ont un vrai projet coûte de l'argent. C'est Celexia qui le dépense. L'artisan n'avance rien, à aucun moment.
 2. **Celexia qualifie chaque demande.** Une demande n'est transmise que si elle tient debout sur cinq points de vérification. Celles qui ne passent pas ne parviennent jamais à l'artisan.
 3. **La demande est transmise à un seul artisan.** Le chantier part chez un partenaire, et chez personne d'autre. Aucune mise en concurrence, aucune revente.
-4. **L'artisan chiffre, signe et reverse 10 %.** Il garde la main sur le prix, la vente et la relation client. Si le devis n'est pas signé, il n'y a pas de facture.
+4. **L'artisan chiffre, signe et reverse 15 %.** Il garde la main sur le prix, la vente et la relation client. Si le devis n'est pas signé, il n'y a pas de facture.
 
 ## Les cinq points de qualification
 
@@ -44,11 +44,11 @@ Une demande, un artisan. Ce n'est pas un engagement moral mais une conséquence 
 
 ## La rémunération
 
-- Commission : 10 % du montant du devis signé grâce à une demande transmise par Celexia.
+- Commission : 15 % du montant du devis signé grâce à une demande transmise par Celexia.
 - Aucun frais d'inscription, aucun abonnement, aucun budget publicitaire à avancer.
 - Devis non signé : commission de 0 €.
 
-Exemple, à titre d'illustration et non d'estimation d'activité : sur un devis signé de 15 000 €, la commission est de 1 500 €, et il reste 13 500 € à l'artisan.
+Exemple, à titre d'illustration et non d'estimation d'activité : sur un devis signé de 15 000 €, la commission est de 2 250 €, et il reste 12 750 € à l'artisan.
 
 Comparaison de nature, sans chiffre de performance : un budget publicitaire se dépense que le chantier soit signé ou non ; un lot de contacts se paie d'avance et est fréquemment partagé avec des concurrents. Ici, tant qu'il n'y a pas de signature, il n'y a pas de facture.
 
@@ -90,12 +90,12 @@ Celexia ne dit pas comment elle les trouve. En revanche, ce qui est transmis est
 **Vais-je être mis en concurrence avec d'autres entreprises ?**
 Non. Une demande est transmise à un seul artisan.
 
-**10 %, n'est-ce pas cher ?**
-C'est 10 % d'un chantier signé, pas d'un chantier espéré. Tant qu'il n'y a pas de signature, il n'y a pas de facture.
+**15 %, n'est-ce pas cher ?**
+C'est 15 % d'un chantier signé, pas d'un chantier espéré. Tant qu'il n'y a pas de signature, il n'y a pas de facture.
 
 ## Rejoindre le réseau
 
-L'inscription se fait en ligne : https://crm-ci7k.vercel.app/rejoindre
+L'inscription se fait en ligne : https://crm-ci7k.vercel.app/rejoindre?taux=15
 
 Le formulaire demande le métier, la zone d'intervention et les coordonnées de l'entreprise. Celexia vérifie ensuite qu'elle peut être utile sur le secteur concerné, puis revient vers l'artisan. L'inscription est gratuite.
 

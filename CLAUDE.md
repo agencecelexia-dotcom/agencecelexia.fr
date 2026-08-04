@@ -5,16 +5,25 @@
 **React 19 + Vite 7 + react-router-dom 7 + Tailwind CSS 3.4**, en SPA, déployée
 sur Vercel ([vercel.json](vercel.json)) et Netlify ([netlify.toml](netlify.toml)).
 
-> ⚠️ **Ce n'est pas un projet Astro.** Il n'y a ni `.astro`, ni SSG, ni îlots,
-> ni zéro-JS par défaut. Toute recommandation supposant Astro (`astro-seo`,
+> ⚠️ **Ce n'est pas un projet Astro.** Il n'y a ni `.astro`, ni îlots, ni zéro-JS
+> par défaut. Le site fait bien du rendu statique, mais par un pipeline maison
+> (voir ci-dessous), pas par le framework. Toute recommandation supposant Astro (`astro-seo`,
 > `@astrojs/sitemap`, AstroWind comme template de base) ne s'applique pas telle
 > quelle et demande une migration explicite. À l'inverse, les bibliothèques
 > React sont compatibles ici.
 
-Le SEO ne repose pas sur le framework mais sur un **pré-rendu post-build** :
-`npm run build` = `vite build && node scripts/prerender-meta.mjs`. Ce script
-génère un `index.html` statique par route avec ses meta et son JSON-LD. **Une
-route absente de ce script est invisible pour Google.**
+Le SEO ne repose pas sur le framework mais sur un **pré-rendu post-build** en
+trois temps : `vite build` (client), `vite build --ssr src/entry-server.jsx`
+(bundle de rendu), puis `node scripts/prerender-meta.mjs`, qui génère un
+`index.html` statique par route contenant ses meta, son JSON-LD **et le contenu
+réellement rendu**. **Une route absente de ce script est invisible pour Google.**
+
+> ⚠️ **Ne jamais réintroduire `lazy()` ni `<Suspense>` dans l'arbre de
+> [src/App.jsx](src/App.jsx).** La moindre frontière Suspense fait émettre le
+> contenu par React dans un `<div hidden>` de fin de page, repositionné par un
+> script : un robot sans JavaScript n'y verrait que « Chargement… ». Les pages
+> sont donc importées statiquement, au prix d'environ 10 ko gzip et au bénéfice
+> de zéro requête à la navigation.
 
 Depuis la refonte, `prerender-meta.mjs` **importe** les métiers et la FAQ depuis
 `src/data/` : plus aucune liste dupliquée. Seul `public/sitemap.xml` reste à
@@ -22,7 +31,7 @@ mettre à jour à la main.
 
 Déjà en place et à ne pas régresser : `public/llms.txt` + `llms-full.txt`,
 `public/robots.txt` (crawlers IA explicitement autorisés), `public/sitemap.xml`
-(9 URLs), graphe JSON-LD complet (Organization, FAQPage, HowTo, LocalBusiness,
+(9 URLs), contenu pré-rendu (~8 500 caractères sur l'accueil), graphe JSON-LD complet (Organization, FAQPage, HowTo, LocalBusiness,
 BreadcrumbList, Service), skip link et `prefers-reduced-motion`.
 
 **Deux règles absolues sur le contenu** : ne jamais décrire les canaux
@@ -36,15 +45,13 @@ Tranché après mesure, pour clore le sujet — ne pas rouvrir sans élément no
 
 Pourquoi :
 
-1. **Le gain SEO d'Astro est déjà acquis.** `prerender-meta.mjs` produit 25
-   fichiers HTML statiques portant chacun ses `title`, `canonical`, OG et
-   JSON-LD. Googlebot n'a pas besoin d'exécuter de JS pour les lire. Vérifié
-   par contrôle croisé sitemap ↔ `dist/` : zéro écart. Migrer rachèterait un
-   bénéfice déjà obtenu.
+1. **Le gain SEO d'Astro est déjà acquis.** Depuis le 3 août 2026,
+   `prerender-meta.mjs` produit 9 fichiers HTML statiques portant chacun ses
+   meta, son JSON-LD **et son contenu rendu**. Aucun robot n'a besoin
+   d'exécuter de JS pour les lire. Migrer rachèterait un bénéfice déjà obtenu.
 2. **Le coût est une réécriture complète** : 8 pages, `MetierPage`, tous les
    composants partagés, plus le remplacement du pipeline de pré-rendu.
-   `NicheContext` est de l'état client réel (localStorage + paramètre d'URL) :
-   c'est le cas qui s'accommode le plus mal du modèle zéro-JS d'Astro.
+   Le pipeline de pré-rendu maison, lui, fonctionne et est vérifié.
 3. **Deux refontes simultanées sont indiagnosticables.** Changer le design,
    la copy *et* le framework en même temps rend impossible d'attribuer une
    régression SEO ou de conversion. La chaîne SEO actuelle fonctionne ; on ne
@@ -52,7 +59,7 @@ Pourquoi :
 4. **Le vrai levier de perf ne dépend pas du framework** — voir ci-dessous.
 
 Le contre-argument honnête : Astro servirait cette brochure avec ~0 ko de JS
-contre **85 ko gzip aujourd'hui sur l'accueil**. Sur la seule livraison, Astro
+contre **~86 ko gzip aujourd'hui** (identique sur toutes les pages). Sur la seule livraison, Astro
 est supérieur. On y renonce pour une question de coût, de risque et de calendrier,
 pas parce que React serait meilleur ici.
 
@@ -67,7 +74,8 @@ La forme déclarative `manualChunks: { vendor: [...] }` ne capturait pas
 module différent). React se retrouvait dans le chunk applicatif, invalidé à
 chaque déploiement. [vite.config.js](vite.config.js) utilise désormais la forme
 fonction, qui range tout `node_modules` dans `vendor`. Le poids total est
-inchangé (~85 ko gzip sur l'accueil) : le gain est en cache, pas en octets.
+inchangé : le gain est en cache, pas en octets. Répartition actuelle :
+`vendor` 70,6 ko gzip (stable) + `index` 15,4 ko + CSS 5,3 ko.
 
 ## Skills projet
 
@@ -75,7 +83,7 @@ Chargés automatiquement selon le contexte, dans [.claude/skills/](.claude/skill
 
 | Skill | Quand |
 |---|---|
-| `celexia-routes` | Ajouter / renommer / supprimer une route, une page ou un métier. Décrit le contrat de synchronisation multi-fichiers (App.jsx ↔ prerender-meta.mjs ↔ NicheContext.jsx ↔ sitemap.xml ↔ llms.txt). |
+| `celexia-routes` | Ajouter / renommer / supprimer une route, une page ou un métier. Décrit le contrat de synchronisation multi-fichiers (src/data/ ↔ prerender-meta.mjs ↔ sitemap.xml ↔ redirections). |
 | `celexia-copy` | Écrire ou réécrire du texte visible. Contient les faits d'offre vérifiés et l'interdiction des promesses chiffrées inventées. |
 | `celexia-ui` | Créer une section ou un composant, intégrer un bloc Tailwind externe. Tokens, composants partagés, conversion HTML→JSX, a11y, perf. |
 
@@ -103,7 +111,7 @@ Dans [references/](references/), **gitignoré** (mettre à jour avec `git pull`)
 
 - **Node.js 24.18.1 (LTS) + npm 11.16.0**, installés dans `/usr/local/bin`.
   `npm install` et `npm run build` fonctionnent. Build de référence : 61 modules,
-  ~600 ms, **9 pages pré-rendues** (5 pages de base + 4 métiers).
+  ~600 ms, **9 pages pré-rendues avec leur contenu** (5 pages de base + 4 métiers).
 - **Ne jamais vérifier le pré-rendu via `npx vite preview`** : son repli SPA sert
   `dist/index.html` pour toutes les routes, tous les titres paraissent alors
   identiques. Contrôler les fichiers de `dist/` directement.
@@ -111,7 +119,7 @@ Dans [references/](references/), **gitignoré** (mettre à jour avec `git pull`)
   `noindex, nofollow`, volontairement absente du sitemap (outil commercial
   par client — voir [GUIDE_PAGE_PROPOSITION.md](GUIDE_PAGE_PROPOSITION.md)).
   C'est normal qu'elle apparaisse dans `dist/` sans être dans `sitemap.xml`.
-- Dette technique connue, à traiter avant la refonte : `npm audit` remonte
+- Dette technique connue : `npm audit` remonte
   **13 vulnérabilités (11 hautes)**, et `caniuse-lite` a 10 mois
   (`npx update-browserslist-db@latest`). Ne pas lancer `npm audit fix --force`
   sans vérifier le build ensuite.

@@ -1,12 +1,16 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
-import { registerUrl, CTA_LABEL } from '../lib/links';
+import { registerUrl, CTA_LABEL, TAUX } from '../lib/links';
 import { METIERS, POINTS_QUALIFIES } from '../data/metiers';
-import { ETAPES, PAS_NOTRE_METIER, FAQ_COMMUNE as FAQ } from '../data/offre';
+import { DEFINITION, ETAPES, PAS_NOTRE_METIER, FAQ_COMMUNE as FAQ } from '../data/offre';
 import Reveal from '../components/Reveal';
 import CTAButton from '../components/CTAButton';
 
 const metiers = Object.entries(METIERS).map(([slug, data]) => ({ slug, ...data }));
+
+const EXEMPLE = 15000;
+const commission = Math.round((EXEMPLE * TAUX) / 100);
+const euro = (n) => n.toLocaleString('fr-FR') + ' €';
 
 const SectionHead = ({ num, kicker }) => (
   <div className="section-label">
@@ -15,82 +19,107 @@ const SectionHead = ({ num, kicker }) => (
   </div>
 );
 
+const Croix = ({ className = '' }) => (
+  <svg className={className} fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" viewBox="0 0 24 24" aria-hidden="true">
+    <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+);
+
+const Plus = ({ className = '' }) => (
+  <svg className={className} fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" viewBox="0 0 24 24" aria-hidden="true">
+    <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
+  </svg>
+);
+
 const Home = () => {
   usePageMeta({
     title: "Agence Celexia | Apport d'affaires pour artisans du bâtiment",
     description:
-      "Celexia trouve et finance les demandes de chantiers, les qualifie, puis les transmet à un seul artisan. Vous chiffrez, vous signez, vous reversez 10 %. Rien à avancer.",
+      `Apporteur d'affaires pour artisans. Nous finançons et qualifions les demandes de chantiers, puis les transmettons à un seul artisan. ${TAUX} % sur devis signé.`,
     canonical: 'https://agencecelexia.fr/',
   });
 
   return (
     <>
       {/* ============ HERO ============ */}
-      <section className="px-5 md:px-8 pt-16 pb-16 md:pt-28 md:pb-24">
+      <section className="px-5 md:px-8 pt-20 pb-16 md:pt-32 md:pb-24">
         <div className="container-custom">
-          <div className="max-w-3xl">
-            <p className="section-kicker mb-6">Apport d’affaires · Artisans du bâtiment</p>
-            <h1 className="font-display font-expanded font-black text-ardoise-900 text-[2.15rem] leading-[1.08] sm:text-5xl md:text-6xl tracking-tight text-balance">
-              Des chantiers qualifiés, transmis à un seul artisan.
+          <div className="max-w-4xl">
+            <p className="section-kicker mb-8">Apport d’affaires · Artisans du bâtiment</p>
+            <h1 className="font-display font-medium text-encre-900 text-display-sm sm:text-display-md md:text-display-lg text-balance">
+              Des chantiers qualifiés,
+              <br className="hidden sm:block" />{' '}
+              <span className="text-violet-600">transmis à un seul artisan.</span>
             </h1>
-            <p className="mt-7 text-lg md:text-xl text-ardoise-700 leading-relaxed max-w-prose">
+            <p className="mt-10 text-lg md:text-xl text-encre-700 leading-relaxed max-w-prose text-pretty">
               Nous trouvons les particuliers qui ont un vrai projet, nous vérifions qu’il tient
               debout, puis nous vous le transmettons — à vous seul. Vous chiffrez, vous signez,
-              vous nous reversez 10 %.{' '}
-              <strong className="text-ardoise-900 font-semibold">
+              vous nous reversez {TAUX} %.{' '}
+              <strong className="text-encre-900 font-semibold">
                 Si vous ne signez pas, vous ne payez rien.
               </strong>
             </p>
 
-            <div className="mt-9 flex flex-col sm:flex-row gap-3">
+            <div className="mt-12 flex flex-col sm:flex-row gap-4">
               <CTAButton href={registerUrl('accueil-hero')}>{CTA_LABEL}</CTAButton>
-              <a href="#metiers" className="btn-secondary">
-                Voir les 4 métiers
-              </a>
+              <a href="#metiers" className="btn-secondary">Voir les 4 métiers</a>
             </div>
 
-            <p className="mt-5 text-sm text-acier-600">
+            <p className="mt-6 text-sm text-encre-600">
               Inscription gratuite · Aucun budget à avancer
             </p>
           </div>
         </div>
       </section>
 
+      {/* ============ DÉFINITION — bloc court, autonome, pensé pour être cité ============ */}
+      <section className="px-5 md:px-8 pb-20 md:pb-28">
+        <div className="container-custom">
+          <div className="border-l-2 border-violet-500 pl-6 md:pl-8 max-w-3xl">
+            <h2 className="section-kicker mb-4">Qu’est-ce qu’Agence Celexia ?</h2>
+            <p className="text-lg md:text-xl text-encre-700 leading-relaxed text-pretty">
+              {DEFINITION}
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ============ 01 — COMMENT ÇA MARCHE ============ */}
-      <section className="section bg-chaux-100 border-y border-chaux-300">
+      <section className="section bg-brume-50 border-y border-brume-200">
         <div className="container-custom">
           <SectionHead num="01" kicker="Comment ça marche" />
           <Reveal>
-            <h2 className="font-display font-expanded font-black text-ardoise-900 text-3xl md:text-4xl tracking-tight max-w-2xl text-balance">
+            <h2 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md max-w-2xl text-balance">
               Quatre étapes, et une seule facture possible.
             </h2>
           </Reveal>
 
-          <div className="mt-12 grid gap-px bg-chaux-300 border border-chaux-300 rounded-lg overflow-hidden md:grid-cols-2">
+          <ol className="mt-16 grid gap-x-12 gap-y-12 md:grid-cols-2">
             {ETAPES.map((etape, i) => (
-              <Reveal key={etape.titre} delay={i * 60}>
-                <div className="bg-chaux-50 p-7 md:p-8 h-full">
-                  <span className="section-num">{String(i + 1).padStart(2, '0')}</span>
-                  <h3 className="mt-4 font-display font-bold text-xl text-ardoise-900 leading-snug">
-                    {etape.titre}
-                  </h3>
-                  <p className="mt-3 text-ardoise-700 leading-relaxed">{etape.desc}</p>
-                </div>
+              <Reveal key={etape.titre} delay={i * 70}>
+                <li className="flex gap-5">
+                  <span className="section-num pt-1.5 shrink-0">{String(i + 1).padStart(2, '0')}</span>
+                  <div>
+                    <h3 className="font-display font-semibold text-xl md:text-2xl text-encre-900 leading-snug">
+                      {etape.titre}
+                    </h3>
+                    <p className="mt-3 text-encre-700 leading-relaxed">{etape.desc}</p>
+                  </div>
+                </li>
               </Reveal>
             ))}
-          </div>
+          </ol>
 
-          {/* Les cinq points de qualification */}
           <Reveal>
-            <div className="mt-12 bg-white border border-acier-200 rounded-lg p-7 md:p-9">
-              <h3 className="font-display font-bold text-xl text-ardoise-900">
+            <div className="mt-20 bg-white border border-brume-300 rounded-xl p-8 md:p-12">
+              <h3 className="font-display font-semibold text-xl md:text-2xl text-encre-900">
                 Ce que nous vérifions avant de vous transmettre quoi que ce soit
               </h3>
-              <dl className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <dl className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {POINTS_QUALIFIES.map((point) => (
-                  <div key={point.titre} className="border-l-2 border-cuivre-300 pl-4">
-                    <dt className="font-semibold text-ardoise-900">{point.titre}</dt>
-                    <dd className="mt-1.5 text-sm text-ardoise-700 leading-relaxed">{point.desc}</dd>
+                  <div key={point.titre} className="border-t border-violet-200 pt-4">
+                    <dt className="font-sans font-semibold text-encre-900">{point.titre}</dt>
+                    <dd className="mt-2 text-sm text-encre-700 leading-relaxed">{point.desc}</dd>
                   </div>
                 ))}
               </dl>
@@ -99,20 +128,20 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ============ 02 — UN SEUL ARTISAN ============ */}
-      <section className="section">
+      {/* ============ 02 — UN SEUL ARTISAN (bande profonde) ============ */}
+      <section className="section-lg bande sur-fonce">
         <div className="container-custom">
           <SectionHead num="02" kicker="Exclusivité" />
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
             <Reveal>
-              <h2 className="font-display font-expanded font-black text-ardoise-900 text-3xl md:text-4xl tracking-tight text-balance">
+              <h2 className="font-display font-medium text-white text-display-sm md:text-display-md text-balance">
                 Une demande, un artisan. Jamais cinq.
               </h2>
-              <p className="mt-6 text-lg text-ardoise-700 leading-relaxed">
+              <p className="mt-8 text-lg md:text-xl text-violet-200 leading-relaxed text-pretty">
                 C’est la différence avec un vendeur de contacts, et ce n’est pas une question
                 de bonne volonté : c’est de l’arithmétique.
               </p>
-              <p className="mt-4 text-ardoise-700 leading-relaxed">
+              <p className="mt-5 text-white/85 leading-relaxed">
                 Nous ne sommes rémunérés qu’en cas de devis signé. Envoyer le même chantier à
                 cinq entreprises diviserait donc nos propres chances par cinq — tout en vous
                 obligeant à casser votre prix pour l’emporter. Nous avons exactement le même
@@ -120,23 +149,20 @@ const Home = () => {
               </p>
             </Reveal>
 
-            <Reveal delay={80}>
-              <div className="card-chaux p-7 md:p-8">
-                <h3 className="font-display font-bold text-lg text-ardoise-900">
+            <Reveal delay={90}>
+              <div className="card-fonce p-8 md:p-10">
+                <h3 className="font-display font-semibold text-xl text-white">
                   Ce que nous ne faisons pas
                 </h3>
-                <ul className="mt-5 space-y-3.5">
+                <ul className="mt-8 space-y-5">
                   {PAS_NOTRE_METIER.map((item) => (
-                    <li key={item} className="flex gap-3 text-ardoise-700">
-                      <svg className="w-5 h-5 flex-shrink-0 mt-0.5 text-cuivre-500" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" viewBox="0 0 24 24" aria-hidden="true">
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                      </svg>
+                    <li key={item} className="flex gap-4 text-white/85">
+                      <Croix className="w-5 h-5 shrink-0 mt-0.5 text-violet-300" />
                       <span className="leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
-                <p className="mt-6 pt-6 border-t border-chaux-300 text-sm text-ardoise-700 leading-relaxed">
+                <p className="mt-8 pt-8 border-t border-white/15 text-sm text-violet-200 leading-relaxed">
                   Sur l’origine des demandes, nous restons volontairement discrets : c’est notre
                   métier, et c’est ce que nous finançons à votre place. En revanche nous sommes
                   précis sur ce que vous recevez, et c’est là-dessus que vous nous jugerez.
@@ -148,44 +174,44 @@ const Home = () => {
       </section>
 
       {/* ============ 03 — CE QUE ÇA COÛTE ============ */}
-      <section className="section bg-chaux-100 border-y border-chaux-300">
+      <section className="section">
         <div className="container-custom">
           <SectionHead num="03" kicker="Rémunération" />
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
+          <div className="grid gap-16 lg:grid-cols-2 lg:gap-24 items-start">
             <Reveal>
-              <h2 className="font-display font-expanded font-black text-ardoise-900 text-3xl md:text-4xl tracking-tight text-balance">
-                10 %, et seulement si vous signez.
+              <h2 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md text-balance">
+                {TAUX} %, et seulement si vous signez.
               </h2>
-              <p className="mt-6 text-lg text-ardoise-700 leading-relaxed">
+              <p className="mt-8 text-lg md:text-xl text-encre-700 leading-relaxed text-pretty">
                 Pas de frais d’inscription, pas d’abonnement, pas de budget publicitaire à
                 avancer. Notre rémunération est un pourcentage des devis que vous avez
                 effectivement signés grâce à un chantier que nous vous avons transmis.
               </p>
-              <p className="mt-4 text-ardoise-700 leading-relaxed">
+              <p className="mt-5 text-encre-700 leading-relaxed">
                 Un budget de publicité, vous le dépensez que ça marche ou non. Un lot de
                 contacts, vous le payez d’avance et il part souvent chez vos concurrents en même
                 temps. Ici, tant qu’il n’y a pas de signature, il n’y a pas de facture.
               </p>
             </Reveal>
 
-            <Reveal delay={80}>
-              <div className="bg-white border border-acier-200 rounded-lg p-7 md:p-8">
+            <Reveal delay={90}>
+              <div className="bg-brume-50 border border-brume-200 rounded-xl p-8 md:p-10">
                 <p className="section-kicker">Un exemple</p>
-                <dl className="mt-6 space-y-4">
-                  <div className="flex items-baseline justify-between gap-4 pb-4 border-b border-acier-200">
-                    <dt className="text-ardoise-700">Devis signé par votre client</dt>
-                    <dd className="tabular font-display font-bold text-xl text-ardoise-900">15 000 €</dd>
+                <dl className="mt-8 space-y-5">
+                  <div className="flex items-baseline justify-between gap-4 pb-5 border-b border-brume-300">
+                    <dt className="text-encre-700">Devis signé par votre client</dt>
+                    <dd className="tabular font-display font-semibold text-2xl text-encre-900">{euro(EXEMPLE)}</dd>
                   </div>
-                  <div className="flex items-baseline justify-between gap-4 pb-4 border-b border-acier-200">
-                    <dt className="text-ardoise-700">Notre commission (10 %)</dt>
-                    <dd className="tabular font-display font-bold text-xl text-cuivre-600">1 500 €</dd>
+                  <div className="flex items-baseline justify-between gap-4 pb-5 border-b border-brume-300">
+                    <dt className="text-encre-700">Notre commission ({TAUX} %)</dt>
+                    <dd className="tabular font-display font-semibold text-2xl text-violet-600">{euro(commission)}</dd>
                   </div>
                   <div className="flex items-baseline justify-between gap-4">
-                    <dt className="font-semibold text-ardoise-900">Ce qui vous reste</dt>
-                    <dd className="tabular font-display font-black text-2xl text-ardoise-900">13 500 €</dd>
+                    <dt className="font-semibold text-encre-900">Ce qui vous reste</dt>
+                    <dd className="tabular font-display font-semibold text-3xl text-encre-900">{euro(EXEMPLE - commission)}</dd>
                   </div>
                 </dl>
-                <p className="mt-6 pt-5 border-t border-acier-200 text-sm text-acier-600 leading-relaxed">
+                <p className="mt-8 pt-6 border-t border-brume-300 text-sm text-encre-600 leading-relaxed">
                   Devis non signé : commission de 0 €. Le montant est un exemple, pas une
                   estimation de votre activité.
                 </p>
@@ -196,40 +222,39 @@ const Home = () => {
       </section>
 
       {/* ============ 04 — LES MÉTIERS ============ */}
-      <section id="metiers" className="section scroll-mt-20">
+      <section id="metiers" className="section bg-brume-50 border-y border-brume-200 scroll-mt-20">
         <div className="container-custom">
           <SectionHead num="04" kicker="Les métiers accompagnés" />
           <Reveal>
-            <h2 className="font-display font-expanded font-black text-ardoise-900 text-3xl md:text-4xl tracking-tight max-w-2xl text-balance">
+            <h2 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md max-w-2xl text-balance">
               Quatre métiers, choisis pour la taille des chantiers.
             </h2>
-            <p className="mt-6 text-lg text-ardoise-700 leading-relaxed max-w-prose">
+            <p className="mt-8 text-lg text-encre-700 leading-relaxed max-w-prose text-pretty">
               Notre modèle n’a de sens que sur des chantiers d’un certain montant : c’est ce qui
-              permet de financer la recherche des projets sans rien vous facturer. Nous nous
-              concentrons donc sur quatre métiers.
+              permet de financer la recherche des projets sans rien vous facturer.
             </p>
           </Reveal>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          <div className="mt-16 grid gap-6 sm:grid-cols-2">
             {metiers.map((metier, i) => (
-              <Reveal key={metier.slug} delay={i * 60}>
+              <Reveal key={metier.slug} delay={i * 70}>
                 <Link
                   to={`/metiers/${metier.slug}`}
-                  className="card group flex flex-col h-full p-7 md:p-8"
+                  className="card group flex flex-col h-full p-8 md:p-10"
                 >
                   <span
-                    className="w-8 h-1 rounded-sm"
+                    className="w-10 h-1 rounded-full"
                     style={{ backgroundColor: metier.color }}
                     aria-hidden="true"
                   />
-                  <h3 className="mt-5 font-display font-bold text-xl text-ardoise-900 group-hover:text-cuivre-600 transition-colors">
+                  <h3 className="mt-6 font-display font-semibold text-2xl text-encre-900 group-hover:text-violet-600 transition-colors">
                     {metier.label}
                   </h3>
-                  <p className="mt-3 text-ardoise-700 leading-relaxed flex-grow">
-                    {metier.accroche}
-                  </p>
-                  <p className="mt-5 pt-5 border-t border-acier-200 text-sm text-acier-600">
-                    Chantiers de <span className="tabular text-ardoise-800 font-semibold">{metier.budget}</span> en moyenne sur le marché
+                  <p className="mt-4 text-encre-700 leading-relaxed grow">{metier.accroche}</p>
+                  <p className="mt-8 pt-6 border-t border-brume-200 text-sm text-encre-600">
+                    Chantiers de{' '}
+                    <span className="tabular text-encre-900 font-semibold">{metier.budget}</span>{' '}
+                    en moyenne sur le marché
                   </p>
                 </Link>
               </Reveal>
@@ -239,63 +264,49 @@ const Home = () => {
       </section>
 
       {/* ============ FAQ ============ */}
-      <section className="section bg-chaux-100 border-y border-chaux-300">
+      <section className="section">
         <div className="container-custom">
           <SectionHead num="05" kicker="Les questions qu’on nous pose" />
           <Reveal>
-            <h2 className="font-display font-expanded font-black text-ardoise-900 text-3xl md:text-4xl tracking-tight max-w-2xl text-balance">
+            <h2 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md max-w-2xl text-balance">
               Ce que vous êtes en train de vous demander.
             </h2>
           </Reveal>
 
-          <div className="mt-12 max-w-3xl">
+          <div className="mt-16 max-w-3xl">
             {FAQ.map((item, i) => (
-              <Reveal key={item.q} delay={i * 50}>
-                <details className="group border-b border-chaux-300 py-5" open={i === 0}>
-                  <summary className="flex items-start justify-between gap-4 cursor-pointer list-none font-display font-bold text-lg text-ardoise-900">
-                    <span>{item.q}</span>
-                    <svg
-                      className="w-5 h-5 flex-shrink-0 mt-1 text-cuivre-500 transition-transform duration-200 group-open:rotate-45"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <line x1="12" y1="5" x2="12" y2="19" />
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                    </svg>
-                  </summary>
-                  <p className="mt-4 text-ardoise-700 leading-relaxed max-w-prose">{item.a}</p>
-                </details>
-              </Reveal>
+              <details key={item.q} className="group border-b border-brume-300 py-7" open={i === 0}>
+                <summary className="flex items-start justify-between gap-6 cursor-pointer list-none font-display font-semibold text-xl md:text-2xl text-encre-900">
+                  <span>{item.q}</span>
+                  <Plus className="w-6 h-6 shrink-0 mt-1 text-violet-600 transition-transform duration-200 group-open:rotate-45" />
+                </summary>
+                <p className="mt-5 text-encre-700 leading-relaxed max-w-prose text-pretty">{item.a}</p>
+              </details>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ============ CONVERSION ============ */}
-      <section className="section">
+      {/* ============ CONVERSION (bande profonde) ============ */}
+      <section className="section-lg bande sur-fonce">
         <div className="container-custom">
           <Reveal>
             <div className="max-w-2xl">
-              <hr className="rule-cuivre mb-10" />
-              <h2 className="font-display font-expanded font-black text-ardoise-900 text-3xl md:text-4xl tracking-tight text-balance">
+              <h2 className="font-display font-medium text-white text-display-sm md:text-display-md text-balance">
                 Inscrivez votre entreprise.
               </h2>
-              <p className="mt-6 text-lg text-ardoise-700 leading-relaxed">
+              <p className="mt-8 text-lg md:text-xl text-violet-200 leading-relaxed text-pretty">
                 Le formulaire prend quelques minutes : votre métier, votre zone d’intervention et
                 de quoi vous joindre. Nous vérifions ensuite que nous pouvons vous être utiles
                 sur votre secteur, et nous revenons vers vous. Tant que rien n’est signé de votre
                 côté, vous n’avez rien à payer.
               </p>
-              <div className="mt-9">
+              <div className="mt-12">
                 <CTAButton href={registerUrl('accueil-final')}>{CTA_LABEL}</CTAButton>
               </div>
-              <p className="mt-5 text-sm text-acier-600">
+              <p className="mt-8 text-sm text-violet-200">
                 Une question avant de vous inscrire ?{' '}
-                <Link to="/contact" className="text-cuivre-600 underline underline-offset-2 hover:text-cuivre-700">
+                <Link to="/contact" className="text-white underline underline-offset-4 hover:text-violet-200">
                   Écrivez-nous
                 </Link>
                 .

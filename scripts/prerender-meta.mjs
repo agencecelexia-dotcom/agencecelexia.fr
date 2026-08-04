@@ -1,9 +1,15 @@
 /**
- * Script post-build : génère un fichier HTML statique par route, avec ses meta
- * (title, description, canonical, OG, Twitter) et son JSON-LD.
+ * Script post-build : génère un fichier HTML statique par route, contenant
+ * à la fois ses meta (title, description, canonical, OG, Twitter), son JSON-LD
+ * et **le contenu de la page réellement rendu**.
  *
- * C'est la SEULE source de vérité du SEO : le site est une SPA React, donc une
- * route absente d'ici est invisible pour Google, quoi qu'en dise le routeur.
+ * C'est la SEULE source de vérité du SEO. Une route absente d'ici est invisible
+ * pour Google, quoi qu'en dise le routeur React.
+ *
+ * Le rendu du contenu vient de dist-ssr/entry-server.js (bundle SSR produit par
+ * `vite build --ssr`). Sans lui, le HTML ne contiendrait qu'un <div id="root">
+ * vide : Google saurait l'exécuter, mais pas GPTBot, ClaudeBot, PerplexityBot
+ * ni les robots d'aperçu de lien.
  *
  * Les métiers et la FAQ sont IMPORTÉS depuis src/data/ : plus aucune liste
  * dupliquée à maintenir en parallèle. Ajouter un métier dans src/data/metiers.js
@@ -14,7 +20,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import { METIERS } from '../src/data/metiers.js';
-import { ETAPES, FAQ_COMMUNE } from '../src/data/offre.js';
+import { DEFINITION, ETAPES, FAQ_COMMUNE } from '../src/data/offre.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const distDir = join(__dirname, '..', 'dist');
@@ -27,14 +33,16 @@ const ORG_LD = {
   '@type': ['Organization', 'ProfessionalService'],
   '@id': `${SITE_URL}/#organization`,
   name: 'Agence Celexia',
+  // Les deux formes sont réellement tapées dans un moteur de recherche.
+  alternateName: ['Celexia', 'CELEXIA'],
   legalName: 'CELEXIA',
   url: SITE_URL,
   logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png`, width: 605, height: 98 },
-  image: `${SITE_URL}/logo.png`,
-  description:
-    "Apporteur d'affaires pour artisans du bâtiment. Celexia trouve et finance les demandes de chantiers, les qualifie, puis les transmet à un seul artisan partenaire. Commission de 10 % sur les devis signés uniquement, sans avance de frais.",
+  image: `${SITE_URL}/og-image.png`,
+  // Reprise mot pour mot de DEFINITION (src/data/offre.js), elle-même affichée
+  // en tête d'accueil : ce que le site montre et ce qu'il déclare coïncident.
+  description: DEFINITION,
   slogan: 'On gagne quand vous gagnez',
-  priceRange: '€€',
   serviceType: "Apport d'affaires pour artisans du bâtiment",
   telephone: '+33651725756',
   email: 'agence.celexia@gmail.com',
@@ -54,7 +62,10 @@ const ORG_LD = {
     'Mise en relation artisan et particulier',
     'Chantiers de piscine, couverture, façade et maçonnerie',
   ],
-  sameAs: ['https://www.facebook.com/agencecelexia', 'https://www.linkedin.com/company/agence-celexia'],
+  // Ne lister ici que des profils qui répondent réellement : un lien mort est un
+  // signal négatif. LinkedIn a été retiré (404 au 3 août 2026), à remettre le
+  // jour où la page existe.
+  sameAs: ['https://www.facebook.com/agencecelexia'],
   founder: [
     {
       '@type': 'Person',
@@ -99,7 +110,7 @@ const HOWTO_LD = {
   '@id': `${SITE_URL}/#howto`,
   name: "Comment fonctionne l'apport d'affaires Celexia pour les artisans",
   description:
-    "Celexia finance la recherche des chantiers, qualifie les demandes et les transmet à un seul artisan. L'artisan ne reverse 10 % que sur les devis signés.",
+    "Celexia finance la recherche des chantiers, qualifie les demandes et les transmet à un seul artisan. L'artisan ne reverse 15 % que sur les devis signés.",
   step: ETAPES.map((etape, i) => ({
     '@type': 'HowToStep',
     position: i + 1,
@@ -112,8 +123,9 @@ const baseRoutes = [
   {
     path: '/',
     title: "Agence Celexia | Apport d'affaires pour artisans du bâtiment",
+    // ~150 caractères : au-delà, Google tronque en résultat de recherche.
     description:
-      "Celexia trouve et finance les demandes de chantiers, les qualifie, puis les transmet à un seul artisan. Vous chiffrez, vous signez, vous reversez 10 %. Rien à avancer.",
+      "Apporteur d'affaires pour artisans. Nous finançons et qualifions les demandes de chantiers, puis les transmettons à un seul artisan. 15 % sur devis signé.",
     jsonLd: {
       '@context': 'https://schema.org',
       '@graph': [
@@ -123,7 +135,7 @@ const baseRoutes = [
           url: SITE_URL,
           name: 'Agence Celexia',
           description:
-            "Apporteur d'affaires pour artisans du bâtiment. Commission de 10 % sur les devis signés uniquement.",
+            "Apporteur d'affaires pour artisans du bâtiment. Commission de 15 % sur les devis signés uniquement.",
           inLanguage: 'fr-FR',
           publisher: { '@id': `${SITE_URL}/#organization` },
         },
@@ -191,7 +203,7 @@ const baseRoutes = [
           '@id': `${SITE_URL}/contact#localbusiness`,
           name: 'Agence Celexia',
           description:
-            "Apporteur d'affaires pour artisans du bâtiment. Commission de 10 % sur les devis signés.",
+            "Apporteur d'affaires pour artisans du bâtiment. Commission de 15 % sur les devis signés.",
           url: SITE_URL,
           telephone: '+33651725756',
           email: 'agence.celexia@gmail.com',
@@ -203,7 +215,7 @@ const baseRoutes = [
             addressLocality: 'Nogent-sur-Marne',
           },
           areaServed: { '@type': 'Country', name: 'France' },
-          priceRange: '€€',
+          // `priceRange` retiré : dénué de sens pour une commission au résultat.
           openingHours: 'Mo-Fr 09:00-18:00',
           parentOrganization: { '@id': `${SITE_URL}/#organization` },
         },
@@ -228,7 +240,7 @@ const baseRoutes = [
 const metierRoutes = Object.entries(METIERS).map(([slug, metier]) => ({
   path: `/metiers/${slug}`,
   title: `Apport d'affaires ${metier.label} | Agence Celexia`,
-  description: `Celexia trouve et finance les demandes de chantiers ${metier.labelCourt.toLowerCase()}, les qualifie, puis les transmet à un seul artisan. Vous reversez 10 % sur les devis signés.`,
+  description: `Celexia trouve et finance les demandes de chantiers ${metier.labelCourt.toLowerCase()}, les qualifie, puis les transmet à un seul artisan. Vous reversez 15 % sur les devis signés.`,
   jsonLd: {
     '@context': 'https://schema.org',
     '@graph': [
@@ -236,7 +248,7 @@ const metierRoutes = Object.entries(METIERS).map(([slug, metier]) => ({
         '@type': 'Service',
         '@id': `${SITE_URL}/metiers/${slug}/#service`,
         name: `Apport d'affaires pour ${metier.label.toLowerCase()}`,
-        description: `Service d'apport d'affaires dédié au métier ${metier.label.toLowerCase()}. Demandes de chantiers qualifiées, transmises à un seul artisan. Commission de 10 % sur les devis signés.`,
+        description: `Service d'apport d'affaires dédié au métier ${metier.label.toLowerCase()}. Demandes de chantiers qualifiées, transmises à un seul artisan. Commission de 15 % sur les devis signés.`,
         url: `${SITE_URL}/metiers/${slug}`,
         serviceType: "Apport d'affaires",
         provider: { '@id': `${SITE_URL}/#organization` },
@@ -307,7 +319,7 @@ function buildBreadcrumbJsonLd(route) {
   };
 }
 
-function generatePage(template, route) {
+function generatePage(template, route, contenu) {
   const canonical = `${SITE_URL}${route.path === '/' ? '/' : route.path}`;
   const title = escapeHtml(route.title);
   const description = escapeHtml(route.description);
@@ -338,6 +350,12 @@ function generatePage(template, route) {
     html = html.replace('</head>', `${schemas}  </head>`);
   }
 
+  // Injection du contenu rendu. `hydrateRoot` (src/entry-client.jsx) reprend la
+  // main dessus au chargement ; sans JavaScript, le texte reste lisible tel quel.
+  if (contenu) {
+    html = html.replace('<div id="root"></div>', `<div id="root">${contenu}</div>`);
+  }
+
   return html;
 }
 
@@ -349,10 +367,25 @@ if (!existsSync(templatePath)) {
 }
 
 const template = readFileSync(templatePath, 'utf-8');
+
+// Bundle SSR produit par `vite build --ssr`. Absent en cas de build partiel :
+// on dégrade alors sur meta + JSON-LD seuls, en le signalant bruyamment.
+const ssrPath = join(__dirname, '..', 'dist-ssr', 'entry-server.js');
+let render = null;
+if (existsSync(ssrPath)) {
+  ({ render } = await import(ssrPath));
+} else {
+  console.warn(
+    "⚠️  dist-ssr/entry-server.js introuvable : le contenu des pages ne sera PAS " +
+    "pré-rendu. Lancer `npm run build` complet."
+  );
+}
+
 let generated = 0;
 
 for (const route of routes) {
-  const html = generatePage(template, route);
+  const contenu = render ? await render(route.path) : null;
+  const html = generatePage(template, route, contenu);
 
   if (route.path === '/') {
     writeFileSync(templatePath, html);
@@ -364,4 +397,7 @@ for (const route of routes) {
   generated++;
 }
 
-console.log(`Pre-rendered ${generated} pages with SEO meta tags and JSON-LD schemas.`);
+console.log(
+  `Pre-rendered ${generated} pages with SEO meta tags and JSON-LD schemas` +
+  (render ? ' and full page content.' : ' (WITHOUT page content).')
+);

@@ -28,36 +28,39 @@ Demander avant d'ajouter une dépendance UI.
 
 Définis dans [tailwind.config.js](tailwind.config.js) :
 
-**Le site est clair de bout en bout. Aucune section à fond sombre, footer
-compris.** Le rythme vient de l'alternance blanc / `chaux-100` et des filets de
-cuivre, jamais de blocs sombres. Bordures fines plutôt qu'ombres portées.
+**Base blanche, rythmée par des bandes violet profond pleine largeur.** Toute la
+palette dérive du violet du logo, échantillonné dans `public/logo.png` : **#8C52FF**.
 
-- **Couleurs** : fond de base **blanc**. `chaux.50/100/200/300` (sections
-  alternées, blanc cassé chaud), `ardoise.600→900` (texte, **jamais en fond de
-  section**), `cuivre.50→700` (**accent unique** : filets, numéros, boutons),
-  `patine` (états positifs), `acier.200→600` (texte secondaire, bordures).
-  Chaque métier a une teinte matière désaturée dans `METIERS`
-  ([src/data/metiers.js](src/data/metiers.js)), utilisée par petites touches
-  seulement — elle ne concurrence jamais le cuivre.
-- **Typo** : une seule superfamille, **Archivo variable** self-hostée
-  (`public/fonts/`), axes `wght` 100-900 et `wdth` 62-125 %. `font-display` et
-  `font-sans` pointent tous deux dessus. Les chasses passent par les utilitaires
-  `.font-narrow` (78 %), `.font-normal-width`, `.font-expanded` (112 %).
-  **Ne pas ajouter de seconde famille** : c'est un fichier de plus au chargement.
-- **Ombres** : `shadow-soft`, `shadow-card`, `shadow-card-hover`, volontairement
-  discrètes. Pas d'ombre colorée, pas de halo.
+- **Fond** : blanc en majorité, `brume.50/100` pour les sections alternées (blanc
+  cassé teinté violet — **jamais de beige**, c'est lui qui faisait ressortir le
+  rectangle blanc du logo avant détourage).
+- **Texte** : `encre.600→900`, un noir violacé. Jamais de gris neutre.
+- **Accent** : `violet.600` pour tout ce qui est texte ou fond de bouton,
+  `violet.500` (la marque exacte) réservé aux éléments non textuels.
+- **Bandes** : `.bande` (fond `violet-900` + texte blanc) posé sur une section,
+  avec `.sur-fonce` qui bascule automatiquement boutons, filets, numéros et
+  anneau de focus. Deux ou trois bandes par page, **jamais deux consécutives**.
+  Sur bande : texte secondaire en `violet-200`, filets et numéros en `violet-300`.
+- **Ombres** : `shadow-soft`, `shadow-card`, `shadow-lift`. Aucune ombre colorée.
 - **Dégradés** : aucun. C'est délibéré.
-- **Animations** : `animate-fade-up`, `fade-in`, `slide-up`. Les quinze autres
-  ont été supprimées lors de la refonte — ne pas les réintroduire.
+- **Animations** : `animate-fade-in` uniquement, plus `.reveal` (voir plus bas).
 
-> **Contraintes de contraste, vérifiées au calcul.** `cuivre-500` sur blanc
-> plafonne à **4,45:1**, sous le seuil AA. Donc : `cuivre-600` pour tout texte
-> et tout fond de bouton (5,88:1), `cuivre-500` réservé aux éléments non
-> textuels (icônes décoratives, filets, anneau de focus). `acier-500` sur blanc
-> ne vaut que 3,22:1 : **jamais de texte en `acier-500`**, utiliser `acier-600`
-> (4,93:1). Texte de lecture toujours en `ardoise-700`/`800`.
+**Typographie — deux familles, self-hostées.** `font-display` = **Newsreader**
+(serif variable, titres uniquement, `font-medium`/`font-semibold` — la graisse
+900 n'existe pas). `font-sans` = **Archivo** (interface et texte courant).
+Échelle de titres dédiée : `text-display-sm/md/lg/xl`.
 
-Avant d'écrire une valeur en dur (`#7C3AED`, `shadow-[0_4px...]`), vérifier
+> J'avais écrit ici « ne pas ajouter de seconde famille » pour des raisons de
+> performance. La règle a été levée sciemment le 3 août 2026 : Archivo seule
+> était industrielle, pas cossue. Coût assumé : 129 ko de plus.
+
+> **Contraintes de contraste, vérifiées au calcul.** `violet-600` sur blanc =
+> 6,44:1, blanc sur `violet-600` = 6,44:1, blanc sur `violet-900` = 17,75:1,
+> `violet-200` sur `violet-900` = 10,17:1, `violet-300` sur `violet-900` =
+> 7,08:1. Tout est AA. **Ne jamais utiliser `violet-500` pour du texte** : il
+> n'a pas été validé pour cet usage, il sert de couleur de marque non textuelle.
+
+Avant d'écrire une valeur en dur (`#8C52FF`, `shadow-[0_4px...]`), vérifier
 qu'un token ne couvre pas déjà le besoin. Si un token manque vraiment,
 l'ajouter à `tailwind.config.js` plutôt que de le coder en dur dans un composant.
 
@@ -104,7 +107,7 @@ C'est du **HTML Tailwind pur**. Conversion en JSX, systématiquement :
    `stroke-linecap` → `strokeLinecap`, `fill-rule` → `fillRule`.
 5. `<!-- … -->` → `{/* … */}`.
 6. **Remapper les couleurs** : HyperUI sort en `indigo-*`/`blue-*`/`gray-*`.
-   Passer sur `cuivre-*`, `ardoise-*` et `chaux-*`. Un bloc laissé en indigo se
+   Passer sur `violet-*`, `encre-*` et `brume-*`. Un bloc laissé en indigo se
    voit immédiatement.
 7. Remplacer les `<a href>` internes par `<Link to>` de `react-router-dom`, et
    les boutons d'action par `CTAButton`.
@@ -119,7 +122,8 @@ pas de bascule de thème. Partir systématiquement de la version claire.
 10. Ajouter l'en-tête de section signature si le bloc devient une section à part
     entière : un `<div className="section-label">` contenant un
     `<span className="section-num">` et un `<span className="section-kicker">`.
-    Le filet de cuivre est produit par le `::after` de `.section-label`.
+    Le filet est produit par le `::after` de `.section-label`, et bascule tout
+    seul en clair si la section porte `.sur-fonce`.
 
 ## Accessibilité — le niveau déjà atteint
 
@@ -128,7 +132,6 @@ Ne pas régresser sur ce qui existe :
 - Skip link « Aller au contenu principal » en tête de [App.jsx](src/App.jsx),
   visible au focus.
 - `<main id="main-content">` unique.
-- Fallback de chargement avec `role="status"`, `aria-label` et texte `sr-only`.
 - `aria-hidden="true"` sur les éléments purement décoratifs.
 - `prefers-reduced-motion` respecté par `Reveal`.
 
@@ -139,10 +142,12 @@ les décoratives), libellés associés aux champs de formulaire, cibles tactiles
 
 ## Performance
 
-Les pages sont **lazy-loadées** dans `App.jsx` et le vendor React est isolé via
-`manualChunks` ([vite.config.js](vite.config.js)). Préserver ces deux choix.
+Le vendor React est isolé via `manualChunks` ([vite.config.js](vite.config.js)) :
+le préserver, c'est ce qui garde le cache stable entre déploiements.
 
-- Toute nouvelle page passe par `lazy(() => import(...))`.
+- **Les pages sont importées statiquement, pas en `lazy()`** — voir la règle du
+  pré-rendu ci-dessous. Une nouvelle page s'ajoute par un `import` en tête
+  d'`App.jsx`.
 - Pas de librairie d'animation lourde : les keyframes Tailwind + `Reveal`
   couvrent les besoins actuels.
 - Images : dimensions explicites (`width`/`height`) pour éviter le CLS,
@@ -150,3 +155,18 @@ Les pages sont **lazy-loadées** dans `App.jsx` et le vendor React est isolé vi
   le repo en contient déjà (`og-image.png`, `logo.png`).
 - Chaque dépendance ajoutée se paie sur le LCP mobile, qui est le terrain de jeu
   réel de cette cible.
+
+## Deux règles héritées du pré-rendu
+
+**Ne jamais introduire `lazy()` ni `<Suspense>` dans l'arbre de
+[src/App.jsx](src/App.jsx).** La moindre frontière Suspense fait émettre le
+contenu par React dans un `<div hidden>` de fin de document, repositionné par un
+script au chargement : un robot sans JavaScript n'y verrait que « Chargement… ».
+Les pages sont importées statiquement. Coût mesuré : ~10 ko gzip, contre zéro
+requête à la navigation.
+
+**`Reveal` masque uniquement si JavaScript est actif.** La règle CSS est
+`.js .reveal { opacity: 0 }`, la classe `js` étant posée par un script en tête de
+[index.html](index.html). Sans JavaScript, le contenu pré-rendu reste visible au
+lieu de rester à opacité 0 — ce que Google déprécie. Ne pas remettre l'opacité
+dans le composant.

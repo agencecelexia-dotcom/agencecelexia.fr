@@ -7,81 +7,73 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Fond de base : blanc pur. `chaux` sert uniquement aux sections alternées.
-        chaux: {
-          50: '#FAF9F6',
-          100: '#F7F5F1',
-          200: '#EFEBE3',
-          300: '#E2DCD0',
+        // Toute la palette dérive du violet du logo, échantillonné dans
+        // public/logo.png : #8C52FF. Rien n'est repris de la palette Tailwind.
+        violet: {
+          50: '#F4EFFF',
+          100: '#E7DCFF',
+          200: '#CFB9FF',  // texte secondaire SUR les bandes profondes
+          300: '#B490FF',  // filets et numéros SUR les bandes profondes
+          400: '#9E6DFF',
+          500: '#8C52FF',  // la marque — éléments non textuels
+          600: '#6E32E6',  // boutons et liens sur fond clair (le 500 ne passe pas AA)
+          700: '#5620C4',
+          800: '#3A1580',
+          900: '#1F0D3D',  // les bandes pleine largeur
+          950: '#150827',
         },
-        // Texte principal. Mat, jamais noir pur. Jamais en fond de section.
-        ardoise: {
-          600: '#3D4650',
-          700: '#2A313A',
-          800: '#1B2027',
-          900: '#12161B',
+        // Blancs cassés teintés violet. Surtout pas de beige : c'est lui qui
+        // faisait ressortir le rectangle blanc du logo.
+        brume: {
+          50: '#FAF8FF',
+          100: '#F3EEFC',
+          200: '#E8E0F7',
+          300: '#D8CCEF',
         },
-        // L'accent unique : filets, numéros de section, boutons.
-        // Ne jamais utiliser pour du texte de lecture (4,6:1 sur blanc, trop juste).
-        cuivre: {
-          50: '#FBF2EC',
-          100: '#F5E1D3',
-          200: '#EBC4A8',
-          300: '#DCA37A',
-          400: '#C97E4E',
-          500: '#B4622C',
-          600: '#9A5122',
-          700: '#7C401A',
-        },
-        // Patine du cuivre : états positifs, validations.
-        patine: {
-          50: '#EEF5F2',
-          500: '#4A7C6F',
-          600: '#3D6459',
-        },
-        // Texte secondaire, bordures, filets.
-        acier: {
-          200: '#E3E6E9',
-          300: '#C7CCD2',
-          400: '#A8AEB6',
-          500: '#8A9099',
-          600: '#6B7178',
+        // Texte : noir violacé, jamais neutre.
+        encre: {
+          500: '#6B6480',
+          600: '#514A66',
+          700: '#2A2340',
+          800: '#1A1425',
+          900: '#120E1A',
         },
       },
       fontFamily: {
-        // Une seule superfamille variable (axes wght 100-900 + wdth 62-125%),
-        // self-hostée. Les chasses passent par .font-narrow / .font-expanded.
+        // Deux familles, assumé : Archivo seule était industrielle, pas cossue.
+        // Le serif ne sert QUE pour les titres.
         sans: ['Archivo', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
-        display: ['Archivo', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+        display: ['Newsreader', 'Iowan Old Style', 'Georgia', 'serif'],
+      },
+      fontSize: {
+        // Échelle relevée d'un cran par rapport à la v1 : l'aération passe
+        // autant par la taille des titres que par les marges.
+        'display-sm': ['2.25rem', { lineHeight: '1.12', letterSpacing: '-0.015em' }],
+        'display-md': ['3rem', { lineHeight: '1.08', letterSpacing: '-0.02em' }],
+        'display-lg': ['3.75rem', { lineHeight: '1.04', letterSpacing: '-0.022em' }],
+        'display-xl': ['4.5rem', { lineHeight: '1.02', letterSpacing: '-0.025em' }],
+      },
+      spacing: {
+        section: '6rem',
+        'section-lg': '9rem',
+      },
+      maxWidth: {
+        prose: '63ch',
       },
       animation: {
-        'fade-up': 'fadeUp 0.6s ease-out forwards',
         'fade-in': 'fadeIn 0.4s ease-out forwards',
-        'slide-up': 'slideUp 0.5s ease-out forwards',
       },
       keyframes: {
-        fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(24px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
-        slideUp: {
-          '0%': { opacity: '0', transform: 'translateY(12px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
       },
       boxShadow: {
-        // Ombres volontairement minimales : la hiérarchie passe par les filets
-        // et l'alternance blanc / chaux, pas par la profondeur.
-        soft: '0 1px 2px rgba(27, 32, 39, 0.04)',
-        card: '0 2px 8px rgba(27, 32, 39, 0.05)',
-        'card-hover': '0 6px 20px rgba(27, 32, 39, 0.08)',
-      },
-      maxWidth: {
-        prose: '68ch',
+        // Hiérarchie par filets et par fonds, pas par profondeur.
+        soft: '0 1px 2px rgba(26, 20, 37, 0.04)',
+        card: '0 2px 10px rgba(26, 20, 37, 0.05)',
+        lift: '0 10px 34px rgba(31, 13, 61, 0.10)',
       },
     },
   },

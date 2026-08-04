@@ -41,8 +41,10 @@ doublon avec celui injecté par le pré-rendu. Le script de pré-rendu est la
 
 Pour toute page non-métier (ex. `/tarifs`), modifier **les 4** :
 
-1. **[src/App.jsx](src/App.jsx)** — `const X = lazy(() => import('./pages/X'))`
-   puis `<Route path="/x" element={<X />} />`. Placer avant le `path="*"`.
+1. **[src/App.jsx](src/App.jsx)** — un `import X from './pages/X'` en tête, puis
+   `<Route path="/x" element={<X />} />`, placé avant le `path="*"`.
+   **Surtout pas de `lazy()`** : la frontière Suspense qu'il ouvre ferait sortir
+   le contenu dans un `<div hidden>` invisible pour les robots sans JavaScript.
 2. **[scripts/prerender-meta.mjs](scripts/prerender-meta.mjs)** — ajouter une
    entrée dans `baseRoutes` avec `path`, `title`, `description`, et `jsonLd`
    si la page mérite un schéma. Sans ça : aucun pré-rendu.
