@@ -18,7 +18,7 @@ const Contact = () => {
         <div className="container-custom">
           <div className="max-w-3xl">
             <p className="section-kicker mb-6">Nous joindre</p>
-            <h1 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md text-balance">
+            <h1 className="font-display font-expanded font-black text-encre-900 text-display-sm md:text-display-md text-balance">
               Une question avant de vous inscrire ?
             </h1>
             <p className="mt-7 text-lg md:text-xl text-encre-700 leading-relaxed max-w-prose">
@@ -113,7 +113,7 @@ const Contact = () => {
         <div className="container-custom">
           <Reveal>
             <div className="max-w-2xl">
-              <h2 className="font-display font-medium text-white text-display-sm md:text-display-md text-balance">
+              <h2 className="font-display font-expanded font-black text-white text-display-sm md:text-display-md text-balance">
                 Ou inscrivez-vous directement.
               </h2>
               <p className="mt-8 text-lg md:text-xl text-violet-200 leading-relaxed text-pretty">

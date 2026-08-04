@@ -15,7 +15,7 @@ const MentionsLegales = () => {
     <section className="section">
       <div className="max-w-3xl mx-auto">
         <p className="section-kicker mb-5">Informations légales</p>
-        <h1 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md">
+        <h1 className="font-display font-expanded font-black text-encre-900 text-display-sm md:text-display-md">
           Mentions légales
         </h1>
         <hr className="rule-violet mt-8 mb-10" />

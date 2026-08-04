@@ -22,7 +22,7 @@ const NotFound = () => {
     <section className="section">
       <div className="max-w-2xl mx-auto">
         <p className="section-num">Erreur 404</p>
-        <h1 className="mt-5 font-display font-medium text-encre-900 text-display-sm md:text-display-md">
+        <h1 className="mt-5 font-display font-expanded font-black text-encre-900 text-display-sm md:text-display-md">
           Cette page n’existe pas.
         </h1>
         <p className="mt-6 text-lg text-encre-700 leading-relaxed">

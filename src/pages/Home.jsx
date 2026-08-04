@@ -46,7 +46,7 @@ const Home = () => {
         <div className="container-custom">
           <div className="max-w-4xl">
             <p className="section-kicker mb-8">Apport d’affaires · Artisans du bâtiment</p>
-            <h1 className="font-display font-medium text-encre-900 text-display-sm sm:text-display-md md:text-display-lg text-balance">
+            <h1 className="font-display font-expanded font-black text-encre-900 text-display-sm sm:text-display-md md:text-display-lg text-balance">
               Des chantiers qualifiés,
               <br className="hidden sm:block" />{' '}
               <span className="text-violet-600">transmis à un seul artisan.</span>
@@ -89,7 +89,7 @@ const Home = () => {
         <div className="container-custom">
           <SectionHead num="01" kicker="Comment ça marche" />
           <Reveal>
-            <h2 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md max-w-2xl text-balance">
+            <h2 className="font-display font-expanded font-black text-encre-900 text-display-sm md:text-display-md max-w-2xl text-balance">
               Quatre étapes, et une seule facture possible.
             </h2>
           </Reveal>
@@ -134,7 +134,7 @@ const Home = () => {
           <SectionHead num="02" kicker="Exclusivité" />
           <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
             <Reveal>
-              <h2 className="font-display font-medium text-white text-display-sm md:text-display-md text-balance">
+              <h2 className="font-display font-expanded font-black text-white text-display-sm md:text-display-md text-balance">
                 Une demande, un artisan. Jamais cinq.
               </h2>
               <p className="mt-8 text-lg md:text-xl text-violet-200 leading-relaxed text-pretty">
@@ -179,7 +179,7 @@ const Home = () => {
           <SectionHead num="03" kicker="Rémunération" />
           <div className="grid gap-16 lg:grid-cols-2 lg:gap-24 items-start">
             <Reveal>
-              <h2 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md text-balance">
+              <h2 className="font-display font-expanded font-black text-encre-900 text-display-sm md:text-display-md text-balance">
                 {TAUX} %, et seulement si vous signez.
               </h2>
               <p className="mt-8 text-lg md:text-xl text-encre-700 leading-relaxed text-pretty">
@@ -226,7 +226,7 @@ const Home = () => {
         <div className="container-custom">
           <SectionHead num="04" kicker="Les métiers accompagnés" />
           <Reveal>
-            <h2 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md max-w-2xl text-balance">
+            <h2 className="font-display font-expanded font-black text-encre-900 text-display-sm md:text-display-md max-w-2xl text-balance">
               Quatre métiers, choisis pour la taille des chantiers.
             </h2>
             <p className="mt-8 text-lg text-encre-700 leading-relaxed max-w-prose text-pretty">
@@ -268,7 +268,7 @@ const Home = () => {
         <div className="container-custom">
           <SectionHead num="05" kicker="Les questions qu’on nous pose" />
           <Reveal>
-            <h2 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md max-w-2xl text-balance">
+            <h2 className="font-display font-expanded font-black text-encre-900 text-display-sm md:text-display-md max-w-2xl text-balance">
               Ce que vous êtes en train de vous demander.
             </h2>
           </Reveal>
@@ -292,7 +292,7 @@ const Home = () => {
         <div className="container-custom">
           <Reveal>
             <div className="max-w-2xl">
-              <h2 className="font-display font-medium text-white text-display-sm md:text-display-md text-balance">
+              <h2 className="font-display font-expanded font-black text-white text-display-sm md:text-display-md text-balance">
                 Inscrivez votre entreprise.
               </h2>
               <p className="mt-8 text-lg md:text-xl text-violet-200 leading-relaxed text-pretty">
