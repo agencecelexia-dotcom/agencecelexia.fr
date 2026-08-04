@@ -37,7 +37,7 @@ const About = () => {
         <div className="container-custom">
           <div className="max-w-3xl">
             <p className="section-kicker mb-6">Qui nous sommes</p>
-            <h1 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md text-balance">
+            <h1 className="font-display font-expanded font-black text-encre-900 text-display-sm md:text-display-md text-balance">
               Nous ne vendons rien aux artisans.
             </h1>
             <p className="mt-7 text-lg md:text-xl text-encre-700 leading-relaxed max-w-prose">
@@ -60,7 +60,7 @@ const About = () => {
 
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
             <Reveal>
-              <h2 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md text-balance">
+              <h2 className="font-display font-expanded font-black text-encre-900 text-display-sm md:text-display-md text-balance">
                 Thomas et Antoine
               </h2>
               <div className="mt-7 space-y-4 text-encre-700 leading-relaxed">
@@ -90,7 +90,7 @@ const About = () => {
             <Reveal delay={80}>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="bg-white border border-brume-200 rounded-lg p-6">
-                  <span className="font-display font-medium text-2xl text-violet-500" aria-hidden="true">
+                  <span className="font-display font-expanded font-black text-2xl text-violet-500" aria-hidden="true">
                     T
                   </span>
                   <h3 className="mt-3 font-display font-bold text-lg text-encre-900">Thomas</h3>
@@ -100,7 +100,7 @@ const About = () => {
                   </p>
                 </div>
                 <div className="bg-white border border-brume-200 rounded-lg p-6">
-                  <span className="font-display font-medium text-2xl text-violet-500" aria-hidden="true">
+                  <span className="font-display font-expanded font-black text-2xl text-violet-500" aria-hidden="true">
                     A
                   </span>
                   <h3 className="mt-3 font-display font-bold text-lg text-encre-900">Antoine</h3>
@@ -132,7 +132,7 @@ const About = () => {
             <span className="section-kicker">Nos partis pris</span>
           </div>
           <Reveal>
-            <h2 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md max-w-2xl text-balance">
+            <h2 className="font-display font-expanded font-black text-encre-900 text-display-sm md:text-display-md max-w-2xl text-balance">
               Quatre choix, et ce qu’ils nous coûtent.
             </h2>
           </Reveal>
@@ -155,7 +155,7 @@ const About = () => {
         <div className="container-custom">
           <Reveal>
             <div className="max-w-2xl">
-              <h2 className="font-display font-medium text-white text-display-sm md:text-display-md text-balance">
+              <h2 className="font-display font-expanded font-black text-white text-display-sm md:text-display-md text-balance">
                 Inscrivez votre entreprise.
               </h2>
               <p className="mt-8 text-lg md:text-xl text-violet-200 leading-relaxed text-pretty">

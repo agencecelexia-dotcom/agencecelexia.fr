@@ -56,7 +56,7 @@ const MetierPage = () => {
               />
               <p className="section-kicker">{metier.label}</p>
             </div>
-            <h1 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md text-balance">
+            <h1 className="font-display font-expanded font-black text-encre-900 text-display-sm md:text-display-md text-balance">
               {metier.titre}
             </h1>
             <p className="mt-10 text-lg md:text-xl text-encre-700 leading-relaxed max-w-prose text-pretty">
@@ -82,7 +82,7 @@ const MetierPage = () => {
 
           <div className="grid gap-16 lg:grid-cols-2 lg:gap-24 items-start">
             <Reveal>
-              <h2 className="font-display font-medium text-encre-900 text-display-sm md:text-display-md text-balance">
+              <h2 className="font-display font-expanded font-black text-encre-900 text-display-sm md:text-display-md text-balance">
                 Ce que nous vous transmettons.
               </h2>
               <ul className="mt-10 space-y-5">
@@ -98,7 +98,7 @@ const MetierPage = () => {
             <Reveal delay={90}>
               <div className="bg-white border border-brume-300 rounded-xl p-8 md:p-10">
                 <p className="section-kicker">Montant des chantiers</p>
-                <p className="tabular mt-6 font-display font-medium text-display-sm md:text-display-md text-encre-900">
+                <p className="tabular mt-6 font-display font-expanded font-black text-display-sm md:text-display-md text-encre-900">
                   {metier.budget}
                 </p>
                 <p className="mt-6 text-encre-700 leading-relaxed">{metier.budgetNote}</p>
@@ -120,7 +120,7 @@ const MetierPage = () => {
             <span className="section-kicker">Comment ça marche</span>
           </div>
           <Reveal>
-            <h2 className="font-display font-medium text-white text-display-sm md:text-display-md max-w-2xl text-balance">
+            <h2 className="font-display font-expanded font-black text-white text-display-sm md:text-display-md max-w-2xl text-balance">
               Quatre étapes, et une seule facture possible.
             </h2>
           </Reveal>
@@ -167,7 +167,7 @@ const MetierPage = () => {
         <div className="container-custom">
           <Reveal>
             <div className="max-w-2xl">
-              <h2 className="font-display font-medium text-white text-display-sm md:text-display-md text-balance">
+              <h2 className="font-display font-expanded font-black text-white text-display-sm md:text-display-md text-balance">
                 Inscrivez votre entreprise.
               </h2>
               <p className="mt-8 text-lg md:text-xl text-violet-200 leading-relaxed text-pretty">

@@ -40,10 +40,11 @@ export default {
         },
       },
       fontFamily: {
-        // Deux familles, assumé : Archivo seule était industrielle, pas cossue.
-        // Le serif ne sert QUE pour les titres.
+        // Une seule superfamille variable (axes wght 100-900 + wdth 62-125 %),
+        // self-hostée. Les chasses passent par .font-narrow / .font-expanded.
+        // Le serif éditorial a été retiré le 4 août 2026 : préférence client.
         sans: ['Archivo', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
-        display: ['Newsreader', 'Iowan Old Style', 'Georgia', 'serif'],
+        display: ['Archivo', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
       },
       fontSize: {
         // Échelle relevée d'un cran par rapport à la v1 : l'aération passe

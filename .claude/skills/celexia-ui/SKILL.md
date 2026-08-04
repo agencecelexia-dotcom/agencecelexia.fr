@@ -45,14 +45,19 @@ palette dérive du violet du logo, échantillonné dans `public/logo.png` : **#8
 - **Dégradés** : aucun. C'est délibéré.
 - **Animations** : `animate-fade-in` uniquement, plus `.reveal` (voir plus bas).
 
-**Typographie — deux familles, self-hostées.** `font-display` = **Newsreader**
-(serif variable, titres uniquement, `font-medium`/`font-semibold` — la graisse
-900 n'existe pas). `font-sans` = **Archivo** (interface et texte courant).
-Échelle de titres dédiée : `text-display-sm/md/lg/xl`.
+**Typographie — une seule superfamille, self-hostée : Archivo** (variable, axes
+`wght` 100-900 et `wdth` 62-125 %). `font-sans` et `font-display` pointent tous
+deux dessus ; c'est la **chasse** qui distingue les registres :
 
-> J'avais écrit ici « ne pas ajouter de seconde famille » pour des raisons de
-> performance. La règle a été levée sciemment le 3 août 2026 : Archivo seule
-> était industrielle, pas cossue. Coût assumé : 129 ko de plus.
+- Titres d'affichage : `font-display font-expanded font-black` + l'échelle
+  dédiée `text-display-sm/md/lg/xl`.
+- Sous-titres : `font-display font-semibold` ou `font-bold`.
+- Libellés en capitales (`.section-num`, `.section-kicker`) : `.font-narrow`.
+
+> Un serif éditorial (Newsreader) a été essayé le 3 août 2026 puis **retiré le
+> 4 août à la demande du client**, qui préférait la typographie précédente.
+> 129 ko récupérés au passage. Ne pas réintroduire de seconde famille sans
+> demande explicite.
 
 > **Contraintes de contraste, vérifiées au calcul.** `violet-600` sur blanc =
 > 6,44:1, blanc sur `violet-600` = 6,44:1, blanc sur `violet-900` = 17,75:1,
