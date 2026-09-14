@@ -27,11 +27,12 @@ doit être répercuté dans les trois.**
   budget, zone, calendrier (`POINTS_QUALIFIES` dans `src/data/metiers.js`).
 - Les chantiers qualifiés sont transmis à l'artisan, qui **chiffre et signe
   lui-même**. Celexia ne gère pas la relation commerciale.
-- Rémunération : **15 % du montant TTC des devis effectivement signés**.
-  Le taux vit dans la constante `TAUX` de [src/lib/links.js](src/lib/links.js),
-  qui alimente aussi le paramètre `?taux=` du lien d'inscription : les deux ne
-  doivent jamais diverger.
-  Pas de signature = pas de facture.
+- Rémunération : **à la commission, uniquement une fois le chantier signé et
+  l'acompte reçu**. Pas de signature ni d'acompte = pas de facture.
+  **Le taux n'est JAMAIS publié** (ni page, ni meta, ni JSON-LD, ni llms.txt,
+  ni paramètre d'URL, ni exemple chiffré qui permettrait de le recalculer) :
+  décision du 14 septembre 2026, il est annoncé à l'artisan au téléphone.
+  Si la question se pose dans la copy : « nous en parlons de vive voix ».
 - **Zéro** frais d'entrée, zéro abonnement, aucun budget à avancer. En revanche
   **ne rien dire de la durée, du préavis ni de la sortie** : ce sont des termes
   contractuels, voir l'interdiction n° 2.
@@ -61,7 +62,9 @@ revendeur de leads, exactement ce qu'elle n'est pas.
 de non-contournement, ni délai de paiement. Et surtout ne pas écrire l'inverse :
 les mentions « sans engagement » et « aucun préavis » ont été retirées de tout
 le site parce qu'elles contredisaient le contrat réel. Le site ne dit plus rien
-sur la durée. Seul chiffre contractuel autorisé : **15 %**.
+sur la durée. **Aucun chiffre contractuel n'est autorisé, taux de commission
+compris.** Seule la condition de facturation se publie : chantier signé et
+acompte reçu.
 
 ## Interdiction : les promesses chiffrées inventées
 
@@ -115,7 +118,8 @@ ces questions est candidate à la suppression.
   bat « nous générons des opportunités qualifiées ».
 - Pas de superlatifs empilés, pas de ponctuation excitée, pas d'emoji dans les
   textes de page.
-- Nommer le prix tôt et sans détour. Cacher le prix fait fuir cette cible.
+- Dire tôt et sans détour **quand** on paie (après signature et acompte), mais
+  jamais **combien** : le taux est gardé pour l'appel.
 
 ## Structure d'une section qui convertit
 
@@ -137,7 +141,7 @@ d'engagement.
 - Une `description` de page se change **aussi** dans `prerender-meta.mjs`
   (c'est elle que Google lit), pas seulement dans le composant React.
 - Meta description : **~150 caractères maximum**, au-delà Google tronque.
-  Y faire figurer le taux.
+  Y faire figurer le modèle (commission après signature et acompte), jamais le taux.
 - Un seul `<h1>` par page ; la hiérarchie `h2`/`h3` doit suivre le sens, pas la
   taille voulue à l'écran.
 - Pages métiers : chaque métier a son `titre` et son `accroche` propres dans

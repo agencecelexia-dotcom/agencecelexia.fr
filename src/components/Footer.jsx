@@ -25,7 +25,8 @@ const Footer = () => (
           <p className="text-sm text-encre-700 leading-relaxed max-w-sm">
             Apporteur d’affaires pour les artisans du bâtiment. Nous trouvons et finançons
             les demandes de chantiers, nous les qualifions, et nous les transmettons à un
-            seul artisan. Vous reversez 15 % sur les devis signés.
+            seul artisan. Rémunérés à la commission, uniquement après chantier signé et
+            acompte reçu.
           </p>
           <a
             href={registerUrl('footer')}

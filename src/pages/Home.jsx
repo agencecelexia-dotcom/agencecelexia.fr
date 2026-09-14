@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
-import { registerUrl, CTA_LABEL, TAUX } from '../lib/links';
+import { registerUrl, CTA_LABEL } from '../lib/links';
 import { METIERS, POINTS_QUALIFIES } from '../data/metiers';
 import { DEFINITION, ETAPES, PAS_NOTRE_METIER, FAQ_COMMUNE as FAQ } from '../data/offre';
 import Reveal from '../components/Reveal';
@@ -8,9 +8,12 @@ import CTAButton from '../components/CTAButton';
 
 const metiers = Object.entries(METIERS).map(([slug, data]) => ({ slug, ...data }));
 
-const EXEMPLE = 15000;
-const commission = Math.round((EXEMPLE * TAUX) / 100);
-const euro = (n) => n.toLocaleString('fr-FR') + ' €';
+// Quand une facture existe, et quand elle n'existe pas. Aucun taux : il se donne au téléphone.
+const FACTURATION = [
+  { cas: 'Devis non signé', montant: 'Rien à payer' },
+  { cas: 'Devis signé, acompte pas encore reçu', montant: 'Rien à payer' },
+  { cas: 'Chantier signé et acompte reçu', montant: 'Notre commission', accent: true },
+];
 
 const SectionHead = ({ num, kicker }) => (
   <div className="section-label">
@@ -35,7 +38,7 @@ const Home = () => {
   usePageMeta({
     title: "Agence Celexia | Apport d'affaires pour artisans du bâtiment",
     description:
-      `Apporteur d'affaires pour artisans. Nous finançons et qualifions les demandes de chantiers, puis les transmettons à un seul artisan. ${TAUX} % sur devis signé.`,
+      "Apporteur d'affaires pour artisans : chantiers financés, qualifiés et transmis à un seul artisan. Commission uniquement après signature et acompte.",
     canonical: 'https://agencecelexia.fr/',
   });
 
@@ -53,8 +56,8 @@ const Home = () => {
             </h1>
             <p className="mt-10 text-lg md:text-xl text-encre-700 leading-relaxed max-w-prose text-pretty">
               Nous trouvons les particuliers qui ont un vrai projet, nous vérifions qu’il tient
-              debout, puis nous vous le transmettons — à vous seul. Vous chiffrez, vous signez,
-              vous nous reversez {TAUX} %.{' '}
+              debout, puis nous vous le transmettons — à vous seul. Vous chiffrez, vous signez, et
+              nous ne touchons notre commission qu’une fois l’acompte reçu.{' '}
               <strong className="text-encre-900 font-semibold">
                 Si vous ne signez pas, vous ne payez rien.
               </strong>
@@ -180,12 +183,12 @@ const Home = () => {
           <div className="grid gap-16 lg:grid-cols-2 lg:gap-24 items-start">
             <Reveal>
               <h2 className="font-display font-expanded font-black text-encre-900 text-display-sm md:text-display-md text-balance">
-                {TAUX} %, et seulement si vous signez.
+                Une commission, et seulement si vous signez.
               </h2>
               <p className="mt-8 text-lg md:text-xl text-encre-700 leading-relaxed text-pretty">
                 Pas de frais d’inscription, pas d’abonnement, pas de budget publicitaire à
-                avancer. Notre rémunération est un pourcentage des devis que vous avez
-                effectivement signés grâce à un chantier que nous vous avons transmis.
+                avancer. Nous sommes rémunérés à la commission sur les chantiers signés grâce à
+                une demande que nous vous avons transmise, et uniquement une fois l’acompte reçu.
               </p>
               <p className="mt-5 text-encre-700 leading-relaxed">
                 Un budget de publicité, vous le dépensez que ça marche ou non. Un lot de
@@ -196,24 +199,23 @@ const Home = () => {
 
             <Reveal delay={90}>
               <div className="bg-brume-50 border border-brume-200 rounded-xl p-8 md:p-10">
-                <p className="section-kicker">Un exemple</p>
+                <p className="section-kicker">Quand nous facturons</p>
                 <dl className="mt-8 space-y-5">
-                  <div className="flex items-baseline justify-between gap-4 pb-5 border-b border-brume-300">
-                    <dt className="text-encre-700">Devis signé par votre client</dt>
-                    <dd className="tabular font-display font-semibold text-2xl text-encre-900">{euro(EXEMPLE)}</dd>
-                  </div>
-                  <div className="flex items-baseline justify-between gap-4 pb-5 border-b border-brume-300">
-                    <dt className="text-encre-700">Notre commission ({TAUX} %)</dt>
-                    <dd className="tabular font-display font-semibold text-2xl text-violet-600">{euro(commission)}</dd>
-                  </div>
-                  <div className="flex items-baseline justify-between gap-4">
-                    <dt className="font-semibold text-encre-900">Ce qui vous reste</dt>
-                    <dd className="tabular font-display font-semibold text-3xl text-encre-900">{euro(EXEMPLE - commission)}</dd>
-                  </div>
+                  {FACTURATION.map(({ cas, montant, accent }, i) => (
+                    <div
+                      key={cas}
+                      className={`flex items-baseline justify-between gap-4 ${i < FACTURATION.length - 1 ? 'pb-5 border-b border-brume-300' : ''}`}
+                    >
+                      <dt className={accent ? 'font-semibold text-encre-900' : 'text-encre-700'}>{cas}</dt>
+                      <dd className={`font-display font-semibold text-xl text-right ${accent ? 'text-violet-600' : 'text-encre-900'}`}>
+                        {montant}
+                      </dd>
+                    </div>
+                  ))}
                 </dl>
                 <p className="mt-8 pt-6 border-t border-brume-300 text-sm text-encre-600 leading-relaxed">
-                  Devis non signé : commission de 0 €. Le montant est un exemple, pas une
-                  estimation de votre activité.
+                  Le montant de la commission vous est présenté de vive voix, lors de notre
+                  premier échange téléphonique.
                 </p>
               </div>
             </Reveal>

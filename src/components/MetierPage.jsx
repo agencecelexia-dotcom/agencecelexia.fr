@@ -3,7 +3,7 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { getMetier } from '../data/metiers';
 import { getLegacyTarget } from '../lib/legacyRoutes';
 import { ETAPES, FAQ_COMMUNE } from '../data/offre';
-import { registerUrl, CTA_LABEL, TAUX } from '../lib/links';
+import { registerUrl, CTA_LABEL } from '../lib/links';
 import Reveal from '../components/Reveal';
 import CTAButton from '../components/CTAButton';
 
@@ -32,7 +32,7 @@ const MetierPage = () => {
       ? `Apport d’affaires ${metier.label} | Agence Celexia`
       : 'Métier introuvable | Agence Celexia',
     description: metier
-      ? `Nous finançons et qualifions les demandes de chantiers ${metier.labelCourt.toLowerCase()}, puis les transmettons à un seul artisan. ${TAUX} % sur devis signé.`
+      ? `Chantiers ${metier.labelCourt.toLowerCase()} financés, qualifiés et transmis à un seul artisan. Commission uniquement après signature et acompte.`
       : 'Ce métier n’est pas accompagné par Agence Celexia.',
     canonical: `https://agencecelexia.fr/metiers/${slug}`,
   });
