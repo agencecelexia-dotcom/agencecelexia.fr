@@ -43,8 +43,8 @@ const About = () => {
             <p className="mt-7 text-lg md:text-xl text-encre-700 leading-relaxed max-w-prose">
               Celexia est un apporteur d’affaires : nous cherchons les chantiers, nous les
               qualifions, et nous les transmettons. Nous ne facturons ni site web, ni
-              abonnement, ni prestation. Notre seule rémunération est un pourcentage des devis
-              que vous signez.
+              abonnement, ni prestation. Nous sommes rémunérés à la commission, uniquement une
+              fois le chantier signé et l’acompte reçu.
             </p>
           </div>
         </div>

@@ -27,7 +27,7 @@ const distDir = join(__dirname, '..', 'dist');
 
 const SITE_URL = 'https://agencecelexia.fr';
 const DATE_PUBLISHED = '2024-10-01';
-const DATE_MODIFIED = '2026-08-02';
+const DATE_MODIFIED = '2026-09-14';
 
 const ORG_LD = {
   '@type': ['Organization', 'ProfessionalService'],
@@ -110,7 +110,7 @@ const HOWTO_LD = {
   '@id': `${SITE_URL}/#howto`,
   name: "Comment fonctionne l'apport d'affaires Celexia pour les artisans",
   description:
-    "Celexia finance la recherche des chantiers, qualifie les demandes et les transmet à un seul artisan. L'artisan ne reverse 15 % que sur les devis signés.",
+    "Celexia finance la recherche des chantiers, qualifie les demandes et les transmet à un seul artisan. Elle est rémunérée à la commission, uniquement après chantier signé et acompte reçu.",
   step: ETAPES.map((etape, i) => ({
     '@type': 'HowToStep',
     position: i + 1,
@@ -125,7 +125,7 @@ const baseRoutes = [
     title: "Agence Celexia | Apport d'affaires pour artisans du bâtiment",
     // ~150 caractères : au-delà, Google tronque en résultat de recherche.
     description:
-      "Apporteur d'affaires pour artisans. Nous finançons et qualifions les demandes de chantiers, puis les transmettons à un seul artisan. 15 % sur devis signé.",
+      "Apporteur d'affaires pour artisans : chantiers financés, qualifiés et transmis à un seul artisan. Commission uniquement après signature et acompte.",
     jsonLd: {
       '@context': 'https://schema.org',
       '@graph': [
@@ -135,7 +135,7 @@ const baseRoutes = [
           url: SITE_URL,
           name: 'Agence Celexia',
           description:
-            "Apporteur d'affaires pour artisans du bâtiment. Commission de 15 % sur les devis signés uniquement.",
+            "Apporteur d'affaires pour artisans du bâtiment. Rémunéré à la commission, uniquement après chantier signé et acompte reçu.",
           inLanguage: 'fr-FR',
           publisher: { '@id': `${SITE_URL}/#organization` },
         },
@@ -203,7 +203,7 @@ const baseRoutes = [
           '@id': `${SITE_URL}/contact#localbusiness`,
           name: 'Agence Celexia',
           description:
-            "Apporteur d'affaires pour artisans du bâtiment. Commission de 15 % sur les devis signés.",
+            "Apporteur d'affaires pour artisans du bâtiment. Rémunéré à la commission, uniquement après chantier signé et acompte reçu.",
           url: SITE_URL,
           telephone: '+33651725756',
           email: 'agence.celexia@gmail.com',
@@ -240,7 +240,7 @@ const baseRoutes = [
 const metierRoutes = Object.entries(METIERS).map(([slug, metier]) => ({
   path: `/metiers/${slug}`,
   title: `Apport d'affaires ${metier.label} | Agence Celexia`,
-  description: `Celexia trouve et finance les demandes de chantiers ${metier.labelCourt.toLowerCase()}, les qualifie, puis les transmet à un seul artisan. Vous reversez 15 % sur les devis signés.`,
+  description: `Chantiers ${metier.labelCourt.toLowerCase()} financés, qualifiés et transmis à un seul artisan. Commission uniquement après signature et acompte.`,
   jsonLd: {
     '@context': 'https://schema.org',
     '@graph': [
@@ -248,7 +248,7 @@ const metierRoutes = Object.entries(METIERS).map(([slug, metier]) => ({
         '@type': 'Service',
         '@id': `${SITE_URL}/metiers/${slug}/#service`,
         name: `Apport d'affaires pour ${metier.label.toLowerCase()}`,
-        description: `Service d'apport d'affaires dédié au métier ${metier.label.toLowerCase()}. Demandes de chantiers qualifiées, transmises à un seul artisan. Commission de 15 % sur les devis signés.`,
+        description: `Service d'apport d'affaires dédié au métier ${metier.label.toLowerCase()}. Demandes de chantiers qualifiées, transmises à un seul artisan. Rémunéré à la commission, uniquement après chantier signé et acompte reçu.`,
         url: `${SITE_URL}/metiers/${slug}`,
         serviceType: "Apport d'affaires",
         provider: { '@id': `${SITE_URL}/#organization` },
