@@ -5,6 +5,7 @@ import { METIERS, POINTS_QUALIFIES } from '../data/metiers';
 import { DEFINITION, ETAPES, PAS_NOTRE_METIER, FAQ_COMMUNE as FAQ } from '../data/offre';
 import Reveal from '../components/Reveal';
 import CTAButton from '../components/CTAButton';
+import SpotlightCard from '../components/SpotlightCard';
 
 const metiers = Object.entries(METIERS).map(([slug, data]) => ({ slug, ...data }));
 
@@ -153,7 +154,10 @@ const Home = () => {
             </Reveal>
 
             <Reveal delay={90}>
-              <div className="card-fonce p-8 md:p-10">
+              <SpotlightCard
+                className="card-fonce p-8 md:p-10"
+                spotlightColor="rgba(255, 255, 255, 0.10)"
+              >
                 <h3 className="font-display font-semibold text-xl text-white">
                   Ce que nous ne faisons pas
                 </h3>
@@ -170,7 +174,7 @@ const Home = () => {
                   métier, et c’est ce que nous finançons à votre place. En revanche nous sommes
                   précis sur ce que vous recevez, et c’est là-dessus que vous nous jugerez.
                 </p>
-              </div>
+              </SpotlightCard>
             </Reveal>
           </div>
         </div>
@@ -240,7 +244,8 @@ const Home = () => {
           <div className="mt-16 grid gap-6 sm:grid-cols-2">
             {metiers.map((metier, i) => (
               <Reveal key={metier.slug} delay={i * 70}>
-                <Link
+                <SpotlightCard
+                  as={Link}
                   to={`/metiers/${metier.slug}`}
                   className="card group flex flex-col h-full p-8 md:p-10"
                 >
@@ -258,7 +263,7 @@ const Home = () => {
                     <span className="tabular text-encre-900 font-semibold">{metier.budget}</span>{' '}
                     en moyenne sur le marché
                   </p>
-                </Link>
+                </SpotlightCard>
               </Reveal>
             ))}
           </div>

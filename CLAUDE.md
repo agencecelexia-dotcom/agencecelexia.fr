@@ -12,6 +12,10 @@ sur Vercel ([vercel.json](vercel.json)) et Netlify ([netlify.toml](netlify.toml)
 > quelle et demande une migration explicite. À l'inverse, les bibliothèques
 > React sont compatibles ici.
 
+Une registry **React Bits** est configurée ([components.json](components.json),
+alias `@/` → `src/`) : `npx shadcn@latest add @react-bits/<Nom>-JS-TW`. N'y
+prendre que des composants **sans dépendance** — voir le skill `celexia-ui`.
+
 Le SEO ne repose pas sur le framework mais sur un **pré-rendu post-build** en
 trois temps : `vite build` (client), `vite build --ssr src/entry-server.jsx`
 (bundle de rendu), puis `node scripts/prerender-meta.mjs`, qui génère un
