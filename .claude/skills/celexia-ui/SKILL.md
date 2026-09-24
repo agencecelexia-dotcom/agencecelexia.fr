@@ -82,10 +82,45 @@ l'ajouter à `tailwind.config.js` plutôt que de le coder en dur dans un composa
   `onClick`. Props utiles : `withArrow`, `full`. Ne pas recréer de bouton ad hoc.
   Le libellé vient toujours de `CTA_LABEL` et l'URL de `registerUrl('<page>')`
   ([src/lib/links.js](src/lib/links.js)) — jamais d'URL en dur.
+- **[SpotlightCard](src/components/SpotlightCard.jsx)** — halo qui suit le
+  curseur, posé **sous** le texte. Props : `as` (rendre un `<Link>` plutôt qu'un
+  `<div>`), `className` (c'est lui qui porte l'habillage : `.card`, `.card-fonce`),
+  `spotlightColor`. Utilisé sur les 4 cartes métiers de l'accueil et sur la carte
+  « Ce que nous ne faisons pas ». Effet de survol et de focus uniquement : rien
+  au toucher, et le fondu tombe avec `prefers-reduced-motion`.
 - **[Breadcrumbs](src/components/Breadcrumbs.jsx)**, [Header](src/components/Header.jsx),
   [Footer](src/components/Footer.jsx), [ScrollToTop](src/components/ScrollToTop.jsx),
   [CookieConsent](src/components/CookieConsent.jsx) sont montés globalement dans
   [App.jsx](src/App.jsx) — ne pas les réinstancier dans une page.
+
+## Intégrer un composant React Bits
+
+La registry est déclarée dans [components.json](components.json), avec l'alias
+`@/` → `src/` ([jsconfig.json](jsconfig.json) et `resolve.alias` de
+[vite.config.js](vite.config.js)) :
+
+```bash
+npx shadcn@latest add @react-bits/<Nom>-JS-TW    # variante JS + Tailwind
+```
+
+Le fichier atterrit dans `src/components/`. Il est ensuite **à nous** : React
+Bits est du copier-coller assumé, pas une dépendance versionnée.
+
+Trois règles avant d'en ajouter un :
+
+1. **Vérifier `dependencies` dans la registry** :
+   `curl -s https://reactbits.dev/r/<Nom>-JS-TW.json | python3 -c "import json,sys;print(json.load(sys.stdin)['dependencies'])"`.
+   Beaucoup de composants tirent `motion` ou `gsap` (+30 à 50 ko gzip sur un
+   bundle qui en fait 86). **Ne pas les installer sans demander** — il existe
+   souvent un équivalent sans dépendance (SpotlightCard, GlareHover, StarBorder,
+   Magnet, PixelCard, ClickSpark, Noise).
+2. **Déshabiller le composant** : il arrive en `bg-neutral-900`,
+   `border-neutral-800`, `rounded-3xl`. Ces couleurs ne sont pas les nôtres —
+   les retirer et laisser `className` porter les tokens du site.
+3. **Vérifier le pré-rendu** : rien qui touche `window` hors `useEffect`, et
+   surtout aucun composant qui découpe le texte en spans (`SplitText`,
+   `ScrollFloat`…) sur un titre — le texte pré-rendu est ce que lisent Google et
+   les IA, c'est le point fort du site.
 
 ## Intégrer un bloc HyperUI
 
