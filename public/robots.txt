@@ -4,6 +4,13 @@ Allow: /
 Sitemap: https://agencecelexia.fr/sitemap.xml
 
 # Search crawlers: access to public pages and rendering resources.
+# These named rules document access already allowed by the wildcard.
+User-agent: Googlebot
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
 User-agent: OAI-SearchBot
 Allow: /
 
@@ -31,6 +38,15 @@ User-agent: ClaudeBot
 Allow: /
 
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: MistralAI-Index
+Allow: /
+
+User-agent: MistralAI-User
 Allow: /
 
 User-agent: Bytespider

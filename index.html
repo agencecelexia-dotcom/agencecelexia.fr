@@ -43,21 +43,8 @@
     <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-    <!-- Google Analytics 4 - Consent Mode v2 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VLJ5E084ES"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('consent', 'default', {
-        'analytics_storage': 'denied',
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'wait_for_update': 500
-      });
-      gtag('js', new Date());
-      gtag('config', 'G-VLJ5E084ES', { 'anonymize_ip': true });
-    </script>
+    <!-- Analytics est chargé par CookieConsent uniquement après acceptation.
+         Aucun script tiers ne concurrence le premier affichage sans consentement. -->
   </head>
   <body>
     <div id="root"></div>

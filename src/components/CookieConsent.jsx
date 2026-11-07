@@ -1,37 +1,34 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
-const CONSENT_KEY = 'celexia_cookie_consent';
+import { ANALYTICS_CONSENT_KEY, readAnalyticsConsent, saveAnalyticsConsent, enableAnalytics, disableAnalytics } from '../lib/analytics-loader';
 
 const CookieConsent = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem(CONSENT_KEY);
-    if (!consent) {
-      setVisible(true);
-    } else if (consent === 'accepted') {
-      enableAnalytics();
-    }
+    const syncConsent = () => {
+      const consent = readAnalyticsConsent();
+      setVisible(!['accepted', 'refused'].includes(consent));
+      if (consent === 'accepted') enableAnalytics();
+      else disableAnalytics();
+    };
+    syncConsent();
+    const onStorage = (event) => {
+      if (event.key === ANALYTICS_CONSENT_KEY || event.key === null) syncConsent();
+    };
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
   }, []);
 
-  // gtag est défini par le script Google Analytics chargé dans index.html.
-  const enableAnalytics = () => {
-    if (typeof window.gtag === 'function') {
-      window.gtag('consent', 'update', {
-        analytics_storage: 'granted',
-      });
-    }
-  };
-
   const accept = () => {
-    localStorage.setItem(CONSENT_KEY, 'accepted');
+    saveAnalyticsConsent('accepted');
     enableAnalytics();
     setVisible(false);
   };
 
   const refuse = () => {
-    localStorage.setItem(CONSENT_KEY, 'refused');
+    saveAnalyticsConsent('refused');
+    disableAnalytics();
     setVisible(false);
   };
 

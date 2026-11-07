@@ -1,6 +1,9 @@
 // Contenus éditoriaux publics : une source partagée par les pages et le pré-rendu.
 // Les modalités de rémunération se présentent au téléphone : aucun taux public.
+import { QUALIFICATION_GUIDE } from './qualificationGuide.js';
+
 export const SEO_PAGES = {
+  'demande-qualifiee-btp': QUALIFICATION_GUIDE,
   'apporteur-affaires-btp': {
     kind: 'service',
     path: '/apporteur-affaires-btp',
@@ -83,7 +86,7 @@ export const SEO_PAGES = {
         a: 'Oui. Indiquez le secteur dans lequel vous pouvez intervenir. La cohérence entre la localisation des projets et votre organisation fait partie des éléments étudiés par l’équipe Celexia.',
       },
     ],
-    related: ['/partenariat-artisans-btp', '/guides/commission-apporteur-affaires-btp', '/guides/trouver-chantiers-artisans'],
+    related: ['/guides/demande-qualifiee-btp', '/partenariat-artisans-btp', '/guides/commission-apporteur-affaires-btp', '/guides/trouver-chantiers-artisans'],
     publishedAt: '2026-11-07',
     updatedAt: '2026-11-07',
   },

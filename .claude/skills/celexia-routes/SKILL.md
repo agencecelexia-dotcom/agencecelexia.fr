@@ -5,7 +5,7 @@ description: Contrat des routes, du pré-rendu et du SEO d’agencecelexia.fr. �
 
 # Routes et SEO — Celexia
 
-État du 7 novembre 2026 : **16 pages indexables et une page 404**. Le site reste sur React/Vite. Le build client, le bundle SSR puis `scripts/prerender-meta.mjs` génèrent un HTML complet par URL. Ne pas utiliser `lazy()`/Suspense dans l’arbre des pages : le contenu doit être lisible sans JavaScript.
+État du 7 novembre 2026 : **17 pages indexables et une page 404**. Le site reste sur React/Vite. Le build client, le bundle SSR puis `scripts/prerender-meta.mjs` génèrent un HTML complet par URL. Ne pas utiliser `lazy()`/Suspense dans l’arbre des pages : le contenu doit être lisible sans JavaScript.
 
 ## Sources des routes
 
@@ -15,14 +15,14 @@ description: Contrat des routes, du pré-rendu et du SEO d’agencecelexia.fr. �
 - `src/data/seoHub.js` définit le hub `/guides`, rendu par `Guides` et importé par le pré-rendu.
 - `src/data/partnerCase.js` définit le retour d’expérience anonymisé, rendu par `CaseStudy` et importé par le pré-rendu comme Article. La fiche HTML dans `public/ressources/` est un support imprimable en noindex, hors sitemap.
 - Les autres pages sont déclarées dans `baseRoutes` de `scripts/prerender-meta.mjs`.
-- `public/sitemap.xml`, `public/llms.txt` et `public/llms-full.txt` restent à synchroniser explicitement.
+- `public/sitemap.xml` reste à synchroniser explicitement. `public/llms.txt` et `public/llms-full.txt` sont générés par `scripts/generate-llms.mjs` avant le build, depuis les contenus partagés. Ne pas les modifier à la main.
 
 ## Ajouter une page
 
 1. Déclarer son contenu et ses métadonnées dans la source adaptée. Pour une ressource `SEO_PAGES`, `App.jsx` et le pré-rendu parcourent déjà cette liste. Pour une page autonome, ajouter son import statique et sa Route dans App, puis son entrée dans baseRoutes.
 2. Synchroniser les métadonnées du hook client `usePageMeta` avec celles du pré-rendu. Le hook seul ne suffit pas pour le HTML livré aux robots. Les articles utilisent `type: 'article'`.
 3. Ajouter l’URL canonique au sitemap. La date `lastmod` doit correspondre à un changement réel ; ne pas la renouveler automatiquement à chaque build.
-4. Référencer les informations utiles dans les fichiers llms. Ce sont des résumés documentaires, pas une garantie de visibilité dans les moteurs IA.
+4. Vérifier les fichiers llms générés (`npm run geo:sync`). Ce sont des résumés documentaires, pas une garantie de visibilité dans les moteurs IA. Les nouvelles ressources de SEO_PAGES y sont reprises automatiquement.
 5. Ajouter des liens internes réels depuis des pages pertinentes. Vérifier aussi `Breadcrumbs.jsx` : libellé et liste des chemins connus. Ne pas créer de lien vers `/metiers`, qui n’est pas une page.
 6. Pour les articles, afficher auteur et date cohérents avec le JSON-LD. Ne pas inventer de qualifications, date de fondation ou preuve commerciale.
 

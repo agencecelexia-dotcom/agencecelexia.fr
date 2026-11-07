@@ -1,52 +1,127 @@
-# Agence Celexia — Fonctionnement et ressources artisans
+# Agence Celexia — Contenu public détaillé
 
-Mise à jour : 7 novembre 2026.
+> Agence Celexia est un apporteur d'affaires français dédié aux artisans du bâtiment. L'entreprise recherche et finance elle-même les demandes de chantiers de particuliers, vérifie chacune d'elles, puis transmet aux artisans les informations utiles pour préparer leur devis. Celexia est rémunérée à la commission, uniquement une fois le chantier signé et l'acompte reçu.
 
-## Qui est Celexia ?
+Ces textes reprennent les contenus publics du site. Les pages canoniques liées ci-dessous portent les informations à jour ; les chiffres du cas partenaire décrivent une collaboration particulière.
 
-Celexia est un apporteur d’affaires pour les artisans du bâtiment en France. L’entreprise finance la recherche de projets de particuliers, qualifie les demandes, puis transmet les informations utiles aux artisans selon leur métier et leur secteur.
+## Fonctionnement
 
-Les fondateurs sont Thomas et Antoine. Le nom de l’équipe est « L’équipe Celexia ».
+### Nous recherchons les projets
 
-Contact : agence.celexia@gmail.com — 06 51 72 57 56.
-Présentation : https://agencecelexia.fr/about
-Informations légales de CELEXIA SASU : https://agencecelexia.fr/mentions-legales
+Nous prenons en charge et finançons la recherche de projets de travaux. Vous n’avez aucun budget à avancer pour cette recherche.
 
-## Le fonctionnement
+### Nous qualifions chaque demande
 
-1. Celexia recherche les projets et finance cette recherche. Aucun budget de recherche à avancer pour l’artisan.
-2. Celexia vérifie cinq points : identité du particulier, nature des travaux, budget, zone et calendrier.
-3. Les informations utiles sont transmises à l’artisan selon son métier et son secteur.
-4. L’artisan contacte le particulier, réalise l’étude technique, fixe ses prix, établit son devis et organise les travaux. Il garde la main sur la relation client.
+Identité, projet, budget, zone et calendrier : nous vérifions ces cinq points pour vous transmettre des demandes précises et cohérentes avec votre activité.
 
-Celexia est rémunérée à la commission, uniquement une fois le chantier signé et l’acompte reçu. Aucun frais d’entrée, aucun abonnement. Le taux et les modalités de rémunération sont présentés lors de l’échange téléphonique ; aucun taux n’est publié sur le site.
+### Nous vous confions le dossier
 
-## Les métiers
+Le projet correspond à votre métier et à votre secteur. Vous disposez des informations pour contacter le particulier et préparer votre devis.
 
-- Construction de piscines : piscines maçonnées, coques et projets complets. https://agencecelexia.fr/metiers/constructeurs-piscines
-- Couverture : réfection de toiture, charpente et zinguerie associées. https://agencecelexia.fr/metiers/couverture
-- Façade et isolation extérieure : ravalement, enduit, bardage et ITE. https://agencecelexia.fr/metiers/facade-ite
-- Maçonnerie : extensions, surélévations, dalles, fondations et travaux de structure. https://agencecelexia.fr/metiers/maconnerie
+### Vous chiffrez et réalisez le chantier
 
-## Présenter son entreprise
+Vous fixez vos prix et gardez la relation client. Notre commission intervient uniquement une fois le chantier signé et l’acompte reçu.
 
-Formulaire : https://agencecelexia.fr/candidature
+### Que dois-je payer avant de recevoir un projet ?
 
-Le formulaire recueille l’activité, l’année de création de l’entreprise, la zone d’intervention, l’effectif, une fourchette de chiffre d’affaires, le nombre habituel de chantiers, la capacité supplémentaire et les coordonnées du contact, sa fonction et son ancienneté. Il permet de décrire sa spécialité et ses disponibilités.
+Aucun frais d’entrée, aucun abonnement et aucun budget de recherche à avancer. Celexia finance la recherche et la qualification des projets. Notre rémunération intervient uniquement après la signature du chantier et la réception de votre acompte.
 
-L’équipe Celexia analyse la candidature, puis revient vers l’entreprise. Ce formulaire ne crée aucun compte, ne vaut pas acceptation automatique du partenariat et ne comporte aucune signature de contrat.
+### Quelles informations vais-je recevoir sur un projet ?
 
-Confidentialité : https://agencecelexia.fr/politique-confidentialite
+Nous vérifions l’identité du particulier, la nature du projet, le budget, la zone d’intervention et le calendrier souhaité. Vous recevez une demande qualifiée pour pouvoir échanger avec le particulier et établir votre propre devis.
 
-## Ressources pour les artisans
+### Qui prépare le devis et échange avec le client ?
 
-Index : https://agencecelexia.fr/guides
+Vous prenez directement contact avec le particulier, étudiez son projet et établissez votre devis. Vous fixez vos prix et organisez les travaux. Celexia prépare les informations en amont ; vous gardez la main sur la relation client.
+
+### Comment Celexia est-elle rémunérée ?
+
+Nous percevons une commission uniquement une fois le chantier signé et l’acompte reçu. Nous vous présentons son fonctionnement de vive voix lors de notre échange. Sans signature ni acompte, aucune commission n’est facturée.
+
+### Que se passe-t-il après ma candidature ?
+
+L’équipe Celexia analyse votre entreprise, votre métier, votre secteur et votre capacité à accueillir de nouveaux chantiers. Nous revenons ensuite vers vous pour échanger sur votre demande. Le formulaire sert à faire connaissance : il ne crée pas de compte et ne comporte aucune signature de contrat.
+
+## Qu’est-ce qu’une demande qualifiée dans le BTP ?
+
+Page : https://agencecelexia.fr/guides/demande-qualifiee-btp
+
+Auteur : L’équipe Celexia — https://agencecelexia.fr/about
+Publication : 2026-11-07. Mise à jour : 2026-11-07.
+
+Pour un artisan, recevoir une demande de travaux est un point de départ. Sa qualification sert à comprendre le projet avant de mobiliser du temps pour une visite et un devis.
+
+Chez Celexia, une demande qualifiée est un projet de travaux de particulier dont cinq informations ont été vérifiées : identité, projet, budget, zone et calendrier. Elle est transmise à une entreprise selon son métier et son secteur. Elle ne constitue ni un devis accepté ni un chantier signé. L’artisan reste responsable de la visite, de l’étude technique, de son prix et de la relation client.
+
+### Contact, demande qualifiée, devis et chantier signé : quelle différence ?
+
+Ces étapes décrivent des situations différentes. Pour évaluer un partenariat, demandez à quel stade les projets vous sont transmis et quelles informations vous recevez. Le nombre de demandes ne permet pas, à lui seul, de connaître le nombre de chantiers obtenus.
+
+| Étape | Ce qu’elle décrit | Ce qui reste à faire |
+| --- | --- | --- |
+| Contact | Les coordonnées d’une personne à joindre. | Comprendre son besoin et vérifier les informations du projet. |
+| Demande qualifiée chez Celexia | Un projet renseigné sur les cinq points de qualification. | Contacter le particulier et approfondir les contraintes techniques. |
+| Devis établi par l’artisan | Une proposition de travaux et de prix préparée par l’entreprise. | Échanger avec le client et attendre sa décision. |
+| Chantier signé et acompte reçu | Les deux conditions de déclenchement de la commission Celexia. | Organiser et réaliser les travaux selon le projet convenu avec le client. |
+
+### Quelles informations Celexia vérifie-t-elle avant la transmission ?
+
+La qualification Celexia porte sur les informations nécessaires pour préparer votre premier échange. Le budget annoncé reste une information de départ : votre entreprise établit elle-même le prix de ses travaux après étude du projet.
+
+- Identité : identifier le particulier qui porte le projet et peut être contacté.
+- Projet : comprendre la nature des travaux souhaités.
+- Budget : examiner l’enveloppe annoncée au regard du besoin exprimé.
+- Zone : vérifier la localisation des travaux et le secteur de l’entreprise.
+- Calendrier : préciser l’échéance envisagée par le particulier.
+
+### Que doit encore vérifier l’artisan ?
+
+Une demande qualifiée ne remplace pas une étude technique. Vous vérifiez les mesures, l’état de l’existant, les accès, les matériaux et les contraintes qui influencent votre devis. Les choix du client doivent aussi être précisés avec lui.
+
+Pour une toiture, l’état de la couverture et de la charpente doit être examiné. Pour une piscine, le terrain et les accès comptent. En façade ou en maçonnerie, le support et la nature des travaux demandent votre analyse. Ces contrôles relèvent de votre entreprise ; ils ne sont pas présentés comme un diagnostic réalisé par Celexia.
+
+Votre planning fait également partie de cette vérification. Une demande adaptée à votre métier doit pouvoir être étudiée puis, si elle aboutit, réalisée dans des conditions compatibles avec votre organisation.
+
+### Comment suivre les demandes sans confondre volume et résultat ?
+
+Dans votre suivi, distinguez les demandes reçues, les particuliers contactés, les visites réalisées, les devis envoyés et les chantiers signés. Notez aussi les projets qui ne correspondent pas à votre activité et la raison de cet écart. Vous pourrez ainsi discuter de faits précis avec votre partenaire.
+
+Le retour d’expérience publié par Celexia décrit 700 demandes qualifiées transmises sur quatre mois à une entreprise BTP anonymisée : 100 le premier mois puis 200 chacun des trois mois suivants. Ce volume ne désigne pas 700 chantiers signés. Aucun chiffre d’affaires, montant de devis ou résultat futur n’en est déduit.
+
+### Comment préparer un partenariat autour de demandes adaptées ?
+
+Présentez vos prestations, vos exclusions, votre zone et votre capacité supplémentaire. Ces éléments donnent un cadre concret à la recherche de projets, pour les entreprises de piscine, de couverture, de façade et d’isolation extérieure, ou de maçonnerie.
+
+Chez Celexia, aucun frais d’entrée, aucun abonnement et aucun budget de recherche ne sont à avancer. La commission intervient uniquement après chantier signé et acompte reçu. La candidature présente votre entreprise à l’équipe Celexia pour analyse ; elle ne crée aucun compte et ne comporte aucune signature de contrat.
+
+### Un lead BTP est-il forcément une demande qualifiée ?
+
+Le mot « lead » ne suffit pas à décrire les vérifications réalisées. Demandez quelles informations accompagnent le contact. Chez Celexia, la qualification couvre l’identité, le projet, le budget, la zone et le calendrier.
+
+### Une demande qualifiée garantit-elle la signature du client ?
+
+Non. Elle prépare votre prise de contact et votre étude du projet. Le particulier décide ensuite de donner suite ou non à votre proposition. Le nombre de demandes transmises doit être distingué du nombre de chantiers signés.
+
+### Qui fixe le montant du devis ?
+
+L’entreprise artisanale fixe ses prix et établit son devis après étude du projet. Le budget renseigné lors de la qualification ne constitue pas un prix imposé à l’artisan.
+
+La définition et les cinq vérifications décrivent la méthode Celexia. Le cas chiffré provient des données opérationnelles communiquées par l’équipe Celexia ; il ne constitue pas une moyenne du marché ni une promesse de volume.
+
+- [Le rôle de Celexia et la qualification des projets](https://agencecelexia.fr/apporteur-affaires-btp)
+
+- [Le détail et les limites du cas des 700 demandes](https://agencecelexia.fr/retour-experience-partenaire-btp)
+
+- [L’équipe responsable de ces informations](https://agencecelexia.fr/about)
 
 ## Votre apporteur d’affaires BTP, pour des projets adaptés à votre entreprise.
 
-Source : https://agencecelexia.fr/apporteur-affaires-btp
+Page : https://agencecelexia.fr/apporteur-affaires-btp
 
-Mise à jour : 2026-11-07
+Auteur : L’équipe Celexia — https://agencecelexia.fr/about
+Publication : 2026-11-07. Mise à jour : 2026-11-07.
+
+Vous cherchez des projets qui correspondent à votre métier, à votre secteur et à votre planning. Celexia recherche et qualifie les demandes de particuliers, puis vous transmet les informations pour préparer votre devis.
 
 Celexia est un apporteur d’affaires pour les artisans du bâtiment en France. Nous finançons la recherche de projets et vérifions l’identité du particulier, son besoin, son budget, sa zone et son calendrier. L’artisan reste responsable de son devis et de sa relation client. Notre commission intervient uniquement après la signature du chantier et la réception de l’acompte.
 
@@ -56,11 +131,11 @@ Dans le fonctionnement de Celexia, l’apport d’affaires consiste à rapproche
 
 Vous prenez ensuite directement contact avec le particulier. Vous vérifiez les conditions techniques, décidez de la solution adaptée et fixez votre prix. Celexia ne réalise pas les travaux et ne chiffre pas à votre place. Cette répartition permet de savoir qui fait quoi dès le départ.
 
-Celexia prépare : La recherche et la qualification du projet — Votre entreprise prend la main : Le contact avec le particulier et l’étude technique
-
-Celexia prépare : Les informations sur le besoin, le budget et le calendrier — Votre entreprise prend la main : Le chiffrage, le devis et son explication au client
-
-Celexia prépare : La vérification du métier et de la zone concernés — Votre entreprise prend la main : L’organisation et la réalisation du chantier
+| Celexia prépare | Votre entreprise prend la main |
+| --- | --- |
+| La recherche et la qualification du projet | Le contact avec le particulier et l’étude technique |
+| Les informations sur le besoin, le budget et le calendrier | Le chiffrage, le devis et son explication au client |
+| La vérification du métier et de la zone concernés | L’organisation et la réalisation du chantier |
 
 ### Une demande qualifiée : quelles informations recevez-vous ?
 
@@ -108,9 +183,12 @@ Oui. Indiquez le secteur dans lequel vous pouvez intervenir. La cohérence entre
 
 ## Un partenariat BTP adapté à votre entreprise artisanale.
 
-Source : https://agencecelexia.fr/partenariat-artisans-btp
+Page : https://agencecelexia.fr/partenariat-artisans-btp
 
-Mise à jour : 2026-11-07
+Auteur : L’équipe Celexia — https://agencecelexia.fr/about
+Publication : 2026-11-07. Mise à jour : 2026-11-07.
+
+Votre métier, votre secteur et la place dans votre planning sont le point de départ. Présentez votre entreprise à Celexia pour étudier ensemble l’apport de nouveaux projets de travaux.
 
 Le partenariat Celexia s’adresse aux entreprises de piscine, couverture, façade et ITE, et maçonnerie en France. Celexia recherche et qualifie des projets de particuliers ; l’artisan établit ses devis et réalise les travaux. La candidature permet à l’équipe Celexia d’étudier l’activité et la capacité de l’entreprise, avant un échange sur le fonctionnement du partenariat.
 
@@ -172,9 +250,12 @@ Non. Présenter votre entreprise est gratuit. Le modèle Celexia ne comporte auc
 
 ## Apporteur d’affaires BTP : comment évaluer le pourcentage et la commission ?
 
-Source : https://agencecelexia.fr/guides/commission-apporteur-affaires-btp
+Page : https://agencecelexia.fr/guides/commission-apporteur-affaires-btp
 
-Mise à jour : 2026-11-07
+Auteur : L’équipe Celexia — https://agencecelexia.fr/about
+Publication : 2026-11-07. Mise à jour : 2026-11-07.
+
+Avant de comparer un pourcentage, comprenez ce qu’il rémunère, à quel montant il s’applique et ce qui déclenche la commission. Pour votre entreprise, ces questions comptent autant que le taux lui-même.
 
 Pour évaluer la commission d’un apporteur d’affaires BTP, un artisan doit examiner le service fourni, la base de calcul et la condition de facturation. Chez Celexia, la commission intervient uniquement après la signature du chantier et la réception de l’acompte, sans frais d’entrée ni abonnement. Le pourcentage et ses modalités sont présentés de vive voix.
 
@@ -214,17 +295,14 @@ Il n’y a aucun frais d’entrée, aucun abonnement et aucun budget de recherch
 
 Une comparaison utile tient sur une fiche simple. Notez les réponses pour comprendre l’ensemble du service et repérer les points à clarifier pendant l’appel.
 
-Point à examiner : Travail réalisé en amont — Question à poser : Quelles informations sur le projet sont vérifiées avant la transmission ?
-
-Point à examiner : Adéquation avec votre entreprise — Question à poser : Comment mon métier, ma zone et ma disponibilité sont-ils pris en compte ?
-
-Point à examiner : Base de calcul — Question à poser : À quel montant la commission s’applique-t-elle et comment est-il défini ?
-
-Point à examiner : Déclenchement — Question à poser : Quelle étape du chantier rend la commission applicable ?
-
-Point à examiner : Coûts à avancer — Question à poser : Y a-t-il des frais d’entrée, un abonnement ou un budget de recherche ?
-
-Point à examiner : Relation avec le particulier — Question à poser : Qui prépare le devis, fixe le prix et échange avec le client ?
+| Point à examiner | Question à poser |
+| --- | --- |
+| Travail réalisé en amont | Quelles informations sur le projet sont vérifiées avant la transmission ? |
+| Adéquation avec votre entreprise | Comment mon métier, ma zone et ma disponibilité sont-ils pris en compte ? |
+| Base de calcul | À quel montant la commission s’applique-t-elle et comment est-il défini ? |
+| Déclenchement | Quelle étape du chantier rend la commission applicable ? |
+| Coûts à avancer | Y a-t-il des frais d’entrée, un abonnement ou un budget de recherche ? |
+| Relation avec le particulier | Qui prépare le devis, fixe le prix et échange avec le client ? |
 
 ### Raisonner à l’échelle du chantier
 
@@ -238,11 +316,11 @@ Commencez par identifier ce qui déclenche le paiement. Un contact reçu, une p�
 
 Le tableau ci-dessous sert à préparer vos questions. Les offres au contact ou par abonnement varient selon le prestataire : vérifiez leur fonctionnement précis. Pour Celexia, la règle est connue : la commission intervient uniquement après signature du chantier et réception de votre acompte.
 
-Modèle examiné : Paiement au contact — Déclenchement à clarifier : À quelle étape le contact est-il facturé : réception, validation ou rendez-vous ? — Questions utiles : Quelles informations ont été vérifiées ? Quel travail reste-t-il avant de pouvoir chiffrer ?
-
-Modèle examiné : Abonnement — Déclenchement à clarifier : Quelle période et quel service le paiement couvre-t-il ? — Questions utiles : Quelles prestations sont incluses et comment les demandes correspondent-elles à votre métier et à votre secteur ?
-
-Modèle examiné : Commission Celexia — Déclenchement à clarifier : Uniquement après chantier signé et acompte reçu. — Questions utiles : Comment les projets sont-ils qualifiés et comment la commission s’applique-t-elle à votre entreprise ? Nous en parlons de vive voix.
+| Modèle examiné | Déclenchement à clarifier | Questions utiles |
+| --- | --- | --- |
+| Paiement au contact | À quelle étape le contact est-il facturé : réception, validation ou rendez-vous ? | Quelles informations ont été vérifiées ? Quel travail reste-t-il avant de pouvoir chiffrer ? |
+| Abonnement | Quelle période et quel service le paiement couvre-t-il ? | Quelles prestations sont incluses et comment les demandes correspondent-elles à votre métier et à votre secteur ? |
+| Commission Celexia | Uniquement après chantier signé et acompte reçu. | Comment les projets sont-ils qualifiés et comment la commission s’applique-t-elle à votre entreprise ? Nous en parlons de vive voix. |
 
 ### Où connaître le pourcentage de commission de Celexia ?
 
@@ -258,9 +336,12 @@ Votre entreprise fixe ses prix et établit son devis. Vous échangez directement
 
 ## Trouver des chantiers sans abonnement, à la mesure de votre entreprise.
 
-Source : https://agencecelexia.fr/guides/trouver-chantiers-artisans
+Page : https://agencecelexia.fr/guides/trouver-chantiers-artisans
 
-Mise à jour : 2026-11-07
+Auteur : L’équipe Celexia — https://agencecelexia.fr/about
+Publication : 2026-11-07. Mise à jour : 2026-11-07.
+
+Recommandations, relations entre métiers et apport d’affaires : plusieurs pistes permettent de développer votre activité. Voici comment les aborder en tenant compte de votre secteur, de votre planning et du travail nécessaire avant de signer.
 
 Un artisan peut rechercher des chantiers sans abonnement grâce aux recommandations de ses clients, aux relations avec des entreprises de métiers complémentaires ou à un apporteur d’affaires rémunéré au résultat. Chaque piste demande du temps ou entraîne un coût à examiner. Chez Celexia, la recherche et la qualification sont financées par nos soins ; la commission intervient après chantier signé et acompte reçu.
 
@@ -272,11 +353,11 @@ Les entreprises de métiers complémentaires constituent une autre piste. Un pro
 
 Vous pouvez aussi étudier un partenariat avec un apporteur d’affaires. Vérifiez alors ce qui est préparé avant la transmission du projet, le coût du service et son déclenchement. Un service sans abonnement peut rester payant : il faut distinguer l’absence de mensualité et la rémunération liée à une affaire.
 
-Piste à explorer : Recommandations de clients — Travail à prévoir dans votre entreprise : Entretenir la relation, présenter vos prestations et qualifier la nouvelle demande.
-
-Piste à explorer : Relations avec des métiers complémentaires — Travail à prévoir dans votre entreprise : Expliquer votre périmètre et convenir de la manière de travailler ensemble.
-
-Piste à explorer : Apport d’affaires Celexia — Travail à prévoir dans votre entreprise : Prendre contact avec le particulier, vérifier le projet sur le plan technique et établir votre devis ; commission après signature et acompte.
+| Piste à explorer | Travail à prévoir dans votre entreprise |
+| --- | --- |
+| Recommandations de clients | Entretenir la relation, présenter vos prestations et qualifier la nouvelle demande. |
+| Relations avec des métiers complémentaires | Expliquer votre périmètre et convenir de la manière de travailler ensemble. |
+| Apport d’affaires Celexia | Prendre contact avec le particulier, vérifier le projet sur le plan technique et établir votre devis ; commission après signature et acompte. |
 
 ### Définir les chantiers que vous souhaitez vraiment réaliser
 
@@ -342,15 +423,14 @@ Non. Celexia recherche et qualifie les projets. Votre entreprise réalise l’é
 
 ## Des chantiers pour piscinistes, de la construction à la rénovation
 
-Source : https://agencecelexia.fr/metiers/constructeurs-piscines
+Page : https://agencecelexia.fr/metiers/constructeurs-piscines
 
 Vous construisez des piscines. Nous recherchons des projets de construction et de rénovation, puis vérifions le besoin, le budget et le calendrier avant de vous les transmettre.
 
-### Un partenariat adapté à votre façon de construire
-
-Présentez vos spécialités : piscine maçonnée, pose de coque, rénovation de bassin ou chantier complet. Précisez également les prestations que vous ne réalisez pas. Cette description aide à orienter la recherche vers des projets cohérents avec vos compétences et votre équipement.
-
-Décrivez votre zone et la place disponible dans votre planning, en tenant compte de la préparation, des travaux et des déplacements. Vous restez responsable de la visite, du choix technique et du chiffrage. Celexia prépare le premier échange ; votre expertise permet de construire la proposition au particulier.
+- Piscines maçonnées béton, sur-mesure
+- Coques polyester posées
+- Chantiers complets : terrassement, local technique, plage
+- Rénovation et réfection de bassin
 
 ### Préparer votre visite pour un projet de piscine
 
@@ -372,6 +452,12 @@ Terrassement, bassin, local technique, raccordements et aménagements autour de 
 
 Quels plans, documents ou démarches existent déjà ? Quelle période le propriétaire souhaite-t-il viser ? Ces réponses aident à distinguer son objectif de calendrier d’une date que vous pourrez confirmer après votre étude.
 
+### Un partenariat adapté à votre façon de construire
+
+Présentez vos spécialités : piscine maçonnée, pose de coque, rénovation de bassin ou chantier complet. Précisez également les prestations que vous ne réalisez pas. Cette description aide à orienter la recherche vers des projets cohérents avec vos compétences et votre équipement.
+
+Décrivez votre zone et la place disponible dans votre planning, en tenant compte de la préparation, des travaux et des déplacements. Vous restez responsable de la visite, du choix technique et du chiffrage. Celexia prépare le premier échange ; votre expertise permet de construire la proposition au particulier.
+
 ### Vous transmettez aussi les demandes de simple entretien ?
 
 Non. Nous nous concentrons sur les projets de construction et de rénovation lourde, ceux dont le montant justifie votre déplacement et votre étude.
@@ -390,15 +476,14 @@ Indiquez votre capacité supplémentaire dans le formulaire et utilisez les pré
 
 ## Des chantiers de toiture pour votre entreprise de couverture
 
-Source : https://agencecelexia.fr/metiers/couverture
+Page : https://agencecelexia.fr/metiers/couverture
 
 Vous êtes couvreur. Nous recherchons les propriétaires qui souhaitent refaire leur toit et qualifions leur projet pour vous transmettre les informations utiles à votre devis.
 
-### Décrire les chantiers que votre équipe peut accueillir
-
-Tuile, ardoise, zinc, bac acier : indiquez les matériaux et configurations sur lesquels votre entreprise intervient. Précisez si vous réalisez les travaux associés de charpente, de zinguerie ou d’isolation. Une description concrète est plus utile que le seul intitulé « couverture ».
-
-Votre secteur doit aussi tenir compte des visites, des livraisons et du suivi pendant les travaux. Présentez votre rythme habituel et votre capacité supplémentaire. Vous gardez la main sur l’analyse de la toiture, vos prix et vos échanges avec le particulier ; le partenariat se prépare à partir de cette organisation réelle.
+- Réfection complète de couverture
+- Tuile, ardoise, zinc, bac acier
+- Charpente et zinguerie associées
+- Isolation de toiture par l’extérieur
 
 ### Les points à approfondir avant un devis de couverture
 
@@ -420,6 +505,12 @@ Le projet comprend-il de la charpente, de la zinguerie ou une isolation de toitu
 
 Identifiez la période souhaitée et les autres travaux prévus sur le bâtiment. Vous pourrez ensuite mettre cet objectif en regard de votre planning, de vos approvisionnements et de l’organisation nécessaire à la réalisation.
 
+### Décrire les chantiers que votre équipe peut accueillir
+
+Tuile, ardoise, zinc, bac acier : indiquez les matériaux et configurations sur lesquels votre entreprise intervient. Précisez si vous réalisez les travaux associés de charpente, de zinguerie ou d’isolation. Une description concrète est plus utile que le seul intitulé « couverture ».
+
+Votre secteur doit aussi tenir compte des visites, des livraisons et du suivi pendant les travaux. Présentez votre rythme habituel et votre capacité supplémentaire. Vous gardez la main sur l’analyse de la toiture, vos prix et vos échanges avec le particulier ; le partenariat se prépare à partir de cette organisation réelle.
+
 ### Et les dépannages, les fuites, les urgences ?
 
 Celexia accompagne les projets de réfection de toiture. Les demandes de dépannage ponctuel et les urgences ne font pas partie du périmètre recherché.
@@ -438,15 +529,14 @@ Décrivez simplement les prestations que votre entreprise réalise. Le périmèt
 
 ## Des chantiers de façade et d’ITE pour votre entreprise
 
-Source : https://agencecelexia.fr/metiers/facade-ite
+Page : https://agencecelexia.fr/metiers/facade-ite
 
 Ravalement, bardage, isolation par l’extérieur. Nous recherchons et qualifions les projets de propriétaires dont la façade est à reprendre, dans votre zone d’intervention.
 
-### Mettre vos spécialités au centre du partenariat
-
-Présentez vos prestations avec précision : ravalement, reprise d’enduit, bardage ou isolation thermique par l’extérieur. Indiquez les matériaux et les configurations que vous maîtrisez, ainsi que les travaux que vous ne prenez pas en charge. Le besoin d’un propriétaire doit être rapproché de ce périmètre concret.
-
-Décrivez votre zone et vos disponibilités en tenant compte de l’installation, des travaux et du suivi. Vous réalisez l’étude technique, préparez votre devis et échangez directement avec le particulier. Si le projet concerne des aides à la rénovation, les démarches restent à examiner avec lui dans le cadre de votre intervention.
+- Isolation thermique par l’extérieur
+- Ravalement et reprise d’enduit
+- Bardage bois, composite, fibre-ciment ou métal
+- Maisons individuelles et petit collectif
 
 ### Préparer l’étude d’un chantier de façade
 
@@ -468,6 +558,12 @@ Fenêtres, volets, appuis, descentes d’eau et équipements fixés en façade :
 
 Vérifiez l’accès aux façades et l’espace nécessaire à l’installation du chantier. Identifiez les plans, photographies ou études déjà disponibles, ainsi que les autres professionnels impliqués, pour préparer les questions encore ouvertes.
 
+### Mettre vos spécialités au centre du partenariat
+
+Présentez vos prestations avec précision : ravalement, reprise d’enduit, bardage ou isolation thermique par l’extérieur. Indiquez les matériaux et les configurations que vous maîtrisez, ainsi que les travaux que vous ne prenez pas en charge. Le besoin d’un propriétaire doit être rapproché de ce périmètre concret.
+
+Décrivez votre zone et vos disponibilités en tenant compte de l’installation, des travaux et du suivi. Vous réalisez l’étude technique, préparez votre devis et échangez directement avec le particulier. Si le projet concerne des aides à la rénovation, les démarches restent à examiner avec lui dans le cadre de votre intervention.
+
 ### Les dossiers d’aides à la rénovation, vous les gérez ?
 
 Non, c’est votre métier et votre relation client. Nous vérifions en amont que le projet est réel et le budget cohérent, puis nous vous laissons la main sur le montage et le chiffrage.
@@ -486,15 +582,14 @@ Indiquez les matériaux, les types de bâtiments et la zone sur lesquels vous in
 
 ## Des chantiers de maçonnerie pour développer votre entreprise
 
-Source : https://agencecelexia.fr/metiers/maconnerie
+Page : https://agencecelexia.fr/metiers/maconnerie
 
 Extensions, murs, dalles, reprises de structure. Nous recherchons des projets de maçonnerie et vérifions leur cohérence avec votre activité avant de vous les transmettre.
 
-### Un partenariat construit autour de vos capacités
-
-Présentez vos spécialités : extensions, fondations, dalles, murs ou interventions sur l’existant. Précisez ce que votre équipe réalise habituellement et les configurations que vous ne souhaitez pas prendre en charge. Ces informations aident à distinguer un projet adapté d’une demande trop éloignée de votre activité.
-
-La capacité disponible dépend du planning de l’équipe, des moyens nécessaires et du temps consacré à l’étude des projets. Décrivez votre situation dans le formulaire sans chercher à annoncer un volume idéal. Vous restez maître de la visite, du chiffrage et de l’organisation des travaux ; Celexia prépare la mise en relation avec le particulier.
+- Extensions et surélévations
+- Dalles, fondations, murs porteurs
+- Reprise en sous-œuvre et ouvertures
+- Murs de clôture et soutènement maçonnés
 
 ### Les informations à réunir avant d’étudier le gros œuvre
 
@@ -516,6 +611,12 @@ Examinez les accès pour les engins et les matériaux, les espaces de stockage e
 
 Le projet implique-t-il d’autres entreprises ou des travaux déjà programmés ? Clarifiez votre périmètre, les échanges nécessaires et le calendrier souhaité. Vous pourrez ensuite expliquer au propriétaire les étapes qui concernent votre entreprise.
 
+### Un partenariat construit autour de vos capacités
+
+Présentez vos spécialités : extensions, fondations, dalles, murs ou interventions sur l’existant. Précisez ce que votre équipe réalise habituellement et les configurations que vous ne souhaitez pas prendre en charge. Ces informations aident à distinguer un projet adapté d’une demande trop éloignée de votre activité.
+
+La capacité disponible dépend du planning de l’équipe, des moyens nécessaires et du temps consacré à l’étude des projets. Décrivez votre situation dans le formulaire sans chercher à annoncer un volume idéal. Vous restez maître de la visite, du chiffrage et de l’organisation des travaux ; Celexia prépare la mise en relation avec le particulier.
+
 ### Vous envoyez des petits travaux de reprise ?
 
 Celexia recherche des projets structurants de maçonnerie et de gros œuvre. Les petites réparations ponctuelles ne font pas partie du périmètre accompagné.
@@ -534,11 +635,20 @@ Utilisez le champ libre pour indiquer vos exclusions, par exemple certaines inte
 
 ## Apport d’affaires BTP : un partenariat orienté couverture.
 
-Source : https://agencecelexia.fr/retour-experience-partenaire-btp
+Page : https://agencecelexia.fr/retour-experience-partenaire-btp
+
+Auteur : L’équipe Celexia. Publication : 2026-11-07. Mise à jour : 2026-11-07.
+
+Une entreprise du bâtiment tous corps de métier, avec une activité orientée couverture. Voici les demandes qualifiées transmises par Celexia au cours des quatre premiers mois de cette collaboration.
 
 Celexia a transmis 100 demandes qualifiées à cette entreprise partenaire le premier mois, puis 200 demandes chacun des trois mois suivants : soit 700 demandes sur quatre mois. Ces chiffres décrivent les demandes transmises, pas des chantiers signés.
 
 Données opérationnelles communiquées par l’équipe Celexia. Entreprise anonymisée.
+
+- Mois 1 : 100 demandes qualifiées transmises
+- Mois 2 : 200 demandes qualifiées transmises
+- Mois 3 : 200 demandes qualifiées transmises
+- Mois 4 : 200 demandes qualifiées transmises
 
 100 + 200 + 200 + 200 = 700 demandes
 
@@ -562,8 +672,12 @@ Les chiffres de cette page concernent uniquement les demandes transmises. Ils ne
 
 Ce cas décrit une collaboration particulière ; les volumes dépendent notamment du métier, du secteur et des capacités de l’entreprise et ne constituent pas une garantie de résultat.
 
-## Fiche de préparation à imprimer
+## Liens pratiques
 
-https://agencecelexia.fr/ressources/fiche-partenariat-artisan.html
+- [Candidature](https://agencecelexia.fr/candidature)
 
-Fiche en accès libre pour noter son activité, sa zone, sa capacité et ses questions avant un échange sur le partenariat. Aucune information n’est transmise par cette fiche.
+- [Contact](https://agencecelexia.fr/contact)
+
+- [Mentions légales](https://agencecelexia.fr/mentions-legales)
+
+- [Confidentialité](https://agencecelexia.fr/politique-confidentialite)

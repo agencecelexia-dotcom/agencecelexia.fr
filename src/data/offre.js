@@ -3,8 +3,8 @@
 // Règles de rédaction (voir .claude/skills/celexia-copy/SKILL.md) :
 //   - Ne jamais décrire les canaux d'acquisition.
 //   - Ne jamais publier de terme contractuel (préavis, durée, délai de paiement).
-//   - Aucun chiffre de volume, d'ancienneté ou de performance. Seules les
-//     fourchettes de budget de chantier sont autorisées.
+//   - Aucun chiffre de volume ou de performance inventé. Le cas partenaire
+//     autorisé est décrit dans partnerCase.js ; ne pas extrapoler ses résultats.
 //   - Ne publier aucun taux : la rémunération se précise au téléphone.
 //   - Ne faire aucune mention de l’exclusivité ou du nombre de destinataires.
 
