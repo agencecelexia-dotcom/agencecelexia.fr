@@ -1,9 +1,14 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import { fileURLToPath, URL } from 'node:url'
+import { cwd } from 'node:process'
+import { candidatureDevPlugin } from './scripts/dev-candidature.mjs'
 
-export default defineConfig({
-  plugins: [react()],
+export default defineConfig(({ command, mode }) => ({
+  plugins: [
+    react(),
+    command === 'serve' && candidatureDevPlugin(loadEnv(mode, cwd(), '')),
+  ],
   base: '/',
   // Alias @/ attendu par la CLI shadcn (registry @react-bits), voir components.json.
   resolve: {
@@ -28,4 +33,4 @@ export default defineConfig({
       },
     },
   },
-})
+}))

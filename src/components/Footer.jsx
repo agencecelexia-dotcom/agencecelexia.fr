@@ -31,7 +31,7 @@ export default function Footer() {
             <h2 className="footer-kicker">Parlons de votre entreprise</h2>
             <a href="mailto:agence.celexia@gmail.com" className="footer-link break-all">agence.celexia@gmail.com</a>
             <a href="tel:+33651725756" className="block text-white font-display text-xl mt-4 tracking-tight">06 51 72 57 56</a>
-            <p className="mt-4 text-xs text-violet-200">Nogent-sur-Marne · France entière</p>
+            <p className="mt-4 text-xs text-violet-200">France entière</p>
           </div>
         </div>
         <div className="border-t border-white/15 pt-7 flex flex-col md:flex-row justify-between gap-4 text-[10px] text-violet-200">

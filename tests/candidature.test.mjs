@@ -11,6 +11,7 @@ const values = {
 };
 const request = (body = values) => ({ method: 'POST', contentType: 'application/json', body, origin: 'https://agencecelexia.fr', host: 'agencecelexia.fr' });
 const env = { RESEND_API_KEY: 'dummy-test-key', CANDIDATURE_FROM_EMAIL: 'test@example.com' };
+const webhookEnv = { CANDIDATURE_WEBHOOK_URL: 'https://automation.example/webhook/candidature', CANDIDATURE_WEBHOOK_SECRET: 'dummy-webhook-secret' };
 const now = new Date('2026-11-07T12:00:00Z');
 const neverSend = () => { throw new Error('An invalid request must not send an email'); };
 
@@ -78,6 +79,90 @@ test('acknowledged email contains all business fields and a fixed destination', 
   await handleCandidature(request(), { env, now: new Date('2026-11-07T14:00:00Z'), send });
   assert.equal(sent[0].headers['Idempotency-Key'], sent[1].headers['Idempotency-Key']);
   assert.equal(sent[0].body, sent[1].body);
+});
+
+test('n8n takes priority and receives the validated application with a fixed email destination', async () => {
+  const sent = [];
+  const send = async (url, options) => {
+    const payload = JSON.parse(options.body);
+    sent.push({ url, ...options, payload });
+    return new Response(JSON.stringify({ received: true, reference: payload.reference, messageId: 'gmail-test-id' }), { status: 200 });
+  };
+  const result = await handleCandidature(request({ ...values, company: ` ${values.company} `, source: 'contact\r\n\u0000', to: 'attacker@example.com', emailPayload: 'ignored' }), { env: { ...env, ...webhookEnv }, now, send });
+  assert.equal(result.status, 200);
+  assert.equal(result.body.received, true);
+  assert.equal(sent.length, 1);
+  const outbound = sent[0];
+  assert.equal(outbound.url, webhookEnv.CANDIDATURE_WEBHOOK_URL);
+  assert.equal(outbound.method, 'POST');
+  assert.equal(outbound.headers['X-Celexia-Webhook-Secret'], webhookEnv.CANDIDATURE_WEBHOOK_SECRET);
+  assert.equal(outbound.headers.Authorization, undefined);
+  assert.equal(outbound.redirect, 'error');
+  assert.ok(outbound.signal instanceof AbortSignal);
+  assert.match(outbound.payload.reference, /^[a-f0-9]{64}$/);
+  assert.equal(outbound.headers['Idempotency-Key'], `candidature-${outbound.payload.reference}`);
+  assert.equal(result.body.reference, outbound.payload.reference.slice(0, 12));
+  const { websiteConfirmation, ...application } = values;
+  assert.deepEqual(outbound.payload.application, application);
+  assert.equal(outbound.payload.source, 'contact');
+  assert.equal(outbound.payload.email.to, 'agence.celexia@gmail.com');
+  assert.equal(outbound.payload.email.replyTo, values.email);
+  assert.equal(outbound.payload.email.subject, `Candidature Celexia — ${values.company}`);
+  assert.match(outbound.payload.email.text, /Chiffre d’affaires annuel : 100 000 à 250 000 €/);
+  assert.match(outbound.payload.email.text, /Capacité supplémentaire par mois : 2/);
+  assert.match(outbound.payload.email.text, /Dans l’entreprise depuis : 2018/);
+  assert.ok(!outbound.body.includes(webhookEnv.CANDIDATURE_WEBHOOK_SECRET));
+  await handleCandidature(request({ ...values, source: 'contact' }), { env: webhookEnv, now: new Date('2026-11-07T14:00:00Z'), send });
+  assert.equal(sent[0].payload.reference, sent[1].payload.reference);
+});
+
+test('incomplete or unsafe n8n configuration does not send or fall back to Resend', async () => {
+  for (const overrides of [
+    { CANDIDATURE_WEBHOOK_SECRET: '' },
+    { CANDIDATURE_WEBHOOK_SECRET: '   ' },
+    { CANDIDATURE_WEBHOOK_SECRET: 'invalid\r\nheader' },
+    { CANDIDATURE_WEBHOOK_URL: '' },
+    { CANDIDATURE_WEBHOOK_URL: 'not-a-url' },
+    { CANDIDATURE_WEBHOOK_URL: 'http://automation.example/webhook/candidature' },
+    { CANDIDATURE_WEBHOOK_URL: 'https://username:password@automation.example/webhook/candidature' },
+    { CANDIDATURE_WEBHOOK_URL: 'https://automation.example/webhook/candidature#fragment' },
+  ]) {
+    let sends = 0;
+    const result = await handleCandidature(request(), { env: { ...env, ...webhookEnv, ...overrides }, now, send: () => { sends++; return neverSend(); } });
+    assert.equal(result.status, 503);
+    assert.equal(result.body.received, false);
+    assert.equal(sends, 0);
+  }
+});
+
+test('n8n failures and ambiguous acknowledgements cannot confirm receipt or trigger a second provider', async () => {
+  for (const response of [
+    () => new Response(JSON.stringify({ received: false }), { status: 403 }),
+    () => new Response('<html>fallback</html>', { status: 200 }),
+    () => new Response('{}', { status: 200 }),
+    () => new Response(JSON.stringify({ received: true, messageId: 'gmail-test-id' }), { status: 200 }),
+    () => new Response(JSON.stringify({ received: true, reference: 'wrong-reference', messageId: 'gmail-test-id' }), { status: 200 }),
+    (payload) => new Response(JSON.stringify({ received: true, reference: payload.reference }), { status: 200 }),
+    (payload) => new Response(JSON.stringify({ received: true, reference: payload.reference, messageId: '   ' }), { status: 200 }),
+    (payload) => new Response(JSON.stringify({ received: 'true', reference: payload.reference, messageId: 'gmail-test-id' }), { status: 200 }),
+    (payload) => new Response(JSON.stringify({ received: true, reference: payload.reference, messageId: 'gmail-test-id' }), { status: 500 }),
+    () => { throw new Error('timeout'); },
+  ]) {
+    const calls = [];
+    const send = async (url, options) => { calls.push(url); return response(JSON.parse(options.body)); };
+    const result = await handleCandidature(request(), { env: { ...env, ...webhookEnv }, now, send });
+    assert.equal(result.status, 502);
+    assert.equal(result.body.received, false);
+    assert.deepEqual(calls, [webhookEnv.CANDIDATURE_WEBHOOK_URL]);
+  }
+});
+
+test('invalid submissions never reach n8n', async () => {
+  let sends = 0;
+  const result = await handleCandidature(request({ ...values, consent: false }), { env: webhookEnv, now, send: () => { sends++; return neverSend(); } });
+  assert.equal(result.status, 422);
+  assert.equal(result.body.received, false);
+  assert.equal(sends, 0);
 });
 
 test('the browser rejects an HTTP 200 SPA fallback instead of displaying false success', async (context) => {

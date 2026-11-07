@@ -49,8 +49,6 @@ const ORG_LD = {
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'FR',
-    addressRegion: 'Île-de-France',
-    addressLocality: 'Nogent-sur-Marne',
   },
   foundingDate: '2024',
   taxID: 'SIREN 939 306 429',
@@ -211,8 +209,6 @@ const baseRoutes = [
           address: {
             '@type': 'PostalAddress',
             addressCountry: 'FR',
-            addressRegion: 'Île-de-France',
-            addressLocality: 'Nogent-sur-Marne',
           },
           areaServed: { '@type': 'Country', name: 'France' },
           // `priceRange` retiré : dénué de sens pour une commission au résultat.
