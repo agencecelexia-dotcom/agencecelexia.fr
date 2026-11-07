@@ -138,7 +138,7 @@ export default function Home() {
 
       <section className="section">
         <div className="container-custom application-invite sur-fonce">
-          <div className="relative z-10 max-w-2xl"><p className="section-kicker mb-6">Faisons connaissance</p><h2 className="section-title text-white">Et si on faisait avancer<br className="hidden sm:block" /> votre entreprise, ensemble ?</h2><p className="mt-6 text-violet-200 max-w-xl">Parlez-nous de votre activité, de votre équipe et des chantiers que vous souhaitez accueillir. Notre équipe sélection étudiera votre demande et reviendra vers vous.</p><div className="mt-8"><CTAButton to={candidatureUrl('accueil-final')}>{CTA_LABEL}</CTAButton></div><p className="mt-4 text-xs text-violet-200">Une candidature, puis un échange humain.</p></div><div className="invite-mark" aria-hidden="true">✦</div>
+          <div className="relative z-10 max-w-2xl"><p className="section-kicker mb-6">Faisons connaissance</p><h2 className="section-title text-white">Et si on faisait avancer<br className="hidden sm:block" /> votre entreprise, ensemble ?</h2><p className="mt-6 text-violet-200 max-w-xl">Parlez-nous de votre activité, de votre équipe et des chantiers que vous souhaitez accueillir. L’équipe Celexia étudiera votre demande et reviendra vers vous.</p><div className="mt-8"><CTAButton to={candidatureUrl('accueil-final')}>{CTA_LABEL}</CTAButton></div><p className="mt-4 text-xs text-violet-200">Une candidature, puis un échange humain.</p></div><div className="invite-mark" aria-hidden="true">✦</div>
         </div>
       </section>
     </>

@@ -3,7 +3,7 @@
 > **Parcours mis à jour le 7 novembre 2026 :** l’inscription externe a été remplacée
 > par une candidature interne à `/candidature`. Le CTA est « Présenter mon entreprise »
 > (`candidatureUrl()` dans `src/lib/links.js`). Aucun compte ni contrat dans ce parcours.
-> L’équipe sélection reçoit les dossiers à `agence.celexia@gmail.com` via l’API serveur
+> L’équipe Celexia reçoit les dossiers à `agence.celexia@gmail.com` via l’API serveur
 > n8n/Gmail après configuration des variables décrites dans `CANDIDATURE_SETUP.md`.
 > Les références historiques à `registerUrl()` ou à l’inscription dans les documents
 > ci-dessous sont obsolètes. Le pré-rendu couvre désormais 10 pages.

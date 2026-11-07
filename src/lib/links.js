@@ -1,4 +1,4 @@
-// Une candidature permet à l’équipe sélection de connaître l’entreprise.
+// Une candidature permet à l’équipe Celexia de connaître l’entreprise.
 // Aucun compte ni contrat n’est créé depuis le site vitrine.
 export const CTA_LABEL = 'Présenter mon entreprise';
 export const CANDIDATURE_URL = 'https://agencecelexia.fr/candidature';

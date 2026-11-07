@@ -76,7 +76,7 @@ export default function About() {
       <section className="section">
         <div className="container-custom application-invite sur-fonce grid gap-9 lg:grid-cols-[1.3fr_1fr] items-center">
           <div><p className="section-kicker mb-5">Faisons connaissance</p><h2 className="section-title !text-white">Et si nous parlions<br />de votre entreprise ?</h2></div>
-          <div><p className="text-violet-200 leading-relaxed mb-7">Présentez votre activité, votre équipe et vos capacités. L’équipe sélection Celexia étudiera votre demande et reviendra vers vous pour la suite.</p><CTAButton to={candidatureUrl('about')}>{CTA_LABEL}</CTAButton></div>
+          <div><p className="text-violet-200 leading-relaxed mb-7">Présentez votre activité, votre équipe et vos capacités. L’équipe Celexia étudiera votre demande et reviendra vers vous pour la suite.</p><CTAButton to={candidatureUrl('about')}>{CTA_LABEL}</CTAButton></div>
         </div>
       </section>
     </>

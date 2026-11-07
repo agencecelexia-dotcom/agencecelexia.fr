@@ -180,7 +180,7 @@ const baseRoutes = [
     path: '/contact',
     title: 'Parlons de votre entreprise | Agence Celexia',
     description:
-      "Contactez l’équipe Celexia ou présentez votre entreprise. Votre candidature est étudiée par notre équipe sélection avant un premier échange.",
+      "Contactez l’équipe Celexia ou présentez votre entreprise. Votre candidature est étudiée par l’équipe Celexia avant un premier échange.",
     jsonLd: {
       '@context': 'https://schema.org',
       '@graph': [
@@ -222,13 +222,13 @@ const baseRoutes = [
     path: '/candidature',
     title: 'Candidature artisan | Agence Celexia',
     description:
-      'Présentez votre entreprise, votre activité et vos capacités. L’équipe sélection Celexia étudie votre candidature et revient vers vous.',
+      'Présentez votre entreprise, votre activité et vos capacités. L’équipe Celexia étudie votre candidature et revient vers vous.',
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'ContactPage',
       '@id': `${SITE_URL}/candidature#webpage`,
       name: 'Présenter mon entreprise à Celexia',
-      description: 'Formulaire de candidature pour les entreprises du bâtiment. Chaque demande est étudiée par l’équipe sélection Celexia.',
+      description: 'Formulaire de candidature pour les entreprises du bâtiment. Chaque demande est étudiée par l’équipe Celexia.',
       url: `${SITE_URL}/candidature`,
       inLanguage: 'fr-FR',
       isPartOf: { '@id': `${SITE_URL}/#website` },

@@ -185,7 +185,7 @@ const MetierPage = () => {
               </h2>
               <p className="mt-8 text-lg md:text-xl text-violet-200 leading-relaxed text-pretty">
                 Présentez votre entreprise, votre équipe et les chantiers que vous pouvez
-                accueillir. L’équipe sélection Celexia analyse votre demande, puis revient
+                accueillir. L’équipe Celexia analyse votre demande, puis revient
                 vers vous pour échanger sur votre activité.
               </p>
               <div className="mt-12">
