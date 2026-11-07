@@ -7,7 +7,7 @@ Relevé effectué autour de **18:00 UTC, Europe/Dublin**, après publication de 
 - Huit requêtes distinctes ont été envoyées à l’outil de recherche web, une requête par appel. Requêtes en français, sans paramètre de pays ou d’appareil contrôlé.
 - Les réponses de cet outil ne constituent pas une page de résultats Google France reproductible. Leur ordre n’est donc pas rapporté comme un classement Google.
 - « Absent de l’échantillon » signifie seulement qu’aucune URL `agencecelexia.fr` n’a été renvoyée pour cet appel. Cela ne démontre ni une désindexation, ni l’absence du site de tous les résultats.
-- Aucun rapport historique Search Console, Bing ou GA4 n’a été lu. Il n’est pas possible d’affirmer ici que les positions, les impressions, les clics ou les demandes ont augmenté ou diminué.
+- Au moment du relevé public, aucun rapport historique Search Console, Bing ou GA4 n’avait été lu. Un rapport Search Console a ensuite été consulté en lecture seule ; il constitue un état de départ antérieur aux publications du jour. Ses chiffres restent réservés à l’analyse avec le propriétaire et ne sont pas reproduits dans ce document public. La comparaison avec la période précédente n’a pas pu être activée.
 - Les cinq nouvelles pages ont été publiées aujourd’hui. Une comparaison historique antérieure ne mesure pas encore l’effet de ces pages. La capture Search Console fournie par le propriétaire confirmait la propriété et un sitemap accepté, mais ne montrait pas le rapport de performances.
 
 ## Requêtes exactes et résultats observés
@@ -43,7 +43,7 @@ Même une recherche `site:` directement dans Google n’est pas exhaustive et ne
 
 ## Mesure de la progression à établir
 
-Lors de la consultation autorisée de Search Console, l’inspection de `/partenariat-artisans-btp` indiquait « Détectée, actuellement non indexée », avec une demande d’indexation déjà enregistrée. Le contrôle de Chrome s’est interrompu avant l’accès au rapport Performances. Cet état confirme l’absence d’indexation de cette URL au moment de l’inspection, pas un problème de toutes les pages ni une baisse du site.
+Lors de la consultation autorisée de Search Console, l’inspection de `/partenariat-artisans-btp` indiquait « Détectée, actuellement non indexée », avec une demande d’indexation déjà enregistrée. Le rapport Performances a ensuite pu être lu, mais les commandes de comparaison sont restées indisponibles. Cet état confirme l’absence d’indexation de cette URL au moment de l’inspection, pas un problème de toutes les pages ni une baisse du site.
 
 Dans Search Console, relever les clics, impressions, CTR et position moyenne sur des périodes complètes de même durée, en gardant le pays et le type de recherche constants. Séparer la marque des requêtes génériques et comparer par page/intention. Une moyenne globale peut changer lorsque de nouvelles requêtes apparaissent ; elle ne suffit pas à mesurer le résultat commercial. [Rapport de performances Google](https://support.google.com/webmasters/answer/7576553?hl=fr).
 

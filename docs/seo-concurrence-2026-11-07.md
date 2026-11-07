@@ -2,7 +2,7 @@
 
 Relevé du 7 novembre 2026. Requêtes publiques utilisées : « apporteur affaires BTP pourcentage artisans », « partenariat artisans BTP apporteur affaires », puis recherche ciblée de l’article Obat. Les pages ci-dessous sont des concurrents éditoriaux observés dans les résultats consultés, pas un classement Google France mesuré. Certains vendent un autre service que Celexia.
 
-Les pages Celexia comparées sont celles publiées le même jour : quatre ressources, le hub de guides, les quatre pages métiers et la présentation de l’équipe. Aucun accès à Search Console, aucun audit de backlinks et aucune mesure de citation dans une conversation ChatGPT ou Claude n’ont servi à cette comparaison.
+Les pages Celexia comparées sont celles publiées le même jour : quatre ressources, le hub de guides, les quatre pages métiers et la présentation de l’équipe. Cette comparaison éditoriale repose sur les pages publiques. Une lecture séparée de Search Console a ensuite fourni un état de départ privé, sans comparaison historique exploitable. Aucun audit de backlinks ni mesure de citation dans une conversation ChatGPT ou Claude n’a été effectué.
 
 ## Ce que les pages concurrentes apportent
 
