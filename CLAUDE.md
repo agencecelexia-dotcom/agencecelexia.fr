@@ -1,5 +1,15 @@
 # agencecelexia.fr — site vitrine Agence Celexia
 
+> **SEO artisans — 7 novembre 2026 :** 15 pages indexables + `404.html` non indexable.
+> Les quatre ressources de `src/data/seoPages.js` et le hub `src/data/seoHub.js`
+> alimentent les pages React et le pré-rendu. Aucune réécriture globale vers
+> l’accueil : les URL inconnues doivent répondre 404. Le graphe utilise
+> Organization, WebSite, WebPage, BreadcrumbList, Service et Article selon la page ;
+> les anciennes références à FAQPage/HowTo/LocalBusiness ci-dessous sont dépassées.
+> Le mot « pourcentage » répond à l’intention de recherche demandée par le client,
+> mais aucun taux numérique n’est publié. Validation : `npm run check`.
+> Plan de suivi et configuration des comptes : [docs/seo-acquisition.md](docs/seo-acquisition.md).
+
 > **Parcours mis à jour le 7 novembre 2026 :** l’inscription externe a été remplacée
 > par une candidature interne à `/candidature`. Le CTA est « Présenter mon entreprise »
 > (`candidatureUrl()` dans `src/lib/links.js`). Aucun compte ni contrat dans ce parcours.

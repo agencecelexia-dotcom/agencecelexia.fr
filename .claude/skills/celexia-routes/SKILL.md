@@ -1,158 +1,50 @@
 ---
 name: celexia-routes
-description: >
-  Contrat de synchronisation des routes et du SEO pour agencecelexia.fr.
-  À lire AVANT d'ajouter, renommer ou supprimer une route, une page ou un
-  métier. Le site est une SPA React dont le SEO dépend d'un pré-rendu
-  post-build : une route ajoutée au seul routeur React est invisible pour
-  Google. Se déclenche sur « ajouter une page », « nouveau métier »,
-  « nouvelle route », « changer une URL », « supprimer une page »,
-  « sitemap », « redirection », « 301 ».
+description: Contrat des routes, du pré-rendu et du SEO d’agencecelexia.fr. À lire avant d’ajouter, modifier ou supprimer une page.
 ---
 
-# Contrat de routes & SEO — agencecelexia.fr
+# Routes et SEO — Celexia
 
-## Le piège central
+État du 7 novembre 2026 : **15 pages indexables et une page 404**. Le site reste sur React/Vite. Le build client, le bundle SSR puis `scripts/prerender-meta.mjs` génèrent un HTML complet par URL. Ne pas utiliser `lazy()`/Suspense dans l’arbre des pages : le contenu doit être lisible sans JavaScript.
 
-Ce site est une **SPA React (Vite + react-router-dom)**, pas un framework SSG.
-Le HTML servi est le même `index.html` pour toutes les routes. Le SEO ne tient
-qu'au script post-build [scripts/prerender-meta.mjs](scripts/prerender-meta.mjs),
-lancé par `npm run build` (`vite build && node scripts/prerender-meta.mjs`).
+## Sources des routes
 
-Ce script génère **un dossier + un `index.html` statique par route**, avec les
-bonnes balises `title`/`description`/`canonical`/OG/Twitter et le JSON-LD injecté
-dans le `<head>`.
+- `src/App.jsx` déclare le routeur React et importe les pages statiquement.
+- `src/data/metiers.js` définit les quatre métiers, importés par le routeur métier et le pré-rendu.
+- `src/data/seoPages.js` définit les ressources commerciales et éditoriales (chemin, métadonnées, contenu, dates, liens associés). Ces données alimentent `ResourcePage` et le pré-rendu.
+- `src/data/seoHub.js` définit le hub `/guides`, rendu par `Guides` et importé par le pré-rendu.
+- Les autres pages sont déclarées dans `baseRoutes` de `scripts/prerender-meta.mjs`.
+- `public/sitemap.xml`, `public/llms.txt` et `public/llms-full.txt` restent à synchroniser explicitement.
 
-> **Conséquence :** une route déclarée uniquement dans
-> [src/App.jsx](src/App.jsx) fonctionne au clic mais est **invisible pour
-> Googlebot et les crawlers IA** — pas de title propre, pas de canonical, pas de
-> JSON-LD, et un accès direct à l'URL renvoie le HTML générique.
+## Ajouter une page
 
-Le hook [usePageMeta](src/hooks/usePageMeta.js) ne corrige rien côté crawler :
-il s'exécute au runtime, après hydratation. Il sert l'UX (titre d'onglet lors
-d'une navigation client), pas l'indexation. **Ne jamais le considérer comme
-suffisant.**
+1. Déclarer son contenu et ses métadonnées dans la source adaptée. Pour une ressource `SEO_PAGES`, `App.jsx` et le pré-rendu parcourent déjà cette liste. Pour une page autonome, ajouter son import statique et sa Route dans App, puis son entrée dans baseRoutes.
+2. Synchroniser les métadonnées du hook client `usePageMeta` avec celles du pré-rendu. Le hook seul ne suffit pas pour le HTML livré aux robots. Les articles utilisent `type: 'article'`.
+3. Ajouter l’URL canonique au sitemap. La date `lastmod` doit correspondre à un changement réel ; ne pas la renouveler automatiquement à chaque build.
+4. Référencer les informations utiles dans les fichiers llms. Ce sont des résumés documentaires, pas une garantie de visibilité dans les moteurs IA.
+5. Ajouter des liens internes réels depuis des pages pertinentes. Vérifier aussi `Breadcrumbs.jsx` : libellé et liste des chemins connus. Ne pas créer de lien vers `/metiers`, qui n’est pas une page.
+6. Pour les articles, afficher auteur et date cohérents avec le JSON-LD. Ne pas inventer de qualifications, date de fondation ou preuve commerciale.
 
-Il n'y a plus de hook `useJsonLd` : émettre du JSON-LD au runtime créait un
-doublon avec celui injecté par le pré-rendu. Le script de pré-rendu est la
-**source unique** des données structurées.
+## Hébergement et erreurs
 
-## Checklist — ajouter une route « simple »
+Les pages sont générées dans `dist/<chemin>/index.html`. Vercel et Netlify servent ces fichiers. **Ne pas réintroduire de fallback global `/* → /index.html` en HTTP 200** : il transforme les URL inexistantes en copies de l’accueil et crée des soft 404.
 
-Pour toute page non-métier (ex. `/tarifs`), modifier **les 4** :
+Le build génère `dist/404.html`, non indexable et sans canonical. Les hébergeurs le servent avec un statut 404. `NotFound` gère aussi les navigations client, y compris les métiers inconnus. `usePageMeta` accepte `canonical: null` et remet les directives robots par défaut en quittant la 404.
 
-1. **[src/App.jsx](src/App.jsx)** — un `import X from './pages/X'` en tête, puis
-   `<Route path="/x" element={<X />} />`, placé avant le `path="*"`.
-   **Surtout pas de `lazy()`** : la frontière Suspense qu'il ouvre ferait sortir
-   le contenu dans un `<div hidden>` invisible pour les robots sans JavaScript.
-2. **[scripts/prerender-meta.mjs](scripts/prerender-meta.mjs)** — ajouter une
-   entrée dans `baseRoutes` avec `path`, `title`, `description`, et `jsonLd`
-   si la page mérite un schéma. Sans ça : aucun pré-rendu.
-3. **[public/sitemap.xml](public/sitemap.xml)** — ajouter le `<url>` (`<loc>`,
-   `<lastmod>`, `<changefreq>`, `<priority>`). Fichier écrit à la main, aucune
-   génération automatique.
-4. **[public/llms.txt](public/llms.txt)** — référencer la page si elle porte de
-   l'information utile aux moteurs IA (offre, prix, process). Mettre à jour
-   `public/llms-full.txt` en parallèle.
+`/api/candidature` reste une fonction serveur indépendante. Sur Netlify, sa réécriture explicite vers la fonction doit être conservée.
 
-Ajouter aussi un lien interne réel depuis [Header](src/components/Header.jsx) ou
-[Footer](src/components/Footer.jsx) — une page orpheline n'est pas explorée.
+## Renommer ou retirer une URL
 
-## Checklist — ajouter un métier
+Créer une redirection permanente explicite dans `vercel.json` et `netlify.toml` (et vérifier `public/_redirects`). Ajouter le filet de sécurité client si nécessaire, mais un Navigate React ne remplace pas une redirection HTTP. Retirer l’ancienne URL du sitemap et mettre à jour tous les liens.
 
-Les 4 métiers partagent une route paramétrée `/metiers/:slug` rendue par
-[src/components/MetierPage.jsx](src/components/MetierPage.jsx). Le slug est la
-clé de l'objet.
+## Données structurées
 
-**Depuis la refonte d'août 2026, la liste n'est plus dupliquée.**
-[scripts/prerender-meta.mjs](scripts/prerender-meta.mjs) **importe**
-`METIERS` depuis [src/data/metiers.js](src/data/metiers.js) (c'est possible
-parce que le fichier est du JS pur, sans JSX, et que le projet est en
-`"type": "module"`). Ajouter une entrée dans `metiers.js` génère donc
-automatiquement la route pré-rendue, ses meta et son JSON-LD.
+Le pré-rendu est la source unique du JSON-LD : Organization, WebSite, WebPage/AboutPage/ContactPage/CollectionPage, BreadcrumbList, Service sur les pages concernées, Article sur les guides. Ne pas émettre un second graphe au runtime.
 
-Il reste **deux** fichiers à mettre à jour à la main :
+Les FAQ restent visibles dans les pages sans FAQPage ; ne pas réintroduire les anciens HowTo, horaires ou dates historiques non corroborés. Les références à ces schémas dans d’anciennes notes sont obsolètes. Chaque fait et chaque propriété doivent correspondre au contenu réel. Les taux, l’exclusivité et la ville du siège restent absents selon les règles de `celexia-copy`.
 
-1. **[src/data/metiers.js](src/data/metiers.js)** → `METIERS`, source de vérité
-   unique (`label`, `labelCourt`, `color`, `titre`, `accroche`, `budget`,
-   `projets`, `faq`).
-2. **[public/sitemap.xml](public/sitemap.xml)** → une `<url>` `/metiers/<slug>`.
-   C'est le seul fichier réellement désynchronisable.
+## Validation
 
-> **Vérification :** `grep -c "<url>" public/sitemap.xml` doit valoir
-> **5 + nombre de métiers**. Aujourd'hui : 4 métiers, **9 URLs**.
+`npm run check` lance le lint, le build et tous les tests. Les tests SEO vérifient la correspondance sitemap/pré-rendu, les métadonnées, le contenu sans JS, le graphe, les liens et la 404. Les tests analytics et candidature utilisent des doublures sans envoi réel.
 
-Même chose pour [src/data/offre.js](src/data/offre.js) : `ETAPES` et
-`FAQ_COMMUNE` alimentent à la fois l'affichage et les schémas `HowTo` et
-`FAQPage`. Modifier la FAQ visible met automatiquement à jour le JSON-LD — c'est
-voulu, un `FAQPage` sans FAQ visible étant une non-conformité Google.
-
-## Checklist — renommer ou supprimer une URL
-
-Une URL déjà indexée ne disparaît jamais silencieusement.
-
-1. Créer la **redirection 301 chez l'hébergeur** : [vercel.json](vercel.json)
-   **et** [netlify.toml](netlify.toml) (les deux sont présents dans le repo).
-   C'est la seule vraie 301.
-2. Ajouter un filet de sécurité client dans [src/App.jsx](src/App.jsx) :
-   `<Route path="/ancienne" element={<Navigate to="/nouvelle" replace />} />`.
-   Le repo suit déjà ce motif pour `/services/*` et `/sites-artisans`, avec un
-   commentaire qui rappelle que le vrai 301 est côté hébergeur. **Reproduire ce
-   commentaire**, pour que personne ne prenne le `Navigate` pour une 301.
-3. Retirer l'URL de `public/sitemap.xml` et de `prerender-meta.mjs`.
-4. Retirer les liens internes qui pointent encore dessus.
-
-## Cohérence du JSON-LD
-
-Le graphe est centralisé dans `prerender-meta.mjs` : `ORG_LD`, `FAQ_LD`,
-`HOWTO_LD`, plus un `WebSite`/`WebPage` et un `BreadcrumbList` calculé par
-`buildBreadcrumbJsonLd`. Les `@id` sont des ancres stables
-(`https://agencecelexia.fr/#organization`) référencées par d'autres nœuds.
-
-- **Ne jamais changer un `@id` existant** sans mettre à jour toutes les
-  références (`provider`, `publisher`, `about`, `worksFor`, `isPartOf`).
-- Les faits d'entreprise (SIREN 939 306 429, téléphone, email, fondateurs,
-  Nogent-sur-Marne) apparaissent aussi dans `public/llms.txt`, les mentions
-  légales et le footer. Un changement doit être propagé partout.
-- Mettre à jour `dateModified` lors d'une refonte de contenu réelle.
-- Toute FAQ visible ajoutée à l'écran doit exister dans `FAQ_LD`, et
-  inversement : un `FAQPage` sans FAQ visible est une non-conformité Google.
-
-## Validation avant de déclarer terminé
-
-```bash
-npm run build
-# doit afficher : "Pre-rendered N pages with SEO meta tags and JSON-LD schemas."
-```
-
-Puis contrôler qu'une route ajoutée existe réellement en statique et porte ses
-propres meta :
-
-```bash
-ls dist/<ma-route>/index.html
-grep -o "<title>[^<]*</title>" dist/<ma-route>/index.html
-grep -c "application/ld+json" dist/<ma-route>/index.html
-```
-
-Si `dist/<ma-route>/index.html` n'existe pas, l'étape 2 a été oubliée.
-
-Contrôle croisé sitemap ↔ pré-rendu, à lancer après toute modification de route :
-
-```bash
-grep -o "<loc>https://agencecelexia.fr[^<]*</loc>" public/sitemap.xml \
-  | sed 's|<loc>https://agencecelexia.fr||; s|</loc>||; s|^$|/|' | sort > /tmp/sm.txt
-find dist -name index.html | sed 's|^dist||; s|/index.html$||; s|^$|/|' | sort > /tmp/gen.txt
-comm -23 /tmp/sm.txt /tmp/gen.txt   # dans le sitemap mais pas pré-rendu -> à corriger
-comm -13 /tmp/sm.txt /tmp/gen.txt   # pré-rendu mais absent du sitemap -> à corriger
-```
-
-Référence actuelle (build validé le 2 août 2026) : **9 URLs au sitemap, 9 routes
-pré-rendues**, zéro écart. La seule sortie attendue de la seconde commande est
-`/proposition` — page statique de `public/`, en `noindex, nofollow`,
-volontairement hors sitemap. Toute autre ligne est un bug.
-
-> **Piège de test :** `npx vite preview` applique un repli SPA qui sert
-> `dist/index.html` pour toutes les routes. Tous les titres paraissent alors
-> identiques, ce qui **n'est pas** représentatif de la production. Vercel et
-> Netlify servent le fichier statique avant d'appliquer la réécriture. Toujours
-> vérifier le pré-rendu sur les fichiers de `dist/`, jamais via le preview.
+Après déploiement d’un aperçu, vérifier également les réponses HTTP de vraies URL, les redirections, les assets, une URL inexistante et `/api/candidature` avec une méthode qui ne soumet rien. `vite preview` applique son propre fallback : ses codes de réponse ne prouvent pas le comportement de production.

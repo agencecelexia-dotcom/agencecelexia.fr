@@ -12,6 +12,9 @@ import MentionsLegales from './pages/MentionsLegales';
 import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
 import NotFound from './pages/NotFound';
 import MetierPage from './components/MetierPage';
+import ResourcePage from './pages/ResourcePage';
+import Guides from './pages/Guides';
+import { SEO_PAGES } from './data/seoPages';
 
 /**
  * Arbre de l'application, sans routeur : il est fourni par l'entrée —
@@ -48,6 +51,8 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/candidature" element={<Candidature />} />
+            <Route path="/guides" element={<Guides />} />
+            {Object.entries(SEO_PAGES).map(([slug, page]) => <Route key={page.path} path={page.path} element={<ResourcePage slug={slug} />} />)}
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
 

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { INITIAL_APPLICATION, REVENUE_OPTIONS, STEP_FIELDS, TRADE_OPTIONS, submitApplication, validateApplication } from '../lib/candidature';
+import { createCandidatureTracker } from '../lib/analytics';
 import './Candidature.css';
 
 const STEPS = ['Votre entreprise', 'Votre activité', 'Vos coordonnées', 'Votre demande'];
@@ -43,6 +44,7 @@ export default function Candidature() {
   const initialRender = useRef(true);
   const sendingRef = useRef(false);
   const controllerRef = useRef(null);
+  const analyticsRef = useRef(createCandidatureTracker());
   const currentYear = new Date().getFullYear();
 
   useEffect(() => {
@@ -55,6 +57,7 @@ export default function Candidature() {
 
   function change(event) {
     const { name, value, type, checked } = event.target;
+    analyticsRef.current.change(name);
     setValues((previous) => ({ ...previous, [name]: type === 'checkbox' ? checked : value }));
     setErrors((previous) => ({ ...previous, [name]: undefined }));
     setSubmitError('');
@@ -78,7 +81,12 @@ export default function Candidature() {
       showErrors(found);
       return;
     }
-    if (step < 3) { setStep(step + 1); setErrors({}); return; }
+    if (step < 3) {
+      analyticsRef.current.advance(step + 2);
+      setStep(step + 1);
+      setErrors({});
+      return;
+    }
     sendingRef.current = true;
     setStatus('sending');
     setSubmitError('');
@@ -87,6 +95,7 @@ export default function Candidature() {
     const timeout = setTimeout(() => controller.abort(), 20000);
     try {
       const result = await submitApplication(values, searchParams.get('origine') || 'site', controller.signal);
+      analyticsRef.current.complete();
       setReceipt(result);
       setStatus('success');
     } catch (error) {

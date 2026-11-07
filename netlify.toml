@@ -180,15 +180,12 @@
   to = "/index.html"
   status = 410
 
-# L’API de candidature doit être résolue avant le repli SPA.
+# L’API de candidature reste une fonction, distincte des pages pré-rendues.
 [[redirects]]
   from = "/api/candidature"
   to = "/.netlify/functions/candidature"
   status = 200
   force = true
 
-# Repli SPA - doit rester en dernier
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Les pages existent dans dist/<route>/index.html. Sans repli SPA, Netlify
+# sert automatiquement dist/404.html avec le statut 404 pour les URL inconnues.

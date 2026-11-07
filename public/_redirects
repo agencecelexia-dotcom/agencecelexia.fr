@@ -27,5 +27,4 @@
 # 410 Gone - URLs parasites (ancien builder Brevo/Sendinblue)
 /tmp/* /index.html 410
 
-# SPA fallback - doit rester en dernier
-/* /index.html 200
+# Les routes sont pré-rendues ; 404.html gère les URL inconnues avec le statut 404.

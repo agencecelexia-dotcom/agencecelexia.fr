@@ -54,6 +54,7 @@ export default function Header() {
               {isMetiersOpen && <div id="metiers-menu" className="absolute top-full left-0 mt-3 w-72 bg-white border border-brume-200 p-2 rounded-xl shadow-lift">{metiers.map(m => <Link key={m.slug} to={`/metiers/${m.slug}`} onClick={closeMenu} className="block px-4 py-3 rounded-lg text-sm hover:bg-brume-100">{m.label}</Link>)}</div>}
             </div>
             <NavLink to="/contact" className={navClass}>Contact</NavLink>
+            <NavLink to="/guides" className={navClass}>Guides artisans</NavLink>
           </div>
           <div className="hidden xl:block"><CTAButton to={candidatureUrl('header')} className="!px-5 !py-3.5 !text-sm">{CTA_LABEL}</CTAButton></div>
           <button type="button" onClick={() => setIsMenuOpen(true)} className="mobile-menu-button" aria-label="Ouvrir le menu" aria-expanded={isMenuOpen} aria-controls="mobile-menu"><span className="w-5 h-px bg-encre-900" /><span className="w-5 h-px bg-encre-900" /></button>
@@ -63,7 +64,7 @@ export default function Header() {
         <div className="flex flex-col min-h-full p-5">
           <div className="flex justify-between items-center pb-6 border-b border-brume-200"><Link to="/" onClick={closeMenu}><img src="/logo.png" alt="Agence Celexia — accueil" width="172" height="28" /></Link><button autoFocus type="button" onClick={closeMenu} aria-label="Fermer le menu" className="w-11 h-11 rounded-lg border border-brume-200 text-2xl">×</button></div>
           <nav className="flex flex-col py-6" aria-label="Navigation mobile">
-            {[['/about', 'Qui sommes-nous ?'], ['/#methode', 'Notre méthode'], ['/contact', 'Contact']].map(([to, label]) => <Link key={to} to={to} onClick={closeMenu} className={`py-3 text-xl font-semibold ${pathname === to ? 'text-violet-600' : ''}`}>{label}</Link>)}
+            {[['/about', 'Qui sommes-nous ?'], ['/#methode', 'Notre méthode'], ['/partenariat-artisans-btp', 'Devenir partenaire'], ['/guides', 'Guides artisans'], ['/contact', 'Contact']].map(([to, label]) => <Link key={to} to={to} onClick={closeMenu} className={`py-3 text-xl font-semibold ${pathname === to ? 'text-violet-600' : ''}`}>{label}</Link>)}
             <p className="section-kicker mt-7 mb-3">Les métiers</p>
             {metiers.map(m => <Link key={m.slug} to={`/metiers/${m.slug}`} onClick={closeMenu} className="py-3 text-encre-600 border-b border-brume-200">{m.label}</Link>)}
           </nav>

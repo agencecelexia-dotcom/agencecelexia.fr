@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { METIERS } from '../data/metiers';
+import { SEO_PAGES } from '../data/seoPages';
 
 const Breadcrumbs = () => {
   const location = useLocation();
@@ -13,10 +14,12 @@ const Breadcrumbs = () => {
     about: 'Qui sommes-nous ?',
     contact: 'Contact',
     candidature: 'Candidature',
+    guides: 'Guides artisans',
     'mentions-legales': 'Mentions légales',
     'politique-confidentialite': 'Politique de confidentialité',
     metiers: 'Métiers',
     ...metierLabels,
+    ...Object.fromEntries(Object.entries(SEO_PAGES).map(([slug, page]) => [slug, page.breadcrumbLabel])),
   };
 
   const breadcrumbs = [{ name: 'Accueil', path: '/' }];
@@ -38,7 +41,12 @@ const Breadcrumbs = () => {
   // dans le HTML statique. L'émettre aussi au runtime créerait un doublon dans le
   // <head> après hydratation. Source unique : le script de pré-rendu.
 
-  if (location.pathname === '/') return null;
+  const knownPaths = [
+    '/about', '/contact', '/candidature', '/guides', '/mentions-legales', '/politique-confidentialite',
+    ...Object.keys(METIERS).map(slug => `/metiers/${slug}`),
+    ...Object.values(SEO_PAGES).map(page => page.path),
+  ];
+  if (!knownPaths.includes(location.pathname.replace(/\/$/, ''))) return null;
 
   return (
     <nav className="bg-brume-50 pt-6 pb-2 px-5 md:px-8" aria-label="Fil d'Ariane">

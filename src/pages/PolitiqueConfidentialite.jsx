@@ -58,7 +58,8 @@ const PolitiqueConfidentialite = () => {
               </li>
               <li>
                 <strong className="text-encre-900">Données de navigation :</strong> adresse IP,
-                type de navigateur, pages consultées, durée de visite, via la mesure d’audience
+                type de navigateur, pages consultées, durée de visite, début et progression du formulaire,
+                confirmation de réception d’une candidature, via la mesure d’audience
                 et uniquement après votre consentement
               </li>
               <li>
@@ -66,6 +67,8 @@ const PolitiqueConfidentialite = () => {
                 que vous nous communiquez par téléphone ou par courriel
               </li>
             </ul>
+            <p className="mt-3">Les événements de suivi du formulaire ne contiennent aucune de vos réponses,
+              coordonnées ni référence de candidature.</p>
           </div>
 
           <div>

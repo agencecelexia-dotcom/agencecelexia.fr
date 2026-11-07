@@ -46,7 +46,8 @@ const CookieConsent = () => {
       <div className="max-w-4xl mx-auto bg-white border border-encre-800 rounded-lg p-5 flex flex-col md:flex-row md:items-center gap-4">
         <p className="flex-1 text-sm text-encre-700 leading-relaxed">
           Nous utilisons des cookies de mesure d’audience pour savoir combien de personnes
-          consultent le site. Aucune donnée n’est utilisée à des fins publicitaires.{' '}
+          consultent le site et mesurer le parcours de candidature. Vos réponses au formulaire
+          ne sont pas transmises à cet outil. Aucune donnée n’est utilisée à des fins publicitaires.{' '}
           <Link
             to="/politique-confidentialite"
             className="text-violet-600 underline underline-offset-2 hover:text-violet-700"

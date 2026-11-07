@@ -5,6 +5,7 @@ import { METIERS, POINTS_QUALIFIES } from '../data/metiers';
 import { ETAPES, FAQ_COMMUNE as FAQ } from '../data/offre';
 import Reveal from '../components/Reveal';
 import CTAButton from '../components/CTAButton';
+import ResourceCards from '../components/ResourceCards';
 
 const metiers = Object.entries(METIERS).map(([slug, data]) => ({ slug, ...data }));
 const Arrow = ({ className = 'w-5 h-5' }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>;
@@ -90,6 +91,7 @@ export default function Home() {
               <p className="text-lg text-encre-600 leading-relaxed">Celexia est un apporteur d’affaires dédié aux artisans du bâtiment. Notre rôle : faire le lien entre des particuliers qui ont un projet concret et des entreprises qui ont le savoir-faire pour le réaliser.</p>
               <p className="mt-5 text-encre-600">Nous finançons la recherche des projets et prenons le temps de les vérifier. Vous gardez la main sur vos devis, vos prix et votre relation client.</p>
               <Link to="/about" className="text-link mt-6">Rencontrer Thomas et Antoine <Arrow /></Link>
+              <p><Link to="/apporteur-affaires-btp" className="text-link mt-2">Comprendre l’apport d’affaires BTP <Arrow /></Link></p>
             </Reveal>
           </div>
           <div className="benefit-grid">
@@ -126,6 +128,13 @@ export default function Home() {
           <div className="trade-grid">
             {metiers.map((m, i) => <Link key={m.slug} to={`/metiers/${m.slug}`} className="trade-card group"><div className="flex items-center justify-between"><span className="section-num">0{i + 1}</span><Arrow className="w-5 h-5 text-encre-600 transition-transform group-hover:translate-x-1" /></div><div className="trade-symbol" aria-hidden="true">{i === 0 ? <svg viewBox="0 0 100 70"><path d="m8 30 42-20 42 20-42 20Z M8 30v15l42 20 42-20V30 M25 38l25 12 25-12" /></svg> : i === 1 ? <svg viewBox="0 0 100 70"><path d="M10 48 50 10l40 38M23 37v25h54V37M50 10v52M34 25h32M21 38h58" /></svg> : i === 2 ? <svg viewBox="0 0 100 70"><path d="M20 10h60v53H20zM20 27h60M20 45h60M40 10v17M60 27v18M40 45v18" /></svg> : <svg viewBox="0 0 100 70"><path d="m15 29 35-18 35 18v28L50 73 15 57ZM15 29l35 17 35-17M50 46v27M15 43l35 17 35-17M32 21l35 17M32 37v14M67 38v14" /></svg>}</div><h3 className="font-semibold text-xl group-hover:text-violet-600 transition-colors">{m.labelCourt}</h3><p className="mt-2 text-sm text-encre-600">{m.projets[0]}</p></Link>)}
           </div>
+        </div>
+      </section>
+
+      <section className="section surface-paper border-y border-brume-200">
+        <div className="container-custom">
+          <div className="flex flex-wrap items-end justify-between gap-6 mb-10"><div><p className="section-kicker mb-5">Les guides pour les artisans</p><h2 className="section-title">Un partenariat,<br />ça se prépare.</h2></div><Link to="/guides" className="text-link">Tous les repères <Arrow /></Link></div>
+          <ResourceCards paths={['/guides/commission-apporteur-affaires-btp', '/partenariat-artisans-btp']} />
         </div>
       </section>
 
