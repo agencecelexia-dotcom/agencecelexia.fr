@@ -72,7 +72,7 @@ Créez ou éditez votre fichier de configuration Claude :
         "LOG_LEVEL": "error",
         "DISABLE_CONSOLE_OUTPUT": "true",
         "N8N_API_URL": "https://n8n.srv1241880.hstgr.cloud",
-        "N8N_API_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3OWVkMDA1MS1lODhiLTQyZDEtYTg4Ny1hYjdkMjc3OGEzZTQiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzY5ODcyNzQ2fQ.7iWLWSV5tBExD6CiZ7k63y_zqy-wKOziTPKvcldEKsk"
+        "N8N_API_KEY": "$N8N_API_KEY"
       }
     }
   }
@@ -92,7 +92,7 @@ Créez ou éditez votre fichier de configuration Claude :
         "-e", "LOG_LEVEL=error",
         "-e", "DISABLE_CONSOLE_OUTPUT=true",
         "-e", "N8N_API_URL=https://n8n.srv1241880.hstgr.cloud",
-        "-e", "N8N_API_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3OWVkMDA1MS1lODhiLTQyZDEtYTg4Ny1hYjdkMjc3OGEzZTQiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzY5ODcyNzQ2fQ.7iWLWSV5tBExD6CiZ7k63y_zqy-wKOziTPKvcldEKsk",
+        "-e", "N8N_API_KEY=$N8N_API_KEY",
         "ghcr.io/czlonkowski/n8n-mcp:latest"
       ]
     }

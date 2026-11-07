@@ -1,10 +1,12 @@
 import { createHash } from 'node:crypto';
 import { INITIAL_APPLICATION, TRADE_OPTIONS, validateApplication } from '../src/lib/candidature.js';
+import { renderCandidatureEmail } from './candidature-email.mjs';
 
 const DESTINATION = 'agence.celexia@gmail.com';
 const MAX_BODY_BYTES = 16000;
 const HEADERS = { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' };
 const failure = (status, message, extra = {}) => ({ status, headers: HEADERS, body: { received: false, message, ...extra } });
+const unavailable = () => failure(503, 'Le formulaire est temporairement indisponible. Votre demande n’a pas été envoyée. Vous pouvez nous contacter par e-mail ou par téléphone.');
 
 export async function handleCandidature({ method, body, contentType = '', origin, host }, { env = process.env, send = fetch, now = new Date() } = {}) {
   if (method !== 'POST') return { ...failure(405, 'Utilisez le formulaire pour envoyer votre demande.'), headers: { ...HEADERS, Allow: 'POST' } };
@@ -26,9 +28,18 @@ export async function handleCandidature({ method, body, contentType = '', origin
   const values = Object.fromEntries(Object.keys(INITIAL_APPLICATION).filter((key) => key !== 'websiteConfirmation').map((key) => [key, typeof input[key] === 'string' ? input[key].trim() : input[key]]));
   const fields = validateApplication(values, undefined, now.getUTCFullYear());
   if (Object.keys(fields).length) return failure(422, 'Vérifiez les informations indiquées dans le formulaire.', { fields });
-  if (!env.RESEND_API_KEY || !env.CANDIDATURE_FROM_EMAIL) return failure(503, 'Le formulaire est temporairement indisponible. Votre demande n’a pas été envoyée. Vous pouvez nous contacter par e-mail ou par téléphone.');
+  let webhookUrl;
+  if (env.CANDIDATURE_WEBHOOK_URL || env.CANDIDATURE_WEBHOOK_SECRET) {
+    try {
+      if (typeof env.CANDIDATURE_WEBHOOK_URL !== 'string' || typeof env.CANDIDATURE_WEBHOOK_SECRET !== 'string'
+        || !env.CANDIDATURE_WEBHOOK_SECRET.trim() || /[\r\n]/.test(env.CANDIDATURE_WEBHOOK_SECRET)) return unavailable();
+      const url = new URL(env.CANDIDATURE_WEBHOOK_URL);
+      if (url.protocol !== 'https:' || url.username || url.password || url.hash) return unavailable();
+      webhookUrl = url.href;
+    } catch { return unavailable(); }
+  } else if (!env.RESEND_API_KEY || !env.CANDIDATURE_FROM_EMAIL) return unavailable();
 
-  const source = typeof input.source === 'string' ? input.source.slice(0, 100).replace(/[\r\n]/g, '') : 'site';
+  const source = typeof input.source === 'string' ? input.source.slice(0, 100).replace(/[\u0000-\u001f\u007f]/g, '') : 'site';
   const trade = TRADE_OPTIONS.find(({ value }) => value === values.trade).label;
   const submissionDay = now.toISOString().slice(0, 10);
   const applicationId = createHash('sha256').update(JSON.stringify(values) + source + submissionDay).digest('hex');
@@ -50,8 +61,26 @@ export async function handleCandidature({ method, body, contentType = '', origin
     '', 'Cette demande est une candidature à analyser. Aucun compte ni contrat n’a été créé.',
   ].join('\n');
 
+  const email = {
+    to: DESTINATION,
+    replyTo: values.email,
+    subject: `Candidature Celexia — ${values.company.replace(/[\r\n]/g, ' ')}`,
+    text,
+    html: renderCandidatureEmail({ application: values, trade, source, reference: applicationId, submissionDay }),
+  };
+
   try {
-    const response = await send('https://api.resend.com/emails', {
+    const response = webhookUrl ? await send(webhookUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Celexia-Webhook-Secret': env.CANDIDATURE_WEBHOOK_SECRET,
+        'Idempotency-Key': `candidature-${applicationId}`,
+      },
+      body: JSON.stringify({ reference: applicationId, application: values, source, email }),
+      signal: AbortSignal.timeout(12000),
+      redirect: 'error',
+    }) : await send('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${env.RESEND_API_KEY}`,
@@ -60,15 +89,19 @@ export async function handleCandidature({ method, body, contentType = '', origin
       },
       body: JSON.stringify({
         from: env.CANDIDATURE_FROM_EMAIL,
-        to: [DESTINATION],
-        reply_to: values.email,
-        subject: `Candidature Celexia — ${values.company.replace(/[\r\n]/g, ' ')}`,
-        text,
+        to: [email.to],
+        reply_to: email.replyTo,
+        subject: email.subject,
+        text: email.text,
+        html: email.html,
       }),
       signal: AbortSignal.timeout(12000),
     });
     const result = await response.json().catch(() => null);
-    if (!response.ok || typeof result?.id !== 'string' || !result.id) return failure(502, 'L’envoi n’a pas pu être confirmé. Vos informations sont conservées à l’écran. Réessayez ou contactez-nous directement.');
+    const acknowledged = webhookUrl
+      ? result?.received === true && result.reference === applicationId && typeof result.messageId === 'string' && result.messageId.trim().length > 0
+      : typeof result?.id === 'string' && result.id.length > 0;
+    if (!response.ok || !acknowledged) return failure(502, 'L’envoi n’a pas pu être confirmé. Vos informations sont conservées à l’écran. Réessayez ou contactez-nous directement.');
     return { status: 200, headers: HEADERS, body: { received: true, reference: applicationId.slice(0, 12) } };
   } catch {
     return failure(502, 'Nous n’avons pas pu confirmer la réception de votre demande. Contactez-nous avant de renouveler l’envoi.');

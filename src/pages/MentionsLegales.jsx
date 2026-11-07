@@ -30,7 +30,6 @@ const MentionsLegales = () => {
               <li><strong className="text-encre-900">Raison sociale :</strong> CELEXIA</li>
               <li><strong className="text-encre-900">Forme juridique :</strong> Société par actions simplifiée unipersonnelle (SASU)</li>
               <li><strong className="text-encre-900">SIREN :</strong> <span className="tabular">939 306 429</span></li>
-              <li><strong className="text-encre-900">Siège social :</strong> Nogent-sur-Marne, France</li>
               <li>
                 <strong className="text-encre-900">Téléphone :</strong>{' '}
                 <a href="tel:+33651725756" className={linkClass}>06 51 72 57 56</a>

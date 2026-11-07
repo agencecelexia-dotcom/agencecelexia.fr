@@ -34,9 +34,9 @@ Les boutons utilisent `CTA_LABEL` et `candidatureUrl()` dans `src/lib/links.js`.
 
 ## Réception des candidatures
 
-La destination est `agence.celexia@gmail.com`. L’API serveur est compatible Vercel et Netlify et envoie les dossiers via Resend. Configurer `RESEND_API_KEY` et `CANDIDATURE_FROM_EMAIL` sur l’hébergement pour activer les envois. Voir [CANDIDATURE_SETUP.md](CANDIDATURE_SETUP.md).
+La destination est `agence.celexia@gmail.com`. L’API serveur transmet les dossiers à un workflow n8n qui envoie l’e-mail avec Gmail. Configurer `CANDIDATURE_WEBHOOK_URL` et `CANDIDATURE_WEBHOOK_SECRET` sur l’hébergement Vercel ou Netlify, ou dans `.env.local` en développement. Resend reste une alternative facultative lorsque n8n n’est pas configuré. Voir [CANDIDATURE_SETUP.md](CANDIDATURE_SETUP.md).
 
-La confirmation apparaît seulement après acquittement du prestataire d’envoi. Les tests utilisent des réponses simulées et n’envoient aucun e-mail réel. Vite seul ne sert pas les fonctions serveur.
+La confirmation apparaît seulement après acquittement de l’envoi Gmail par n8n. Les tests utilisent des réponses simulées et n’envoient aucun e-mail réel. Le middleware Vite sert aussi `/api/candidature` en développement ; redémarrer `npm run dev` après une modification des variables serveur.
 
 ## Déploiement
 

@@ -57,8 +57,8 @@ export default function About() {
             <Reveal><h2 className="section-title">Les bons projets.<br />Le bon savoir-faire.<br /><span className="text-violet-600">Le lien entre les deux.</span></h2></Reveal>
             <Reveal delay={80}><div className="space-y-5 text-encre-600 leading-relaxed"><p>Un chantier commence bien avant le premier coup de pelle. Il faut trouver le projet, comprendre le besoin, vérifier le budget et savoir si le calendrier est réaliste. C’est cette partie du travail que nous prenons en charge.</p><p>Celexia est un <strong className="font-semibold text-encre-900">apporteur d’affaires pour les artisans du bâtiment</strong>. Nous finançons la recherche des projets et vérifions chaque demande avant de vous la transmettre.</p><p>Nous accompagnons les entreprises de construction de piscines, de couverture, de façade et d’isolation extérieure, et de maçonnerie, partout en France.</p></div></Reveal>
           </div>
-          <dl className="mt-14 grid sm:grid-cols-3 gap-px overflow-hidden rounded-2xl border border-brume-200 bg-brume-200">
-            {[['Notre entreprise', 'CELEXIA SASU'], ['Notre point d’attache', 'Nogent-sur-Marne'], ['Notre terrain', 'La France entière']].map(([label, value]) => <div key={label} className="p-6 md:p-8 bg-brume-50"><dt className="section-kicker">{label}</dt><dd className="mt-3 font-display text-xl text-encre-900">{value}</dd></div>)}
+          <dl className="mt-14 grid sm:grid-cols-2 gap-px overflow-hidden rounded-2xl border border-brume-200 bg-brume-200">
+            {[['Notre entreprise', 'CELEXIA SASU'], ['Notre terrain', 'La France entière']].map(([label, value]) => <div key={label} className="p-6 md:p-8 bg-brume-50"><dt className="section-kicker">{label}</dt><dd className="mt-3 font-display text-xl text-encre-900">{value}</dd></div>)}
           </dl>
         </div>
       </section>

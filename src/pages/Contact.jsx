@@ -40,7 +40,7 @@ export default function Contact() {
       <section className="section border-t border-brume-200">
         <div className="container-custom grid gap-10 lg:grid-cols-[1fr_1.5fr] lg:gap-20">
           <div><p className="section-kicker mb-5">Une entreprise, des interlocuteurs</p><h2 className="section-title">Celexia, en clair.</h2><p className="mt-5 text-encre-600">Thomas et Antoine, fondateurs de Celexia, au service des artisans du bâtiment.</p></div>
-          <dl className="grid gap-x-8 sm:grid-cols-2">{[['Raison sociale', 'CELEXIA SASU'], ['SIREN', '939 306 429'], ['Siège', 'Nogent-sur-Marne'], ['Zone d’intervention', 'France entière']].map(([label, value]) => <div key={label} className="py-5 border-b border-brume-200"><dt className="section-kicker">{label}</dt><dd className="mt-3 text-encre-900 font-display text-xl">{value}</dd></div>)}</dl>
+          <dl className="grid gap-x-8 sm:grid-cols-2">{[['Raison sociale', 'CELEXIA SASU'], ['SIREN', '939 306 429'], ['Zone d’intervention', 'France entière']].map(([label, value]) => <div key={label} className="py-5 border-b border-brume-200 last:sm:col-span-2"><dt className="section-kicker">{label}</dt><dd className="mt-3 text-encre-900 font-display text-xl">{value}</dd></div>)}</dl>
         </div>
       </section>
     </>

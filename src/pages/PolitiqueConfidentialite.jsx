@@ -33,7 +33,7 @@ const PolitiqueConfidentialite = () => {
           <div>
             <h2 className="font-display font-bold text-xl text-encre-900 mb-3">2. Responsable du traitement</h2>
             <ul className="list-disc pl-6 space-y-1.5">
-              <li><strong className="text-encre-900">Responsable :</strong> CELEXIA, SIREN <span className="tabular">939 306 429</span>, Nogent-sur-Marne</li>
+              <li><strong className="text-encre-900">Responsable :</strong> CELEXIA, SIREN <span className="tabular">939 306 429</span></li>
               <li>
                 <strong className="text-encre-900">Courriel :</strong>{' '}
                 <a href="mailto:agence.celexia@gmail.com" className={linkClass}>agence.celexia@gmail.com</a>
@@ -127,7 +127,7 @@ const PolitiqueConfidentialite = () => {
             <h2 className="font-display font-bold text-xl text-encre-900 mb-3">9. Sous-traitants</h2>
             <ul className="list-disc pl-6 space-y-1.5">
               <li><strong className="text-encre-900">Vercel Inc.</strong> — hébergement du site</li>
-              <li><strong className="text-encre-900">Resend</strong> — transmission des candidatures par e-mail à l’équipe Celexia</li>
+              <li><strong className="text-encre-900">n8n</strong> — traitement et transmission des candidatures par e-mail à l’équipe Celexia</li>
               <li><strong className="text-encre-900">Gmail</strong> — réception des candidatures dans la messagerie de Celexia</li>
               <li><strong className="text-encre-900">Google Analytics</strong> — mesure d’audience, après consentement</li>
             </ul>
