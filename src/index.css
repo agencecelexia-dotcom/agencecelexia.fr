@@ -161,8 +161,8 @@
   /* Compatibilité des pages historiques : les nouvelles familles ne sont pas étirées. */
   .font-expanded, .font-narrow { font-stretch: normal; }
 }
-.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease-out, transform .6s ease-out; }
-.js .reveal.reveal-visible { opacity: 1; transform: none; }
+.reveal { opacity: 1; transform: none; transition: opacity .6s ease-out, transform .6s ease-out; }
+.reveal.reveal-pending { opacity: 0; transform: translateY(18px); }
 @media (max-width: 1023px) {
   .project-illustration { max-width: 540px; width: 100%; margin-inline: auto; }
   .hero-title { max-width: 760px; font-size: clamp(2.75rem, 8vw, 5rem); }
@@ -199,6 +199,6 @@
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-  .js .reveal { opacity: 1; transform: none; }
+  .reveal.reveal-pending { opacity: 1; transform: none; }
   .btn-primary:hover, .trade-card:hover { transform: none; }
 }

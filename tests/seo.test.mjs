@@ -4,6 +4,8 @@ import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { SEO_PAGES } from '../src/data/seoPages.js';
 import { SEO_HUB } from '../src/data/seoHub.js';
+import { CASE_STUDY } from '../src/data/partnerCase.js';
+import { METIERS } from '../src/data/metiers.js';
 
 // Tests d’intégration des fichiers réellement livrés : npm run build doit avoir
 // été lancé avant node --test tests/seo.test.mjs.
@@ -22,7 +24,7 @@ const schemas = (html) => [...html.matchAll(/<script type="application\/ld\+json
 
 test('sitemap et pages indexables restent synchronisés, y compris les nouvelles pages', () => {
   assert.equal(urls.length, new Set(urls).size, 'pas d’URL dupliquée');
-  for (const page of [...Object.values(SEO_PAGES), SEO_HUB]) {
+  for (const page of [...Object.values(SEO_PAGES), SEO_HUB, CASE_STUDY]) {
     assert.ok(paths.includes(page.path), `${page.path} manque au sitemap`);
   }
   function collectIndexes(directory, found = []) {
@@ -64,7 +66,7 @@ test('chaque page livre un contenu complet et des métadonnées propres sans Jav
 });
 
 test('les guides partagent leur titre, date et auteur visibles avec Article', () => {
-  for (const page of Object.values(SEO_PAGES)) {
+  for (const page of [...Object.values(SEO_PAGES), CASE_STUDY]) {
     const html = pages.get(page.path);
     assert.equal(decode(html.match(/<title>([^<]+)<\/title>/)[1]), page.title);
     assert.equal(meta(html, 'description'), page.description);
@@ -105,6 +107,25 @@ test('les schémas sont cohérents et les fils d’Ariane ne pointent que vers d
       } else assert.ok(pages.has(linkedPath), `${path} : lien interne absent ${linkedPath}`);
     }
   }
+});
+
+test('les métiers livrent leurs métadonnées et les repères techniques spécifiques au pré-rendu', () => {
+  for (const [slug, metier] of Object.entries(METIERS)) {
+    const html = pages.get(`/metiers/${slug}`);
+    assert.equal(decode(html.match(/<title>([^<]+)<\/title>/)[1]), metier.seoTitle);
+    assert.equal(meta(html, 'description'), metier.seoDescription);
+    const content = decode(html);
+    for (const point of metier.preparation.points) {
+      assert.ok(content.includes(point.title), `${slug} : repère technique absent`);
+      assert.ok(content.includes(point.description), `${slug} : explication absente`);
+    }
+    for (const question of metier.questions) assert.ok(content.includes(question.a), `${slug} : réponse métier absente`);
+    assert.ok(!content.includes('Ordre de grandeur constaté sur le marché'), `${slug} : ancien budget non sourcé`);
+  }
+  assert.ok(pages.get('/partenariat-artisans-btp').includes('/ressources/fiche-partenariat-artisan.html'));
+  const sheet = read('dist/ressources/fiche-partenariat-artisan.html');
+  assert.equal(meta(sheet, 'robots'), 'noindex, follow');
+  assert.ok(!/googletagmanager|fetch\(|<form\b/.test(sheet), 'la fiche ne collecte aucune information');
 });
 
 test('les URL inconnues ont un document 404 non indexable sans repli vers un accueil HTTP200', () => {

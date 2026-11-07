@@ -6,6 +6,7 @@ import { ETAPES, FAQ_COMMUNE as FAQ } from '../data/offre';
 import Reveal from '../components/Reveal';
 import CTAButton from '../components/CTAButton';
 import ResourceCards from '../components/ResourceCards';
+import PartnerCaseLink from '../components/PartnerCaseLink';
 
 const metiers = Object.entries(METIERS).map(([slug, data]) => ({ slug, ...data }));
 const Arrow = ({ className = 'w-5 h-5' }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>;
@@ -135,6 +136,7 @@ export default function Home() {
         <div className="container-custom">
           <div className="flex flex-wrap items-end justify-between gap-6 mb-10"><div><p className="section-kicker mb-5">Les guides pour les artisans</p><h2 className="section-title">Un partenariat,<br />ça se prépare.</h2></div><Link to="/guides" className="text-link">Tous les repères <Arrow /></Link></div>
           <ResourceCards paths={['/guides/commission-apporteur-affaires-btp', '/partenariat-artisans-btp']} />
+          <div className="mt-6"><PartnerCaseLink /></div>
         </div>
       </section>
 

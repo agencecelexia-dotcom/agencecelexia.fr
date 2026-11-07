@@ -5,7 +5,7 @@ description: Contrat des routes, du pré-rendu et du SEO d’agencecelexia.fr. �
 
 # Routes et SEO — Celexia
 
-État du 7 novembre 2026 : **15 pages indexables et une page 404**. Le site reste sur React/Vite. Le build client, le bundle SSR puis `scripts/prerender-meta.mjs` génèrent un HTML complet par URL. Ne pas utiliser `lazy()`/Suspense dans l’arbre des pages : le contenu doit être lisible sans JavaScript.
+État du 7 novembre 2026 : **16 pages indexables et une page 404**. Le site reste sur React/Vite. Le build client, le bundle SSR puis `scripts/prerender-meta.mjs` génèrent un HTML complet par URL. Ne pas utiliser `lazy()`/Suspense dans l’arbre des pages : le contenu doit être lisible sans JavaScript.
 
 ## Sources des routes
 
@@ -13,6 +13,7 @@ description: Contrat des routes, du pré-rendu et du SEO d’agencecelexia.fr. �
 - `src/data/metiers.js` définit les quatre métiers, importés par le routeur métier et le pré-rendu.
 - `src/data/seoPages.js` définit les ressources commerciales et éditoriales (chemin, métadonnées, contenu, dates, liens associés). Ces données alimentent `ResourcePage` et le pré-rendu.
 - `src/data/seoHub.js` définit le hub `/guides`, rendu par `Guides` et importé par le pré-rendu.
+- `src/data/partnerCase.js` définit le retour d’expérience anonymisé, rendu par `CaseStudy` et importé par le pré-rendu comme Article. La fiche HTML dans `public/ressources/` est un support imprimable en noindex, hors sitemap.
 - Les autres pages sont déclarées dans `baseRoutes` de `scripts/prerender-meta.mjs`.
 - `public/sitemap.xml`, `public/llms.txt` et `public/llms-full.txt` restent à synchroniser explicitement.
 

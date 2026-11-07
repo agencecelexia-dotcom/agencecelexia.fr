@@ -72,6 +72,15 @@ acompte reçu.
 
 ## Interdiction : les promesses chiffrées inventées
 
+**Cas réel autorisé le 7 novembre 2026 :** `src/data/partnerCase.js` présente
+une entreprise BTP tous corps de métier, orientée couverture et anonymisée.
+Le client a confirmé 100 demandes qualifiées transmises le premier mois, puis
+200 chaque mois pendant trois mois (700 sur quatre mois). Ces chiffres ne
+décrivent ni des chantiers signés ni une promesse de volume. Le client a demandé
+de ne publier aucun montant de devis ; aucun chiffre d’affaires, taux de
+conversion, date calendaire de partenariat ou témoignage cité n’est fourni.
+Les seuls éléments publiables sont les demandes et ce contexte confirmé.
+
 Le repo porte une trace explicite de cette dérive
 ([CORRECTIONS_PROMESSES.md](CORRECTIONS_PROMESSES.md), écrit pour l'ancien
 modèle de prestation). Les pages citées n'existent plus, **mais la règle reste

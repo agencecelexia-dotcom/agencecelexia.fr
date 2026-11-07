@@ -7,6 +7,7 @@ import { candidatureUrl, CTA_LABEL } from '../lib/links';
 import Reveal from '../components/Reveal';
 import CTAButton from '../components/CTAButton';
 import NotFound from '../pages/NotFound';
+import { CASE_STUDY } from '../data/partnerCase';
 
 const Check = ({ className = '' }) => (
   <svg className={className} fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
@@ -36,16 +37,12 @@ const MetierPage = () => {
 function MetierContent({ metier, slug }) {
 
   usePageMeta({
-    title: metier
-      ? `Apport d’affaires ${metier.label} | Agence Celexia`
-      : 'Métier introuvable | Agence Celexia',
-    description: metier
-      ? `Chantiers ${metier.labelCourt.toLowerCase()} qualifiés pour votre entreprise. Commission uniquement après signature et acompte.`
-      : 'Ce métier n’est pas accompagné par Agence Celexia.',
+    title: metier.seoTitle,
+    description: metier.seoDescription,
     canonical: `https://agencecelexia.fr/metiers/${slug}`,
   });
 
-  const faq = [...FAQ_COMMUNE, metier.faq];
+  const faq = [metier.faq, ...metier.questions, ...FAQ_COMMUNE];
 
   return (
     <>
@@ -114,17 +111,23 @@ function MetierContent({ metier, slug }) {
 
             <Reveal delay={90}>
               <div className="surface-paper border border-brume-200 rounded-[28px] p-8 md:p-10">
-                <p className="section-kicker">Montant des chantiers</p>
-                <p className="tabular mt-6 font-display font-medium text-[clamp(2rem,3.5vw,3rem)] leading-tight tracking-tight text-violet-700">
-                  {metier.budget}
-                </p>
-                <p className="mt-6 text-encre-700 leading-relaxed">{metier.budgetNote}</p>
-                <p className="mt-8 pt-6 border-t border-brume-200 text-sm text-encre-600 leading-relaxed">
-                  Ordre de grandeur constaté sur le marché, donné pour situer le type de
-                  chantier. Ce n’est ni une estimation de vos prix, ni une promesse de volume.
-                </p>
+                <p className="section-kicker">Votre organisation</p>
+                <h3 className="mt-6 font-display text-2xl leading-tight tracking-tight text-violet-700">{metier.organisation.title}</h3>
+                {metier.organisation.paragraphs.map(paragraph => <p key={paragraph} className="mt-5 text-encre-700 leading-relaxed">{paragraph}</p>)}
+                <Link to="/partenariat-artisans-btp#fiche-preparation" className="text-link mt-6">Préparer mon échange <span aria-hidden="true">↗</span></Link>
               </div>
             </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <section className="section !pt-0">
+        <div className="container-custom">
+          <p className="section-kicker mb-5">Votre regard technique</p>
+          <h2 className="section-title max-w-3xl">{metier.preparation.title}</h2>
+          <p className="mt-6 max-w-3xl text-encre-600 leading-relaxed">{metier.preparation.intro}</p>
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            {metier.preparation.points.map((point, index) => <div key={point.title} className="card p-6 md:p-8"><span className="section-num" aria-hidden="true">0{index + 1}</span><h3 className="mt-5 font-display text-2xl leading-tight tracking-tight">{point.title}</h3><p className="mt-4 text-encre-600 leading-relaxed">{point.description}</p></div>)}
           </div>
         </div>
       </section>
@@ -202,6 +205,7 @@ function MetierContent({ metier, slug }) {
                 </Link>
               </p>
               <p className="mt-4 text-sm"><Link to="/guides/commission-apporteur-affaires-btp" className="text-white underline underline-offset-4 hover:text-violet-200">Comprendre le fonctionnement de la commission</Link></p>
+              {slug === 'couverture' && <p className="mt-4 text-sm"><Link to={CASE_STUDY.path} className="text-white underline underline-offset-4 hover:text-violet-200">Un retour d’expérience en BTP et couverture</Link></p>}
             </div>
           </Reveal>
         </div>

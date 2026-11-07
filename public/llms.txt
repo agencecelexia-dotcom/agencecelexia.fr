@@ -17,10 +17,12 @@
 - [Candidature artisan](https://agencecelexia.fr/candidature) : présenter son entreprise, son équipe, son activité et ses disponibilités.
 - [L’équipe Celexia](https://agencecelexia.fr/about) : Thomas et Antoine, fondateurs, et la méthode de travail.
 - [Contact](https://agencecelexia.fr/contact) : agence.celexia@gmail.com, 06 51 72 57 56.
+- [Retour d’expérience d’un partenaire BTP](https://agencecelexia.fr/retour-experience-partenaire-btp) : cas anonymisé communiqué par Celexia, 100 demandes qualifiées le premier mois puis 200 chaque mois pendant trois mois, soit 700 sur quatre mois. Il s’agit de demandes transmises, pas d’un nombre de chantiers signés ni d’un résultat garanti.
 
 ## Guides pour les artisans
 
 - [Tous les guides](https://agencecelexia.fr/guides) : choisir un partenariat et développer son activité.
+- [Fiche de préparation à imprimer](https://agencecelexia.fr/ressources/fiche-partenariat-artisan.html) : repères pour noter son activité, son secteur, sa capacité et ses questions avant un échange.
 - [Commission et pourcentage d’un apporteur d’affaires BTP](https://agencecelexia.fr/guides/commission-apporteur-affaires-btp) : les points à examiner pour évaluer une commission, sans taux chiffré public.
 - [Trouver des chantiers sans abonnement](https://agencecelexia.fr/guides/trouver-chantiers-artisans) : pistes de recherche, organisation, qualification et suivi des demandes.
 

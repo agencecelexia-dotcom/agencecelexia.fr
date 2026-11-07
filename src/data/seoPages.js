@@ -241,6 +241,22 @@ export const SEO_PAGES = {
           'Le bon échange commence donc par votre entreprise. En présentant votre métier, votre zone et votre capacité à Celexia, vous nous donnez le contexte nécessaire pour parler du partenariat et de sa rémunération.',
         ],
       },
+      {
+        id: 'comparer-modeles',
+        title: 'Commission, achat de contact ou abonnement : comment comparer ?',
+        paragraphs: [
+          'Commencez par identifier ce qui déclenche le paiement. Un contact reçu, une période de service et un chantier signé ne correspondent pas à la même étape de votre activité. Comparez ensuite le travail inclus et les informations disponibles avant votre prise de contact.',
+          'Le tableau ci-dessous sert à préparer vos questions. Les offres au contact ou par abonnement varient selon le prestataire : vérifiez leur fonctionnement précis. Pour Celexia, la règle est connue : la commission intervient uniquement après signature du chantier et réception de votre acompte.',
+        ],
+        table: {
+          headers: ['Modèle examiné', 'Déclenchement à clarifier', 'Questions utiles'],
+          rows: [
+            ['Paiement au contact', 'À quelle étape le contact est-il facturé : réception, validation ou rendez-vous ?', 'Quelles informations ont été vérifiées ? Quel travail reste-t-il avant de pouvoir chiffrer ?'],
+            ['Abonnement', 'Quelle période et quel service le paiement couvre-t-il ?', 'Quelles prestations sont incluses et comment les demandes correspondent-elles à votre métier et à votre secteur ?'],
+            ['Commission Celexia', 'Uniquement après chantier signé et acompte reçu.', 'Comment les projets sont-ils qualifiés et comment la commission s’applique-t-elle à votre entreprise ? Nous en parlons de vive voix.'],
+          ],
+        },
+      },
     ],
     faq: [
       {
