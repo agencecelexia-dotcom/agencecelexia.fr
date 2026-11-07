@@ -10,6 +10,29 @@
 # sur les deux) et avec src/lib/legacyRoutes.js (filet de sécurité côté client).
 # ---------------------------------------------------------------------------
 
+# Ancien parcours d’inscription et propositions commerciales
+[[redirects]]
+  from = "/rejoindre"
+  to = "/candidature"
+  status = 301
+
+[[redirects]]
+  from = "/inscription"
+  to = "/candidature"
+  status = 301
+
+[[redirects]]
+  from = "/proposition"
+  to = "/candidature"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/proposition/*"
+  to = "/candidature"
+  status = 301
+  force = true
+
 # Anciennes URLs génériques
 [[redirects]]
   from = "/privacy-policy"
@@ -42,20 +65,20 @@
   to = "/"
   status = 301
 
-# Prise de rendez-vous supprimée : la conversion unique est l'inscription en ligne
+# Anciennes prises de contact → candidature analysée par Celexia
 [[redirects]]
   from = "/reserver"
-  to = "/"
+  to = "/candidature"
   status = 301
 
 [[redirects]]
   from = "/demo-call"
-  to = "/"
+  to = "/candidature"
   status = 301
 
 [[redirects]]
   from = "/onboarding-call"
-  to = "/"
+  to = "/candidature"
   status = 301
 
 # Métiers retirés lors du recentrage sur 4 métiers.
@@ -156,6 +179,13 @@
   from = "/tmp/*"
   to = "/index.html"
   status = 410
+
+# L’API de candidature doit être résolue avant le repli SPA.
+[[redirects]]
+  from = "/api/candidature"
+  to = "/.netlify/functions/candidature"
+  status = 200
+  force = true
 
 # Repli SPA - doit rester en dernier
 [[redirects]]

@@ -1,153 +1,43 @@
-# Site Vitrine Local Service Ads pour Piscinistes
+# Agence Celexia
 
-Site vitrine ultra-performant pour promouvoir l'offre Local Service Ads destinée aux professionnels de la piscine.
+Site de présentation de Celexia, apporteur d’affaires pour les artisans du bâtiment. React 19, Vite 7, React Router 7 et Tailwind CSS 3.4. Identité visuelle sur papier lavande, structurée par le violet et des accents citron.
 
-## 🎯 Description
+## Direction visuelle
 
-Ce site a été conçu avec un copywriting percutant et une structure optimisée pour convertir les visiteurs en clients. Il explique les avantages des Local Service Ads par rapport à la publicité traditionnelle et guide les prospects vers la prise de rendez-vous.
+Space Grotesk compose les titres ; Manrope porte les paragraphes, la navigation et les champs. Les deux familles variables (poids 400–700) sont hébergées localement en WOFF2, avec leurs licences OFL dans `public/fonts/`.
 
-## 🚀 Technologies Utilisées
+Les pages partagent les échelles `.page-title` / `.hero-title` et `.section-title`, un fond papier lavande, des surfaces arrondies, des filets fins et des boutons en pilule. Les couleurs sont définies dans `tailwind.config.js` et les composants visuels communs dans `src/index.css`.
 
-- **React 18** - Framework JavaScript
-- **Vite** - Build tool ultra-rapide
-- **Tailwind CSS v3** - Framework CSS utility-first
-- **React Router** - Navigation multi-pages
-- **Inter Font** - Typographie moderne de Google Fonts
+## Développement et vérification
 
-## 📁 Structure du Projet
-
-```
-src/
-├── components/          # Composants réutilisables
-│   ├── Header.jsx      # Navigation principale
-│   ├── Footer.jsx      # Pied de page
-│   └── CTAButton.jsx   # Bouton d'appel à l'action
-├── pages/              # Pages du site
-│   ├── Home.jsx        # Page d'accueil
-│   ├── HowItWorks.jsx  # Comment ça marche (3 étapes)
-│   ├── WhyLSA.jsx      # Pourquoi les LSA
-│   ├── Dashboard.jsx   # Dashboard de suivi
-│   ├── Pricing.jsx     # Tarifs
-│   ├── Blog.jsx        # Blog
-│   └── Contact.jsx     # Contact + Calendly
-├── App.jsx             # Composant principal avec Router
-├── main.jsx            # Point d'entrée
-└── index.css           # Styles globaux + Tailwind
-```
-
-## 🎨 Pages Principales
-
-### 1. **Page d'accueil** (`/`)
-- Hero section percutant
-- Présentation du problème
-- Solution avec Local Service Ads
-- Preuves sociales et statistiques
-- FAQ (gestion des objections)
-- CTA final
-
-### 2. **Comment ça marche** (`/comment-ca-marche`)
-- 3 étapes détaillées :
-  1. Audit de marché (gratuit)
-  2. Configuration complète
-  3. Suivi en temps réel
-
-### 3. **Pourquoi les LSA** (`/pourquoi-les-lsa`)
-- Tableau comparatif Pub traditionnelle vs LSA
-- Badge Google Garanti
-- Chiffres clés
-
-### 4. **Dashboard** (`/dashboard`)
-- Mockup du tableau de bord
-- Explication des métriques
-- Exemple concret de ROI
-
-### 5. **Tarifs** (`/tarifs`)
-- Frais de mise en place : 200€ HT
-- Coût par appel : ~30€
-- Exemple de calcul ROI
-
-### 6. **Blog** (`/blog`)
-- 7 articles suggérés (structure SEO)
-- Catégories
-- Newsletter
-
-### 7. **Contact** (`/contact`)
-- Intégration Calendly (placeholder)
-- Formulaire de contact
-- Informations de contact
-
-## 🛠️ Installation
-
-```bash
-# Installer les dépendances
+```sh
 npm install
-
-# Lancer le serveur de développement
 npm run dev
-
-# Builder pour la production
 npm run build
-
-# Prévisualiser le build de production
-npm run preview
+node --test tests/candidature.test.mjs
 ```
 
-## 🎨 Configuration Couleurs
+Le build produit le client dans `dist/`, un bundle de rendu dans `dist-ssr/`, puis 10 pages HTML avec leur contenu et leurs métadonnées. Le pré-rendu est défini dans `scripts/prerender-meta.mjs` ; les pages React restent importées statiquement.
 
-Les couleurs principales sont définies dans `tailwind.config.js` :
+## Parcours
 
-- **primary-purple** : `#A78BFA` (violet clair)
-- **dark-gray** : `#2D2D2D`
-- **light-gray** : `#F5F5F5`
+- `/` : présentation, valeur apportée, méthode et métiers.
+- `/about` : Thomas et Antoine, rôle et principes de Celexia.
+- `/contact` : contact direct et orientation vers la candidature.
+- `/candidature` : entreprise, activité/capacité, coordonnées, puis récapitulatif modifiable.
+- `/metiers/:slug` : piscine, couverture, façade/ITE et maçonnerie.
+- Mentions légales et politique de confidentialité.
 
-## 📝 Prochaines Étapes
+Le formulaire ne crée aucun compte et ne conduit pas à un contrat. L’équipe sélection analyse les demandes avant de revenir vers le candidat. Les anciens parcours commerciaux redirigent vers `/candidature`.
 
-### Intégration Calendly
-Pour intégrer votre calendrier Calendly sur la page Contact :
+Les boutons utilisent `CTA_LABEL` et `candidatureUrl()` dans `src/lib/links.js`. Les métiers et les textes partagés se trouvent dans `src/data/`. Le contenu public ne mentionne ni exclusivité des demandes ni taux de rémunération ; les modalités chiffrées sont présentées au téléphone.
 
-1. Créez un compte sur [calendly.com](https://calendly.com)
-2. Configurez un événement "Audit gratuit LSA" de 15 minutes
-3. Installez le package Calendly pour React :
-   ```bash
-   npm install react-calendly
-   ```
-4. Remplacez le placeholder dans `src/pages/Contact.jsx` par :
-   ```jsx
-   import { InlineWidget } from 'react-calendly';
+## Réception des candidatures
 
-   <InlineWidget url="https://calendly.com/votre-lien" />
-   ```
+La destination est `agence.celexia@gmail.com`. L’API serveur est compatible Vercel et Netlify et envoie les dossiers via Resend. Configurer `RESEND_API_KEY` et `CANDIDATURE_FROM_EMAIL` sur l’hébergement pour activer les envois. Voir [CANDIDATURE_SETUP.md](CANDIDATURE_SETUP.md).
 
-### Formulaire de Contact
-Le formulaire actuel est statique. Pour le rendre fonctionnel :
-- Intégrez un service comme [Formspree](https://formspree.io/)
-- Ou configurez un backend avec [Netlify Forms](https://www.netlify.com/products/forms/)
+La confirmation apparaît seulement après acquittement du prestataire d’envoi. Les tests utilisent des réponses simulées et n’envoient aucun e-mail réel. Vite seul ne sert pas les fonctions serveur.
 
-### Analytics & SEO
-- Ajoutez Google Analytics 4
-- Configurez les meta tags pour le SEO
-- Ajoutez un sitemap.xml
-- Implémentez Schema markup
+## Déploiement
 
-## 🌐 Déploiement
-
-Le site peut être déployé sur :
-- **Netlify** (recommandé, gratuit)
-- **Vercel**
-- **GitHub Pages**
-- **Any static hosting**
-
-```bash
-# Builder le site
-npm run build
-
-# Le dossier dist/ contient les fichiers à déployer
-```
-
-## 📞 Support
-
-Pour toute question ou modification, contactez l'équipe de développement.
-
-## 📄 Licence
-
-Projet propriétaire - Tous droits réservés
+Les configurations `vercel.json`, `netlify.toml` et `public/_redirects` conservent l’API avant le repli SPA. Le déploiement doit inclure les fonctions serveur, pas seulement le dossier statique `dist/`, pour permettre l’envoi de candidatures.

@@ -36,27 +36,28 @@ doit être répercuté dans les trois.**
 - **Zéro** frais d'entrée, zéro abonnement, aucun budget à avancer. En revanche
   **ne rien dire de la durée, du préavis ni de la sortie** : ce sont des termes
   contractuels, voir l'interdiction n° 2.
-- **Une demande n'est transmise qu'à un seul artisan.** Jamais revendue.
-  L'argument est mécanique : payés à la signature, nous n'avons aucun intérêt à
-  mettre cinq entreprises en concurrence.
+- **Ne publier aucune mention d’exclusivité des demandes ni du nombre de
+  destinataires.** Instruction du 7 novembre 2026 : retirer cet argument des
+  pages, FAQ, métadonnées, données structurées et fichiers destinés aux moteurs.
+  Présenter la qualification, l’adéquation au métier et au secteur, et
+  l’autonomie de l’artisan dans sa relation client.
 - Périmètre : **4 métiers** à chantiers ≥ 10 000 € — construction de piscines,
   couverture, façade/ITE, maçonnerie. France entière. Liste faisant foi :
   `METIERS` dans [src/data/metiers.js](src/data/metiers.js).
 - Entité : CELEXIA SASU, SIREN 939 306 429, Nogent-sur-Marne (Île-de-France).
   Fondateurs : **Thomas et Antoine**. Slogan : « On gagne quand vous gagnez ».
 - Contact : 06 51 72 57 56 — agence.celexia@gmail.com. **Conversion unique :
-  l'inscription en ligne** (`registerUrl()` dans [src/lib/links.js](src/lib/links.js)),
-  au libellé `CTA_LABEL`, identique partout. Il n'y a plus de prise de
-  rendez-vous ni d'embed Cal.com.
+  la candidature interne** (`candidatureUrl()` dans [src/lib/links.js](src/lib/links.js)),
+  au libellé `CTA_LABEL` (« Présenter mon entreprise »), identique partout.
+  L’équipe sélection analyse les demandes avant de revenir vers le candidat.
+  Le parcours ne crée aucun compte et ne conduit à aucun contrat.
 
 ## Deux interdictions absolues, propres à ce site
 
 **1. Ne jamais décrire les canaux d'acquisition.** Ni « Google », ni « Ads », ni
 « campagnes », ni « référencement ». C'est le métier de Celexia et c'est ce
-qu'elle finance à la place de l'artisan. La formulation retenue assume le refus
-(« on ne dira pas comment on les trouve ») et compense par une précision totale
-sur ce qui est transmis. Esquiver mollement ferait passer Celexia pour un
-revendeur de leads, exactement ce qu'elle n'est pas.
+qu'elle finance à la place de l'artisan. Expliquer précisément les informations vérifiées et transmises,
+sans évoquer les moyens utilisés pour rechercher les projets.
 
 **2. Ne jamais publier de terme contractuel.** Ni durée, ni préavis, ni clause
 de non-contournement, ni délai de paiement. Et surtout ne pas écrire l'inverse :
@@ -102,7 +103,7 @@ Ce qu'il se demande, dans l'ordre :
 1. Combien ça me coûte si ça ne marche pas ? → **zéro**, le dire tôt.
 2. C'est encore un abonnement ? → **non**, le dire explicitement.
 3. Les demandes sont sérieuses ou c'est du tout-venant ? → qualification.
-4. Je vais être en concurrence avec quatre autres ? → **non, un seul artisan**.
+4. Qui gère le devis et le client ? → **l’artisan garde la main**.
 5. Qui je dois appeler et quand ? → CTA unique.
 
 Écrire pour cette liste, dans cet ordre. Toute section qui ne répond à aucune de
@@ -130,7 +131,7 @@ ces questions est candidate à la suppression.
 
 Le libellé du bouton est **toujours** `CTA_LABEL` (`src/lib/links.js`), identique
 partout. Éviter « En savoir plus », « Découvrir », « Soumettre ». Préciser la
-gratuité de l'inscription à côté du bouton, jamais dedans — et sans parler
+gratuité de la candidature à côté du bouton, jamais dedans — et sans parler
 d'engagement.
 
 ## Cohérence technique du texte

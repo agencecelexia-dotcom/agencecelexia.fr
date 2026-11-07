@@ -1,9 +1,17 @@
+# Candidatures : remplace les anciennes inscriptions et propositions
+/rejoindre /candidature 301
+/inscription /candidature 301
+/reserver /candidature 301
+/proposition /candidature 301!
+/proposition/* /candidature 301!
+/api/candidature /.netlify/functions/candidature 200!
+
 # Redirections 301 - Anciennes URLs vers nouvelles pages
 /privacy-policy /politique-confidentialite 301
 /terms-and-conditions /mentions-legales 301
 /contact-3625 /contact 301
-/demo-call /reserver 301
-/onboarding-call /reserver 301
+/demo-call /candidature 301
+/onboarding-call /candidature 301
 /banque-alimentaire / 301
 
 # Anciennes pages de prestation (ancien modèle) → accueil (apport d'affaires)

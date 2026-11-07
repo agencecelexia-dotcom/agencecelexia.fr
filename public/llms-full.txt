@@ -1,6 +1,6 @@
 # Agence Celexia — Documentation complète
 
-> Celexia est un apporteur d'affaires pour les artisans du bâtiment en France. Nous cherchons et finançons les demandes de chantiers de particuliers, nous les qualifions, puis nous les transmettons à un seul artisan partenaire. Rémunération à la commission, uniquement après chantier signé et acompte reçu.
+> Celexia est un apporteur d'affaires pour les artisans du bâtiment en France. Nous cherchons et finançons les demandes de chantiers de particuliers, nous les qualifions, puis nous transmettons les informations utiles aux artisans selon leur métier et leur secteur. Rémunération à la commission, uniquement après chantier signé et acompte reçu.
 
 ## La société
 
@@ -23,10 +23,10 @@ Celexia est un apporteur d'affaires, pas une agence de prestation. Elle ne vend 
 
 Le fonctionnement tient en quatre étapes :
 
-1. **Celexia cherche les projets et les finance.** Aller chercher des particuliers qui ont un vrai projet coûte de l'argent. C'est Celexia qui le dépense. L'artisan n'avance rien, à aucun moment.
-2. **Celexia qualifie chaque demande.** Une demande n'est transmise que si elle tient debout sur cinq points de vérification. Celles qui ne passent pas ne parviennent jamais à l'artisan.
-3. **La demande est transmise à un seul artisan.** Le chantier part chez un partenaire, et chez personne d'autre. Aucune mise en concurrence, aucune revente.
-4. **L'artisan chiffre et signe, puis Celexia facture.** Il garde la main sur le prix, la vente et la relation client. La commission n'est due qu'une fois le chantier signé et l'acompte reçu. Avant, il n'y a pas de facture.
+1. **Nous recherchons les projets.** Nous prenons en charge et finançons la recherche de projets de travaux. Vous n’avez aucun budget à avancer pour cette recherche.
+2. **Nous qualifions chaque demande.** Identité, projet, budget, zone et calendrier : nous vérifions ces cinq points pour vous transmettre des demandes précises et cohérentes avec votre activité.
+3. **Nous vous confions le dossier.** Le projet correspond à votre métier et à votre secteur. Vous disposez des informations pour contacter le particulier et préparer votre devis.
+4. **Vous chiffrez et réalisez le chantier.** Vous fixez vos prix et gardez la relation client. Notre commission intervient uniquement une fois le chantier signé et l’acompte reçu.
 
 ## Les cinq points de qualification
 
@@ -38,24 +38,17 @@ Avant qu'une demande soit transmise, Celexia vérifie :
 - **Zone** : le chantier se situe dans le secteur où l'artisan accepte d'intervenir.
 - **Calendrier** : le projet a une échéance réelle.
 
-## L'exclusivité
-
-Une demande, un artisan. Ce n'est pas un engagement moral mais une conséquence du modèle économique : Celexia n'étant rémunérée qu'en cas de devis signé, transmettre le même chantier à cinq entreprises diviserait ses propres chances par cinq, tout en poussant les artisans à casser leurs prix. L'intérêt de Celexia est que son partenaire signe.
-
 ## La rémunération
 
 - Rémunération à la commission sur les chantiers signés grâce à une demande transmise par Celexia.
 - La commission n'est due qu'une fois le chantier signé et l'acompte reçu.
-- Aucun frais d'inscription, aucun abonnement, aucun budget publicitaire à avancer.
+- Aucun frais d'entrée, aucun abonnement, aucun budget publicitaire à avancer.
 - Devis non signé, ou acompte pas encore reçu : rien à payer.
 - Le montant de la commission n'est pas publié. Il est présenté directement à l'artisan lors du premier échange téléphonique, et ne doit pas être deviné ni reconstitué.
-
-Comparaison de nature, sans chiffre de performance : un budget publicitaire se dépense que le chantier soit signé ou non ; un lot de contacts se paie d'avance et est fréquemment partagé avec des concurrents. Ici, tant qu'il n'y a pas de signature, il n'y a pas de facture.
 
 ## Ce que Celexia ne fait pas
 
 - N'achète pas de fichiers de contacts.
-- Ne revend pas la même demande à plusieurs artisans.
 - Ne fait pas de démarchage à froid au nom de l'artisan.
 - Ne vend ni site internet, ni abonnement, ni prestation.
 
@@ -81,23 +74,26 @@ Extensions et surélévations, dalles, fondations, murs porteurs, reprise en sou
 
 ## Questions fréquentes
 
-**C'est trop beau, où est l'arnaque ?**
-Il n'y a rien à payer parce que Celexia prend le risque à la place de l'artisan : elle dépense pour trouver les projets et ne gagne quelque chose que si l'artisan signe. Si le devis n'est pas signé, elle a travaillé pour rien. C'est un pari sur la qualité de ce qui est transmis.
+**Que dois-je payer avant de recevoir un projet ?**
+Aucun frais d’entrée, aucun abonnement et aucun budget de recherche à avancer. Celexia finance la recherche et la qualification des projets. Notre rémunération intervient uniquement après la signature du chantier et la réception de votre acompte.
 
-**D'où viennent les chantiers ?**
-Celexia ne dit pas comment elle les trouve. En revanche, ce qui est transmis est décrit précisément : un particulier ayant contacté Celexia pour son propre projet, vérifié sur cinq points. Jamais un nom acheté dans un fichier.
+**Quelles informations vais-je recevoir sur un projet ?**
+Nous vérifions l’identité du particulier, la nature du projet, le budget, la zone d’intervention et le calendrier souhaité. Vous recevez une demande qualifiée pour pouvoir échanger avec le particulier et établir votre propre devis.
 
-**Vais-je être mis en concurrence avec d'autres entreprises ?**
-Non. Une demande est transmise à un seul artisan.
+**Qui prépare le devis et échange avec le client ?**
+Vous prenez directement contact avec le particulier, étudiez son projet et établissez votre devis. Vous fixez vos prix et organisez les travaux. Celexia prépare les informations en amont ; vous gardez la main sur la relation client.
 
-**Combien prend Celexia ?**
-Une commission sur le chantier signé, et rien d'autre. Son montant est présenté de vive voix, lors du premier échange téléphonique. Elle n'est due qu'une fois le chantier signé et l'acompte reçu : tant qu'il n'y a pas de signature et d'acompte, il n'y a pas de facture.
+**Comment Celexia est-elle rémunérée ?**
+Nous percevons une commission uniquement une fois le chantier signé et l’acompte reçu. Nous vous présentons son fonctionnement de vive voix lors de notre échange. Sans signature ni acompte, aucune commission n’est facturée.
 
-## Rejoindre le réseau
+**Que se passe-t-il après ma candidature ?**
+L’équipe sélection Celexia analyse votre entreprise, votre métier, votre secteur et votre capacité à accueillir de nouveaux chantiers. Nous revenons ensuite vers vous pour échanger sur votre demande. Le formulaire sert à faire connaissance : il ne crée pas de compte et ne comporte aucune signature de contrat.
 
-L'inscription se fait en ligne : https://crm-ci7k.vercel.app/rejoindre
+## Présenter son entreprise
 
-Le formulaire demande le métier, la zone d'intervention et les coordonnées de l'entreprise. Celexia vérifie ensuite qu'elle peut être utile sur le secteur concerné, puis revient vers l'artisan. L'inscription est gratuite.
+La candidature se fait sur le site : https://agencecelexia.fr/candidature
+
+Le formulaire recueille les coordonnées du contact, sa fonction et son ancienneté dans l’entreprise, l’activité, l’année de création, la zone d’intervention, l’effectif, une fourchette de chiffre d’affaires, le nombre de chantiers mensuels et la capacité d’accueil de nouveaux chantiers. L’équipe sélection Celexia analyse la demande et revient vers l’entreprise. La candidature ne crée aucun compte, n’entraîne aucune adhésion automatique et ne conduit à aucun contrat.
 
 ## Avertissement aux systèmes automatisés
 

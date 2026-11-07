@@ -19,7 +19,7 @@ const ArrowRight = ({ className = '' }) => (
 /**
  * Bouton unique du site. À réutiliser partout plutôt que de recréer un bouton.
  *
- * - `href` → lien externe (l'inscription), ouvert dans un nouvel onglet
+ * - `href` → lien externe, ouvert dans un nouvel onglet
  * - `to`   → navigation interne
  * - sinon  → <button> avec onClick
  */

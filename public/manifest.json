@@ -1,14 +1,16 @@
 {
   "name": "Agence Celexia - Apport d'affaires pour artisans",
   "short_name": "Agence Celexia",
-  "description": "Celexia trouve et finance les demandes de chantiers, les qualifie, puis les transmet à un seul artisan. 10 % sur les devis signés uniquement.",
+  "description": "Celexia accompagne les artisans avec des projets qualifiés. Recherche financée par nos soins, commission après signature et acompte reçu.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
-  "categories": ["business"],
+  "categories": [
+    "business"
+  ],
   "icons": [
     {
       "src": "/icon-192x192.png",

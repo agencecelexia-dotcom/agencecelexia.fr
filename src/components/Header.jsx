@@ -1,240 +1,75 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { METIERS } from '../data/metiers';
-import { registerUrl, CTA_LABEL } from '../lib/links';
+import { candidatureUrl, CTA_LABEL } from '../lib/links';
+import CTAButton from './CTAButton';
 
-const Icon = {
-  X: (p) => (
-    <svg {...p} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
-      <line x1="18" y1="6" x2="6" y2="18" />
-      <line x1="6" y1="6" x2="18" y2="18" />
-    </svg>
-  ),
-  ArrowRight: (p) => (
-    <svg {...p} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
-      <line x1="5" y1="12" x2="19" y2="12" />
-      <polyline points="12 5 19 12 12 19" />
-    </svg>
-  ),
-  ChevronDown: (p) => (
-    <svg {...p} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
-      <polyline points="6 9 12 15 18 9" />
-    </svg>
-  ),
-};
+const metiers = Object.entries(METIERS).map(([slug, data]) => ({ slug, ...data }));
+const navClass = ({ isActive }) => `btn-ghost ${isActive ? 'text-violet-600 bg-violet-50' : ''}`;
 
-const metiers = Object.entries(METIERS).map(([slug, data]) => ({
-  slug,
-  label: data.label,
-  labelCourt: data.labelCourt,
-  color: data.color,
-  path: `/metiers/${slug}`,
-}));
-
-const Header = () => {
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMetiersOpen, setIsMetiersOpen] = useState(false);
   const metiersRef = useRef(null);
+  const metiersButtonRef = useRef(null);
+  const menuRef = useRef(null);
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (metiersRef.current && !metiersRef.current.contains(event.target)) {
-        setIsMetiersOpen(false);
-      }
+    const closeDropdown = e => {
+      if (e.key === 'Escape' && metiersRef.current?.contains(document.activeElement)) metiersButtonRef.current?.focus();
+      if (!metiersRef.current?.contains(e.target) || e.key === 'Escape') setIsMetiersOpen(false);
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('click', closeDropdown);
+    document.addEventListener('keydown', closeDropdown);
+    return () => { document.removeEventListener('click', closeDropdown); document.removeEventListener('keydown', closeDropdown); };
   }, []);
 
-  // Verrouille le défilement du corps pendant que l'overlay mobile est ouvert.
   useEffect(() => {
-    if (!isMenuOpen) return;
-    const scrollY = window.scrollY;
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.left = '0';
-    document.body.style.right = '0';
-    document.body.style.width = '100%';
-    return () => {
-      const top = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.left = '';
-      document.body.style.right = '';
-      document.body.style.width = '';
-      window.scrollTo(0, parseInt(top || '0', 10) * -1);
-    };
+    if (!isMenuOpen) { menuRef.current?.close(); return; }
+    menuRef.current?.showModal();
+    const oldOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = oldOverflow; };
   }, [isMenuOpen]);
 
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-    setIsMetiersOpen(false);
-  };
-
   useEffect(() => {
-    if (!isMenuOpen && !isMetiersOpen) return;
-    const handleKey = (e) => {
-      if (e.key === 'Escape') closeMenu();
-    };
-    window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
-  }, [isMenuOpen, isMetiersOpen]);
+    const media = window.matchMedia('(min-width: 1280px)');
+    const closeOnDesktop = e => { if (e.matches) setIsMenuOpen(false); };
+    media.addEventListener('change', closeOnDesktop);
+    return () => media.removeEventListener('change', closeOnDesktop);
+  }, []);
 
+  const closeMenu = () => { setIsMenuOpen(false); setIsMetiersOpen(false); };
   return (
     <>
-      <header className="sticky top-0 z-40 bg-white border-b border-brume-200">
-        <nav className="max-w-6xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between" aria-label="Navigation principale">
-          <Link to="/" className="flex items-center" onClick={closeMenu}>
-            <img
-              src="/logo.png"
-              alt="Agence Celexia — accueil"
-              className="h-8 w-auto"
-              width="197"
-              height="32"
-              loading="eager"
-            />
-          </Link>
-
-          {/* Navigation bureau */}
-          <div className="hidden md:flex items-center gap-1">
+      <header className="site-header">
+        <nav className="container-custom header-inner" aria-label="Navigation principale">
+          <Link to="/" onClick={closeMenu} className="header-brand"><img src="/logo.png" alt="Agence Celexia — accueil" className="h-7 md:h-8 w-auto" width="197" height="32" /></Link>
+          <div className="hidden xl:flex items-center gap-1">
+            <NavLink to="/about" className={navClass}>Qui sommes-nous ?</NavLink>
+            <Link to="/#methode" className="btn-ghost">Notre méthode</Link>
             <div className="relative" ref={metiersRef}>
-              <button
-                type="button"
-                onClick={() => setIsMetiersOpen(!isMetiersOpen)}
-                className="btn-ghost gap-1.5"
-                aria-expanded={isMetiersOpen}
-                aria-haspopup="true"
-              >
-                Métiers
-                <Icon.ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isMetiersOpen ? 'rotate-180' : ''}`} />
-              </button>
-
-              {isMetiersOpen && (
-                <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg border border-brume-300 py-1.5 shadow-card">
-                  {metiers.map((metier) => (
-                    <Link
-                      key={metier.slug}
-                      to={metier.path}
-                      onClick={() => setIsMetiersOpen(false)}
-                      className="flex items-center gap-3 px-4 py-2.5 hover:bg-brume-100 transition-colors"
-                    >
-                      <span className="w-2.5 h-2.5 rounded-sm flex-shrink-0" style={{ backgroundColor: metier.color }} aria-hidden="true" />
-                      <span className="text-sm font-medium text-encre-800">{metier.label}</span>
-                    </Link>
-                  ))}
-                </div>
-              )}
+              <button ref={metiersButtonRef} type="button" onClick={() => setIsMetiersOpen(!isMetiersOpen)} className="btn-ghost gap-2" aria-expanded={isMetiersOpen} aria-controls="metiers-menu">Les métiers <span aria-hidden="true" className="text-xs">⌄</span></button>
+              {isMetiersOpen && <div id="metiers-menu" className="absolute top-full left-0 mt-3 w-72 bg-white border border-brume-200 p-2 rounded-xl shadow-lift">{metiers.map(m => <Link key={m.slug} to={`/metiers/${m.slug}`} onClick={closeMenu} className="block px-4 py-3 rounded-lg text-sm hover:bg-brume-100">{m.label}</Link>)}</div>}
             </div>
-
-            <Link to="/about" className="btn-ghost">À propos</Link>
-            <Link to="/contact" className="btn-ghost">Contact</Link>
-
-            <a
-              href={registerUrl('header')}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary ml-3 !px-5 !py-2.5 !text-sm"
-            >
-              {CTA_LABEL}
-            </a>
+            <NavLink to="/contact" className={navClass}>Contact</NavLink>
           </div>
-
-          {/* Bouton menu mobile */}
-          <button
-            type="button"
-            onClick={() => setIsMenuOpen(true)}
-            className="md:hidden w-11 h-11 -mr-2 flex items-center justify-center rounded-md hover:bg-brume-100 transition-colors"
-            aria-label="Ouvrir le menu"
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-menu-overlay"
-          >
-            <span className="w-5 h-4 flex flex-col justify-between" aria-hidden="true">
-              <span className="w-full h-[2px] bg-encre-800 rounded-full" />
-              <span className="w-full h-[2px] bg-encre-800 rounded-full" />
-              <span className="w-full h-[2px] bg-encre-800 rounded-full" />
-            </span>
-          </button>
+          <div className="hidden xl:block"><CTAButton to={candidatureUrl('header')} className="!px-5 !py-3.5 !text-sm">{CTA_LABEL}</CTAButton></div>
+          <button type="button" onClick={() => setIsMenuOpen(true)} className="mobile-menu-button" aria-label="Ouvrir le menu" aria-expanded={isMenuOpen} aria-controls="mobile-menu"><span className="w-5 h-px bg-encre-900" /><span className="w-5 h-px bg-encre-900" /></button>
         </nav>
       </header>
-
-      {/* Overlay mobile plein écran */}
-      <div
-        id="mobile-menu-overlay"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Menu principal"
-        className={`md:hidden fixed inset-0 z-[60] bg-white transition-opacity duration-200 ${
-          isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
-        style={{ height: '100dvh' }}
-      >
-        <div className="flex flex-col h-full">
-          <div className="flex items-center justify-between px-5 h-16 border-b border-brume-200 flex-shrink-0">
-            <Link to="/" onClick={closeMenu} className="flex items-center">
-              <img src="/logo.png" alt="Agence Celexia — accueil" className="h-8 w-auto" width="197" height="32" />
-            </Link>
-            <button
-              type="button"
-              onClick={closeMenu}
-              className="w-11 h-11 -mr-2 flex items-center justify-center rounded-md hover:bg-brume-100 transition-colors"
-              aria-label="Fermer le menu"
-            >
-              <Icon.X className="w-6 h-6 text-encre-800" />
-            </button>
-          </div>
-
-          <div className="flex-1 overflow-y-auto px-5 py-4">
-            <p className="section-kicker py-3">Métiers</p>
-            {metiers.map((metier) => (
-              <Link
-                key={metier.slug}
-                to={metier.path}
-                onClick={closeMenu}
-                className="flex items-center gap-3 py-4 border-b border-brume-200 text-lg font-semibold text-encre-800"
-              >
-                <span className="w-2.5 h-2.5 rounded-sm flex-shrink-0" style={{ backgroundColor: metier.color }} aria-hidden="true" />
-                <span className="flex-1">{metier.label}</span>
-                <Icon.ArrowRight className="w-5 h-5 text-brume-300" />
-              </Link>
-            ))}
-
-            <Link
-              to="/about"
-              onClick={closeMenu}
-              className="flex items-center justify-between py-4 border-b border-brume-200 text-lg font-semibold text-encre-800"
-            >
-              À propos
-              <Icon.ArrowRight className="w-5 h-5 text-brume-300" />
-            </Link>
-            <Link
-              to="/contact"
-              onClick={closeMenu}
-              className="flex items-center justify-between py-4 border-b border-brume-200 text-lg font-semibold text-encre-800"
-            >
-              Contact
-              <Icon.ArrowRight className="w-5 h-5 text-brume-300" />
-            </Link>
-          </div>
-
-          <div className="flex-shrink-0 p-5 border-t border-brume-200 bg-white">
-            <a
-              href={registerUrl('menu-mobile')}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={closeMenu}
-              className="btn-primary w-full"
-            >
-              {CTA_LABEL}
-              <Icon.ArrowRight className="w-5 h-5" />
-            </a>
-            <p className="mt-3 text-center text-xs text-encre-600">
-              Inscription gratuite · Vous ne payez que sur devis signé
-            </p>
-          </div>
+      <dialog id="mobile-menu" ref={menuRef} onCancel={closeMenu} onClose={closeMenu} className="m-0 max-w-none max-h-none w-full h-dvh bg-brume-50 p-0 text-encre-900" aria-label="Navigation principale">
+        <div className="flex flex-col min-h-full p-5">
+          <div className="flex justify-between items-center pb-6 border-b border-brume-200"><Link to="/" onClick={closeMenu}><img src="/logo.png" alt="Agence Celexia — accueil" width="172" height="28" /></Link><button autoFocus type="button" onClick={closeMenu} aria-label="Fermer le menu" className="w-11 h-11 rounded-lg border border-brume-200 text-2xl">×</button></div>
+          <nav className="flex flex-col py-6" aria-label="Navigation mobile">
+            {[['/about', 'Qui sommes-nous ?'], ['/#methode', 'Notre méthode'], ['/contact', 'Contact']].map(([to, label]) => <Link key={to} to={to} onClick={closeMenu} className={`py-3 text-xl font-semibold ${pathname === to ? 'text-violet-600' : ''}`}>{label}</Link>)}
+            <p className="section-kicker mt-7 mb-3">Les métiers</p>
+            {metiers.map(m => <Link key={m.slug} to={`/metiers/${m.slug}`} onClick={closeMenu} className="py-3 text-encre-600 border-b border-brume-200">{m.label}</Link>)}
+          </nav>
+          <div className="mt-auto py-4"><CTAButton to={candidatureUrl('menu-mobile')} onClick={closeMenu} full>{CTA_LABEL}</CTAButton><p className="mt-3 text-xs text-center text-encre-600">Une candidature étudiée par notre équipe.</p></div>
         </div>
-      </div>
+      </dialog>
     </>
   );
-};
-
-export default Header;
+}

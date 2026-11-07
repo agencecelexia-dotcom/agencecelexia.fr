@@ -5,7 +5,8 @@
 //   - Ne jamais publier de terme contractuel (préavis, durée, délai de paiement).
 //   - Aucun chiffre de volume, d'ancienneté ou de performance. Seules les
 //     fourchettes de budget de chantier sont autorisées.
-//   - Ne jamais publier le taux de commission : il est annoncé au téléphone.
+//   - Ne publier aucun taux : la rémunération se précise au téléphone.
+//   - Ne faire aucune mention de l’exclusivité ou du nombre de destinataires.
 
 /**
  * Définition courte de Celexia, écrite pour être citée telle quelle par un
@@ -16,51 +17,54 @@
 export const DEFINITION =
   "Agence Celexia est un apporteur d'affaires français dédié aux artisans du bâtiment. " +
   "L'entreprise recherche et finance elle-même les demandes de chantiers de particuliers, " +
-  "vérifie chacune d'elles, puis les transmet à un seul artisan partenaire — jamais à plusieurs. " +
+  "vérifie chacune d'elles, puis transmet aux artisans les informations utiles pour préparer leur devis. " +
   "Celexia est rémunérée à la commission, uniquement une fois le chantier signé et l'acompte reçu.";
 
 export const ETAPES = [
   {
-    titre: 'Nous trouvons les projets, et nous les payons',
-    desc: "Aller chercher des particuliers qui ont un vrai projet coûte de l’argent. C’est nous qui le dépensons, pas vous. Vous n’avancez rien, à aucun moment.",
+    titre: 'Nous recherchons les projets',
+    desc: 'Nous prenons en charge et finançons la recherche de projets de travaux. Vous n’avez aucun budget à avancer pour cette recherche.',
   },
   {
-    titre: 'Nous les vérifions une par une',
-    desc: "Une demande n’est transmise que si elle tient debout sur cinq points. Celles qui ne passent pas ne vous parviennent jamais.",
+    titre: 'Nous qualifions chaque demande',
+    desc: 'Identité, projet, budget, zone et calendrier : nous vérifions ces cinq points pour vous transmettre des demandes précises et cohérentes avec votre activité.',
   },
   {
-    titre: 'Nous la transmettons à un seul artisan',
-    desc: "Le chantier part chez vous, et chez personne d’autre. Vous n’êtes pas mis en concurrence avec quatre autres entreprises sur le même dossier.",
+    titre: 'Nous vous confions le dossier',
+    desc: 'Le projet correspond à votre métier et à votre secteur. Vous disposez des informations pour contacter le particulier et préparer votre devis.',
   },
   {
-    titre: 'Vous chiffrez, vous signez, puis nous facturons',
-    desc: "Vous gardez la main sur le prix, la vente et la relation client. Notre commission n’est due qu’une fois le chantier signé et l’acompte reçu. Avant, il n’y a pas de facture.",
+    titre: 'Vous chiffrez et réalisez le chantier',
+    desc: 'Vous fixez vos prix et gardez la relation client. Notre commission intervient uniquement une fois le chantier signé et l’acompte reçu.',
   },
 ];
 
 export const PAS_NOTRE_METIER = [
   'Nous n’achetons pas de fichiers de contacts',
-  'Nous ne revendons pas la même demande à plusieurs artisans',
   'Nous ne faisons pas de démarchage à froid en votre nom',
   'Nous ne vous vendons ni site web, ni abonnement, ni prestation',
 ];
 
-/** Les quatre objections, dans l'ordre où un artisan se les pose. */
+/** Questions partagées : modèle, valeur et parcours de candidature. */
 export const FAQ_COMMUNE = [
   {
-    q: 'C’est trop beau. Où est l’arnaque ?',
-    a: "Il n’y a rien à payer parce que nous prenons le risque à votre place : nous dépensons pour trouver les projets, et nous ne gagnons quelque chose que si vous signez. Si vous ne signez pas, nous avons travaillé pour rien. C’est un pari sur la qualité de ce qu’on vous envoie, pas un cadeau.",
+    q: 'Que dois-je payer avant de recevoir un projet ?',
+    a: 'Aucun frais d’entrée, aucun abonnement et aucun budget de recherche à avancer. Celexia finance la recherche et la qualification des projets. Notre rémunération intervient uniquement après la signature du chantier et la réception de votre acompte.',
   },
   {
-    q: 'Vos chantiers, ils sortent d’où ?',
-    a: "Nous ne dirons pas comment nous les trouvons : c’est notre métier, et c’est précisément ce que nous finançons à votre place. En revanche, nous sommes très clairs sur ce que vous recevez : un particulier qui nous a contactés pour son propre projet, dont nous avons vérifié l’identité, le besoin, le budget, la zone et l’échéance. Jamais un nom acheté dans un fichier.",
+    q: 'Quelles informations vais-je recevoir sur un projet ?',
+    a: 'Nous vérifions l’identité du particulier, la nature du projet, le budget, la zone d’intervention et le calendrier souhaité. Vous recevez une demande qualifiée pour pouvoir échanger avec le particulier et établir votre propre devis.',
   },
   {
-    q: 'Je vais me retrouver contre quatre autres entreprises ?',
-    a: "Non. Une demande, un artisan. Et ce n’est pas une promesse en l’air : comme nous ne sommes rémunérés qu’en cas de signature, envoyer le même chantier à cinq artisans diviserait nos propres chances par cinq. Notre intérêt est que vous signiez.",
+    q: 'Qui prépare le devis et échange avec le client ?',
+    a: 'Vous prenez directement contact avec le particulier, étudiez son projet et établissez votre devis. Vous fixez vos prix et organisez les travaux. Celexia prépare les informations en amont ; vous gardez la main sur la relation client.',
   },
   {
-    q: 'Et vous prenez combien ?',
-    a: "Une commission sur le chantier signé, et rien d’autre. Nous en parlons de vive voix, lors de notre premier échange téléphonique. Ce qui ne change pas : elle n’est due qu’une fois le chantier signé et l’acompte reçu. Un budget de publicité se dépense que ça marche ou non ; un lot de contacts se paie d’avance et part souvent chez vos concurrents en même temps. Ici, tant qu’il n’y a pas de signature et d’acompte, il n’y a pas de facture.",
+    q: 'Comment Celexia est-elle rémunérée ?',
+    a: 'Nous percevons une commission uniquement une fois le chantier signé et l’acompte reçu. Nous vous présentons son fonctionnement de vive voix lors de notre échange. Sans signature ni acompte, aucune commission n’est facturée.',
+  },
+  {
+    q: 'Que se passe-t-il après ma candidature ?',
+    a: 'L’équipe sélection Celexia analyse votre entreprise, votre métier, votre secteur et votre capacité à accueillir de nouveaux chantiers. Nous revenons ensuite vers vous pour échanger sur votre demande. Le formulaire sert à faire connaissance : il ne crée pas de compte et ne comporte aucune signature de contrat.',
   },
 ];
