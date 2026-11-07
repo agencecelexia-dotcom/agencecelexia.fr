@@ -63,7 +63,7 @@
   .tag { @apply inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100; }
 
   /* Boutons souples, flèches et liens identiques à travers tout le parcours. */
-  .btn-primary, .btn-secondary { @apply inline-flex items-center justify-center gap-3 rounded-full px-6 py-4 font-semibold text-sm leading-normal border transition-all duration-200; min-height: 54px; }
+  .btn-primary, .btn-secondary { @apply inline-flex items-center justify-center gap-3 rounded-full px-6 py-4 font-semibold text-sm leading-normal border transition-all duration-200; min-height: 54px; max-width: 100%; text-align: center; }
   .btn-primary { @apply bg-violet-600 border-violet-600 text-white; box-shadow: 0 4px 10px rgb(31 13 61 / .06); }
   .btn-primary:hover { @apply bg-violet-700 border-violet-700; transform: translateY(-2px); }
   .btn-primary:active { transform: translateY(0); }
@@ -188,6 +188,11 @@
   .method-section { margin: 0 8px; border-radius: 24px; }
   .method-list h3 { font-size: 20px; }
   .method-list li { gap: 14px; }
+  .application-invite { padding: 28px 24px; }
+  .application-invite .btn-primary { width: 100%; }
+  .site-footer .footer-link { min-height: 44px; align-items: center; font-size: 14px; }
+  .site-footer ul { display: grid; gap: 0; }
+  .site-footer a[href^="tel:"] { display: flex; align-items: center; min-height: 44px; }
   .invite-mark { opacity: .5; }
   .section-label { gap: 12px; }
   .section-kicker { font-size: 9px; letter-spacing: .12em; }

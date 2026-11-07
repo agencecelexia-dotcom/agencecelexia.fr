@@ -46,6 +46,8 @@ doit être répercuté dans les trois.**
   `METIERS` dans [src/data/metiers.js](src/data/metiers.js).
 - Entité : CELEXIA SASU, SIREN 939 306 429.
   Ne pas publier la ville du siège social (instruction du 7 novembre 2026).
+  Réserver le SIREN aux informations légales : ne pas le mettre en avant
+  dans un argument, un encart de présentation ou le footer permanent.
   Fondateurs : **Thomas et Antoine**. Slogan : « On gagne quand vous gagnez ».
 - Contact : 06 51 72 57 56 — agence.celexia@gmail.com. **Conversion unique :
   la candidature interne** (`candidatureUrl()` dans [src/lib/links.js](src/lib/links.js)),

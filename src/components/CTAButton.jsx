@@ -43,7 +43,7 @@ const CTAButton = ({
 
   const content = (
     <>
-      {children}
+      <span className="min-w-0">{children}</span>
       {withArrow && <ArrowRight className="w-4 h-4 flex-shrink-0" />}
     </>
   );
