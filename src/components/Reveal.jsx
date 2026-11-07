@@ -1,47 +1,63 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 
 /**
  * Apparition au défilement, sans dépendance.
  *
- * L'état masqué n'est appliqué que si la classe `js` est présente sur <html>
- * (posée par un script en tête de index.html). Conséquence : dans le HTML
- * pré-rendu servi sans JavaScript, le contenu reste pleinement visible au lieu
- * de rester à opacité 0 — ce qui importe pour les moteurs et pour les visiteurs
- * dont le script n'a pas chargé.
+ * Le HTML reste visible par défaut, même si le bundle ne charge pas. Seuls les
+ * blocs sous la fenêtre sont préparés pour l’animation, après la mise en place
+ * de leur observateur. Le contenu déjà à l’écran n’est jamais masqué au montage.
  *
  * Respecte `prefers-reduced-motion` en affichant immédiatement.
  */
 const Reveal = ({ children, className = '', delay = 0 }) => {
   const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const reduit =
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduit) {
-      setVisible(true);
-      return;
-    }
     const el = ref.current;
     if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
+    const motion = typeof window.matchMedia === 'function'
+      ? window.matchMedia('(prefers-reduced-motion: reduce)')
+      : null;
+    if (motion?.matches || typeof window.IntersectionObserver !== 'function') return;
+    if (el.getBoundingClientRect().top < window.innerHeight) return;
+
+    let observer;
+    let disposed = false;
+    const reveal = () => {
+      if (disposed) return;
+      el.classList.remove('reveal-pending');
+      observer?.disconnect();
+    };
+    const onMotionChange = (event) => { if (event.matches) reveal(); };
+
+    try {
+      observer = new window.IntersectionObserver(
+        (entries) => {
+          if (entries.some(entry => entry.isIntersecting)) reveal();
+        },
+        // Le premier croisement suffit, y compris pour un bloc plus haut que l’écran.
+        { threshold: 0, rootMargin: '0px 0px -40px 0px' }
+      );
+      observer.observe(el);
+      el.classList.add('reveal-pending');
+      motion?.addEventListener?.('change', onMotionChange);
+    } catch {
+      // Un observateur indisponible ou défaillant ne doit pas cacher le contenu.
+      reveal();
+    }
+
+    return () => {
+      disposed = true;
+      observer?.disconnect();
+      el.classList.remove('reveal-pending');
+      motion?.removeEventListener?.('change', onMotionChange);
+    };
   }, []);
 
   return (
     <div
       ref={ref}
-      className={`reveal${visible ? ' reveal-visible' : ''}${className ? ' ' + className : ''}`}
+      className={`reveal${className ? ' ' + className : ''}`}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
     >
       {children}

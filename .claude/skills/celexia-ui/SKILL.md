@@ -127,6 +127,6 @@ sont importées statiquement pour que le pré-rendu contienne leur contenu visib
 Garder les accès à `window` dans les effets. Ne pas fractionner les titres en
 spans qui compromettent la lecture ou le rendu statique.
 
-Reveal masque uniquement lorsque JavaScript est actif (`.js .reveal`) et affiche
-immédiatement le contenu avec `prefers-reduced-motion`. Sans JavaScript, le texte
-pré-rendu doit rester visible.
+Reveal conserve le contenu visible par défaut. Il prépare seulement les blocs
+hors écran après activation réussie de l’observateur, avec `reveal-pending`.
+Sans bundle, sans observateur ou avec `prefers-reduced-motion`, le texte reste visible.

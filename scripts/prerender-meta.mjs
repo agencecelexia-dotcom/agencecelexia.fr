@@ -10,6 +10,7 @@ import { METIERS } from '../src/data/metiers.js';
 import { DEFINITION } from '../src/data/offre.js';
 import { SEO_PAGES } from '../src/data/seoPages.js';
 import { SEO_HUB } from '../src/data/seoHub.js';
+import { CASE_STUDY } from '../src/data/partnerCase.js';
 
 const rootDir = join(dirname(fileURLToPath(import.meta.url)), '..');
 const distDir = join(rootDir, 'dist');
@@ -108,16 +109,16 @@ const baseRoutes = [
 
 const metierRoutes = Object.entries(METIERS).map(([slug, metier]) => ({
   path: `/metiers/${slug}`,
-  title: `Apport d’affaires ${metier.label} | Agence Celexia`,
-  description: `Chantiers ${metier.labelCourt.toLowerCase()} qualifiés pour votre entreprise. Commission uniquement après signature et acompte.`,
+  title: metier.seoTitle,
+  description: metier.seoDescription,
   updatedAt: DATE_MODIFIED,
   serviceName: `Apport d’affaires pour ${metier.label.toLowerCase()}`,
   audience: metier.label,
 }));
 
-const editorialRoutes = Object.values(SEO_PAGES).map((page) => ({
+const editorialRoutes = [...Object.values(SEO_PAGES), CASE_STUDY].map((page) => ({
   ...page,
-  article: page.path.startsWith('/guides/'),
+  article: page.kind === 'article',
   serviceName: page.path === '/apporteur-affaires-btp'
     ? 'Apport d’affaires BTP pour artisans du bâtiment'
     : undefined,
