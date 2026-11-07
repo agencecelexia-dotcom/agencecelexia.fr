@@ -22,14 +22,14 @@ export default {
           900: '#1F0D3D',  // les bandes pleine largeur
           950: '#150827',
         },
-        // Blancs cassés teintés violet. Surtout pas de beige : c'est lui qui
-        // faisait ressortir le rectangle blanc du logo.
+        // Papier lavande : le fond principal de la direction visuelle.
         brume: {
-          50: '#FAF8FF',
-          100: '#F3EEFC',
-          200: '#E8E0F7',
-          300: '#D8CCEF',
+          50: '#FAF9FC',
+          100: '#F0EDF6',
+          200: '#E4DFED',
+          300: '#D1C9E0',
         },
+        citron: { 100: '#F0F3D7', 300: '#DDE7A3', 800: '#404A21' },
         // Texte : noir violacé, jamais neutre.
         encre: {
           500: '#6B6480',
@@ -40,19 +40,16 @@ export default {
         },
       },
       fontFamily: {
-        // Une seule superfamille variable (axes wght 100-900 + wdth 62-125 %),
-        // self-hostée. Les chasses passent par .font-narrow / .font-expanded.
-        // Le serif éditorial a été retiré le 4 août 2026 : préférence client.
-        sans: ['Archivo', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
-        display: ['Archivo', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+        sans: ['Manrope', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+        display: ['Space Grotesk', 'Manrope', 'sans-serif'],
+        mono: ['ui-monospace', 'SFMono-Regular', 'Consolas', 'monospace'],
       },
       fontSize: {
-        // Échelle relevée d'un cran par rapport à la v1 : l'aération passe
-        // autant par la taille des titres que par les marges.
-        'display-sm': ['2.25rem', { lineHeight: '1.12', letterSpacing: '-0.015em' }],
-        'display-md': ['3rem', { lineHeight: '1.08', letterSpacing: '-0.02em' }],
-        'display-lg': ['3.75rem', { lineHeight: '1.04', letterSpacing: '-0.022em' }],
-        'display-xl': ['4.5rem', { lineHeight: '1.02', letterSpacing: '-0.025em' }],
+        // Échelle commune aux titres éditoriaux et pages secondaires.
+        'display-sm': ['2.25rem', { lineHeight: '1.12', letterSpacing: '-0.045em' }],
+        'display-md': ['3.25rem', { lineHeight: '1.08', letterSpacing: '-0.045em' }],
+        'display-lg': ['4.5rem', { lineHeight: '1.04', letterSpacing: '-0.055em' }],
+        'display-xl': ['5.5rem', { lineHeight: '1.02', letterSpacing: '-0.055em' }],
       },
       spacing: {
         section: '6rem',

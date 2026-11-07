@@ -1,21 +1,8 @@
-// Point de conversion unique du site. Toute inscription passe par ici.
-// Aucun paramètre `taux` : le taux de commission n'apparaît nulle part côté site,
-// il est annoncé à l'artisan au téléphone. Le CRM applique son taux par défaut.
-const REGISTER_BASE = 'https://crm-ci7k.vercel.app/rejoindre';
+// Une candidature permet à l’équipe sélection de connaître l’entreprise.
+// Aucun compte ni contrat n’est créé depuis le site vitrine.
+export const CTA_LABEL = 'Présenter mon entreprise';
+export const CANDIDATURE_URL = 'https://agencecelexia.fr/candidature';
 
-/**
- * Libellé du bouton d'inscription. Volontairement identique partout, du header
- * jusqu'à la page d'arrivée : un artisan qui a cliqué doit reconnaître où il atterrit.
- * Ne promet aucun volume — « recevoir des chantiers » sous-entendrait une garantie.
- */
-export const CTA_LABEL = 'Devenir artisan partenaire';
-
-/**
- * URL d'inscription avec provenance, pour savoir depuis quelle page l'artisan est parti.
- * @param {string} page - identifiant de la page émettrice (ex. 'accueil', 'metier-couverture')
- */
-export const registerUrl = (page = 'site') =>
-  `${REGISTER_BASE}?src=site&page=${encodeURIComponent(page)}`;
-
-// Conservé pour les cas sans provenance (données structurées, fallback).
-export const REGISTER_URL = REGISTER_BASE;
+/** Conserve la provenance sans quitter le site. */
+export const candidatureUrl = (page = 'site') =>
+  `/candidature?origine=${encodeURIComponent(page)}`;

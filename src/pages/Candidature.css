@@ -1,0 +1,74 @@
+  .application-page { @apply bg-brume-50 px-5 py-12 md:px-8 md:py-20; }
+  .application-layout { @apply grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 items-start; }
+  .application-intro { @apply lg:sticky lg:top-28; }
+  .application-intro h1 { @apply font-display text-encre-900 font-medium mt-6; font-size: clamp(2.75rem, 4.3vw, 4.25rem); line-height: 1.04; letter-spacing: -.055em; }
+  .application-intro h1 span { @apply text-violet-600; }
+  .application-lead { @apply text-encre-600 text-base md:text-lg mt-7 leading-relaxed; }
+  .application-process { @apply mt-10 border-t border-brume-200 pt-7; }
+  .application-process ol { @apply mt-5 space-y-5; }
+  .application-process li { @apply flex gap-4; }
+  .application-process li > span { @apply w-8 h-8 shrink-0 inline-flex items-center justify-center text-xs text-violet-900 bg-citron-100 rounded-full font-display; }
+  .application-process strong { @apply text-sm text-encre-900 font-semibold; }
+  .application-process li p { @apply text-sm text-encre-600 mt-0.5; }
+  .application-intro-note { @apply text-xs text-encre-600 mt-7 leading-relaxed; }
+  .application-phone { @apply inline-flex items-center gap-2 text-sm font-semibold text-encre-800 mt-5 min-h-11; }
+  .application-phone:hover { @apply text-violet-600; }
+  .application-panel { @apply bg-white border border-brume-200 rounded-[28px] p-6 md:p-10 shadow-card min-w-0; scroll-margin-top: 112px; }
+  .application-panel:focus { outline: none; }
+  .application-progress-head { @apply flex items-center justify-between gap-3; }
+  .application-progress-head > span { @apply text-xs font-semibold text-encre-900 px-3 py-1.5 rounded-full bg-brume-50; }
+  .application-progress { @apply flex gap-2 mt-5 mb-9; }
+  .application-progress li { @apply h-1 rounded-full flex-1 bg-brume-200; }
+  .application-progress li.is-complete { @apply bg-violet-600; }
+  .application-step-heading h2 { @apply font-display text-2xl md:text-3xl text-encre-900 font-medium leading-tight; letter-spacing: -.04em; }
+  .application-step-heading > p { @apply text-sm text-encre-600 mt-3 mb-7; }
+  .application-required { @apply text-xs text-encre-600 mb-5; }
+  .application-fields { @apply grid gap-x-5 gap-y-5 sm:grid-cols-2; }
+  .application-field { @apply min-w-0; }
+  .application-field-wide { @apply sm:col-span-2; }
+  .application-field label { @apply block text-sm font-semibold text-encre-900 mb-2; }
+  .application-field label > span { @apply text-violet-600; }
+  .application-hint { @apply text-xs text-encre-600 mb-2; }
+  .application-field input, .application-field select, .application-field textarea { @apply block w-full min-h-12 rounded-xl border border-brume-200 bg-brume-50 text-encre-900 px-4 py-3.5 text-sm leading-normal; font-size: 16px; }
+  .application-field input::placeholder, .application-field textarea::placeholder { @apply text-encre-600; opacity: .8; }
+  .application-field select { @apply pr-7; }
+  .application-field input:focus, .application-field select:focus, .application-field textarea:focus { @apply bg-white border-violet-600; }
+  .application-field textarea { @apply resize-y; }
+  .application-field [aria-invalid='true'] { @apply border-violet-700 bg-violet-50; }
+  .application-field-error { @apply text-violet-700 text-xs mt-2 font-medium; }
+  .application-actions { @apply mt-8 pt-6 border-t border-brume-200 flex items-center justify-between gap-4; }
+  .application-actions .btn-primary { @apply shrink-0; }
+  .application-actions button:disabled, .application-summary button:disabled { @apply opacity-60 cursor-wait; }
+  .application-back { @apply min-h-11 inline-flex gap-2 items-center text-sm font-semibold text-encre-700; }
+  .application-back:hover { @apply text-violet-600; }
+  .application-secure { @apply text-xs text-encre-600 max-w-36; }
+  .application-bottom-note { @apply text-xs text-encre-600 text-center mt-5; }
+  .application-summary section { @apply py-5 border-t border-brume-200; }
+  .application-summary-title { @apply flex justify-between items-center gap-3 mb-3; }
+  .application-summary h3 { @apply font-display text-lg font-medium text-encre-900; }
+  .application-summary button { @apply text-xs text-violet-700 underline underline-offset-4 min-h-11; }
+  .application-summary dl > div { @apply grid grid-cols-2 gap-4 py-1.5 text-sm; }
+  .application-summary dt { @apply text-encre-600; }
+  .application-summary dd { @apply font-medium text-encre-900 text-right break-words; overflow-wrap: anywhere; }
+  .application-consent { @apply flex items-start gap-3 mt-5 p-5 rounded-2xl bg-brume-50; }
+  .application-consent input { @apply w-5 h-5 shrink-0 mt-1 accent-violet-600; }
+  .application-consent label { @apply text-xs leading-relaxed text-encre-700; }
+  .application-consent a { @apply text-violet-700 underline underline-offset-2; }
+  .application-submit-error { @apply bg-violet-50 border border-violet-200 rounded-lg p-4 mt-5 text-sm text-violet-800; }
+  .application-submit-error a { @apply underline underline-offset-2 inline-block mt-2 break-all; }
+  .application-success { @apply py-6 md:py-10; }
+  .application-success-icon { @apply w-16 h-16 bg-citron-100 text-violet-900 rounded-full flex items-center justify-center mb-7; }
+  .application-success h2 { @apply font-display text-4xl md:text-5xl font-medium text-encre-900 leading-tight mt-4; letter-spacing: -.05em; }
+  .application-success > p:not(.section-kicker) { @apply text-encre-700 mt-6; }
+  .application-receipt { @apply p-5 rounded-2xl bg-brume-50 border border-brume-200 mt-7 text-sm; }
+  .application-receipt span { @apply block text-encre-600; }
+  .application-receipt strong { @apply block text-encre-900 mt-1 break-all; }
+  .application-signature { @apply text-sm font-semibold; }
+  .application-success .btn-secondary { @apply mt-8; }
+  .application-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+@media (max-width: 639px) {
+  .application-process { display: none; }
+  .application-intro-note { margin-top: 1.25rem; }
+  .application-secure { display: none; }
+  .application-actions .btn-primary { flex: 1; padding-left: 1rem; padding-right: 1rem; font-size: .875rem; }
+}

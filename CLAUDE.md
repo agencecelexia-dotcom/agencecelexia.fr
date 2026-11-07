@@ -1,5 +1,21 @@
 # agencecelexia.fr — site vitrine Agence Celexia
 
+> **Parcours mis à jour le 7 novembre 2026 :** l’inscription externe a été remplacée
+> par une candidature interne à `/candidature`. Le CTA est « Présenter mon entreprise »
+> (`candidatureUrl()` dans `src/lib/links.js`). Aucun compte ni contrat dans ce parcours.
+> L’équipe sélection reçoit les dossiers à `agence.celexia@gmail.com` via l’API serveur
+> Resend après configuration des variables décrites dans `CANDIDATURE_SETUP.md`.
+> Les références historiques à `registerUrl()` ou à l’inscription dans les documents
+> ci-dessous sont obsolètes. Le pré-rendu couvre désormais 10 pages.
+
+> **Contenu et identité visuelle — 7 novembre 2026 :** ne publier aucune mention
+> d’exclusivité des demandes ou du nombre de destinataires, y compris dans les
+> métadonnées, JSON-LD, manifeste et fichiers `llms`. Aucun taux ni pourcentage
+> de rémunération ne doit apparaître : ces précisions se donnent au téléphone.
+> Le client a explicitement demandé une nouvelle direction visuelle incluant
+> les polices, les échelles de taille et les fonds ; les restrictions historiques
+> imposant une seule police ou interdisant de revoir les fonds sont dépassées.
+
 ## Stack réelle
 
 **React 19 + Vite 7 + react-router-dom 7 + Tailwind CSS 3.4**, en SPA, déployée

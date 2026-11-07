@@ -13,12 +13,11 @@ export const METIERS = {
   'constructeurs-piscines': {
     label: 'Constructeurs de piscines',
     labelCourt: 'Piscine',
-    // Teintes matière, volontairement désaturées : elles ne concurrencent
-    // jamais le cuivre, qui reste le seul accent du site.
+    // Repères de couleur associés à chaque métier.
     color: '#2E6E7E',
-    titre: 'Des projets de piscine, transmis à un seul constructeur',
+    titre: 'Des projets de piscine à construire avec vous',
     accroche:
-      "Vous construisez des piscines. Nous trouvons les particuliers qui en veulent une, nous vérifions que leur projet tient debout, et nous vous le transmettons à vous seul.",
+      "Vous construisez des piscines. Nous recherchons des projets de construction et de rénovation, puis vérifions le besoin, le budget et le calendrier avant de vous les transmettre.",
     budget: '25 000 à 50 000 €',
     budgetNote: "Ordre de grandeur du marché pour une piscine enterrée avec terrasse.",
     projets: [
@@ -39,7 +38,7 @@ export const METIERS = {
     color: '#5A6470',
     titre: 'Des toitures à refaire, sans les chasser',
     accroche:
-      "Vous êtes couvreur. Nous trouvons les propriétaires qui doivent refaire leur toit, nous vérifions leur projet, et vous êtes le seul à recevoir la demande.",
+      "Vous êtes couvreur. Nous recherchons les propriétaires qui souhaitent refaire leur toit et qualifions leur projet pour vous transmettre les informations utiles à votre devis.",
     budget: '10 000 à 30 000 €',
     budgetNote: "Ordre de grandeur du marché pour une réfection complète de toiture.",
     projets: [
@@ -58,9 +57,9 @@ export const METIERS = {
     label: 'Façade et isolation par l’extérieur',
     labelCourt: 'Façade / ITE',
     color: '#C2A878',
-    titre: 'Des façades à reprendre, une demande pour vous seul',
+    titre: 'Des projets de façade qui correspondent à votre métier',
     accroche:
-      "Ravalement, bardage, isolation par l’extérieur. Nous trouvons les propriétaires dont la façade est à reprendre, nous qualifions le projet, et nous vous le transmettons sans le partager.",
+      "Ravalement, bardage, isolation par l’extérieur. Nous recherchons et qualifions les projets de propriétaires dont la façade est à reprendre, dans votre zone d’intervention.",
     budget: '15 000 à 40 000 €',
     budgetNote: "Ordre de grandeur du marché pour un ravalement avec isolation extérieure.",
     projets: [
@@ -79,9 +78,9 @@ export const METIERS = {
     label: 'Maçonnerie',
     labelCourt: 'Maçonnerie',
     color: '#8C7F72',
-    titre: 'Du gros œuvre, transmis à un seul maçon',
+    titre: 'Des projets de gros œuvre pour votre entreprise',
     accroche:
-      "Extensions, murs, dalles, reprises de structure. Nous trouvons les particuliers qui ont un vrai projet de maçonnerie et nous vous le transmettons à vous, pas à cinq entreprises.",
+      "Extensions, murs, dalles, reprises de structure. Nous recherchons des projets de maçonnerie et vérifions leur cohérence avec votre activité avant de vous les transmettre.",
     budget: '20 000 à 60 000 €',
     budgetNote: "Ordre de grandeur du marché pour une extension ou un chantier de gros œuvre.",
     projets: [

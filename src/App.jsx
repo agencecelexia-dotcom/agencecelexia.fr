@@ -7,6 +7,7 @@ import CookieConsent from './components/CookieConsent';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Candidature from './pages/Candidature';
 import MentionsLegales from './pages/MentionsLegales';
 import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
 import NotFound from './pages/NotFound';
@@ -32,7 +33,7 @@ function App() {
   return (
     <>
       <ScrollToTop />
-      <div className="min-h-screen flex flex-col bg-white">
+      <div className="min-h-screen flex flex-col bg-brume-50">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-violet-600 focus:text-white focus:rounded-md focus:text-sm focus:font-semibold"
@@ -46,6 +47,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/candidature" element={<Candidature />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
 
@@ -58,7 +60,13 @@ function App() {
                 ces routes sont un filet de sécurité côté client (dev, bundles en cache). */}
             <Route path="/services/*" element={<Navigate to="/" replace />} />
             <Route path="/sites-artisans" element={<Navigate to="/" replace />} />
-            <Route path="/reserver" element={<Navigate to="/" replace />} />
+            <Route path="/reserver" element={<Navigate to="/candidature" replace />} />
+            {/* Le vrai 301 est servi par Vercel / Netlify ; filet de sécurité client. */}
+            <Route path="/demo-call" element={<Navigate to="/candidature" replace />} />
+            <Route path="/onboarding-call" element={<Navigate to="/candidature" replace />} />
+            <Route path="/rejoindre" element={<Navigate to="/candidature" replace />} />
+            <Route path="/inscription" element={<Navigate to="/candidature" replace />} />
+            <Route path="/proposition/*" element={<Navigate to="/candidature" replace />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>

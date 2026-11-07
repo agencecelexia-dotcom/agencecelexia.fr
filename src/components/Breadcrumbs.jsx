@@ -10,8 +10,9 @@ const Breadcrumbs = () => {
   );
 
   const pageNames = {
-    about: 'À propos',
+    about: 'Qui sommes-nous ?',
     contact: 'Contact',
+    candidature: 'Candidature',
     'mentions-legales': 'Mentions légales',
     'politique-confidentialite': 'Politique de confidentialité',
     metiers: 'Métiers',
@@ -40,9 +41,9 @@ const Breadcrumbs = () => {
   if (location.pathname === '/') return null;
 
   return (
-    <nav className="border-b border-brume-200 bg-white py-3 px-5 md:px-8" aria-label="Fil d'Ariane">
-      <div className="max-w-6xl mx-auto">
-        <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
+    <nav className="bg-brume-50 pt-6 pb-2 px-5 md:px-8" aria-label="Fil d'Ariane">
+      <div className="container-custom">
+        <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
           {breadcrumbs.map((crumb, index) => (
             <li key={crumb.path} className="flex items-center gap-2">
               {index > 0 && (

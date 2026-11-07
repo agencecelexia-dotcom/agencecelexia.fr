@@ -14,7 +14,7 @@ const PolitiqueConfidentialite = () => {
     <section className="section">
       <div className="max-w-3xl mx-auto">
         <p className="section-kicker mb-5">Données personnelles</p>
-        <h1 className="font-display font-expanded font-black text-encre-900 text-display-sm md:text-display-md">
+        <h1 className="page-title !text-[clamp(2.25rem,4vw,3.5rem)]">
           Politique de confidentialité
         </h1>
         <hr className="rule-violet mt-8 mb-10" />
@@ -50,9 +50,11 @@ const PolitiqueConfidentialite = () => {
             <p>Nous sommes susceptibles de collecter :</p>
             <ul className="list-disc pl-6 mt-3 space-y-1.5">
               <li>
-                <strong className="text-encre-900">Données d’inscription :</strong> nom, raison
+                <strong className="text-encre-900">Données de candidature :</strong> nom, prénom, fonction, raison
                 sociale, adresse électronique, numéro de téléphone, métier et zone
-                d’intervention, saisis dans le formulaire d’inscription au réseau
+                d’intervention, année de création de l’entreprise, ancienneté dans l’entreprise,
+                effectif, tranche de chiffre d’affaires annuel, nombre de chantiers mensuels,
+                capacité disponible et informations complémentaires saisies dans le formulaire
               </li>
               <li>
                 <strong className="text-encre-900">Données de navigation :</strong> adresse IP,
@@ -69,7 +71,7 @@ const PolitiqueConfidentialite = () => {
           <div>
             <h2 className="font-display font-bold text-xl text-encre-900 mb-3">4. Finalités du traitement</h2>
             <ul className="list-disc pl-6 space-y-1.5">
-              <li>Étudier votre candidature au réseau d’artisans partenaires</li>
+              <li>Étudier votre candidature et vous recontacter au sujet de votre entreprise</li>
               <li>Vous transmettre des demandes de chantiers et assurer le suivi associé</li>
               <li>Améliorer le site et son ergonomie</li>
               <li>Respecter nos obligations légales et comptables</li>
@@ -80,7 +82,7 @@ const PolitiqueConfidentialite = () => {
             <h2 className="font-display font-bold text-xl text-encre-900 mb-3">5. Base légale</h2>
             <ul className="list-disc pl-6 space-y-1.5">
               <li><strong className="text-encre-900">Votre consentement</strong> pour les cookies de mesure d’audience</li>
-              <li><strong className="text-encre-900">L’exécution de mesures précontractuelles et du contrat</strong> pour le traitement de votre inscription et de la relation qui en découle</li>
+              <li><strong className="text-encre-900">L’exécution de mesures précontractuelles et du contrat</strong> pour le traitement de votre candidature et de la relation qui en découle</li>
               <li><strong className="text-encre-900">Nos obligations légales</strong> pour la conservation des pièces comptables</li>
             </ul>
           </div>
@@ -125,6 +127,8 @@ const PolitiqueConfidentialite = () => {
             <h2 className="font-display font-bold text-xl text-encre-900 mb-3">9. Sous-traitants</h2>
             <ul className="list-disc pl-6 space-y-1.5">
               <li><strong className="text-encre-900">Vercel Inc.</strong> — hébergement du site</li>
+              <li><strong className="text-encre-900">Resend</strong> — transmission des candidatures par e-mail à l’équipe Celexia</li>
+              <li><strong className="text-encre-900">Gmail</strong> — réception des candidatures dans la messagerie de Celexia</li>
               <li><strong className="text-encre-900">Google Analytics</strong> — mesure d’audience, après consentement</li>
             </ul>
           </div>
@@ -144,7 +148,7 @@ const PolitiqueConfidentialite = () => {
         </div>
 
         <p className="text-sm text-encre-600 mt-12 pt-6 border-t border-brume-200">
-          Dernière mise à jour : 2 août 2026
+          Dernière mise à jour : 7 novembre 2026
         </p>
       </div>
     </section>

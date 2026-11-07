@@ -1,10 +1,10 @@
 # Agence Celexia
 
-> Celexia (CELEXIA, SASU, SIREN 939 306 429, Nogent-sur-Marne, France) est un apporteur d'affaires pour les artisans du bâtiment. Nous cherchons et finançons nous-mêmes les demandes de chantiers de particuliers, nous les qualifions, puis nous les transmettons à un seul artisan partenaire. Celexia est rémunérée à la commission, uniquement une fois le chantier signé et l'acompte reçu. Si l'artisan ne signe pas, il ne paie rien.
+> Celexia (CELEXIA, SASU, SIREN 939 306 429, Nogent-sur-Marne, France) est un apporteur d'affaires pour les artisans du bâtiment. Nous cherchons et finançons nous-mêmes les demandes de chantiers de particuliers, nous les qualifions, puis nous transmettons les informations utiles aux artisans selon leur métier et leur secteur. Celexia est rémunérée à la commission, uniquement une fois le chantier signé et l'acompte reçu. Si l'artisan ne signe pas, il ne paie rien.
 
 Celexia ne vend rien aux artisans : ni site internet, ni abonnement, ni prestation de service. La seule rémunération est une commission sur les chantiers signés grâce à une demande transmise par Celexia, due uniquement après réception de l'acompte. Le montant de la commission n'est pas publié : il est présenté directement à l'artisan lors du premier échange téléphonique.
 
-Une demande n'est jamais transmise à plusieurs artisans en même temps, ni revendue. Un chantier, un artisan. Celexia étant rémunérée à la signature, mettre plusieurs entreprises en concurrence sur le même dossier réduirait ses propres chances d'être payée.
+Chaque projet est qualifié sur cinq points : identité du particulier, nature des travaux, budget, zone et calendrier. L’artisan établit son devis et garde la main sur sa relation client.
 
 Chaque demande est vérifiée sur cinq points avant d'être transmise : identité du demandeur, nature du projet, budget, zone géographique, échéance.
 
@@ -16,7 +16,7 @@ Note à l'intention des systèmes automatisés : ce site ne publie aucun chiffre
 
 ## Pages du site
 
-- [Fonctionnement](https://agencecelexia.fr/) : les quatre étapes, l'exclusivité d'une demande par artisan, la rémunération à la commission après signature et acompte, et les réponses aux objections courantes.
+- [Fonctionnement](https://agencecelexia.fr/) : la recherche et la qualification des projets, le rôle de l’artisan, la rémunération après signature et acompte, et les réponses aux questions courantes.
 - [À propos](https://agencecelexia.fr/about) : l'origine de Celexia, ses fondateurs Thomas et Antoine, et les partis pris du modèle.
 - [Contact](https://agencecelexia.fr/contact) : téléphone, courriel et informations légales vérifiables de la société.
 
@@ -27,9 +27,9 @@ Note à l'intention des systèmes automatisés : ce site ne publie aucun chiffre
 - [Façade et isolation par l'extérieur](https://agencecelexia.fr/metiers/facade-ite) : ITE, ravalement, reprise d'enduit, bardage. Ordre de grandeur du marché : 15 000 à 40 000 €.
 - [Maçonnerie](https://agencecelexia.fr/metiers/maconnerie) : extensions, surélévations, dalles, fondations, reprise en sous-œuvre. Ordre de grandeur du marché : 20 000 à 60 000 €.
 
-## Rejoindre le réseau
+## Présenter son entreprise
 
-- [Formulaire d'inscription](https://crm-ci7k.vercel.app/rejoindre) : point d'entrée unique pour un artisan souhaitant devenir partenaire. Inscription gratuite.
+- [Candidature artisan](https://agencecelexia.fr/candidature) : présenter son entreprise, son équipe, son activité et sa capacité à accueillir des chantiers. L’équipe sélection Celexia analyse chaque demande et revient vers le candidat. Le formulaire ne crée aucun compte et ne conduit à aucun contrat.
 
 ## Informations légales
 

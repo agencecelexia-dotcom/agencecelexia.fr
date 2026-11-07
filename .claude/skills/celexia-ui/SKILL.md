@@ -1,212 +1,132 @@
 ---
 name: celexia-ui
 description: >
-  Design system d'agencecelexia.fr et méthode pour intégrer des blocs Tailwind
-  externes (HyperUI) dans ce codebase React. À charger avant de créer une
-  section, un composant ou une page, et avant de coller du HTML Tailwind trouvé
-  ailleurs. Se déclenche sur « nouvelle section », « nouveau composant »,
-  « refonte visuelle », « hero », « pricing », « FAQ », « bloc Tailwind »,
-  « HyperUI », « animation », « dark mode ».
+  Design system d'agencecelexia.fr et méthode pour créer des sections, des
+  composants ou des pages cohérents avec la direction visuelle Celexia.
+  À charger avant une refonte visuelle, un changement de typographie,
+  un nouveau bloc Tailwind, une animation ou une interface de formulaire.
 ---
 
-# Design system & blocs UI — agencecelexia.fr
+# Design system Celexia
 
-## Stack réelle
+## Stack et portée
 
-**React 19 + Vite 7 + react-router-dom 7 + Tailwind CSS 3.4**, en SPA.
-Ce n'est **pas** un projet Astro : tout composant est du `.jsx`, il n'y a ni
-`.astro`, ni îlots, ni zéro-JS par défaut. Ignorer toute documentation qui
-suppose Astro (`astro-seo`, `@astrojs/sitemap`, `client:load`…).
+React 19, Vite 7, React Router 7 et Tailwind CSS 3.4. Les composants sont du JSX.
+Conserver cette architecture, le découpage vendor et le pré-rendu des pages.
+Préférer les composants et utilitaires déjà présents aux dépendances UI externes.
 
-Corollaire utile : les bibliothèques **React** (shadcn/ui, Magic UI, Aceternity)
-sont techniquement compatibles ici. Elles restent à éviter par défaut — elles
-tirent Radix, `framer-motion`, `class-variance-authority` et alourdissent un
-bundle déjà chargé — mais ce n'est pas une incompatibilité de principe.
-Demander avant d'ajouter une dépendance UI.
+La direction visuelle du **7 novembre 2026** associe un papier lavande,
+des volumes arrondis, le violet de la marque et des touches citron. L’ensemble
+doit rester sobre, lisible et cohérent sur l’accueil, les pages métiers, les
+pages de présentation et la candidature.
 
-## Tokens — utiliser ceux-ci, ne pas en inventer
+## Tokens et surfaces
 
-Définis dans [tailwind.config.js](tailwind.config.js) :
+Les valeurs de référence se trouvent dans `tailwind.config.js` et `src/index.css`.
+Réutiliser les tokens avant d’introduire une nouvelle couleur ou une nouvelle taille.
 
-**Base blanche, rythmée par des bandes violet profond pleine largeur.** Toute la
-palette dérive du violet du logo, échantillonné dans `public/logo.png` : **#8C52FF**.
+- **Papier lavande** : `brume.50` pour le fond principal, `brume.100` pour les
+  surfaces secondaires, `brume.200/300` pour les bordures et filets.
+  `.surface-paper` ajoute une trame ponctuée légère ; ne pas la dupliquer à la main.
+- **Texte** : `encre.600` pour le texte secondaire, `encre.800/900` pour le texte
+  principal. Le contraste doit être vérifié sur la surface réelle.
+- **Violet** : `violet.600/700` pour les liens et boutons sur fond clair,
+  `violet.900/950` pour les sections profondes. `violet.500` reste la couleur
+  du logo ; ne pas l’utiliser automatiquement pour les petits textes.
+- **Citron** : `citron.100/300` pour les accents et surfaces discrètes,
+  `citron.800` pour du texte sur fond citron. Les boutons sur fond profond
+  associent `citron.300` et `violet.950`.
+- **Sections profondes** : utiliser `.bande` avec `.sur-fonce`, qui adapte
+  boutons, filets, libellés et focus. Éviter les longues successions de blocs
+  sombres et alterner les compositions selon le contenu.
+- **Surfaces** : `.card`, `.card-brume` et `.card-fonce`, angles largement
+  arrondis, bordures fines et ombres contenues. Le motif d’arche de l’accueil
+  est une signature graphique ; ne pas ajouter des décorations sans fonction.
+- **Ombres** : `shadow-soft`, `shadow-card`, `shadow-lift`. La profondeur reste
+  secondaire par rapport aux fonds, espacements et filets.
 
-- **Fond** : blanc en majorité, `brume.50/100` pour les sections alternées (blanc
-  cassé teinté violet — **jamais de beige**, c'est lui qui faisait ressortir le
-  rectangle blanc du logo avant détourage).
-- **Texte** : `encre.600→900`, un noir violacé. Jamais de gris neutre.
-- **Accent** : `violet.600` pour tout ce qui est texte ou fond de bouton,
-  `violet.500` (la marque exacte) réservé aux éléments non textuels.
-- **Bandes** : `.bande` (fond `violet-900` + texte blanc) posé sur une section,
-  avec `.sur-fonce` qui bascule automatiquement boutons, filets, numéros et
-  anneau de focus. Deux ou trois bandes par page, **jamais deux consécutives**.
-  Sur bande : texte secondaire en `violet-200`, filets et numéros en `violet-300`.
-- **Ombres** : `shadow-soft`, `shadow-card`, `shadow-lift`. Aucune ombre colorée.
-- **Dégradés** : aucun. C'est délibéré.
-- **Animations** : `animate-fade-in` uniquement, plus `.reveal` (voir plus bas).
+## Typographies et hiérarchie
 
-**Typographie — une seule superfamille, self-hostée : Archivo** (variable, axes
-`wght` 100-900 et `wdth` 62-125 %). `font-sans` et `font-display` pointent tous
-deux dessus ; c'est la **chasse** qui distingue les registres :
+Deux familles variables **hébergées localement**, en WOFF2 latin et latin-ext,
+avec licences OFL dans `public/fonts/` :
 
-- Titres d'affichage : `font-display font-expanded font-black` + l'échelle
-  dédiée `text-display-sm/md/lg/xl`.
-- Sous-titres : `font-display font-semibold` ou `font-bold`.
-- Libellés en capitales (`.section-num`, `.section-kicker`) : `.font-narrow`.
+- **Space Grotesk**, poids 400–700 : `font-display`, titres et signatures.
+- **Manrope**, poids 400–700 : `font-sans`, paragraphes, champs et navigation.
+- `font-mono` utilise la pile système pour les petits numéros de section.
 
-> Un serif éditorial (Newsreader) a été essayé le 3 août 2026 puis **retiré le
-> 4 août à la demande du client**, qui préférait la typographie précédente.
-> 129 ko récupérés au passage. Ne pas réintroduire de seconde famille sans
-> demande explicite.
+Les déclarations `@font-face` sont dans `src/index.css`, avec `font-display: swap`.
+Ne pas charger ces polices depuis une origine tierce. Ne pas étirer les lettres :
+les anciennes classes `.font-expanded` et `.font-narrow` ne servent qu’à la
+compatibilité et appliquent une chasse normale. Ne pas utiliser de graisse
+synthétique 800 ou 900 sur ces familles.
 
-> **Contraintes de contraste, vérifiées au calcul.** `violet-600` sur blanc =
-> 6,44:1, blanc sur `violet-600` = 6,44:1, blanc sur `violet-900` = 17,75:1,
-> `violet-200` sur `violet-900` = 10,17:1, `violet-300` sur `violet-900` =
-> 7,08:1. Tout est AA. **Ne jamais utiliser `violet-500` pour du texte** : il
-> n'a pas été validé pour cet usage, il sert de couleur de marque non textuelle.
+Réutiliser les niveaux communs plutôt que d’ajuster chaque page séparément :
 
-Avant d'écrire une valeur en dur (`#8C52FF`, `shadow-[0_4px...]`), vérifier
-qu'un token ne couvre pas déjà le besoin. Si un token manque vraiment,
-l'ajouter à `tailwind.config.js` plutôt que de le coder en dur dans un composant.
+- `.hero-title` / `.page-title` : titre principal, Space Grotesk 500, taille
+  fluide de 2,75 à 5 rem, interligne proche de 1,04, approche resserrée.
+- `.section-title` : titre de section, Space Grotesk 500, taille fluide de
+  2,15 à 3,5 rem, interligne proche de 1,08.
+- Sous-titres : `font-display font-medium` ou `font-semibold`, échelle adaptée
+  au bloc sans concurrencer le titre de section.
+- `.section-kicker`, `.section-num`, `.eyebrow` : repères discrets, avec leurs
+  tailles et espacements définis dans le CSS partagé.
+- Paragraphes : Manrope, interligne confortable, largeur contenue. Un seul
+  `<h1>` par page et une hiérarchie `<h2>` / `<h3>` fondée sur le sens.
 
-## Composants partagés à réutiliser
+Le corps de page utilise 16 px et un interligne de 1,7. Les champs de formulaire
+conservent au moins 16 px sur mobile. Les classes de titre communes passent
+avant les anciennes combinaisons `font-black` et `text-display-*` dispersées.
 
-- **[Reveal](src/components/Reveal.jsx)** — apparition au scroll
-  (`IntersectionObserver`, `disconnect()` après déclenchement). Props :
-  `className`, `delay` (ms). **Respecte déjà `prefers-reduced-motion`** en
-  affichant immédiatement. C'est l'alternative zéro-dépendance à
-  `framer-motion` : l'utiliser pour tout effet d'entrée, en cascade via `delay`.
-- **[CTAButton](src/components/CTAButton.jsx)** — variantes `primary` et
-  `secondary`. Rend un `<a target="_blank">` si `href` est fourni (c'est le cas
-  du bouton d'inscription), un `<Link>` si `to`, sinon un `<button>` avec
-  `onClick`. Props utiles : `withArrow`, `full`. Ne pas recréer de bouton ad hoc.
-  Le libellé vient toujours de `CTA_LABEL` et l'URL de `registerUrl('<page>')`
-  ([src/lib/links.js](src/lib/links.js)) — jamais d'URL en dur.
-- **[SpotlightCard](src/components/SpotlightCard.jsx)** — halo qui suit le
-  curseur, posé **sous** le texte. Props : `as` (rendre un `<Link>` plutôt qu'un
-  `<div>`), `className` (c'est lui qui porte l'habillage : `.card`, `.card-fonce`),
-  `spotlightColor`. Utilisé sur les 4 cartes métiers de l'accueil et sur la carte
-  « Ce que nous ne faisons pas ». Effet de survol et de focus uniquement : rien
-  au toucher, et le fondu tombe avec `prefers-reduced-motion`.
-- **[Breadcrumbs](src/components/Breadcrumbs.jsx)**, [Header](src/components/Header.jsx),
-  [Footer](src/components/Footer.jsx), [ScrollToTop](src/components/ScrollToTop.jsx),
-  [CookieConsent](src/components/CookieConsent.jsx) sont montés globalement dans
-  [App.jsx](src/App.jsx) — ne pas les réinstancier dans une page.
+## Layout et composants partagés
 
-## Intégrer un composant React Bits
+- `.container-custom` : largeur maximale commune de 1 240 px.
+- `.section`, `.section-lg`, `.page-hero` : espacements fluides et marges
+  latérales partagés. Préserver de vrais espaces entre les niveaux de lecture.
+- `.section-label` avec `.section-num` et `.section-kicker` : numéro, libellé
+  et filet communs. Le filet s’adapte à `.sur-fonce`.
+- **CTAButton** : boutons en pilule, variantes `primary` et `secondary`,
+  hauteur tactile d’au moins 54 px. Utiliser `to` pour une navigation interne,
+  `href` pour une ressource externe et `onClick` pour une action.
+  Le CTA de candidature vient de `CTA_LABEL` et `candidatureUrl('<page>')`
+  dans `src/lib/links.js` : « Présenter mon entreprise » mène à `/candidature`.
+- **Reveal** : apparitions au défilement sans dépendance lourde, avec respect
+  de `prefers-reduced-motion`. Utiliser des délais courts et mesurés.
+- **SpotlightCard** : disponible pour un effet de survol ponctuel, sans en
+  faire le traitement systématique de toutes les cartes.
+- **Header, Footer, Breadcrumbs, ScrollToTop, CookieConsent** : montés une fois
+  dans `App.jsx`. Ne pas les dupliquer dans une page.
+- Le formulaire de candidature utilise `src/pages/Candidature.css` et doit
+  rester visuellement aligné sur les titres, surfaces et boutons partagés.
 
-La registry est déclarée dans [components.json](components.json), avec l'alias
-`@/` → `src/` ([jsconfig.json](jsconfig.json) et `resolve.alias` de
-[vite.config.js](vite.config.js)) :
+## Intégration d’un bloc externe
 
-```bash
-npx shadcn@latest add @react-bits/<Nom>-JS-TW    # variante JS + Tailwind
-```
+Un bloc Tailwind ou React Bits est une base de code, pas une nouvelle direction
+artistique. Remapper ses couleurs, polices, arrondis et espacements vers les
+tokens du site. Préférer une version sans dépendance ; ne pas introduire une
+librairie d’animation pour un effet couvert par CSS ou Reveal.
 
-Le fichier atterrit dans `src/components/`. Il est ensuite **à nous** : React
-Bits est du copier-coller assumé, pas une dépendance versionnée.
+Pour convertir du HTML en JSX : `className`, `htmlFor`, balises fermées,
+propriétés SVG en camelCase, styles sous forme d’objet, liens internes en `Link`.
+Traduire le contenu et vérifier les faits avec `celexia-copy`. Les variantes
+sombres peuvent inspirer une section `.sur-fonce`, sans ajouter de bascule de thème.
 
-Trois règles avant d'en ajouter un :
+## Accessibilité et performance
 
-1. **Vérifier `dependencies` dans la registry** :
-   `curl -s https://reactbits.dev/r/<Nom>-JS-TW.json | python3 -c "import json,sys;print(json.load(sys.stdin)['dependencies'])"`.
-   Beaucoup de composants tirent `motion` ou `gsap` (+30 à 50 ko gzip sur un
-   bundle qui en fait 86). **Ne pas les installer sans demander** — il existe
-   souvent un équivalent sans dépendance (SpotlightCard, GlareHover, StarBorder,
-   Magnet, PixelCard, ClickSpark, Noise).
-2. **Déshabiller le composant** : il arrive en `bg-neutral-900`,
-   `border-neutral-800`, `rounded-3xl`. Ces couleurs ne sont pas les nôtres —
-   les retirer et laisser `className` porter les tokens du site.
-3. **Vérifier le pré-rendu** : rien qui touche `window` hors `useEffect`, et
-   surtout aucun composant qui découpe le texte en spans (`SplitText`,
-   `ScrollFloat`…) sur un titre — le texte pré-rendu est ce que lisent Google et
-   les IA, c'est le point fort du site.
+Préserver le lien d’évitement, le `<main id="main-content">` unique, le focus
+visible, les libellés associés aux champs, les états d’erreur et la navigation
+au clavier. Les éléments décoratifs portent `aria-hidden="true"` ; les images
+informatives ont un texte alternatif. Viser des cibles tactiles d’au moins 44 px.
+Vérifier les contrastes AA sur chaque combinaison réelle de fond et texte.
 
-## Intégrer un bloc HyperUI
+Les images ont des dimensions explicites et `loading="lazy"` hors du premier
+écran. Ne pas ajouter de bitmap lourd pour un motif réalisable simplement en
+SVG ou CSS. Précharger seulement les fontes utiles au premier écran.
 
-Les blocs sont clonés en local (dossier gitignoré) :
+Ne jamais introduire `lazy()` ni `<Suspense>` dans l’arbre d’`App.jsx` : les pages
+sont importées statiquement pour que le pré-rendu contienne leur contenu visible.
+Garder les accès à `window` dans les effets. Ne pas fractionner les titres en
+spans qui compromettent la lecture ou le rendu statique.
 
-```
-references/hyperui/public/examples/marketing/<catégorie>/<n>.html
-references/hyperui/public/examples/marketing/<catégorie>/<n>-dark.html
-```
-
-Catégories disponibles : `announcements`, `banners`, `blog-cards`, `buttons`,
-`cards`, `carts`, `contact-forms`, `ctas`, `empty-content`, `faqs`,
-`feature-grids`, `footers`, `headers`, `logo-clouds`, `newsletter-signup`,
-`polls`, `pricing`, `product-cards`, `product-collections`, `sections`, `stats`,
-`team-sections`. Les sources MDX (avec notes) sont dans
-`references/hyperui/src/content/collection/marketing/`.
-
-C'est du **HTML Tailwind pur**. Conversion en JSX, systématiquement :
-
-1. `class=` → `className=`, `for=` → `htmlFor=`.
-2. Fermer les balises orphelines : `<img>`, `<input>`, `<br>` → `… />`.
-3. `style="a: b"` → `style={{ a: 'b' }}` (propriétés en camelCase).
-4. Attributs SVG en camelCase : `stroke-width` → `strokeWidth`,
-   `stroke-linecap` → `strokeLinecap`, `fill-rule` → `fillRule`.
-5. `<!-- … -->` → `{/* … */}`.
-6. **Remapper les couleurs** : HyperUI sort en `indigo-*`/`blue-*`/`gray-*`.
-   Passer sur `violet-*`, `encre-*` et `brume-*`. Un bloc laissé en indigo se
-   voit immédiatement.
-7. Remplacer les `<a href>` internes par `<Link to>` de `react-router-dom`, et
-   les boutons d'action par `CTAButton`.
-8. Envelopper la section dans `<Reveal>` si elle doit apparaître au scroll.
-9. Traduire tout le texte en français et le faire passer par les règles du skill
-   [celexia-copy](.claude/skills/celexia-copy/SKILL.md) — ne jamais laisser du
-   lorem ipsum ou de l'anglais en place.
-
-**Ignorer les variantes `-dark.html`** : le site n'a aucune section sombre et
-pas de bascule de thème. Partir systématiquement de la version claire.
-
-10. Ajouter l'en-tête de section signature si le bloc devient une section à part
-    entière : un `<div className="section-label">` contenant un
-    `<span className="section-num">` et un `<span className="section-kicker">`.
-    Le filet est produit par le `::after` de `.section-label`, et bascule tout
-    seul en clair si la section porte `.sur-fonce`.
-
-## Accessibilité — le niveau déjà atteint
-
-Ne pas régresser sur ce qui existe :
-
-- Skip link « Aller au contenu principal » en tête de [App.jsx](src/App.jsx),
-  visible au focus.
-- `<main id="main-content">` unique.
-- `aria-hidden="true"` sur les éléments purement décoratifs.
-- `prefers-reduced-motion` respecté par `Reveal`.
-
-Pour tout nouveau bloc : contrastes conformes AA selon le tableau ci-dessus,
-focus visible au clavier, `alt` réel sur les images informatives (`alt=""` sur
-les décoratives), libellés associés aux champs de formulaire, cibles tactiles
-≥ 44 px.
-
-## Performance
-
-Le vendor React est isolé via `manualChunks` ([vite.config.js](vite.config.js)) :
-le préserver, c'est ce qui garde le cache stable entre déploiements.
-
-- **Les pages sont importées statiquement, pas en `lazy()`** — voir la règle du
-  pré-rendu ci-dessous. Une nouvelle page s'ajoute par un `import` en tête
-  d'`App.jsx`.
-- Pas de librairie d'animation lourde : les keyframes Tailwind + `Reveal`
-  couvrent les besoins actuels.
-- Images : dimensions explicites (`width`/`height`) pour éviter le CLS,
-  `loading="lazy"` hors du premier écran, et jamais de PNG lourd non compressé —
-  le repo en contient déjà (`og-image.png`, `logo.png`).
-- Chaque dépendance ajoutée se paie sur le LCP mobile, qui est le terrain de jeu
-  réel de cette cible.
-
-## Deux règles héritées du pré-rendu
-
-**Ne jamais introduire `lazy()` ni `<Suspense>` dans l'arbre de
-[src/App.jsx](src/App.jsx).** La moindre frontière Suspense fait émettre le
-contenu par React dans un `<div hidden>` de fin de document, repositionné par un
-script au chargement : un robot sans JavaScript n'y verrait que « Chargement… ».
-Les pages sont importées statiquement. Coût mesuré : ~10 ko gzip, contre zéro
-requête à la navigation.
-
-**`Reveal` masque uniquement si JavaScript est actif.** La règle CSS est
-`.js .reveal { opacity: 0 }`, la classe `js` étant posée par un script en tête de
-[index.html](index.html). Sans JavaScript, le contenu pré-rendu reste visible au
-lieu de rester à opacité 0 — ce que Google déprécie. Ne pas remettre l'opacité
-dans le composant.
+Reveal masque uniquement lorsque JavaScript est actif (`.js .reveal`) et affiche
+immédiatement le contenu avec `prefers-reduced-motion`. Sans JavaScript, le texte
+pré-rendu doit rester visible.

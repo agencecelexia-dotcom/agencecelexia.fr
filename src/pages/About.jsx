@@ -1,176 +1,84 @@
 import { usePageMeta } from '../hooks/usePageMeta';
-import { registerUrl, CTA_LABEL } from '../lib/links';
+import { candidatureUrl, CTA_LABEL } from '../lib/links';
 import Reveal from '../components/Reveal';
 import CTAButton from '../components/CTAButton';
 
 const PRINCIPES = [
   {
-    titre: 'Payés seulement si vous signez',
-    desc: "Nous aurions pu vendre un abonnement ou des packs de contacts, encaissés d’avance quoi qu’il arrive. Nous avons choisi l’inverse : si votre devis n’est pas signé, nous n’avons rien gagné.",
+    titre: 'Partir de votre réalité.',
+    desc: 'Votre métier, votre secteur et votre capacité à réaliser les travaux sont notre point de départ. Un dossier doit correspondre à votre activité avant de vous être transmis.',
   },
   {
-    titre: 'Une demande, un artisan',
-    desc: "Mettre cinq entreprises en concurrence sur le même chantier fait baisser les prix et fait perdre du temps à quatre d’entre elles. Nous ne transmettons jamais deux fois la même demande.",
+    titre: 'Vous laisser la main.',
+    desc: 'Vous échangez avec le particulier, établissez votre devis et gardez la main sur vos prix comme sur la relation client. Votre savoir-faire reste au centre du projet.',
   },
   {
-    titre: 'Un réseau volontairement restreint',
-    desc: "Nous accompagnons quatre métiers, pas vingt. Élargir sans limite reviendrait à diluer ce que nous transmettons, et à revenir exactement au modèle que nous refusons.",
-  },
-  {
-    titre: 'Rien d’invérifiable sur ce site',
-    desc: "Vous ne trouverez ici ni témoignage, ni logo client, ni compteur de chantiers. Tant que nous ne pouvons pas le prouver, nous préférons ne pas l’écrire.",
+    titre: 'Avancer dans le même sens.',
+    desc: 'Nous finançons la recherche des projets. Notre rémunération intervient uniquement lorsque votre chantier est signé et que vous avez reçu l’acompte.',
   },
 ];
 
-const About = () => {
+export default function About() {
   usePageMeta({
-    title: 'À propos | Agence Celexia',
-    description:
-      "Celexia est un apporteur d’affaires pour artisans du bâtiment, fondé par Thomas et Antoine. Notre modèle : payés uniquement sur les devis signés, une demande transmise à un seul artisan.",
+    title: 'Qui sommes-nous ? | Agence Celexia',
+    description: 'Thomas et Antoine, fondateurs de Celexia. Des projets qualifiés pour les artisans, une commission uniquement après signature et acompte reçu.',
     canonical: 'https://agencecelexia.fr/about',
   });
 
   return (
     <>
-      {/* ============ HERO ============ */}
-      <section className="px-5 md:px-8 pt-16 pb-16 md:pt-28 md:pb-24">
-        <div className="container-custom">
-          <div className="max-w-3xl">
-            <p className="section-kicker mb-6">Qui nous sommes</p>
-            <h1 className="font-display font-expanded font-black text-encre-900 text-display-sm md:text-display-md text-balance">
-              Nous ne vendons rien aux artisans.
-            </h1>
-            <p className="mt-7 text-lg md:text-xl text-encre-700 leading-relaxed max-w-prose">
-              Celexia est un apporteur d’affaires : nous cherchons les chantiers, nous les
-              qualifions, et nous les transmettons. Nous ne facturons ni site web, ni
-              abonnement, ni prestation. Nous sommes rémunérés à la commission, uniquement une
-              fois le chantier signé et l’acompte reçu.
-            </p>
+      <section className="page-hero surface-paper">
+        <div className="container-custom grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-20 items-center">
+          <div>
+            <p className="eyebrow mb-7"><span className="w-2 h-2 rounded-full bg-violet-600" aria-hidden="true" />L’équipe Celexia</p>
+            <h1 className="page-title">Le goût du travail<br /><span className="text-violet-600">bien fait.</span></h1>
+            <p className="mt-8 max-w-lg text-lg text-encre-700 leading-relaxed">Nous sommes Thomas et Antoine. Avec Celexia, nous faisons le lien entre des projets de travaux sérieux et des entreprises qui ont le savoir-faire pour les réaliser.</p>
+            <p className="mt-5 max-w-lg text-encre-600 leading-relaxed">Vous vous concentrez sur votre métier. Nous prenons en charge la recherche et la qualification des demandes.</p>
+            <div className="mt-8"><CTAButton to={candidatureUrl('about-hero')} variant="secondary">{CTA_LABEL}</CTAButton></div>
+          </div>
+          <div className="bande sur-fonce relative overflow-hidden rounded-[28px] p-8 md:p-11">
+            <div className="flex items-center justify-between gap-4">
+              <span className="section-kicker">Une conviction commune</span>
+              <svg viewBox="0 0 32 32" className="w-9 h-9 text-citron-100" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true"><path d="M16 2v28M2 16h28M6 6l20 20M6 26 26 6" /></svg>
+            </div>
+            <p className="py-14 md:py-20 font-display font-medium text-[clamp(2.75rem,5vw,4.25rem)] leading-[1.03] tracking-[-0.05em]">On gagne<br />quand vous<br /><span className="text-citron-100">gagnez.</span></p>
+            <div className="border-t border-white/20 pt-6 flex flex-wrap items-center gap-4">
+              <div className="flex -space-x-2" aria-hidden="true"><span className="w-12 h-12 rounded-full bg-violet-200 text-violet-900 border-2 border-violet-900 flex items-center justify-center font-display text-lg">T</span><span className="w-12 h-12 rounded-full bg-citron-100 text-violet-900 border-2 border-violet-900 flex items-center justify-center font-display text-lg">A</span></div>
+              <p className="text-sm"><strong className="block font-semibold">Thomas &amp; Antoine</strong><span className="text-violet-200">Fondateurs de Celexia</span></p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ============ 01 — L'ORIGINE ============ */}
-      <section className="section bg-brume-100 border-y border-brume-300">
-        <div className="container-custom">
-          <div className="section-label">
-            <span className="section-num">01</span>
-            <span className="section-kicker">L’origine</span>
-          </div>
-
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
-            <Reveal>
-              <h2 className="font-display font-expanded font-black text-encre-900 text-display-sm md:text-display-md text-balance">
-                Thomas et Antoine
-              </h2>
-              <div className="mt-7 space-y-4 text-encre-700 leading-relaxed">
-                <p>
-                  Ils se connaissent depuis le collège. Autour d’eux, des artisans au savoir-faire
-                  solide passaient leurs soirées à courir après des devis, pendant que des
-                  entreprises moins compétentes récupéraient les chantiers grâce à une meilleure
-                  visibilité.
-                </p>
-                <p>
-                  Le constat était simple :{' '}
-                  <strong className="text-encre-900 font-semibold">
-                    un artisan n’a ni le temps ni l’envie de devenir un spécialiste de la
-                    prospection
-                  </strong>
-                  . Il veut recevoir des demandes de gens qui ont un vrai projet, et chiffrer
-                  correctement.
-                </p>
-                <p>
-                  Celexia est née de là : nous prenons en charge la recherche des chantiers et
-                  nous la finançons, vous prenez en charge le chantier, et nous ne sommes payés
-                  que si vous signez.
-                </p>
-              </div>
-            </Reveal>
-
-            <Reveal delay={80}>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="bg-white border border-brume-200 rounded-lg p-6">
-                  <span className="font-display font-expanded font-black text-2xl text-violet-500" aria-hidden="true">
-                    T
-                  </span>
-                  <h3 className="mt-3 font-display font-bold text-lg text-encre-900">Thomas</h3>
-                  <p className="mt-2 text-sm text-encre-700 leading-relaxed">
-                    Co-fondateur. Il s’occupe de la recherche des chantiers et des relations avec
-                    les artisans partenaires.
-                  </p>
-                </div>
-                <div className="bg-white border border-brume-200 rounded-lg p-6">
-                  <span className="font-display font-expanded font-black text-2xl text-violet-500" aria-hidden="true">
-                    A
-                  </span>
-                  <h3 className="mt-3 font-display font-bold text-lg text-encre-900">Antoine</h3>
-                  <p className="mt-2 text-sm text-encre-700 leading-relaxed">
-                    Co-fondateur. Il s’occupe de la qualification des demandes et des outils qui
-                    la rendent régulière.
-                  </p>
-                </div>
-                <div className="sm:col-span-2 bg-white border border-brume-200 rounded-lg p-6">
-                  <p className="section-kicker mb-3">La société</p>
-                  <p className="text-sm text-encre-700 leading-relaxed">
-                    CELEXIA, société par actions simplifiée immatriculée en France sous le SIREN{' '}
-                    <span className="tabular font-semibold text-encre-900">939 306 429</span>,
-                    dont le siège est à Nogent-sur-Marne. Ces informations sont publiques et
-                    vérifiables.
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ 02 — CE QUI NOUS ENGAGE ============ */}
       <section className="section">
         <div className="container-custom">
-          <div className="section-label">
-            <span className="section-num">02</span>
-            <span className="section-kicker">Nos partis pris</span>
+          <div className="section-label"><span className="section-num">01</span><span className="section-kicker">Notre rôle</span></div>
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-20">
+            <Reveal><h2 className="section-title">Les bons projets.<br />Le bon savoir-faire.<br /><span className="text-violet-600">Le lien entre les deux.</span></h2></Reveal>
+            <Reveal delay={80}><div className="space-y-5 text-encre-600 leading-relaxed"><p>Un chantier commence bien avant le premier coup de pelle. Il faut trouver le projet, comprendre le besoin, vérifier le budget et savoir si le calendrier est réaliste. C’est cette partie du travail que nous prenons en charge.</p><p>Celexia est un <strong className="font-semibold text-encre-900">apporteur d’affaires pour les artisans du bâtiment</strong>. Nous finançons la recherche des projets et vérifions chaque demande avant de vous la transmettre.</p><p>Nous accompagnons les entreprises de construction de piscines, de couverture, de façade et d’isolation extérieure, et de maçonnerie, partout en France.</p></div></Reveal>
           </div>
-          <Reveal>
-            <h2 className="font-display font-expanded font-black text-encre-900 text-display-sm md:text-display-md max-w-2xl text-balance">
-              Quatre choix, et ce qu’ils nous coûtent.
-            </h2>
-          </Reveal>
+          <dl className="mt-14 grid sm:grid-cols-3 gap-px overflow-hidden rounded-2xl border border-brume-200 bg-brume-200">
+            {[['Notre entreprise', 'CELEXIA SASU'], ['Notre point d’attache', 'Nogent-sur-Marne'], ['Notre terrain', 'La France entière']].map(([label, value]) => <div key={label} className="p-6 md:p-8 bg-brume-50"><dt className="section-kicker">{label}</dt><dd className="mt-3 font-display text-xl text-encre-900">{value}</dd></div>)}
+          </dl>
+        </div>
+      </section>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2">
-            {PRINCIPES.map((principe, i) => (
-              <Reveal key={principe.titre} delay={i * 60}>
-                <div className="card h-full p-7">
-                  <h3 className="font-display font-bold text-lg text-encre-900">{principe.titre}</h3>
-                  <p className="mt-3 text-encre-700 leading-relaxed">{principe.desc}</p>
-                </div>
-              </Reveal>
-            ))}
+      <section className="section surface-paper border-y border-brume-200">
+        <div className="container-custom">
+          <div className="section-label"><span className="section-num">02</span><span className="section-kicker">Notre manière de travailler</span></div>
+          <Reveal><h2 className="section-title max-w-2xl">Une collaboration<br />à taille humaine.</h2></Reveal>
+          <div className="mt-12 grid md:grid-cols-3 gap-5">
+            {PRINCIPES.map((principe, i) => <Reveal key={principe.titre} delay={i * 60}><div className="h-full bg-white rounded-[24px] p-7 md:p-8 border border-brume-200"><span className="font-display text-sm text-violet-600" aria-hidden="true">/ 0{i + 1}</span><h3 className="mt-10 font-display font-medium text-2xl tracking-tight leading-tight text-encre-900">{principe.titre}</h3><p className="mt-5 text-sm text-encre-600 leading-relaxed">{principe.desc}</p></div></Reveal>)}
           </div>
         </div>
       </section>
 
-      {/* ============ CONVERSION (bande profonde) ============ */}
-      <section className="section-lg bande sur-fonce">
-        <div className="container-custom">
-          <Reveal>
-            <div className="max-w-2xl">
-              <h2 className="font-display font-expanded font-black text-white text-display-sm md:text-display-md text-balance">
-                Inscrivez votre entreprise.
-              </h2>
-              <p className="mt-8 text-lg md:text-xl text-violet-200 leading-relaxed text-pretty">
-                Quelques minutes suffisent. Nous vérifions ensuite que nous pouvons vous être
-                utiles sur votre secteur, et nous revenons vers vous.
-              </p>
-              <div className="mt-12">
-                <CTAButton href={registerUrl('about')}>{CTA_LABEL}</CTAButton>
-              </div>
-            </div>
-          </Reveal>
+      <section className="section">
+        <div className="container-custom application-invite sur-fonce grid gap-9 lg:grid-cols-[1.3fr_1fr] items-center">
+          <div><p className="section-kicker mb-5">Faisons connaissance</p><h2 className="section-title !text-white">Et si nous parlions<br />de votre entreprise ?</h2></div>
+          <div><p className="text-violet-200 leading-relaxed mb-7">Présentez votre activité, votre équipe et vos capacités. L’équipe sélection Celexia étudiera votre demande et reviendra vers vous pour la suite.</p><CTAButton to={candidatureUrl('about')}>{CTA_LABEL}</CTAButton></div>
         </div>
       </section>
     </>
   );
-};
-
-export default About;
+}

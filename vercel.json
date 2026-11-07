@@ -30,6 +30,9 @@
     }
   ],
   "redirects": [
+    { "source": "/rejoindre", "destination": "/candidature", "statusCode": 301 },
+    { "source": "/inscription", "destination": "/candidature", "statusCode": 301 },
+    { "source": "/proposition/:path*", "destination": "/candidature", "statusCode": 301 },
     { "source": "/privacy-policy", "destination": "/politique-confidentialite", "statusCode": 301 },
     { "source": "/terms-and-conditions", "destination": "/mentions-legales", "statusCode": 301 },
     { "source": "/contact-3625", "destination": "/contact", "statusCode": 301 },
@@ -37,9 +40,9 @@
     { "source": "/services/:path*", "destination": "/", "statusCode": 301 },
     { "source": "/sites-artisans", "destination": "/", "statusCode": 301 },
 
-    { "source": "/reserver", "destination": "/", "statusCode": 301 },
-    { "source": "/demo-call", "destination": "/", "statusCode": 301 },
-    { "source": "/onboarding-call", "destination": "/", "statusCode": 301 },
+    { "source": "/reserver", "destination": "/candidature", "statusCode": 301 },
+    { "source": "/demo-call", "destination": "/candidature", "statusCode": 301 },
+    { "source": "/onboarding-call", "destination": "/candidature", "statusCode": 301 },
 
     { "source": "/metiers/bardage", "destination": "/metiers/facade-ite", "statusCode": 301 },
     { "source": "/metiers/fondations", "destination": "/metiers/maconnerie", "statusCode": 301 },
@@ -62,6 +65,6 @@
     { "source": "/leads-plombier", "destination": "/", "statusCode": 301 }
   ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/:path((?!api/).*)", "destination": "/index.html" }
   ]
 }

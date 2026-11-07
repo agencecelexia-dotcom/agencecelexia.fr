@@ -27,7 +27,7 @@ const distDir = join(__dirname, '..', 'dist');
 
 const SITE_URL = 'https://agencecelexia.fr';
 const DATE_PUBLISHED = '2024-10-01';
-const DATE_MODIFIED = '2026-09-14';
+const DATE_MODIFIED = '2026-11-07';
 
 const ORG_LD = {
   '@type': ['Organization', 'ProfessionalService'],
@@ -110,7 +110,7 @@ const HOWTO_LD = {
   '@id': `${SITE_URL}/#howto`,
   name: "Comment fonctionne l'apport d'affaires Celexia pour les artisans",
   description:
-    "Celexia finance la recherche des chantiers, qualifie les demandes et les transmet à un seul artisan. Elle est rémunérée à la commission, uniquement après chantier signé et acompte reçu.",
+    "Celexia finance la recherche des chantiers, qualifie les demandes et les transmet aux artisans selon leur métier et leur secteur. Elle est rémunérée à la commission, uniquement après chantier signé et acompte reçu.",
   step: ETAPES.map((etape, i) => ({
     '@type': 'HowToStep',
     position: i + 1,
@@ -125,7 +125,7 @@ const baseRoutes = [
     title: "Agence Celexia | Apport d'affaires pour artisans du bâtiment",
     // ~150 caractères : au-delà, Google tronque en résultat de recherche.
     description:
-      "Apporteur d'affaires pour artisans : chantiers financés, qualifiés et transmis à un seul artisan. Commission uniquement après signature et acompte.",
+      "Celexia accompagne les artisans avec des projets qualifiés. Recherche financée par nos soins, commission après signature et acompte reçu.",
     jsonLd: {
       '@context': 'https://schema.org',
       '@graph': [
@@ -147,7 +147,7 @@ const baseRoutes = [
           isPartOf: { '@id': `${SITE_URL}/#website` },
           about: { '@id': `${SITE_URL}/#organization` },
           description:
-            "Celexia trouve et finance les demandes de chantiers, les qualifie, puis les transmet à un seul artisan partenaire.",
+            "Celexia recherche et qualifie des projets de travaux pour les artisans du bâtiment, en tenant compte de leur métier et de leur secteur.",
           inLanguage: 'fr-FR',
           datePublished: DATE_PUBLISHED,
           dateModified: DATE_MODIFIED,
@@ -160,16 +160,16 @@ const baseRoutes = [
   },
   {
     path: '/about',
-    title: 'À propos | Agence Celexia',
+    title: 'Qui sommes-nous ? | Agence Celexia',
     description:
-      "Celexia est un apporteur d'affaires pour artisans du bâtiment, fondé par Thomas et Antoine. Payés uniquement sur les devis signés, une demande transmise à un seul artisan.",
+      "Thomas et Antoine, fondateurs de Celexia. Des projets qualifiés pour les artisans, une commission uniquement après signature et acompte reçu.",
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'AboutPage',
       '@id': `${SITE_URL}/about#aboutpage`,
-      name: 'À propos — Agence Celexia',
+      name: 'Qui sommes-nous ? — Agence Celexia',
       description:
-        "L'origine de Celexia et les partis pris du modèle : rémunération à la signature, une demande par artisan, réseau restreint.",
+        "Thomas et Antoine, fondateurs de Celexia. Notre rôle : rechercher, financer et qualifier les demandes de chantiers pour les artisans.",
       url: `${SITE_URL}/about`,
       inLanguage: 'fr-FR',
       isPartOf: { '@id': `${SITE_URL}/#website` },
@@ -180,9 +180,9 @@ const baseRoutes = [
   },
   {
     path: '/contact',
-    title: 'Contact | Agence Celexia',
+    title: 'Parlons de votre entreprise | Agence Celexia',
     description:
-      "Joindre Agence Celexia : téléphone, courriel et informations de la société (CELEXIA, SIREN 939 306 429, Nogent-sur-Marne).",
+      "Contactez l’équipe Celexia ou présentez votre entreprise. Votre candidature est étudiée par notre équipe sélection avant un premier échange.",
     jsonLd: {
       '@context': 'https://schema.org',
       '@graph': [
@@ -223,6 +223,24 @@ const baseRoutes = [
     },
   },
   {
+    path: '/candidature',
+    title: 'Candidature artisan | Agence Celexia',
+    description:
+      'Présentez votre entreprise, votre activité et vos capacités. L’équipe sélection Celexia étudie votre candidature et revient vers vous.',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'ContactPage',
+      '@id': `${SITE_URL}/candidature#webpage`,
+      name: 'Présenter mon entreprise à Celexia',
+      description: 'Formulaire de candidature pour les entreprises du bâtiment. Chaque demande est étudiée par l’équipe sélection Celexia.',
+      url: `${SITE_URL}/candidature`,
+      inLanguage: 'fr-FR',
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      about: { '@id': `${SITE_URL}/#organization` },
+      dateModified: DATE_MODIFIED,
+    },
+  },
+  {
     path: '/mentions-legales',
     title: 'Mentions légales | Agence Celexia',
     description:
@@ -240,7 +258,7 @@ const baseRoutes = [
 const metierRoutes = Object.entries(METIERS).map(([slug, metier]) => ({
   path: `/metiers/${slug}`,
   title: `Apport d'affaires ${metier.label} | Agence Celexia`,
-  description: `Chantiers ${metier.labelCourt.toLowerCase()} financés, qualifiés et transmis à un seul artisan. Commission uniquement après signature et acompte.`,
+  description: `Chantiers ${metier.labelCourt.toLowerCase()} qualifiés pour votre entreprise. Commission uniquement après signature et acompte.`,
   jsonLd: {
     '@context': 'https://schema.org',
     '@graph': [
@@ -248,7 +266,7 @@ const metierRoutes = Object.entries(METIERS).map(([slug, metier]) => ({
         '@type': 'Service',
         '@id': `${SITE_URL}/metiers/${slug}/#service`,
         name: `Apport d'affaires pour ${metier.label.toLowerCase()}`,
-        description: `Service d'apport d'affaires dédié au métier ${metier.label.toLowerCase()}. Demandes de chantiers qualifiées, transmises à un seul artisan. Rémunéré à la commission, uniquement après chantier signé et acompte reçu.`,
+        description: `Service d'apport d'affaires dédié au métier ${metier.label.toLowerCase()}. Demandes de chantiers qualifiées selon le métier et la zone d’intervention. Rémunéré à la commission, uniquement après chantier signé et acompte reçu.`,
         url: `${SITE_URL}/metiers/${slug}`,
         serviceType: "Apport d'affaires",
         provider: { '@id': `${SITE_URL}/#organization` },
@@ -278,6 +296,7 @@ const metierLabels = Object.fromEntries(
 const pageNames = {
   about: 'À propos',
   contact: 'Contact',
+  candidature: 'Candidature',
   'mentions-legales': 'Mentions légales',
   'politique-confidentialite': 'Politique de confidentialité',
   metiers: 'Métiers',

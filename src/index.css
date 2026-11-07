@@ -2,251 +2,198 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ============================================
-   POLICES — self-hostées, aucune origine tierce.
-   Archivo, superfamille variable (axes wght 100-900 et wdth 62-125 %).
-   Une seule famille : titres et texte courant, les chasses font la différence.
-   ============================================ */
-
+/* Les deux familles sont servies localement, avec leurs licences OFL. */
 @font-face {
-  font-family: 'Archivo';
-  font-style: normal;
-  font-weight: 100 900;
-  font-stretch: 62% 125%;
-  font-display: swap;
-  src: url('/fonts/archivo-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
+  font-family: 'Space Grotesk'; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url('/fonts/space-grotesk-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-
 @font-face {
-  font-family: 'Archivo';
-  font-style: normal;
-  font-weight: 100 900;
-  font-stretch: 62% 125%;
-  font-display: swap;
-  src: url('/fonts/archivo-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  font-family: 'Space Grotesk'; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url('/fonts/space-grotesk-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope'; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url('/fonts/manrope-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope'; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url('/fonts/manrope-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @layer base {
-  * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    html {
-      scroll-behavior: smooth;
-    }
-  }
-
-  *:focus-visible {
-    outline: 2px solid #6E32E6;
-    outline-offset: 3px;
-    border-radius: 2px;
-  }
-
-  /* Sur les bandes violet profond, l'anneau de focus doit rester visible. */
-  .sur-fonce *:focus-visible {
-    outline-color: #CFB9FF;
-  }
-
-  body {
-    @apply font-sans text-encre-800 bg-white;
-    font-size: 17px;
-    line-height: 1.65;
-  }
-
-  ::selection {
-    background: rgba(140, 82, 255, 0.18);
-    color: #120E1A;
-  }
-
-  h1, h2, h3 {
-    @apply font-display;
-  }
-
-  .tabular {
-    font-variant-numeric: tabular-nums;
-  }
+  * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body { @apply font-sans text-encre-800 bg-brume-50; font-size: 16px; line-height: 1.7; }
+  h1, h2, h3, h4 { @apply font-display; font-weight: 500; }
+  button, input, select, textarea { font: inherit; }
+  *:focus-visible { outline: 2px solid theme('colors.violet.600'); outline-offset: 4px; }
+  .sur-fonce *:focus-visible { outline-color: theme('colors.citron.300'); }
+  ::selection { background: theme('colors.citron.300'); color: theme('colors.encre.900'); }
+  summary::-webkit-details-marker { display: none; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 }
 
 @layer components {
-  /* ============================================
-     BOUTONS — aplats. Blanc sur violet 600 : conforme AA.
-     ============================================ */
-
-  .btn-primary {
-    @apply inline-flex items-center justify-center gap-2.5
-           bg-violet-600 text-white
-           px-7 py-4 rounded-lg
-           font-sans font-semibold text-[15px] leading-none tracking-[0.01em]
-           border border-violet-600
-           transition-colors duration-200 ease-out;
-  }
-
-  .btn-primary:hover { @apply bg-violet-700 border-violet-700; }
-  .btn-primary:active { @apply bg-violet-800 border-violet-800; }
-
-  .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2.5
-           bg-white text-encre-800
-           px-7 py-4 rounded-lg
-           font-sans font-semibold text-[15px] leading-none tracking-[0.01em]
-           border border-brume-300
-           transition-colors duration-200 ease-out;
-  }
-
-  .btn-secondary:hover { @apply border-encre-800 bg-brume-50; }
-
-  /* Variante posée sur les bandes violet profond. */
-  .sur-fonce .btn-secondary {
-    @apply bg-transparent text-white border-violet-300;
-  }
-  .sur-fonce .btn-secondary:hover {
-    @apply bg-white/10 border-white;
-  }
-
-  .btn-ghost {
-    @apply inline-flex items-center justify-center
-           text-encre-700
-           px-4 py-2.5 rounded-lg
-           font-sans font-medium text-[15px]
-           transition-colors duration-200 ease-out;
-  }
-
-  .btn-ghost:hover { @apply text-violet-600 bg-violet-50; }
-
-  /* ============================================
-     SURFACES
-     ============================================ */
-
-  .card {
-    @apply bg-white rounded-xl border border-brume-300
-           transition-colors duration-200 ease-out;
-  }
-  .card:hover { @apply border-violet-300; }
-
-  .card-brume {
-    @apply bg-brume-50 rounded-xl border border-brume-200;
-  }
-
-  /* Carte posée sur une bande profonde. */
-  .card-fonce {
-    @apply rounded-xl border border-white/10 bg-white/[0.04]
-           transition-colors duration-200 ease-out;
-  }
-  .card-fonce:hover { @apply border-violet-300/40; }
-
-  /* ============================================
-     BANDE PLEINE LARGEUR — l'élément de rythme du site.
-     Deux ou trois par page, jamais deux consécutives.
-     ============================================ */
-
-  .bande {
-    @apply bg-violet-900 text-white;
-  }
-
-  /* ============================================
-     SIGNATURE — numérotation de section sur filet
-     ============================================ */
-
-  .section-label {
-    @apply flex items-center gap-5 mb-10 md:mb-14;
-  }
-
-  .section-label::after {
-    content: '';
-    @apply flex-1 h-px bg-brume-300;
-  }
-
-  .sur-fonce .section-label::after {
-    @apply bg-white/20;
-  }
-
-  .section-num {
-    @apply font-sans tabular
-           text-[11px] font-bold uppercase tracking-[0.24em]
-           text-violet-600;
-  }
-
-  .sur-fonce .section-num { @apply text-violet-300; }
-
-  .section-kicker {
-    @apply font-sans
-           text-[11px] font-bold uppercase tracking-[0.24em]
-           text-encre-600;
-  }
-
+  /* Typographie : trois niveaux d'affichage, une même logique sur chaque page. */
+  .hero-title, .page-title { @apply font-display font-medium text-encre-900; font-size: clamp(2.75rem, 5.3vw, 5rem); line-height: 1.04; letter-spacing: -.065em; text-wrap: balance; }
+  .section-title { @apply font-display font-medium text-encre-900; font-size: clamp(2.15rem, 4vw, 3.5rem); line-height: 1.08; letter-spacing: -.055em; text-wrap: balance; }
+  .section-kicker { @apply text-encre-600 font-semibold uppercase; font-size: 10px; letter-spacing: .16em; line-height: 1.7; }
+  .section-num { @apply text-violet-600 font-mono text-xs; }
+  .eyebrow { @apply inline-flex items-center gap-2.5 text-encre-600 font-medium; font-size: 12px; letter-spacing: .015em; }
+  .brand-spark { @apply text-violet-600 text-2xl; line-height: 1; }
+  .section-label { @apply flex items-center gap-4 mb-10 md:mb-14; }
+  .section-label::after { content: ''; @apply flex-1 h-px bg-brume-300; }
+  .sur-fonce .section-label::after { @apply bg-white/15; }
   .sur-fonce .section-kicker { @apply text-violet-200; }
+  .sur-fonce .section-num { @apply text-citron-300; }
+  .section { @apply px-5 md:px-8; padding-top: clamp(4.5rem, 8vw, 8rem); padding-bottom: clamp(4.5rem, 8vw, 8rem); }
+  .section-lg { @apply px-5 md:px-8; padding-top: clamp(5rem, 9vw, 9rem); padding-bottom: clamp(5rem, 9vw, 9rem); }
+  .container-custom { width: 100%; max-width: 1240px; margin-inline: auto; }
+  .page-hero { @apply px-5 md:px-8; padding-block: clamp(3.5rem, 7vw, 7rem); }
+  .surface-paper { @apply bg-brume-100; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ccircle cx='1' cy='1' r='.65' fill='%23665a80' fill-opacity='.12'/%3E%3C/svg%3E"); }
+  .bande { @apply bg-violet-900 text-white; }
+  .card { @apply bg-white rounded-3xl border border-brume-200 transition-colors; }
+  .card:hover { @apply border-violet-300; }
+  .card-brume { @apply bg-brume-100 rounded-3xl border border-brume-200; }
+  .card-fonce { @apply rounded-3xl border border-white/15 bg-white/[0.04]; }
+  .rule-violet { @apply h-px bg-brume-300 border-0; }
+  .tag { @apply inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100; }
 
-  .rule-violet {
-    @apply h-px w-full bg-brume-300 border-0;
-  }
+  /* Boutons souples, flèches et liens identiques à travers tout le parcours. */
+  .btn-primary, .btn-secondary { @apply inline-flex items-center justify-center gap-3 rounded-full px-6 py-4 font-semibold text-sm leading-normal border transition-all duration-200; min-height: 54px; }
+  .btn-primary { @apply bg-violet-600 border-violet-600 text-white; box-shadow: 0 4px 10px rgb(31 13 61 / .06); }
+  .btn-primary:hover { @apply bg-violet-700 border-violet-700; transform: translateY(-2px); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-secondary { @apply border-brume-300 text-encre-800 bg-transparent; }
+  .btn-secondary:hover { @apply bg-white border-encre-600; }
+  .sur-fonce .btn-primary { @apply bg-citron-300 text-violet-950 border-citron-300; }
+  .sur-fonce .btn-primary:hover { @apply bg-citron-100 border-citron-100; }
+  .sur-fonce .btn-secondary { @apply bg-transparent text-white border-white/30; }
+  .sur-fonce .btn-secondary:hover { @apply bg-white/10 border-white; }
+  .btn-ghost { @apply inline-flex items-center justify-center text-encre-600 px-3.5 py-2.5 rounded-full text-xs font-medium transition-colors; }
+  .btn-ghost:hover { @apply text-violet-700 bg-brume-100; }
+  .text-link { @apply inline-flex items-center gap-3 text-sm font-semibold text-violet-700 min-h-11; }
+  .text-link:hover { @apply text-violet-600; }
+  .text-link svg { transition: transform .2s; }
+  .text-link:hover svg { transform: translateX(3px); }
 
-  /* ============================================
-     MISE EN PAGE — nettement plus aérée que la v1
-     ============================================ */
+  /* Navigation flottante, sans masquer les repères au défilement. */
+  .site-header { @apply sticky top-0 z-40 px-3 md:px-6 pt-3; }
+  .header-inner { @apply flex items-center justify-between gap-5 rounded-full border border-brume-200 bg-white/95 backdrop-blur-md px-5 md:px-7 shadow-soft; height: 76px; }
+  .header-brand { @apply shrink-0; }
+  .header-brand img { height: 29px; width: auto; }
+  .mobile-menu-button { @apply xl:hidden flex flex-col items-center justify-center gap-1.5 w-11 h-11 rounded-full border border-brume-300; }
 
-  .section {
-    @apply py-20 md:py-32 px-5 md:px-8;
-  }
+  /* Accueil : une grande composition, avec le motif d'arche de la marque. */
+  .home-hero { @apply relative px-5 md:px-8; padding-top: clamp(3rem, 5.5vw, 5.5rem); padding-bottom: clamp(3.5rem, 6vw, 6rem); margin-top: -88px; border-bottom: 1px solid theme('colors.brume.200'); }
+  .home-hero > .container-custom { padding-top: 88px; }
+  .hero-layout { @apply grid gap-12 lg:grid-cols-[1.14fr_1fr] lg:gap-16 items-center; }
+  .hero-title { max-width: 700px; }
+  .hero-highlight { @apply text-violet-600; }
+  .hero-description { @apply text-encre-600 mt-7; max-width: 460px; font-size: 16px; line-height: 1.85; }
+  .hero-secondary { @apply inline-flex min-h-11 items-center justify-center gap-3 px-2 py-3 text-sm font-semibold text-encre-700 hover:text-violet-600; }
+  .hero-reassurance { @apply flex items-start gap-2 mt-6 text-encre-600; max-width: 380px; font-size: 11px; line-height: 1.7; }
+  .hero-reassurance svg { margin-top: 2px; }
+  .project-illustration { @apply relative bg-violet-900 rounded-[32px] overflow-hidden p-7 sm:p-8; min-height: 570px; isolation: isolate; }
+  .project-eyebrow { @apply text-violet-200 text-xs font-medium; letter-spacing: .015em; }
+  .illustration-cross { @apply text-citron-300 text-3xl; line-height: 1; }
+  .project-arch { position: absolute; width: 75%; height: 360px; left: 12.5%; top: 91px; border-radius: 200px 200px 0 0; background: theme('colors.violet.200'); z-index: -1; }
+  .project-arch::after { content: ''; position: absolute; inset: 22px; border: 1px solid theme('colors.violet.900 / 20%'); border-radius: inherit; }
+  .project-label { @apply absolute text-violet-900 text-center font-display font-medium; top: 124px; left: 12.5%; width: 75%; font-size: 20px; line-height: 1.2; letter-spacing: -.03em; }
+  .project-house { @apply absolute text-violet-800; --house-fill: theme('colors.violet.200'); width: 100%; height: 240px; top: 170px; left: 0; }
+  .project-file { @apply relative bg-brume-50 border border-white rounded-2xl p-5 sm:p-6; margin-top: 280px; box-shadow: 0 14px 36px rgb(10 4 25 / .13); transform: rotate(-2deg); }
+  .project-file-title { @apply font-display text-encre-900 font-medium; font-size: 24px; line-height: 1.15; letter-spacing: -.04em; }
+  .project-file > div:first-child > span { font-size: 9px; }
+  .project-file > div:last-child { @apply border-brume-200 pt-3 mt-4; }
+  .project-file > div:last-child > span:first-child { font-size: 11px; }
+  .project-caption { @apply flex items-center justify-center gap-2 mt-5 text-violet-200; font-size: 10px; }
+  .trade-strip { @apply px-5 md:px-8 bg-brume-50 border-b border-brume-200; }
+  .trade-strip-inner { @apply flex flex-wrap items-center gap-x-8 gap-y-4; padding-block: 24px; }
+  .trade-strip-link { @apply inline-flex items-center gap-2.5 text-encre-700 hover:text-violet-600 font-display text-sm font-medium min-h-8; }
+  .benefit-grid { @apply grid md:grid-cols-3 gap-4 mt-14 md:mt-16; }
+  .benefit-grid > .reveal { height: 100%; }
+  .benefit-item { @apply bg-brume-100 border border-brume-200 rounded-3xl p-7; height: 100%; }
+  .benefit-grid > :nth-child(2) .benefit-item { @apply bg-violet-50 border-violet-100; }
+  .benefit-grid > :nth-child(3) .benefit-item { @apply bg-citron-100; border-color: theme('colors.citron.300'); }
+  .benefit-number { @apply font-mono text-encre-600 text-xs; }
+  .benefit-item h3 { @apply font-medium; font-size: 23px; line-height: 1.2; letter-spacing: -.035em; }
+  .benefit-item p { font-size: 13px; line-height: 1.8; }
 
-  .section-lg {
-    @apply py-24 md:py-40 px-5 md:px-8;
-  }
-
-  .container-custom {
-    @apply max-w-6xl mx-auto;
-  }
-
-  .tag {
-    @apply inline-flex items-center
-           px-3.5 py-1.5 rounded-full
-           font-sans text-[11px] font-bold uppercase tracking-[0.16em]
-           bg-violet-50 text-violet-700 border border-violet-100;
-  }
+  .method-section { position: relative; margin: 0 16px; border-radius: 32px; }
+  .method-section > .container-custom { max-width: 1168px; }
+  .method-list { @apply space-y-7; }
+  .method-list li { @apply flex gap-5 border-b border-white/15 pb-7 last:border-0 last:pb-0; }
+  .method-number { @apply inline-flex shrink-0 items-center justify-center w-9 h-9 rounded-full border border-white/25 text-violet-200 font-mono text-xs; }
+  .method-list h3 { font-size: 22px; letter-spacing: -.03em; font-weight: 500; }
+  .method-list p { font-size: 13px; line-height: 1.85; }
+  .qualification-bar { @apply flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 border-t border-white/20 mt-14 pt-8; }
+  .qualification-tag { @apply inline-flex items-center gap-2 px-3 py-2 rounded-full border border-white/20 text-violet-200 text-xs; }
+  .qualification-tag svg { @apply text-citron-300; }
+  .trade-grid { @apply grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-12; }
+  .trade-card { @apply relative overflow-hidden bg-white border border-brume-200 p-7 rounded-3xl transition-all duration-200; }
+  .trade-card:hover { @apply border-violet-300 bg-violet-50; transform: translateY(-5px); }
+  .trade-symbol { @apply flex items-center justify-center w-28 h-28 rounded-full bg-brume-100 text-violet-600 mx-auto; margin-block: 38px; }
+  .trade-symbol svg { width: 80px; height: 64px; fill: none; stroke: currentColor; stroke-width: 1.1; stroke-linejoin: round; }
+  .trade-card:nth-child(even) .trade-symbol { @apply bg-citron-100 text-citron-800; }
+  .trade-card h3 { @apply font-medium; font-size: 23px; letter-spacing: -.035em; }
+  .trade-card p { font-size: 12px; }
+  .faq-section { @apply bg-brume-100; }
+  .faq-item { @apply border-b border-brume-300 py-6 first:pt-0; }
+  .faq-item summary { @apply flex items-start justify-between gap-6 cursor-pointer list-none font-display text-encre-900 font-medium; font-size: 21px; line-height: 1.35; letter-spacing: -.025em; }
+  .faq-item p { @apply mt-4 text-sm text-encre-600 leading-relaxed; }
+  .application-invite { @apply relative overflow-hidden bg-violet-900 rounded-[32px] p-8 md:p-16; }
+  .application-invite .section-title { max-width: 780px; }
+  .application-invite p:not(.section-kicker) { font-size: 14px; }
+  .invite-mark { @apply absolute text-violet-800 font-display select-none; font-size: clamp(20rem, 37vw, 37rem); line-height: 1; right: -1rem; bottom: -5rem; transform: rotate(12deg); }
+  .site-footer { @apply bg-violet-950 text-violet-200 px-5 md:px-8 pt-16 pb-8; }
+  .footer-link { @apply inline-flex text-violet-200 text-xs leading-relaxed hover:text-white transition-colors; }
+  .footer-kicker { @apply text-white font-medium text-xs mb-5; }
+  .footer-signature { @apply font-display text-white; font-size: clamp(2rem, 5vw, 4rem); letter-spacing: -.05em; line-height: 1.1; }
 }
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
   .text-pretty { text-wrap: pretty; }
-
-  /* Chasses de la police variable. Les titres d'affichage utilisent la chasse
-     élargie, les libellés en capitales la chasse resserrée. */
-  .font-narrow { font-stretch: 78%; }
-  .font-expanded { font-stretch: 112%; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  /* Compatibilité des pages historiques : les nouvelles familles ne sont pas étirées. */
+  .font-expanded, .font-narrow { font-stretch: normal; }
 }
-
-/* ============================================
-   APPARITION AU DÉFILEMENT
-
-   L'état masqué n'existe QUE si JavaScript est actif (classe `js` posée en tête
-   de index.html). Sans JavaScript — cas des moteurs IA et des robots d'aperçu —
-   le contenu pré-rendu reste pleinement visible au lieu de rester à opacité 0.
-   ============================================ */
-
-.js .reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease-out, transform .6s ease-out; }
+.js .reveal.reveal-visible { opacity: 1; transform: none; }
+@media (max-width: 1023px) {
+  .project-illustration { max-width: 540px; width: 100%; margin-inline: auto; }
+  .hero-title { max-width: 760px; font-size: clamp(2.75rem, 8vw, 5rem); }
+  .hero-description { max-width: 600px; }
 }
-
-.js .reveal.reveal-visible {
-  opacity: 1;
-  transform: none;
+@media (max-width: 639px) {
+  .header-inner { height: 66px; padding-inline: 18px; }
+  .header-brand img { height: 26px; }
+  .home-hero { margin-top: -78px; }
+  .home-hero > .container-custom { padding-top: 78px; }
+  .hero-layout { gap: 40px; }
+  .hero-title { letter-spacing: -.055em; }
+  .hero-description { font-size: 15px; }
+  .project-illustration { padding: 22px; min-height: 530px; border-radius: 24px; }
+  .project-label { font-size: 18px; }
+  .project-house { height: 210px; top: 175px; }
+  .project-file { margin-top: 272px; padding: 20px; }
+  .project-file-title { font-size: 23px; }
+  .project-file > div:first-child { gap: 8px; }
+  .project-caption { font-size: 9px; }
+  .trade-strip-inner { gap: 12px 20px; }
+  .trade-strip-inner > span { width: 100%; }
+  .method-section { margin: 0 8px; border-radius: 24px; }
+  .method-list h3 { font-size: 20px; }
+  .method-list li { gap: 14px; }
+  .invite-mark { opacity: .5; }
+  .section-label { gap: 12px; }
+  .section-kicker { font-size: 9px; letter-spacing: .12em; }
 }
-
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .js .reveal { opacity: 1; transform: none; }
+  .btn-primary:hover, .trade-card:hover { transform: none; }
 }

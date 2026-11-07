@@ -1,97 +1,44 @@
 import { Link } from 'react-router-dom';
 import { METIERS } from '../data/metiers';
-import { registerUrl, CTA_LABEL } from '../lib/links';
+import { candidatureUrl, CTA_LABEL } from '../lib/links';
 
-const metiers = Object.entries(METIERS).map(([slug, data]) => ({ slug, label: data.label }));
-
-const linkClass = 'text-encre-600 hover:text-violet-600 underline-offset-2 hover:underline transition-colors text-sm';
-
-const Footer = () => (
-  <footer className="bg-brume-100 border-t border-violet-200">
-    <div className="max-w-6xl mx-auto px-5 md:px-8 pt-14 pb-8">
-      <div className="grid gap-10 md:grid-cols-5 mb-12">
-        {/* Marque */}
-        <div className="md:col-span-2">
-          <Link to="/" className="inline-block mb-4">
-            <img
-              src="/logo.png"
-              alt="Agence Celexia — accueil"
-              className="h-8 w-auto"
-              width="197"
-              height="32"
-              loading="lazy"
-            />
+export default function Footer() {
+  return (
+    <footer className="site-footer sur-fonce">
+      <div className="container-custom">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-7 pb-12 border-b border-white/15">
+          <p className="footer-signature">On gagne quand<br /><span className="text-violet-300">vous gagnez.</span></p>
+          <Link to={candidatureUrl('footer')} className="inline-flex items-center gap-5 text-sm text-citron-300 font-medium min-h-11 self-start md:self-end">
+            {CTA_LABEL}<span className="w-10 h-10 rounded-full border border-citron-300/40 grid place-items-center" aria-hidden="true">↗</span>
           </Link>
-          <p className="text-sm text-encre-700 leading-relaxed max-w-sm">
-            Apporteur d’affaires pour les artisans du bâtiment. Nous trouvons et finançons
-            les demandes de chantiers, nous les qualifions, et nous les transmettons à un
-            seul artisan. Rémunérés à la commission, uniquement après chantier signé et
-            acompte reçu.
-          </p>
-          <a
-            href={registerUrl('footer')}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-5 text-sm font-semibold text-violet-600 hover:text-violet-700 transition-colors"
-          >
-            {CTA_LABEL}
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
         </div>
-
-        {/* Navigation */}
-        <div>
-          <h2 className="section-kicker mb-5">Navigation</h2>
-          <ul className="flex flex-col gap-3">
-            <li><Link to="/" className={linkClass}>Accueil</Link></li>
-            <li><Link to="/about" className={linkClass}>À propos</Link></li>
-            <li><Link to="/contact" className={linkClass}>Contact</Link></li>
-          </ul>
+        <div className="grid md:grid-cols-3 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr] gap-10 py-12">
+          <div className="md:col-span-3 lg:col-span-1">
+            <Link to="/" className="inline-block"><img src="/logo-blanc.png" alt="Agence Celexia — accueil" className="h-8 w-auto" width="197" height="32" loading="lazy" /></Link>
+            <p className="mt-5 text-xs leading-loose max-w-xs text-violet-200">L’apport d’affaires, côté artisan.<br />Des projets qualifiés, une équipe à vos côtés et la liberté d’exercer votre métier.</p>
+          </div>
+          <div>
+            <h2 className="footer-kicker">Celexia</h2>
+            <ul className="space-y-3">
+              {[['/about', 'Qui sommes-nous ?'], ['/#methode', 'Notre méthode'], ['/contact', 'Contact'], ['/candidature', 'Votre candidature']].map(([to, text]) => <li key={to}><Link to={to} className="footer-link">{text}</Link></li>)}
+            </ul>
+          </div>
+          <div>
+            <h2 className="footer-kicker">Vos métiers</h2>
+            <ul className="space-y-3">{Object.entries(METIERS).map(([slug, m]) => <li key={slug}><Link to={`/metiers/${slug}`} className="footer-link">{m.labelCourt}</Link></li>)}</ul>
+          </div>
+          <div>
+            <h2 className="footer-kicker">Parlons de votre entreprise</h2>
+            <a href="mailto:agence.celexia@gmail.com" className="footer-link break-all">agence.celexia@gmail.com</a>
+            <a href="tel:+33651725756" className="block text-white font-display text-xl mt-4 tracking-tight">06 51 72 57 56</a>
+            <p className="mt-4 text-xs text-violet-200">Nogent-sur-Marne · France entière</p>
+          </div>
         </div>
-
-        {/* Métiers */}
-        <div>
-          <h2 className="section-kicker mb-5">Métiers</h2>
-          <ul className="flex flex-col gap-3">
-            {metiers.map((m) => (
-              <li key={m.slug}>
-                <Link to={`/metiers/${m.slug}`} className={linkClass}>
-                  {m.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Légal & contact */}
-        <div>
-          <h2 className="section-kicker mb-5">Légal &amp; contact</h2>
-          <ul className="flex flex-col gap-3">
-            <li><Link to="/mentions-legales" className={linkClass}>Mentions légales</Link></li>
-            <li><Link to="/politique-confidentialite" className={linkClass}>Confidentialité</Link></li>
-            <li>
-              <a href="mailto:agence.celexia@gmail.com" className={linkClass}>
-                agence.celexia@gmail.com
-              </a>
-            </li>
-            <li>
-              <a href="tel:+33651725756" className={linkClass}>06 51 72 57 56</a>
-            </li>
-          </ul>
+        <div className="border-t border-white/15 pt-7 flex flex-col md:flex-row justify-between gap-4 text-[10px] text-violet-200">
+          <p>© {new Date().getFullYear()} CELEXIA SASU · SIREN 939 306 429</p>
+          <div className="flex gap-6"><Link to="/mentions-legales" className="hover:text-white">Mentions légales</Link><Link to="/politique-confidentialite" className="hover:text-white">Confidentialité</Link></div>
         </div>
       </div>
-
-      <div className="pt-6 border-t border-brume-300">
-        <p className="text-xs text-encre-600">
-          &copy; {new Date().getFullYear()} CELEXIA SASU &middot; SIREN 939 306 429 &middot;
-          Nogent-sur-Marne, France
-        </p>
-      </div>
-    </div>
-  </footer>
-);
-
-export default Footer;
+    </footer>
+  );
+}
