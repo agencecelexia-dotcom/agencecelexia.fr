@@ -39,6 +39,7 @@ export default function ResourcePage({ slug }) {
                 {page.sections.map(section => <a key={section.id} href={`#${section.id}`}>{section.title}</a>)}
                 {slug === 'partenariat-artisans-btp' && <a href="#fiche-preparation">La fiche à imprimer</a>}
                 <a href="#questions">Vos questions</a>
+                {page.sources && <a href="#sources">Sources et périmètre</a>}
               </nav>
             </aside>
 
@@ -74,6 +75,11 @@ export default function ResourcePage({ slug }) {
                 <p>Retrouvez les types de travaux accompagnés par Celexia et les informations utiles pour votre activité.</p>
                 <ul className="resource-trades">{Object.entries(METIERS).map(([key, trade]) => <li key={key}><Link to={`/metiers/${key}`}>{trade.labelCourt}<span aria-hidden="true">↗</span></Link></li>)}</ul>
               </section>
+              {page.sources && <section id="sources" className="resource-section">
+                <h2>Sources et périmètre de ce guide</h2>
+                <p>{page.sourceNote}</p>
+                <ul>{page.sources.map(source => <li key={source.path}><Link to={source.path}>{source.label}</Link></li>)}</ul>
+              </section>}
             </div>
           </div>
         </div>

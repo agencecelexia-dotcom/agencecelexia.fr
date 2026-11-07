@@ -155,7 +155,39 @@ test('robots autorise les ressources de rendu et les robots de recherche IA', ()
   const robots = read('dist/robots.txt');
   assert.ok(!/Disallow:\s*\/assets\//i.test(robots));
   assert.ok(robots.includes(`Sitemap: ${SITE}/sitemap.xml`));
-  for (const bot of ['OAI-SearchBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot']) {
+  for (const bot of ['Googlebot', 'bingbot', 'OAI-SearchBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'MistralAI-Index', 'MistralAI-User']) {
     assert.ok(robots.includes(`User-agent: ${bot}\nAllow: /`), `${bot} est autorisé`);
+  }
+});
+
+test('les résumés documentaires restent alignés avec les contenus réellement livrés', () => {
+  const short = read('dist/llms.txt');
+  const full = read('dist/llms-full.txt');
+  for (const page of Object.values(SEO_PAGES)) {
+    assert.ok(short.includes(`${SITE}${page.path}`), `${page.path} : résumé absent`);
+    assert.ok(full.includes(page.summary), `${page.path} : réponse absente du document complet`);
+    assert.ok(decode(pages.get(page.path)).includes(page.summary), `${page.path} : réponse différente de la page publique`);
+  }
+  assert.ok(full.includes(CASE_STUDY.source));
+  assert.ok(full.includes(CASE_STUDY.limitation));
+  assert.ok(full.includes(CASE_STUDY.calculation));
+  for (const text of [short, full]) {
+    for (const match of text.matchAll(/https:\/\/agencecelexia\.fr([^\s)]+)/g)) {
+      const path = match[1].replace(/[.,;]$/, '');
+      assert.ok(pages.has(path) || existsSync(`dist${path}`), `URL documentaire absente : ${path}`);
+    }
+  }
+});
+
+test('les références Article sont des sources visibles et accessibles', () => {
+  const guide = SEO_PAGES['demande-qualifiee-btp'];
+  const html = pages.get(guide.path);
+  const article = schemas(html)[0]['@graph'].find(node => node['@type'] === 'Article');
+  assert.equal(article.isAccessibleForFree, true);
+  assert.deepEqual(article.citation, guide.sources.map(source => `${SITE}${source.path}`));
+  assert.ok(decode(html).includes(guide.sourceNote));
+  for (const source of guide.sources) {
+    assert.ok(html.includes(`href="${source.path}"`));
+    assert.ok(pages.has(source.path));
   }
 });

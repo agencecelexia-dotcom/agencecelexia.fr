@@ -1,7 +1,7 @@
 # agencecelexia.fr — site vitrine Agence Celexia
 
-> **SEO artisans — 7 novembre 2026 :** 16 pages indexables + `404.html` non indexable.
-> Les quatre ressources de `src/data/seoPages.js` et le hub `src/data/seoHub.js`
+> **SEO artisans — 7 novembre 2026 :** 17 pages indexables + `404.html` non indexable.
+> Les cinq ressources de `src/data/seoPages.js` et le hub `src/data/seoHub.js`
 > alimentent les pages React et le pré-rendu. Aucune réécriture globale vers
 > l’accueil : les URL inconnues doivent répondre 404. Le graphe utilise
 > Organization, WebSite, WebPage, BreadcrumbList, Service et Article selon la page ;
@@ -13,6 +13,13 @@
 > autorisés par le client : 100 demandes le premier mois puis 200 chacun des trois
 > mois suivants, soit 700 sur quatre mois. Entreprise anonymisée ; aucun montant de
 > devis, chiffre d’affaires, taux de conversion ou chantier signé ne doit en être déduit.
+> Le guide `src/data/qualificationGuide.js` distingue demandes, devis et signatures.
+> `scripts/generate-llms.mjs` synchronise les fichiers documentaires à chaque build.
+> `npm run geo:audit` vérifie le HTTP public, sans mesurer une citation IA.
+> `npm run indexnow` inspecte seulement ; `--submit` notifie les moteurs participants
+> après vérification des pages publiées. Aucun classement n’est garanti.
+> Google Analytics ne doit être téléchargé qu’après consentement accepté sur le
+> domaine de production (`src/lib/analytics-loader.js`).
 
 > **Parcours mis à jour le 7 novembre 2026 :** l’inscription externe a été remplacée
 > par une candidature interne à `/candidature`. Le CTA est « Présenter mon entreprise »

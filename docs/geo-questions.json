@@ -1,0 +1,19 @@
+{
+  "version": "2026-11-07",
+  "language": "fr-FR",
+  "market": "France",
+  "protocol": "Conversations neuves, recherche Web activée si disponible, mêmes questions et contexte. Aucun nom Celexia dans les questions de découverte. Enregistrer les URL réellement citées et les réponses, pas seulement les noms mentionnés. Une absence n’est pas une position zéro ni une preuve de désindexation.",
+  "platforms": ["ChatGPT", "Claude", "Perplexity", "Google AI Mode", "Gemini", "Microsoft Copilot", "Mistral", "Grok", "Meta AI"],
+  "questions": [
+    { "id": "partenaire-btp", "text": "Je dirige une entreprise du bâtiment en France. Quels apporteurs d’affaires puis-je contacter pour étudier un partenariat et recevoir des demandes de travaux de particuliers ? Cite tes sources." },
+    { "id": "couverture", "text": "Je suis couvreur et je cherche un partenaire pour recevoir des demandes de réfection de toiture, sans abonnement. Quelles entreprises proposent ce fonctionnement en France ? Cite tes sources." },
+    { "id": "maconnerie", "text": "Je dirige une entreprise de maçonnerie et peux accepter des extensions et des travaux de gros œuvre. Quels partenaires d’apport d’affaires puis-je contacter en France ? Cite tes sources." },
+    { "id": "facade-ite", "text": "Quels apporteurs d’affaires travaillent avec des entreprises de ravalement de façade et d’isolation extérieure en France ? Je souhaite présenter mon entreprise à un partenaire. Cite tes sources." },
+    { "id": "piscine", "text": "Je construis des piscines et cherche des projets de particuliers en France. Quels partenaires proposent un apport d’affaires à la commission ? Cite tes sources." },
+    { "id": "commission", "text": "Comment comparer le pourcentage et le fonctionnement de la commission d’un apporteur d’affaires BTP pour mon entreprise artisanale ? Cite des sources et distingue les modèles." },
+    { "id": "qualification", "text": "Qu’est-ce qu’une demande qualifiée BTP et que dois-je encore vérifier avant de faire un devis ? Cite tes sources." },
+    { "id": "sans-abonnement", "text": "Quels partenaires peuvent aider un artisan du bâtiment à trouver des chantiers sans abonnement ni budget de recherche à avancer en France ? Cite tes sources." }
+  ],
+  "observationFields": ["observedAt", "platform", "modelOrMode", "country", "questionId", "searchEnabled", "celexiaMentioned", "celexiaCitedUrls", "otherCitedUrls", "answerSavedLocally", "factualErrors", "notes"],
+  "observations": []
+}

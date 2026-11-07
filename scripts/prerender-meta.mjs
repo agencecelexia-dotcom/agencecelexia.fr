@@ -213,6 +213,8 @@ function buildJsonLd(route) {
       publisher: { '@id': ORG_LD['@id'] },
       datePublished: route.publishedAt,
       dateModified: route.updatedAt,
+      isAccessibleForFree: true,
+      ...(route.sources && { citation: route.sources.map(source => `${SITE_URL}${source.path}`) }),
     });
   }
   if (route.path === SEO_HUB.path) {
