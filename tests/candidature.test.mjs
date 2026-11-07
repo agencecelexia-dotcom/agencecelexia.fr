@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { handleCandidature } from '../server/candidature.mjs';
+import { renderCandidatureEmail } from '../server/candidature-email.mjs';
 import { submitApplication, validateApplication } from '../src/lib/candidature.js';
 
 const values = {
@@ -76,6 +77,9 @@ test('acknowledged email contains all business fields and a fixed destination', 
   assert.match(sent[0].payload.text, /Chiffre d’affaires annuel : 100 000 à 250 000 €/);
   assert.match(sent[0].payload.text, /Capacité supplémentaire par mois : 2/);
   assert.match(sent[0].payload.text, /Dans l’entreprise depuis : 2018/);
+  assert.match(sent[0].payload.html, /<!doctype html>/);
+  assert.match(sent[0].payload.html, /Répondre au candidat/);
+  assert.match(sent[0].payload.html, /Entreprise de test/);
   await handleCandidature(request(), { env, now: new Date('2026-11-07T14:00:00Z'), send });
   assert.equal(sent[0].headers['Idempotency-Key'], sent[1].headers['Idempotency-Key']);
   assert.equal(sent[0].body, sent[1].body);
@@ -111,6 +115,9 @@ test('n8n takes priority and receives the validated application with a fixed ema
   assert.match(outbound.payload.email.text, /Chiffre d’affaires annuel : 100 000 à 250 000 €/);
   assert.match(outbound.payload.email.text, /Capacité supplémentaire par mois : 2/);
   assert.match(outbound.payload.email.text, /Dans l’entreprise depuis : 2018/);
+  assert.match(outbound.payload.email.html, /<!doctype html>/);
+  assert.match(outbound.payload.email.html, /Entreprise de test/);
+  assert.match(outbound.payload.email.html, /mailto:test@example.com/);
   assert.ok(!outbound.body.includes(webhookEnv.CANDIDATURE_WEBHOOK_SECRET));
   await handleCandidature(request({ ...values, source: 'contact' }), { env: webhookEnv, now: new Date('2026-11-07T14:00:00Z'), send });
   assert.equal(sent[0].payload.reference, sent[1].payload.reference);
@@ -163,6 +170,48 @@ test('invalid submissions never reach n8n', async () => {
   assert.equal(result.status, 422);
   assert.equal(result.body.received, false);
   assert.equal(sends, 0);
+});
+
+test('HTML email escapes every user-provided field and preserves message paragraphs safely', () => {
+  const dangerous = `<script>alert("x")</script> & 'fin'`;
+  const escaped = '&lt;script&gt;alert(&quot;x&quot;)&lt;/script&gt; &amp; &#39;fin&#39;';
+  const application = Object.fromEntries(Object.keys(values).map((key) => [key, dangerous]));
+  application.consent = true;
+  application.details = `${dangerous}\nDeuxième ligne\r\n\r\nDernier paragraphe`;
+  const html = renderCandidatureEmail({ application, trade: dangerous, source: dangerous, reference: '0123456789abcdef', submissionDay: '2026-11-07' });
+  assert.ok(!html.includes('<script>'));
+  assert.ok(!html.includes(dangerous));
+  assert.ok(html.split(escaped).length > 15, 'All dynamic text fields should contain HTML-escaped values');
+  assert.ok(html.includes(`${escaped}<br>Deuxième ligne<br><br>Dernier paragraphe`));
+  assert.match(html, /7 novembre 2026/);
+  assert.match(html, /Référence 0123456789ab/);
+  assert.ok(!html.includes('href="tel:'), 'Unsafe phone values must not become telephone links');
+  assert.ok(!/<(?:script|img|iframe|object)\b/i.test(html));
+});
+
+test('email links cannot inject HTML attributes or mail headers', () => {
+  const email = `name?bcc=other@example.com`.replace('@example.com', `&subject="'><svg>+tag@example.com`);
+  const html = renderCandidatureEmail({ application: { ...values, email, phone: '+33 (0)6 12 34 56 78' }, trade: 'Couverture', source: 'contact', reference: 'a'.repeat(64), submissionDay: '2026-11-07' });
+  const links = [...html.matchAll(/href="([^"]+)"/g)].map((match) => match[1]);
+  const expectedAddress = 'mailto:name%3Fbcc%3Dother%26subject%3D%22%27%3E%3Csvg%3E%2Btag@example.com';
+  assert.deepEqual(links, [expectedAddress, 'tel:+33612345678', expectedAddress]);
+  assert.equal(decodeURIComponent(links[0].slice('mailto:'.length)), email);
+  assert.ok(!html.includes('<svg>'));
+  assert.ok(!links.some((link) => /[?&"'<>\r\n]/.test(link)));
+});
+
+test('HTML email includes all application data without an empty optional-message section', () => {
+  const html = renderCandidatureEmail({ application: values, trade: 'Couverture', source: 'page-contact', reference: 'a'.repeat(64), submissionDay: '2026-11-07' });
+  for (const value of ['Entreprise de test', 'Couverture', 'Lyon', '2018', '100 000 à 250 000 €', 'Test Exemple', 'Gérant', 'test@example.com', '06 00 00 00 00', 'page-contact']) assert.ok(html.includes(value));
+  for (const label of ['Nombre de salariés', 'Chiffre d’affaires annuel', 'Chantiers réalisés', 'Chantiers supplémentaires', 'Dans l’entreprise depuis', 'Accord pour l’étude']) assert.ok(html.includes(label));
+  assert.ok(!html.includes('Le mot du candidat'));
+  assert.match(html, /max-width:640px/);
+  assert.ok(!/https?:\/\//.test(html), 'The email must not load remote images or fonts');
+});
+
+test('HTML rendering tolerates an isolated Unicode surrogate in an email address', () => {
+  const html = renderCandidatureEmail({ application: { ...values, email: 'test\ud800@example.com' }, trade: 'Couverture', source: 'contact', reference: 'a'.repeat(64), submissionDay: '2026-11-07' });
+  assert.match(html, /href="mailto:test%EF%BF%BD@example.com"/);
 });
 
 test('the browser rejects an HTTP 200 SPA fallback instead of displaying false success', async (context) => {

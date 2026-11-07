@@ -6,7 +6,10 @@
       "name": "Candidature webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
-      "position": [0, 0],
+      "position": [
+        0,
+        0
+      ],
       "parameters": {
         "httpMethod": "POST",
         "path": "celexia-candidature",
@@ -20,9 +23,12 @@
       "name": "Verifier candidature",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [240, 0],
+      "position": [
+        240,
+        0
+      ],
       "parameters": {
-        "jsCode": "const body = $input.first().json.body;\nconst email = body?.email;\nif (!/^[a-f0-9]{64}$/.test(body?.reference ?? '') || email?.to !== 'agence.celexia@gmail.com' || typeof email?.replyTo !== 'string' || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email.replyTo) || email.replyTo.length > 254 || typeof email?.subject !== 'string' || !email.subject.trim() || /[\\r\\n]/.test(email.subject) || email.subject.length > 300 || typeof email?.text !== 'string' || !email.text.trim() || email.text.length > 16000) { throw new Error('Invalid candidature payload'); }\nreturn [{ json: { reference: body.reference, email } }];"
+        "jsCode": "const body = $input.first().json.body;\nconst email = body?.email;\nif (!/^[a-f0-9]{64}$/.test(body?.reference ?? '') || email?.to !== 'agence.celexia@gmail.com' || typeof email?.replyTo !== 'string' || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email.replyTo) || email.replyTo.length > 254 || typeof email?.subject !== 'string' || !email.subject.trim() || /[\\r\\n]/.test(email.subject) || email.subject.length > 300 || typeof email?.text !== 'string' || !email.text.trim() || email.text.length > 16000) { throw new Error('Invalid candidature payload'); }\nif (email.html !== undefined && (typeof email.html !== 'string' || !email.html.trim() || email.html.length > 50000)) { throw new Error('Invalid candidature HTML'); }\nreturn [{ json: { reference: body.reference, email } }];"
       }
     },
     {
@@ -30,15 +36,18 @@
       "name": "Envoyer candidature",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.2,
-      "position": [480, 0],
+      "position": [
+        480,
+        0
+      ],
       "parameters": {
         "authentication": "oAuth2",
         "resource": "message",
         "operation": "send",
         "sendTo": "agence.celexia@gmail.com",
         "subject": "={{ $json.email.subject }}",
-        "emailType": "text",
-        "message": "={{ $json.email.text }}",
+        "emailType": "html",
+        "message": "={{ $json.email.html || '<pre>' + $json.email.text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</pre>' }}",
         "options": {
           "appendAttribution": false,
           "replyTo": "={{ $json.email.replyTo }}"
@@ -50,7 +59,10 @@
       "name": "Verifier envoi Gmail",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [720, 0],
+      "position": [
+        720,
+        0
+      ],
       "parameters": {
         "jsCode": "const mail = $input.first().json;\nif (typeof mail.id !== 'string' || !mail.id.trim()) throw new Error('Email not acknowledged');\nreturn [{ json: { received: true, reference: $('Verifier candidature').first().json.reference, messageId: mail.id } }];"
       }
@@ -60,19 +72,64 @@
       "name": "Confirmer candidature",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.4,
-      "position": [960, 0],
+      "position": [
+        960,
+        0
+      ],
       "parameters": {
         "respondWith": "json",
         "responseBody": "={{ $json }}",
-        "options": { "responseCode": 200 }
+        "options": {
+          "responseCode": 200
+        }
       }
     }
   ],
   "connections": {
-    "Candidature webhook": { "main": [[{ "node": "Verifier candidature", "type": "main", "index": 0 }]] },
-    "Verifier candidature": { "main": [[{ "node": "Envoyer candidature", "type": "main", "index": 0 }]] },
-    "Envoyer candidature": { "main": [[{ "node": "Verifier envoi Gmail", "type": "main", "index": 0 }]] },
-    "Verifier envoi Gmail": { "main": [[{ "node": "Confirmer candidature", "type": "main", "index": 0 }]] }
+    "Candidature webhook": {
+      "main": [
+        [
+          {
+            "node": "Verifier candidature",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verifier candidature": {
+      "main": [
+        [
+          {
+            "node": "Envoyer candidature",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envoyer candidature": {
+      "main": [
+        [
+          {
+            "node": "Verifier envoi Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verifier envoi Gmail": {
+      "main": [
+        [
+          {
+            "node": "Confirmer candidature",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
   "settings": {
     "executionOrder": "v1",

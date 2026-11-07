@@ -21,7 +21,7 @@ Configurer ces deux variables **serveur** dans Vercel ou Netlify, puis redéploy
 
 La clé d’administration de l’API n8n n’est pas nécessaire au site. Ne pas utiliser le préfixe `VITE_`, ni placer de secret dans le code public, le navigateur ou Git. En local, copier `.env.example` vers `.env.local`, renseigner les deux variables n8n, puis démarrer ou redémarrer `npm run dev`.
 
-Le workflow doit vérifier le secret, envoyer un message en texte brut avec Gmail à la destination fixe ci-dessus, puis répondre seulement lorsque Gmail a retourné un identifiant de message. Un webhook qui répond immédiatement au démarrage ne convient pas. Le site attend au maximum 12 secondes et refuse les redirections du webhook.
+Le workflow doit vérifier le secret, envoyer un message HTML avec Gmail à la destination fixe ci-dessus, puis répondre seulement lorsque Gmail a retourné un identifiant de message. Un webhook qui répond immédiatement au démarrage ne convient pas. Le site attend au maximum 12 secondes et refuse les redirections du webhook.
 
 ### Contrat du webhook
 
@@ -30,9 +30,9 @@ Le serveur effectue un `POST` JSON avec les propriétés suivantes :
 - `reference` : SHA-256 complet, soit 64 caractères hexadécimaux, calculé à partir des réponses validées, de la provenance et du jour UTC.
 - `application` : champs validés du formulaire, sans le champ anti-robot ni les propriétés supplémentaires envoyées par le navigateur.
 - `source` : provenance limitée à 100 caractères, sans caractères de contrôle.
-- `email` : `{ to, replyTo, subject, text }`, où `to` vaut toujours `agence.celexia@gmail.com`.
+- `email` : `{ to, replyTo, subject, text, html }`, où `to` vaut toujours `agence.celexia@gmail.com`.
 
-Le workflow doit conserver ce destinataire fixe dans le nœud Gmail. Après un envoi réussi, répondre avec un statut HTTP 2xx et ce JSON :
+Le modèle HTML utilise des tableaux et styles intégrés, sans images ni polices externes. Toutes les données saisies sont échappées ; une version texte reste disponible pour le repli. Le workflow doit conserver ce destinataire fixe dans le nœud Gmail et utiliser `email.html` comme corps du message. Après un envoi réussi, répondre avec un statut HTTP 2xx et ce JSON :
 
 ```json
 {

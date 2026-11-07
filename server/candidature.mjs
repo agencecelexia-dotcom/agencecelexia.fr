@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import { INITIAL_APPLICATION, TRADE_OPTIONS, validateApplication } from '../src/lib/candidature.js';
+import { renderCandidatureEmail } from './candidature-email.mjs';
 
 const DESTINATION = 'agence.celexia@gmail.com';
 const MAX_BODY_BYTES = 16000;
@@ -65,6 +66,7 @@ export async function handleCandidature({ method, body, contentType = '', origin
     replyTo: values.email,
     subject: `Candidature Celexia — ${values.company.replace(/[\r\n]/g, ' ')}`,
     text,
+    html: renderCandidatureEmail({ application: values, trade, source, reference: applicationId, submissionDay }),
   };
 
   try {
@@ -91,6 +93,7 @@ export async function handleCandidature({ method, body, contentType = '', origin
         reply_to: email.replyTo,
         subject: email.subject,
         text: email.text,
+        html: email.html,
       }),
       signal: AbortSignal.timeout(12000),
     });
