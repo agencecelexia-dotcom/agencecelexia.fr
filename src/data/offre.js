@@ -65,6 +65,6 @@ export const FAQ_COMMUNE = [
   },
   {
     q: 'Que se passe-t-il après ma candidature ?',
-    a: 'L’équipe sélection Celexia analyse votre entreprise, votre métier, votre secteur et votre capacité à accueillir de nouveaux chantiers. Nous revenons ensuite vers vous pour échanger sur votre demande. Le formulaire sert à faire connaissance : il ne crée pas de compte et ne comporte aucune signature de contrat.',
+    a: 'L’équipe Celexia analyse votre entreprise, votre métier, votre secteur et votre capacité à accueillir de nouveaux chantiers. Nous revenons ensuite vers vous pour échanger sur votre demande. Le formulaire sert à faire connaissance : il ne crée pas de compte et ne comporte aucune signature de contrat.',
   },
 ];

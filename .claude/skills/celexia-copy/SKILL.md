@@ -52,7 +52,7 @@ doit être répercuté dans les trois.**
 - Contact : 06 51 72 57 56 — agence.celexia@gmail.com. **Conversion unique :
   la candidature interne** (`candidatureUrl()` dans [src/lib/links.js](src/lib/links.js)),
   au libellé `CTA_LABEL` (« Présenter mon entreprise »), identique partout.
-  L’équipe sélection analyse les demandes avant de revenir vers le candidat.
+  L’équipe Celexia analyse les demandes avant de revenir vers le candidat.
   Le parcours ne crée aucun compte et ne conduit à aucun contrat.
 
 ## Deux interdictions absolues, propres à ce site

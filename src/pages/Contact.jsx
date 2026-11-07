@@ -8,7 +8,7 @@ const Arrow = () => <svg className="w-5 h-5" fill="none" stroke="currentColor" s
 export default function Contact() {
   usePageMeta({
     title: 'Parlons de votre entreprise | Agence Celexia',
-    description: 'Contactez l’équipe Celexia ou présentez votre entreprise. Votre candidature est étudiée par notre équipe sélection avant un premier échange.',
+    description: 'Contactez l’équipe Celexia ou présentez votre entreprise. Votre candidature est étudiée par l’équipe Celexia avant un premier échange.',
     canonical: 'https://agencecelexia.fr/contact',
   });
   return (
@@ -25,7 +25,7 @@ export default function Contact() {
             <div className="flex items-center justify-between gap-5"><p className="section-kicker">01 / Présenter votre activité</p><span className="w-10 h-10 rounded-full bg-citron-100 text-violet-900 grid place-items-center"><Arrow /></span></div>
             <h2 className="mt-10 font-display font-medium text-3xl md:text-4xl tracking-tight leading-tight max-w-sm">Votre prochain chapitre commence ici.</h2>
             <p className="mt-5 text-violet-200 text-sm leading-relaxed max-w-md">Le formulaire nous permet de comprendre votre entreprise : son métier, son équipe, son activité et les chantiers qu’elle peut accueillir.</p>
-            <ol className="mt-8 mb-10 space-y-4 text-sm">{['Vous nous présentez votre entreprise.', 'Notre équipe sélection analyse votre demande.', 'Nous revenons vers vous pour échanger.'].map((text, i) => <li key={text} className="flex gap-3 items-center"><span className="w-7 h-7 shrink-0 rounded-full border border-violet-300/50 text-violet-200 flex items-center justify-center text-xs tabular">{i + 1}</span>{text}</li>)}</ol>
+            <ol className="mt-8 mb-10 space-y-4 text-sm">{['Vous nous présentez votre entreprise.', 'L’équipe Celexia analyse votre demande.', 'Nous revenons vers vous pour échanger.'].map((text, i) => <li key={text} className="flex gap-3 items-center"><span className="w-7 h-7 shrink-0 rounded-full border border-violet-300/50 text-violet-200 flex items-center justify-center text-xs tabular">{i + 1}</span>{text}</li>)}</ol>
             <div className="mt-auto"><CTAButton to={candidatureUrl('contact')}>{CTA_LABEL}</CTAButton></div>
           </div></Reveal>
           <Reveal delay={80}><div className="bg-white border border-brume-200 rounded-[28px] p-8 md:p-11 h-full">

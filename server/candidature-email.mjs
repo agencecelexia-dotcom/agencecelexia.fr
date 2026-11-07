@@ -64,7 +64,7 @@ export function renderCandidatureEmail({ application, trade, source, reference, 
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
             <tr>
               <td style="color:#FFFFFF;font-size:26px;line-height:30px;font-weight:700;letter-spacing:-1px;">Celexia<span style="color:#DDE7A3;">.</span></td>
-              <td align="right" style="color:#CFB9FF;font-size:10px;line-height:15px;letter-spacing:1.4px;">L’ÉQUIPE<br>SÉLECTION</td>
+              <td align="right" style="color:#CFB9FF;font-size:10px;line-height:15px;letter-spacing:1.4px;">L’ÉQUIPE<br>CELEXIA</td>
             </tr>
           </table>
           <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin-top:32px;border-collapse:separate;">
@@ -76,7 +76,7 @@ export function renderCandidatureEmail({ application, trade, source, reference, 
 
         <tr><td class="content-padding" style="padding:24px 32px;">
           <p style="margin:0 0 6px;color:#1F0D3D;font-size:17px;line-height:25px;font-weight:700;">Une entreprise souhaite échanger avec nous.</p>
-          <p style="margin:0;color:#6B6480;font-size:13px;line-height:21px;">Voici son dossier, à étudier par l’équipe sélection.<br>Demande reçue le ${escapeHtml(dateLabel)}.</p>
+          <p style="margin:0;color:#6B6480;font-size:13px;line-height:21px;">Voici son dossier, à étudier par l’équipe Celexia.<br>Demande reçue le ${escapeHtml(dateLabel)}.</p>
         </td></tr>
 
         <tr><td class="content-padding" style="padding:0 32px 16px;">
@@ -150,7 +150,7 @@ export function renderCandidatureEmail({ application, trade, source, reference, 
         </td></tr>
       </table>
       <!--[if mso]></td></tr></table><![endif]-->
-      <p style="max-width:540px;margin:20px auto 0;padding:0 12px;color:#6B6480;font-size:11px;line-height:18px;text-align:center;">Celexia · L’équipe sélection<br>Cette demande est une candidature à analyser.<br>Aucun compte ni contrat n’a été créé.</p>
+      <p style="max-width:540px;margin:20px auto 0;padding:0 12px;color:#6B6480;font-size:11px;line-height:18px;text-align:center;">L’équipe Celexia<br>Cette demande est une candidature à analyser.<br>Aucun compte ni contrat n’a été créé.</p>
     </td></tr>
   </table>
 </body>

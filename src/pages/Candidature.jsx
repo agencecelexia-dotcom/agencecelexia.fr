@@ -9,7 +9,7 @@ const TITLES = ['Commençons par votre entreprise.', 'Parlons de votre capacité
 const INTROS = [
   'Votre métier et votre secteur nous aident à comprendre où nous pouvons vous être utiles.',
   'Ces repères nous permettent de tenir compte de votre organisation et des chantiers que vous pouvez accueillir.',
-  'L’équipe sélection utilisera ces coordonnées pour échanger avec vous sur votre demande.',
+  'L’équipe Celexia utilisera ces coordonnées pour échanger avec vous sur votre demande.',
   'Vérifiez vos informations. Vous pourrez les modifier avant de transmettre votre candidature à notre équipe.',
 ];
 
@@ -29,7 +29,7 @@ function Field({ name, label, hint, error, children, ...props }) {
 export default function Candidature() {
   usePageMeta({
     title: 'Candidature artisan | Agence Celexia',
-    description: 'Présentez votre entreprise, votre activité et vos capacités. L’équipe sélection Celexia étudie votre candidature et revient vers vous.',
+    description: 'Présentez votre entreprise, votre activité et vos capacités. L’équipe Celexia étudie votre candidature et revient vers vous.',
     canonical: 'https://agencecelexia.fr/candidature',
   });
   const [searchParams] = useSearchParams();
@@ -130,7 +130,7 @@ export default function Candidature() {
           <p className="section-kicker">Et ensuite ?</p>
           <ol>
             <li><span>01</span><div><strong>Vous présentez votre entreprise</strong><p>Votre métier, votre équipe et vos capacités.</p></div></li>
-            <li><span>02</span><div><strong>Nous étudions votre demande</strong><p>L’équipe sélection examine votre profil et votre secteur.</p></div></li>
+            <li><span>02</span><div><strong>Nous étudions votre demande</strong><p>L’équipe Celexia examine votre profil et votre secteur.</p></div></li>
             <li><span>03</span><div><strong>Nous revenons vers vous</strong><p>Pour faire connaissance et envisager la suite ensemble.</p></div></li>
           </ol>
         </div>
@@ -143,9 +143,9 @@ export default function Candidature() {
           <div className="application-success-icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="m5 12 4 4L19 6" /></svg></div>
           <p className="section-kicker">Demande bien reçue</p>
           <h2>Merci {values.firstName},<br />à très bientôt.</h2>
-          <p>Votre candidature va être analysée par l’équipe sélection Celexia. Nous reviendrons vers vous pour échanger sur votre entreprise et les possibilités de collaboration.</p>
+          <p>Votre candidature va être analysée par l’équipe Celexia. Nous reviendrons vers vous pour échanger sur votre entreprise et les possibilités de collaboration.</p>
           <div className="application-receipt"><span>Nous vous recontacterons à</span><strong>{values.email}</strong></div>
-          <p className="application-signature">L’équipe sélection Celexia</p>
+          <p className="application-signature">L’équipe Celexia</p>
           <Link to="/" className="btn-secondary">Retour à l’accueil <Arrow /></Link>
         </div> : <>
           <div className="application-progress-head"><p className="section-kicker">{STEPS[step]}</p><span>Étape {step + 1} <span className="text-encre-600">/ 4</span></span></div>
@@ -188,7 +188,7 @@ export default function Candidature() {
               {step > 0 ? <button className="application-back" type="button" onClick={() => { setStep(step - 1); setErrors({}); }} disabled={status === 'sending'}><Arrow back /> Retour</button> : <span className="application-secure">Vos informations restent confidentielles.</span>}
               <button className="btn-primary" type="submit" disabled={status === 'sending'}>{status === 'sending' ? 'Envoi en cours…' : step === 3 ? 'Envoyer ma candidature' : 'Continuer'}{status !== 'sending' && <Arrow />}</button>
             </div>
-            <p className="application-bottom-note">{step === 3 ? 'Votre demande sera étudiée par l’équipe sélection Celexia.' : 'Vous pourrez vérifier et modifier vos réponses avant l’envoi.'}</p>
+            <p className="application-bottom-note">{step === 3 ? 'Votre demande sera étudiée par l’équipe Celexia.' : 'Vous pourrez vérifier et modifier vos réponses avant l’envoi.'}</p>
           </form>
         </>}
       </div>

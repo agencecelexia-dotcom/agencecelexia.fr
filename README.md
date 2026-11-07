@@ -28,7 +28,7 @@ Le build produit le client dans `dist/`, un bundle de rendu dans `dist-ssr/`, pu
 - `/metiers/:slug` : piscine, couverture, façade/ITE et maçonnerie.
 - Mentions légales et politique de confidentialité.
 
-Le formulaire ne crée aucun compte et ne conduit pas à un contrat. L’équipe sélection analyse les demandes avant de revenir vers le candidat. Les anciens parcours commerciaux redirigent vers `/candidature`.
+Le formulaire ne crée aucun compte et ne conduit pas à un contrat. L’équipe Celexia analyse les demandes avant de revenir vers le candidat. Les anciens parcours commerciaux redirigent vers `/candidature`.
 
 Les boutons utilisent `CTA_LABEL` et `candidatureUrl()` dans `src/lib/links.js`. Les métiers et les textes partagés se trouvent dans `src/data/`. Le contenu public ne mentionne ni exclusivité des demandes ni taux de rémunération ; les modalités chiffrées sont présentées au téléphone.
 
