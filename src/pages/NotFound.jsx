@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { METIERS } from '../data/metiers';
@@ -7,16 +6,9 @@ const NotFound = () => {
   usePageMeta({
     title: 'Page introuvable | Agence Celexia',
     description: 'Cette page n’existe pas ou a été déplacée.',
-    canonical: '',
+    canonical: null,
+    robots: 'noindex, follow',
   });
-
-  useEffect(() => {
-    const meta = document.createElement('meta');
-    meta.name = 'robots';
-    meta.content = 'noindex, nofollow';
-    document.head.appendChild(meta);
-    return () => document.head.removeChild(meta);
-  }, []);
 
   return (
     <section className="section">

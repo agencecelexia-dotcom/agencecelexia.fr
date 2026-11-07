@@ -20,7 +20,7 @@ export default function Footer() {
           <div>
             <h2 className="footer-kicker">Celexia</h2>
             <ul className="space-y-3">
-              {[['/about', 'Qui sommes-nous ?'], ['/#methode', 'Notre méthode'], ['/contact', 'Contact'], ['/candidature', 'Votre candidature']].map(([to, text]) => <li key={to}><Link to={to} className="footer-link">{text}</Link></li>)}
+              {[['/about', 'Qui sommes-nous ?'], ['/apporteur-affaires-btp', 'Apporteur d’affaires BTP'], ['/partenariat-artisans-btp', 'Devenir partenaire'], ['/guides', 'Guides artisans'], ['/contact', 'Contact'], ['/candidature', 'Votre candidature']].map(([to, text]) => <li key={to}><Link to={to} className="footer-link">{text}</Link></li>)}
             </ul>
           </div>
           <div>

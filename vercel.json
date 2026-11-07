@@ -63,8 +63,5 @@
     { "source": "/metiers/portes-garage", "destination": "/", "statusCode": 301 },
     { "source": "/metiers/arboriculture", "destination": "/", "statusCode": 301 },
     { "source": "/leads-plombier", "destination": "/", "statusCode": 301 }
-  ],
-  "rewrites": [
-    { "source": "/:path((?!api/).*)", "destination": "/index.html" }
   ]
 }

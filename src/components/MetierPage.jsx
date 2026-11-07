@@ -6,6 +6,7 @@ import { ETAPES, FAQ_COMMUNE } from '../data/offre';
 import { candidatureUrl, CTA_LABEL } from '../lib/links';
 import Reveal from '../components/Reveal';
 import CTAButton from '../components/CTAButton';
+import NotFound from '../pages/NotFound';
 
 const Check = ({ className = '' }) => (
   <svg className={className} fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
@@ -27,6 +28,13 @@ const MetierPage = () => {
   const legacyTarget = getLegacyTarget(slug);
   const metier = getMetier(slug);
 
+  if (legacyTarget) return <Navigate to={legacyTarget} replace />;
+  if (!metier) return <NotFound />;
+  return <MetierContent metier={metier} slug={slug} />;
+};
+
+function MetierContent({ metier, slug }) {
+
   usePageMeta({
     title: metier
       ? `Apport d’affaires ${metier.label} | Agence Celexia`
@@ -36,9 +44,6 @@ const MetierPage = () => {
       : 'Ce métier n’est pas accompagné par Agence Celexia.',
     canonical: `https://agencecelexia.fr/metiers/${slug}`,
   });
-
-  if (legacyTarget) return <Navigate to={legacyTarget} replace />;
-  if (!metier) return <Navigate to="/" replace />;
 
   const faq = [...FAQ_COMMUNE, metier.faq];
 
@@ -192,10 +197,11 @@ const MetierPage = () => {
                 <CTAButton to={candidatureUrl(`metier-${slug}-final`)}>{CTA_LABEL}</CTAButton>
               </div>
               <p className="mt-10 text-sm text-violet-200">
-                <Link to="/" className="text-white underline underline-offset-4 hover:text-violet-200">
-                  Revenir au fonctionnement général
+                <Link to="/partenariat-artisans-btp" className="text-white underline underline-offset-4 hover:text-violet-200">
+                  Préparer votre partenariat artisan
                 </Link>
               </p>
+              <p className="mt-4 text-sm"><Link to="/guides/commission-apporteur-affaires-btp" className="text-white underline underline-offset-4 hover:text-violet-200">Comprendre le fonctionnement de la commission</Link></p>
             </div>
           </Reveal>
         </div>

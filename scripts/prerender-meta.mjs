@@ -1,85 +1,51 @@
 /**
- * Script post-build : génère un fichier HTML statique par route, contenant
- * à la fois ses meta (title, description, canonical, OG, Twitter), son JSON-LD
- * et **le contenu de la page réellement rendu**.
- *
- * C'est la SEULE source de vérité du SEO. Une route absente d'ici est invisible
- * pour Google, quoi qu'en dise le routeur React.
- *
- * Le rendu du contenu vient de dist-ssr/entry-server.js (bundle SSR produit par
- * `vite build --ssr`). Sans lui, le HTML ne contiendrait qu'un <div id="root">
- * vide : Google saurait l'exécuter, mais pas GPTBot, ClaudeBot, PerplexityBot
- * ni les robots d'aperçu de lien.
- *
- * Les métiers et la FAQ sont IMPORTÉS depuis src/data/ : plus aucune liste
- * dupliquée à maintenir en parallèle. Ajouter un métier dans src/data/metiers.js
- * suffit à générer sa page — il reste à l'ajouter à public/sitemap.xml.
+ * Pré-rendu complet : chaque URL indexable reçoit son contenu, ses métadonnées
+ * et ses données structurées dans le HTML initial, sans dépendre de JavaScript.
+ * Les contenus SEO et les métiers sont partagés avec les composants React.
  */
-
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { METIERS } from '../src/data/metiers.js';
-import { DEFINITION, ETAPES, FAQ_COMMUNE } from '../src/data/offre.js';
+import { DEFINITION } from '../src/data/offre.js';
+import { SEO_PAGES } from '../src/data/seoPages.js';
+import { SEO_HUB } from '../src/data/seoHub.js';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const distDir = join(__dirname, '..', 'dist');
-
+const rootDir = join(dirname(fileURLToPath(import.meta.url)), '..');
+const distDir = join(rootDir, 'dist');
 const SITE_URL = 'https://agencecelexia.fr';
-const DATE_PUBLISHED = '2024-10-01';
 const DATE_MODIFIED = '2026-11-07';
 
 const ORG_LD = {
-  '@type': ['Organization', 'ProfessionalService'],
+  '@type': 'Organization',
   '@id': `${SITE_URL}/#organization`,
   name: 'Agence Celexia',
-  // Les deux formes sont réellement tapées dans un moteur de recherche.
   alternateName: ['Celexia', 'CELEXIA'],
   legalName: 'CELEXIA',
-  url: SITE_URL,
-  logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png`, width: 605, height: 98 },
+  url: `${SITE_URL}/`,
+  logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon-512x512.png`, width: 512, height: 512 },
   image: `${SITE_URL}/og-image.png`,
-  // Reprise mot pour mot de DEFINITION (src/data/offre.js), elle-même affichée
-  // en tête d'accueil : ce que le site montre et ce qu'il déclare coïncident.
   description: DEFINITION,
   slogan: 'On gagne quand vous gagnez',
-  serviceType: "Apport d'affaires pour artisans du bâtiment",
   telephone: '+33651725756',
   email: 'agence.celexia@gmail.com',
-  address: {
-    '@type': 'PostalAddress',
-    addressCountry: 'FR',
-  },
-  foundingDate: '2024',
   taxID: 'SIREN 939 306 429',
   areaServed: { '@type': 'Country', name: 'France' },
   knowsLanguage: 'fr',
   knowsAbout: [
-    "Apport d'affaires pour artisans",
+    'Apport d’affaires pour artisans',
     'Qualification de demandes de chantiers',
     'Mise en relation artisan et particulier',
     'Chantiers de piscine, couverture, façade et maçonnerie',
   ],
-  // Ne lister ici que des profils qui répondent réellement : un lien mort est un
-  // signal négatif. LinkedIn a été retiré (404 au 3 août 2026), à remettre le
-  // jour où la page existe.
   sameAs: ['https://www.facebook.com/agencecelexia'],
-  founder: [
-    {
-      '@type': 'Person',
-      '@id': `${SITE_URL}/#thomas`,
-      name: 'Thomas',
-      jobTitle: 'Co-fondateur',
-      worksFor: { '@id': `${SITE_URL}/#organization` },
-    },
-    {
-      '@type': 'Person',
-      '@id': `${SITE_URL}/#antoine`,
-      name: 'Antoine',
-      jobTitle: 'Co-fondateur',
-      worksFor: { '@id': `${SITE_URL}/#organization` },
-    },
-  ],
+  founder: ['Thomas', 'Antoine'].map((name) => ({
+    '@type': 'Person',
+    '@id': `${SITE_URL}/#${name.toLowerCase()}`,
+    name,
+    jobTitle: 'Co-fondateur',
+    worksFor: { '@id': `${SITE_URL}/#organization` },
+  })),
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: '+33651725756',
@@ -90,241 +56,106 @@ const ORG_LD = {
   },
 };
 
-// Reprend mot pour mot la FAQ affichée à l'écran (src/data/offre.js).
-// Un FAQPage sans FAQ visible est une non-conformité Google.
-const FAQ_LD = {
-  '@type': 'FAQPage',
-  '@id': `${SITE_URL}/#faq`,
-  mainEntity: FAQ_COMMUNE.map((item) => ({
-    '@type': 'Question',
-    name: item.q,
-    acceptedAnswer: { '@type': 'Answer', text: item.a },
-  })),
-};
-
-// Reprend les 4 étapes affichées à l'écran (src/data/offre.js).
-const HOWTO_LD = {
-  '@type': 'HowTo',
-  '@id': `${SITE_URL}/#howto`,
-  name: "Comment fonctionne l'apport d'affaires Celexia pour les artisans",
-  description:
-    "Celexia finance la recherche des chantiers, qualifie les demandes et les transmet aux artisans selon leur métier et leur secteur. Elle est rémunérée à la commission, uniquement après chantier signé et acompte reçu.",
-  step: ETAPES.map((etape, i) => ({
-    '@type': 'HowToStep',
-    position: i + 1,
-    name: etape.titre,
-    text: etape.desc,
-  })),
+const WEBSITE_LD = {
+  '@type': 'WebSite',
+  '@id': `${SITE_URL}/#website`,
+  url: `${SITE_URL}/`,
+  name: 'Agence Celexia',
+  description: DEFINITION,
+  inLanguage: 'fr-FR',
+  publisher: { '@id': `${SITE_URL}/#organization` },
 };
 
 const baseRoutes = [
   {
     path: '/',
     title: "Agence Celexia | Apport d'affaires pour artisans du bâtiment",
-    // ~150 caractères : au-delà, Google tronque en résultat de recherche.
-    description:
-      "Celexia accompagne les artisans avec des projets qualifiés. Recherche financée par nos soins, commission après signature et acompte reçu.",
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'WebSite',
-          '@id': `${SITE_URL}/#website`,
-          url: SITE_URL,
-          name: 'Agence Celexia',
-          description:
-            "Apporteur d'affaires pour artisans du bâtiment. Rémunéré à la commission, uniquement après chantier signé et acompte reçu.",
-          inLanguage: 'fr-FR',
-          publisher: { '@id': `${SITE_URL}/#organization` },
-        },
-        {
-          '@type': 'WebPage',
-          '@id': `${SITE_URL}/#webpage`,
-          url: SITE_URL,
-          name: "Agence Celexia | Apport d'affaires pour artisans du bâtiment",
-          isPartOf: { '@id': `${SITE_URL}/#website` },
-          about: { '@id': `${SITE_URL}/#organization` },
-          description:
-            "Celexia recherche et qualifie des projets de travaux pour les artisans du bâtiment, en tenant compte de leur métier et de leur secteur.",
-          inLanguage: 'fr-FR',
-          datePublished: DATE_PUBLISHED,
-          dateModified: DATE_MODIFIED,
-        },
-        ORG_LD,
-        FAQ_LD,
-        HOWTO_LD,
-      ],
-    },
+    description: 'Celexia accompagne les artisans avec des projets qualifiés. Recherche financée par nos soins, commission après signature et acompte reçu.',
+    updatedAt: DATE_MODIFIED,
   },
   {
     path: '/about',
     title: 'Qui sommes-nous ? | Agence Celexia',
-    description:
-      "Thomas et Antoine, fondateurs de Celexia. Des projets qualifiés pour les artisans, une commission uniquement après signature et acompte reçu.",
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'AboutPage',
-      '@id': `${SITE_URL}/about#aboutpage`,
-      name: 'Qui sommes-nous ? — Agence Celexia',
-      description:
-        "Thomas et Antoine, fondateurs de Celexia. Notre rôle : rechercher, financer et qualifier les demandes de chantiers pour les artisans.",
-      url: `${SITE_URL}/about`,
-      inLanguage: 'fr-FR',
-      isPartOf: { '@id': `${SITE_URL}/#website` },
-      mainEntity: ORG_LD,
-      datePublished: DATE_PUBLISHED,
-      dateModified: DATE_MODIFIED,
-    },
+    description: 'Thomas et Antoine, fondateurs de Celexia. Des projets qualifiés pour les artisans, une commission uniquement après signature et acompte reçu.',
+    pageType: 'AboutPage',
+    updatedAt: DATE_MODIFIED,
   },
   {
     path: '/contact',
     title: 'Parlons de votre entreprise | Agence Celexia',
-    description:
-      "Contactez l’équipe Celexia ou présentez votre entreprise. Votre candidature est étudiée par l’équipe Celexia avant un premier échange.",
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'ContactPage',
-          '@id': `${SITE_URL}/contact#contactpage`,
-          name: 'Contacter Agence Celexia',
-          description:
-            "Téléphone, courriel et informations légales vérifiables de la société CELEXIA.",
-          url: `${SITE_URL}/contact`,
-          inLanguage: 'fr-FR',
-          isPartOf: { '@id': `${SITE_URL}/#website` },
-          datePublished: DATE_PUBLISHED,
-          dateModified: DATE_MODIFIED,
-        },
-        {
-          '@type': 'LocalBusiness',
-          '@id': `${SITE_URL}/contact#localbusiness`,
-          name: 'Agence Celexia',
-          description:
-            "Apporteur d'affaires pour artisans du bâtiment. Rémunéré à la commission, uniquement après chantier signé et acompte reçu.",
-          url: SITE_URL,
-          telephone: '+33651725756',
-          email: 'agence.celexia@gmail.com',
-          image: `${SITE_URL}/logo.png`,
-          address: {
-            '@type': 'PostalAddress',
-            addressCountry: 'FR',
-          },
-          areaServed: { '@type': 'Country', name: 'France' },
-          // `priceRange` retiré : dénué de sens pour une commission au résultat.
-          openingHours: 'Mo-Fr 09:00-18:00',
-          parentOrganization: { '@id': `${SITE_URL}/#organization` },
-        },
-      ],
-    },
+    description: 'Contactez l’équipe Celexia ou présentez votre entreprise. Votre candidature est étudiée par l’équipe Celexia avant un premier échange.',
+    pageType: 'ContactPage',
+    updatedAt: DATE_MODIFIED,
   },
   {
     path: '/candidature',
     title: 'Candidature artisan | Agence Celexia',
-    description:
-      'Présentez votre entreprise, votre activité et vos capacités. L’équipe Celexia étudie votre candidature et revient vers vous.',
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'ContactPage',
-      '@id': `${SITE_URL}/candidature#webpage`,
-      name: 'Présenter mon entreprise à Celexia',
-      description: 'Formulaire de candidature pour les entreprises du bâtiment. Chaque demande est étudiée par l’équipe Celexia.',
-      url: `${SITE_URL}/candidature`,
-      inLanguage: 'fr-FR',
-      isPartOf: { '@id': `${SITE_URL}/#website` },
-      about: { '@id': `${SITE_URL}/#organization` },
-      dateModified: DATE_MODIFIED,
-    },
+    description: 'Présentez votre entreprise, votre activité et vos capacités. L’équipe Celexia étudie votre candidature et revient vers vous.',
+    pageType: 'ContactPage',
+    updatedAt: DATE_MODIFIED,
   },
   {
     path: '/mentions-legales',
     title: 'Mentions légales | Agence Celexia',
-    description:
-      "Mentions légales du site agencecelexia.fr : éditeur, hébergeur, propriété intellectuelle et droit applicable.",
+    description: 'Mentions légales du site agencecelexia.fr : éditeur, hébergeur, propriété intellectuelle et droit applicable.',
   },
   {
     path: '/politique-confidentialite',
     title: 'Politique de confidentialité | Agence Celexia',
-    description:
-      "Politique de confidentialité et de protection des données personnelles du site agencecelexia.fr. Conformité RGPD.",
+    description: 'Politique de confidentialité et de protection des données personnelles du site agencecelexia.fr. Conformité RGPD.',
   },
 ];
 
-// Une route par métier, dérivée directement de src/data/metiers.js.
 const metierRoutes = Object.entries(METIERS).map(([slug, metier]) => ({
   path: `/metiers/${slug}`,
-  title: `Apport d'affaires ${metier.label} | Agence Celexia`,
+  title: `Apport d’affaires ${metier.label} | Agence Celexia`,
   description: `Chantiers ${metier.labelCourt.toLowerCase()} qualifiés pour votre entreprise. Commission uniquement après signature et acompte.`,
-  jsonLd: {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'Service',
-        '@id': `${SITE_URL}/metiers/${slug}/#service`,
-        name: `Apport d'affaires pour ${metier.label.toLowerCase()}`,
-        description: `Service d'apport d'affaires dédié au métier ${metier.label.toLowerCase()}. Demandes de chantiers qualifiées selon le métier et la zone d’intervention. Rémunéré à la commission, uniquement après chantier signé et acompte reçu.`,
-        url: `${SITE_URL}/metiers/${slug}`,
-        serviceType: "Apport d'affaires",
-        provider: { '@id': `${SITE_URL}/#organization` },
-        areaServed: { '@type': 'Country', name: 'France' },
-        audience: { '@type': 'Audience', audienceType: metier.label },
-      },
-      {
-        '@type': 'FAQPage',
-        '@id': `${SITE_URL}/metiers/${slug}/#faq`,
-        mainEntity: [...FAQ_COMMUNE, metier.faq].map((item) => ({
-          '@type': 'Question',
-          name: item.q,
-          acceptedAnswer: { '@type': 'Answer', text: item.a },
-        })),
-      },
-    ],
-  },
+  updatedAt: DATE_MODIFIED,
+  serviceName: `Apport d’affaires pour ${metier.label.toLowerCase()}`,
+  audience: metier.label,
 }));
 
-const routes = [...baseRoutes, ...metierRoutes];
+const editorialRoutes = Object.values(SEO_PAGES).map((page) => ({
+  ...page,
+  article: page.path.startsWith('/guides/'),
+  serviceName: page.path === '/apporteur-affaires-btp'
+    ? 'Apport d’affaires BTP pour artisans du bâtiment'
+    : undefined,
+}));
 
-// Libellés des segments d'URL, pour le fil d'Ariane.
-const metierLabels = Object.fromEntries(
-  Object.entries(METIERS).map(([slug, metier]) => [slug, metier.label])
-);
+const routes = [
+  ...baseRoutes,
+  ...metierRoutes,
+  { ...SEO_HUB, pageType: 'CollectionPage' },
+  ...editorialRoutes,
+];
+const routePaths = new Set(routes.map(({ path }) => path));
+if (routePaths.size !== routes.length) throw new Error('Une route SEO est déclarée plusieurs fois.');
 
 const pageNames = {
-  about: 'À propos',
-  contact: 'Contact',
-  candidature: 'Candidature',
-  'mentions-legales': 'Mentions légales',
-  'politique-confidentialite': 'Politique de confidentialité',
-  metiers: 'Métiers',
-  ...metierLabels,
+  '/': 'Accueil',
+  '/about': 'Qui sommes-nous ?',
+  '/contact': 'Contact',
+  '/candidature': 'Candidature',
+  '/mentions-legales': 'Mentions légales',
+  '/politique-confidentialite': 'Politique de confidentialité',
+  '/guides': 'Guides artisans',
+  ...Object.fromEntries(Object.entries(METIERS).map(([slug, metier]) => [`/metiers/${slug}`, metier.label])),
+  ...Object.fromEntries(editorialRoutes.map((page) => [page.path, page.breadcrumbLabel || page.h1])),
 };
-
-function escapeHtml(str) {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-}
 
 function buildBreadcrumbJsonLd(route) {
   if (route.path === '/') return null;
-
-  const segments = route.path.split('/').filter(Boolean);
   const breadcrumbs = [{ name: 'Accueil', path: '/' }];
-  let currentPath = '';
-  segments.forEach((seg) => {
-    currentPath += `/${seg}`;
-    breadcrumbs.push({
-      name: pageNames[seg] || seg.charAt(0).toUpperCase() + seg.slice(1),
-      path: currentPath,
-    });
-  });
-
+  let path = '';
+  for (const segment of route.path.split('/').filter(Boolean)) {
+    path += `/${segment}`;
+    // /metiers n’est pas une page : ne pas déclarer d’URL inexistante.
+    if (routePaths.has(path)) breadcrumbs.push({ name: pageNames[path], path });
+  }
   return {
-    '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
+    '@id': `${SITE_URL}${route.path}#breadcrumb`,
     itemListElement: breadcrumbs.map((crumb, index) => ({
       '@type': 'ListItem',
       position: index + 1,
@@ -334,85 +165,124 @@ function buildBreadcrumbJsonLd(route) {
   };
 }
 
-function generatePage(template, route, contenu) {
-  const canonical = `${SITE_URL}${route.path === '/' ? '/' : route.path}`;
-  const title = escapeHtml(route.title);
-  const description = escapeHtml(route.description);
-  const image = `${SITE_URL}/og-image.png`;
-
-  let html = template;
-
-  html = html.replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`);
-  html = html.replace(/<link rel="canonical" href="[^"]*" ?\/?>/, `<link rel="canonical" href="${canonical}" />`);
-  html = html.replace(/<meta name="description" content="[^"]*" ?\/?>/, `<meta name="description" content="${description}" />`);
-  html = html.replace(/<meta property="og:title" content="[^"]*" ?\/?>/, `<meta property="og:title" content="${title}" />`);
-  html = html.replace(/<meta property="og:description" content="[^"]*" ?\/?>/, `<meta property="og:description" content="${description}" />`);
-  html = html.replace(/<meta property="og:url" content="[^"]*" ?\/?>/, `<meta property="og:url" content="${canonical}" />`);
-  html = html.replace(/<meta property="og:image" content="[^"]*" ?\/?>/, `<meta property="og:image" content="${image}" />`);
-  html = html.replace(/<meta name="twitter:title" content="[^"]*" ?\/?>/, `<meta name="twitter:title" content="${title}" />`);
-  html = html.replace(/<meta name="twitter:description" content="[^"]*" ?\/?>/, `<meta name="twitter:description" content="${description}" />`);
-  html = html.replace(/<meta name="twitter:image" content="[^"]*" ?\/?>/, `<meta name="twitter:image" content="${image}" />`);
-
-  let schemas = '';
-  const breadcrumbLd = buildBreadcrumbJsonLd(route);
-  if (breadcrumbLd) {
-    schemas += `    <script type="application/ld+json">${JSON.stringify(breadcrumbLd)}</script>\n`;
+function buildJsonLd(route) {
+  const url = `${SITE_URL}${route.path}`;
+  const breadcrumb = buildBreadcrumbJsonLd(route);
+  const webpage = {
+    '@type': route.pageType || 'WebPage',
+    '@id': `${url}#webpage`,
+    url,
+    name: route.title,
+    description: route.description,
+    inLanguage: 'fr-FR',
+    isPartOf: { '@id': WEBSITE_LD['@id'] },
+    about: { '@id': ORG_LD['@id'] },
+    ...(route.updatedAt && { dateModified: route.updatedAt }),
+    ...(breadcrumb && { breadcrumb: { '@id': breadcrumb['@id'] } }),
+  };
+  const graph = [ORG_LD, WEBSITE_LD, webpage];
+  if (breadcrumb) graph.push(breadcrumb);
+  if (route.serviceName) {
+    const id = `${url}#service`;
+    webpage.mainEntity = { '@id': id };
+    graph.push({
+      '@type': 'Service',
+      '@id': id,
+      name: route.serviceName,
+      description: route.description,
+      url,
+      serviceType: 'Apport d’affaires',
+      provider: { '@id': ORG_LD['@id'] },
+      areaServed: { '@type': 'Country', name: 'France' },
+      audience: { '@type': 'BusinessAudience', audienceType: route.audience || 'Artisans et entreprises du bâtiment' },
+    });
   }
-  if (route.jsonLd) {
-    schemas += `    <script type="application/ld+json">${JSON.stringify(route.jsonLd)}</script>\n`;
+  if (route.article) {
+    const id = `${url}#article`;
+    webpage.mainEntity = { '@id': id };
+    graph.push({
+      '@type': 'Article',
+      '@id': id,
+      headline: route.h1,
+      description: route.description,
+      url,
+      mainEntityOfPage: { '@id': webpage['@id'] },
+      inLanguage: 'fr-FR',
+      author: { '@type': 'Organization', name: 'L’équipe Celexia', url: `${SITE_URL}/about` },
+      publisher: { '@id': ORG_LD['@id'] },
+      datePublished: route.publishedAt,
+      dateModified: route.updatedAt,
+    });
   }
-  if (schemas) {
-    html = html.replace('</head>', `${schemas}  </head>`);
+  if (route.path === SEO_HUB.path) {
+    webpage.mainEntity = {
+      '@type': 'ItemList',
+      itemListElement: editorialRoutes.map((page, i) => ({
+        '@type': 'ListItem', position: i + 1, name: page.h1, url: `${SITE_URL}${page.path}`,
+      })),
+    };
   }
-
-  // Injection du contenu rendu. `hydrateRoot` (src/entry-client.jsx) reprend la
-  // main dessus au chargement ; sans JavaScript, le texte reste lisible tel quel.
-  if (contenu) {
-    html = html.replace('<div id="root"></div>', `<div id="root">${contenu}</div>`);
-  }
-
-  return html;
+  return { '@context': 'https://schema.org', '@graph': graph };
 }
 
-// --- Exécution ---
+function escapeHtml(value) {
+  return String(value).replace(/[&"'<>]/g, (char) => ({
+    '&': '&amp;', '"': '&quot;', "'": '&#39;', '<': '&lt;', '>': '&gt;',
+  }[char]));
+}
+
+function generatePage(template, route, content) {
+  const canonical = `${SITE_URL}${route.path}`;
+  let html = template.replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(route.title)}</title>`);
+  // Le site est uniquement en français. Les anciens hreflang pointaient vers
+  // l’accueil depuis toutes les pages, sans représenter de versions traduites.
+  html = html.replace(/\s*<link[^>]+hreflang="[^"]*"[^>]*>/g, '');
+  html = html.replace(/<link rel="canonical" href="[^"]*"\s*\/?>/, route.noindex ? '' : `<link rel="canonical" href="${canonical}" />`);
+  const metas = {
+    description: route.description,
+    'og:title': route.title,
+    'og:description': route.description,
+    'og:url': canonical,
+    'og:type': route.article ? 'article' : 'website',
+    'twitter:title': route.title,
+    'twitter:description': route.description,
+  };
+  if (route.noindex) metas.robots = 'noindex, follow';
+  for (const [name, value] of Object.entries(metas)) {
+    const attribute = name.startsWith('og:') ? 'property' : 'name';
+    const pattern = new RegExp(`<meta ${attribute}="${name}" content="[^"]*"\\s*\\/?>`);
+    html = html.replace(pattern, `<meta ${attribute}="${name}" content="${escapeHtml(value)}" />`);
+  }
+  if (!route.noindex) {
+    // Escape '<' so editorial text can never terminate the JSON-LD script.
+    const schema = JSON.stringify(buildJsonLd(route)).replace(/</g, '\\u003c');
+    html = html.replace('</head>', `    <script type="application/ld+json">${schema}</script>\n  </head>`);
+  }
+  return html.replace('<div id="root"></div>', `<div id="root">${content}</div>`);
+}
+
 const templatePath = join(distDir, 'index.html');
-if (!existsSync(templatePath)) {
-  console.error('dist/index.html introuvable. Lancer vite build d’abord.');
-  process.exit(1);
+const ssrPath = join(rootDir, 'dist-ssr', 'entry-server.js');
+if (!existsSync(templatePath) || !existsSync(ssrPath)) {
+  throw new Error('Pré-rendu incomplet : lancer npm run build pour produire les bundles client et serveur.');
 }
-
 const template = readFileSync(templatePath, 'utf-8');
-
-// Bundle SSR produit par `vite build --ssr`. Absent en cas de build partiel :
-// on dégrade alors sur meta + JSON-LD seuls, en le signalant bruyamment.
-const ssrPath = join(__dirname, '..', 'dist-ssr', 'entry-server.js');
-let render = null;
-if (existsSync(ssrPath)) {
-  ({ render } = await import(ssrPath));
-} else {
-  console.warn(
-    "⚠️  dist-ssr/entry-server.js introuvable : le contenu des pages ne sera PAS " +
-    "pré-rendu. Lancer `npm run build` complet."
-  );
-}
-
-let generated = 0;
-
+const { render } = await import(ssrPath);
 for (const route of routes) {
-  const contenu = render ? await render(route.path) : null;
-  const html = generatePage(template, route, contenu);
-
-  if (route.path === '/') {
-    writeFileSync(templatePath, html);
-  } else {
-    const dir = join(distDir, route.path);
-    mkdirSync(dir, { recursive: true });
-    writeFileSync(join(dir, 'index.html'), html);
-  }
-  generated++;
+  const content = await render(route.path);
+  if (!content.includes('<h1')) throw new Error(`Contenu principal absent du pré-rendu : ${route.path}`);
+  const path = route.path === '/' ? templatePath : join(distDir, route.path, 'index.html');
+  mkdirSync(dirname(path), { recursive: true });
+  writeFileSync(path, generatePage(template, route, content));
 }
 
-console.log(
-  `Pre-rendered ${generated} pages with SEO meta tags and JSON-LD schemas` +
-  (render ? ' and full page content.' : ' (WITHOUT page content).')
-);
+// Vercel et Netlify servent ce fichier avec un véritable statut 404 lorsque
+// aucune route statique, redirection ou fonction ne correspond à la demande.
+const notFound = {
+  path: '/404',
+  title: 'Page introuvable | Agence Celexia',
+  description: 'Cette page n’existe pas ou a été déplacée.',
+  noindex: true,
+};
+writeFileSync(join(distDir, '404.html'), generatePage(template, notFound, await render('/404')));
+console.log(`Pre-rendered ${routes.length} pages with SEO meta tags, JSON-LD and full page content, plus 404.html.`);
