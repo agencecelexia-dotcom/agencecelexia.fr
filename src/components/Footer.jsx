@@ -34,9 +34,9 @@ export default function Footer() {
             <p className="mt-4 text-xs text-violet-200">France entière</p>
           </div>
         </div>
-        <div className="border-t border-white/15 pt-7 flex flex-col md:flex-row justify-between gap-4 text-[10px] text-violet-200">
-          <p>© {new Date().getFullYear()} CELEXIA SASU · SIREN 939 306 429</p>
-          <div className="flex gap-6"><Link to="/mentions-legales" className="hover:text-white">Mentions légales</Link><Link to="/politique-confidentialite" className="hover:text-white">Confidentialité</Link></div>
+        <div className="border-t border-white/15 pt-7 flex flex-col md:flex-row md:items-center justify-between gap-4 text-xs text-violet-200">
+          <p>© {new Date().getFullYear()} CELEXIA SASU</p>
+          <div className="flex flex-wrap gap-x-6"><Link to="/mentions-legales" className="inline-flex items-center min-h-11 hover:text-white">Mentions légales</Link><Link to="/politique-confidentialite" className="inline-flex items-center min-h-11 hover:text-white">Confidentialité</Link></div>
         </div>
       </div>
     </footer>
