@@ -10,7 +10,6 @@ import { METIERS } from '../src/data/metiers.js';
 import { DEFINITION } from '../src/data/offre.js';
 import { SEO_PAGES } from '../src/data/seoPages.js';
 import { SEO_HUB } from '../src/data/seoHub.js';
-import { CASE_STUDY } from '../src/data/partnerCase.js';
 
 const rootDir = join(dirname(fileURLToPath(import.meta.url)), '..');
 const distDir = join(rootDir, 'dist');
@@ -72,7 +71,7 @@ const baseRoutes = [
     path: '/',
     title: "Agence Celexia | Apport d'affaires pour artisans du bâtiment",
     description: 'Celexia accompagne les artisans avec des projets qualifiés. Recherche financée par nos soins, commission après signature et acompte reçu.',
-    updatedAt: DATE_MODIFIED,
+    updatedAt: '2026-11-08',
   },
   {
     path: '/about',
@@ -116,7 +115,7 @@ const metierRoutes = Object.entries(METIERS).map(([slug, metier]) => ({
   audience: metier.label,
 }));
 
-const editorialRoutes = [...Object.values(SEO_PAGES), CASE_STUDY].map((page) => ({
+const editorialRoutes = Object.values(SEO_PAGES).map((page) => ({
   ...page,
   article: page.kind === 'article',
   serviceName: page.path === '/apporteur-affaires-btp'

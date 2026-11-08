@@ -4,7 +4,7 @@ import { validateIndexableHtml } from './lib/indexnow.mjs';
 
 const SITE = 'https://agencecelexia.fr';
 const bots = ['Googlebot', 'bingbot', 'OAI-SearchBot', 'Claude-SearchBot', 'PerplexityBot', 'MistralAI-Index'];
-const paths = ['/apporteur-affaires-btp', '/guides/demande-qualifiee-btp', '/retour-experience-partenaire-btp'];
+const paths = ['/apporteur-affaires-btp', '/guides/demande-qualifiee-btp', '/guides/choisir-apporteur-affaires-couvreur'];
 const request = (path, agent = 'Celexia-Public-Audit/1.0') => fetch(`${SITE}${path}`, {
   headers: { 'User-Agent': agent }, redirect: 'error', signal: AbortSignal.timeout(15000),
 });

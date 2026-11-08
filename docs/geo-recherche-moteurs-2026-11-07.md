@@ -2,6 +2,8 @@
 
 Vérification documentaire du 7 novembre 2026. Sources primaires uniquement. Ce document ne mesure ni une hausse de trafic Celexia ni une position dans une réponse IA. Aucun compte n'a été créé et aucun réglage externe n'a été modifié.
 
+**Mise à jour du 8 novembre 2026 :** le précédent cas partenaire est retiré à la demande du propriétaire. Ne plus réutiliser ses chiffres, son récit ou sa présentation comme preuve. Les observations d’accès et de configuration de ce rapport restent datées du relevé initial ; elles ne remplacent pas un contrôle du site actuel.
+
 ## Ce que l'on peut contrôler
 
 La découverte d'une page, son indexation, sa sélection comme source d'une réponse et la visite d'un artisan sont des étapes différentes. L'entraînement d'un modèle constitue encore un autre usage. Autoriser un robot ne prouve aucune de ces étapes suivantes.
@@ -10,7 +12,7 @@ La découverte d'une page, son indexation, sa sélection comme source d'une rép
 
 Google applique les bases habituelles du référencement. Une page doit être indexée et pouvoir apparaître avec un extrait pour être éligible comme lien source. Googlebot contrôle l'exploration de Search, y compris ses fonctions IA. Le contenu important doit être accessible en texte, relié par des liens internes et cohérent avec les données structurées. Aucun fichier IA spécial ni schéma supplémentaire n'est exigé ; `llms.txt` n'est donc pas une condition de présence. L'éligibilité ne garantit pas l'affichage. Les performances de ces fonctions sont incluses dans le type de recherche **Web** de Search Console. [Guide officiel Google](https://developers.google.com/search/docs/appearance/ai-features).
 
-**Pour Celexia :** inspecter l'indexation des pages partenariat, métiers, commission et retour d'expérience ; conserver leur HTML complet et leurs liens utiles. Mesurer les impressions, clics et candidatures au lieu de déduire une présence IA d'un sitemap accepté. Ne pas créer une variante de chaque page par assistant.
+**Pour Celexia :** inspecter l'indexation des pages partenariat, métiers et commission ; conserver leur HTML complet et leurs liens utiles. Mesurer les impressions, clics et candidatures au lieu de déduire une présence IA d'un sitemap accepté. Ne pas créer une variante de chaque page par assistant.
 
 ### Gemini : attention au rôle de Google-Extended
 
@@ -54,7 +56,7 @@ La documentation Meta sur les robots n'a pas pu être lue avec cet outil (répon
 
 1. **Établir la mesure.** Exporter Search Console sur deux périodes comparables, avec pays, appareil, requête et page identiques ; séparer requêtes de marque et recherches métier. Faire de même dans Bing dès que des données sont disponibles. Enregistrer les candidatures issues de ces visites. Cette recherche documentaire n'a pas accès à ces mesures privées.
 2. **Faire découvrir les changements.** Vérifier les URL publiques et leur indexation, puis préparer IndexNow pour la publication. Conserver le sitemap exact. Contrôler les refus CDN uniquement s'ils sont observés ; le robots.txt local autorise déjà les recherches mentionnées.
-3. **Renforcer les sources propres à Celexia.** Publier les informations de méthode, pages métiers, critères pratiques et retour d'expérience déjà préparés, avec périmètre et limites explicites. Les résultats déclarés d'un partenaire ne doivent pas devenir une promesse pour tous les artisans. Mon conseil éditorial, déduit des recommandations de clarté et de fiabilité, est de développer des éléments que d'autres sites ne peuvent pas documenter à la place de Celexia.
+3. **Renforcer les sources propres à Celexia.** Publier les informations de méthode, pages métiers et critères pratiques vérifiables, avec périmètre et limites explicites. Toute future preuve de résultat doit reposer sur de nouveaux éléments vérifiables et autorisés ; le cas retiré ne peut pas être réutilisé. Mon conseil éditorial, déduit des recommandations de clarté et de fiabilité, est de développer des éléments que d'autres sites ne peuvent pas documenter à la place de Celexia.
 4. **Observer les réponses sans inventer un score.** Conserver un petit jeu de questions B2B constantes par métier et comparer à dates définies la mention de Celexia, l'URL citée, l'exactitude et les concurrents cités. Consigner les questions sans mention de marque séparément des questions qui demandent déjà Celexia. Aucun résultat de ce test n'a été produit pendant cette mission.
 
 ## Comptes et accès à traiter à la fin

@@ -4,7 +4,6 @@ import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { SEO_PAGES } from '../src/data/seoPages.js';
 import { SEO_HUB } from '../src/data/seoHub.js';
-import { CASE_STUDY } from '../src/data/partnerCase.js';
 import { METIERS } from '../src/data/metiers.js';
 
 // Tests d’intégration des fichiers réellement livrés : npm run build doit avoir
@@ -24,7 +23,7 @@ const schemas = (html) => [...html.matchAll(/<script type="application\/ld\+json
 
 test('sitemap et pages indexables restent synchronisés, y compris les nouvelles pages', () => {
   assert.equal(urls.length, new Set(urls).size, 'pas d’URL dupliquée');
-  for (const page of [...Object.values(SEO_PAGES), SEO_HUB, CASE_STUDY]) {
+  for (const page of [...Object.values(SEO_PAGES), SEO_HUB]) {
     assert.ok(paths.includes(page.path), `${page.path} manque au sitemap`);
   }
   function collectIndexes(directory, found = []) {
@@ -66,7 +65,7 @@ test('chaque page livre un contenu complet et des métadonnées propres sans Jav
 });
 
 test('les guides partagent leur titre, date et auteur visibles avec Article', () => {
-  for (const page of [...Object.values(SEO_PAGES), CASE_STUDY]) {
+  for (const page of Object.values(SEO_PAGES)) {
     const html = pages.get(page.path);
     assert.equal(decode(html.match(/<title>([^<]+)<\/title>/)[1]), page.title);
     assert.equal(meta(html, 'description'), page.description);
@@ -129,6 +128,8 @@ test('les métiers livrent leurs métadonnées et les repères techniques spéci
 });
 
 test('les URL inconnues ont un document 404 non indexable sans repli vers un accueil HTTP200', () => {
+  assert.ok(!paths.includes('/retour-experience-partenaire-btp'), 'le cas retiré ne figure plus au sitemap');
+  assert.ok(!existsSync('dist/retour-experience-partenaire-btp/index.html'), 'le cas retiré n’est plus généré');
   const html = read('dist/404.html');
   assert.equal(meta(html, 'robots'), 'noindex, follow');
   assert.ok(html.includes('Cette page n’existe pas.'));
@@ -146,7 +147,7 @@ test('le document 404 partagé conserve le même contenu que les routes inconnue
   const { render } = await import('../dist-ssr/entry-server.js');
   const mainFrom = (html) => html.match(/<main\b[^>]*>(.*?)<\/main>/s)?.[1];
   const expected = mainFrom(read('dist/404.html'));
-  for (const path of ['/page-inconnue-test-seo', '/metiers/metier-inconnu-test-seo', '/guides/guide-inconnu-test-seo']) {
+  for (const path of ['/page-inconnue-test-seo', '/metiers/metier-inconnu-test-seo', '/guides/guide-inconnu-test-seo', '/retour-experience-partenaire-btp']) {
     assert.equal(mainFrom(await render(path)), expected, `${path} : pas de redirection client ni de contenu divergent`);
   }
 });
@@ -168,9 +169,6 @@ test('les résumés documentaires restent alignés avec les contenus réellement
     assert.ok(full.includes(page.summary), `${page.path} : réponse absente du document complet`);
     assert.ok(decode(pages.get(page.path)).includes(page.summary), `${page.path} : réponse différente de la page publique`);
   }
-  assert.ok(full.includes(CASE_STUDY.source));
-  assert.ok(full.includes(CASE_STUDY.limitation));
-  assert.ok(full.includes(CASE_STUDY.calculation));
   for (const text of [short, full]) {
     for (const match of text.matchAll(/https:\/\/agencecelexia\.fr([^\s)]+)/g)) {
       const path = match[1].replace(/[.,;]$/, '');

@@ -1,7 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { METIERS } from '../data/metiers';
 import { SEO_PAGES } from '../data/seoPages';
-import { CASE_STUDY } from '../data/partnerCase';
 
 const Breadcrumbs = () => {
   const location = useLocation();
@@ -16,7 +15,6 @@ const Breadcrumbs = () => {
     contact: 'Contact',
     candidature: 'Candidature',
     guides: 'Guides artisans',
-    [CASE_STUDY.path.slice(1)]: CASE_STUDY.breadcrumbLabel,
     'mentions-legales': 'Mentions légales',
     'politique-confidentialite': 'Politique de confidentialité',
     metiers: 'Métiers',
@@ -47,7 +45,6 @@ const Breadcrumbs = () => {
     '/about', '/contact', '/candidature', '/guides', '/mentions-legales', '/politique-confidentialite',
     ...Object.keys(METIERS).map(slug => `/metiers/${slug}`),
     ...Object.values(SEO_PAGES).map(page => page.path),
-    CASE_STUDY.path,
   ];
   if (!knownPaths.includes(location.pathname.replace(/\/$/, ''))) return null;
 
