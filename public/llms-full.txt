@@ -2,7 +2,7 @@
 
 > Agence Celexia est un apporteur d'affaires français dédié aux artisans du bâtiment. L'entreprise recherche et finance elle-même les demandes de chantiers de particuliers, vérifie chacune d'elles, puis transmet aux artisans les informations utiles pour préparer leur devis. Celexia est rémunérée à la commission, uniquement une fois le chantier signé et l'acompte reçu.
 
-Ces textes reprennent les contenus publics du site. Les pages canoniques liées ci-dessous portent les informations à jour ; les chiffres du cas partenaire décrivent une collaboration particulière.
+Ces textes reprennent les contenus publics du site. Les pages canoniques liées ci-dessous portent les informations à jour.
 
 ## Fonctionnement
 
@@ -199,7 +199,7 @@ Celexia accompagne les projets de réfection de toiture. Le dépannage ponctuel 
 
 Identifiez l’écart : prestation, matériau, secteur ou calendrier. Transmettez ce constat à votre interlocuteur et vérifiez avec lui les critères à préciser pour la suite du partenariat.
 
-Grille de sélection proposée par l’équipe Celexia, apporteur d’affaires BTP. Service Public documente le périmètre du métier ; la FFB décrit les particularités de la rénovation. Les pages Celexia précisent notre méthode et notre offre. Le cas publié concerne une entreprise tous corps de métier orientée couverture, sans détail des demandes par métier.
+Grille de sélection proposée par l’équipe Celexia, apporteur d’affaires BTP. Service Public documente le périmètre du métier ; la FFB décrit les particularités de la rénovation. Les pages Celexia précisent notre méthode et notre offre.
 
 - [Service Public — définition et spécialisations du métier de couvreur](https://entreprendre.service-public.gouv.fr/vosdroits/F39034)
 
@@ -208,8 +208,6 @@ Grille de sélection proposée par l’équipe Celexia, apporteur d’affaires B
 - [Les projets de couverture accompagnés par Celexia](https://agencecelexia.fr/metiers/couverture)
 
 - [La qualification des demandes chez Celexia](https://agencecelexia.fr/guides/demande-qualifiee-btp)
-
-- [Le contexte et les limites du retour d’expérience partenaire](https://agencecelexia.fr/retour-experience-partenaire-btp)
 
 ## Artisan : comment suivre vos demandes de travaux et vos devis ?
 
@@ -333,8 +331,6 @@ Votre planning fait également partie de cette vérification. Une demande adapt�
 
 Dans votre suivi, distinguez les demandes reçues, les particuliers contactés, les visites réalisées, les devis envoyés et les chantiers signés. Notez aussi les projets qui ne correspondent pas à votre activité et la raison de cet écart. Vous pourrez ainsi discuter de faits précis avec votre partenaire.
 
-Le retour d’expérience publié par Celexia décrit 700 demandes qualifiées transmises sur quatre mois à une entreprise BTP anonymisée : 100 le premier mois puis 200 chacun des trois mois suivants. Ce volume ne désigne pas 700 chantiers signés. Aucun chiffre d’affaires, montant de devis ou résultat futur n’en est déduit.
-
 ### Comment préparer un partenariat autour de demandes adaptées ?
 
 Présentez vos prestations, vos exclusions, votre zone et votre capacité supplémentaire. Ces éléments donnent un cadre concret à la recherche de projets, pour les entreprises de piscine, de couverture, de façade et d’isolation extérieure, ou de maçonnerie.
@@ -353,11 +349,11 @@ Non. Elle prépare votre prise de contact et votre étude du projet. Le particul
 
 L’entreprise artisanale fixe ses prix et établit son devis après étude du projet. Le budget renseigné lors de la qualification ne constitue pas un prix imposé à l’artisan.
 
-La définition et les cinq vérifications décrivent la méthode Celexia. Le cas chiffré provient des données opérationnelles communiquées par l’équipe Celexia ; il ne constitue pas une moyenne du marché ni une promesse de volume.
+La définition et les cinq vérifications décrivent la méthode Celexia. Les conseils de suivi distinguent les demandes reçues, les devis et les chantiers signés ; ils sont à adapter à votre organisation.
 
 - [Le rôle de Celexia et la qualification des projets](https://agencecelexia.fr/apporteur-affaires-btp)
 
-- [Le détail et les limites du cas des 700 demandes](https://agencecelexia.fr/retour-experience-partenaire-btp)
+- [Organiser le suivi des demandes et des devis](https://agencecelexia.fr/guides/suivi-demandes-devis-artisan)
 
 - [L’équipe responsable de ces informations](https://agencecelexia.fr/about)
 
@@ -883,45 +879,6 @@ Non. Celexia recherche et qualifie le projet du particulier. Votre entreprise ex
 ### Comment préciser les projets que je ne souhaite pas réaliser ?
 
 Utilisez le champ libre pour indiquer vos exclusions, par exemple certaines interventions sur l’existant ou des zones trop éloignées. Ces précisions complètent votre métier et aident à préparer un échange concret avec l’équipe Celexia.
-
-## Apport d’affaires BTP : un partenariat orienté couverture.
-
-Page : https://agencecelexia.fr/retour-experience-partenaire-btp
-
-Auteur : L’équipe Celexia. Publication : 2026-11-07. Mise à jour : 2026-11-07.
-
-Une entreprise du bâtiment tous corps de métier, avec une activité orientée couverture. Voici les demandes qualifiées transmises par Celexia au cours des quatre premiers mois de cette collaboration.
-
-Celexia a transmis 100 demandes qualifiées à cette entreprise partenaire le premier mois, puis 200 demandes chacun des trois mois suivants : soit 700 demandes sur quatre mois. Ces chiffres décrivent les demandes transmises, pas des chantiers signés.
-
-Données opérationnelles communiquées par l’équipe Celexia. Entreprise anonymisée.
-
-- Mois 1 : 100 demandes qualifiées transmises
-- Mois 2 : 200 demandes qualifiées transmises
-- Mois 3 : 200 demandes qualifiées transmises
-- Mois 4 : 200 demandes qualifiées transmises
-
-100 + 200 + 200 + 200 = 700 demandes
-
-### Le contexte du partenariat
-
-Ce retour d’expérience concerne une entreprise BTP tous corps de métier, orientée vers la couverture. Son identité reste confidentielle. Le suivi présenté porte sur les quatre premiers mois de la collaboration avec Celexia. Les chiffres concernent les demandes transmises à cette entreprise, sans ventilation par corps de métier.
-
-La répartition mensuelle permet de lire le volume sur l’ensemble de cette période. Les mois sont indiqués dans l’ordre de la collaboration : le premier mois correspond au démarrage du partenariat.
-
-### Ce que signifie une demande qualifiée
-
-Dans le fonctionnement de Celexia, la qualification porte sur cinq points : l’identité du particulier, la nature du projet, le budget, la zone et le calendrier. L’objectif est de transmettre les informations utiles pour préparer la prise de contact et comprendre le besoin.
-
-Cette préparation ne remplace pas l’étude technique de l’artisan. Pour un projet de couverture, celui-ci doit notamment examiner l’état de la toiture, les accès et le périmètre des travaux avant d’établir son devis.
-
-### De la demande au chantier : des étapes distinctes
-
-Une demande transmise correspond à un projet qualifié présenté à l’entreprise. Un devis est la proposition que l’artisan établit ensuite. Un chantier signé suppose l’accord du client sur cette proposition.
-
-Les chiffres de cette page concernent uniquement les demandes transmises. Ils ne comptent pas les devis établis, les chantiers signés ou le chiffre d’affaires encaissé. Dans le partenariat Celexia, l’entreprise garde la main sur son chiffrage, ses prix et la relation avec le particulier.
-
-Ce cas décrit une collaboration particulière ; les volumes dépendent notamment du métier, du secteur et des capacités de l’entreprise et ne constituent pas une garantie de résultat.
 
 ## Liens pratiques
 

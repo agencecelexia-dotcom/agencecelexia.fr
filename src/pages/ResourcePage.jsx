@@ -6,7 +6,6 @@ import { candidatureUrl, CTA_LABEL } from '../lib/links';
 import CTAButton from '../components/CTAButton';
 import ResourceCards from '../components/ResourceCards';
 import PartnershipSheet from '../components/PartnershipSheet';
-import { CASE_STUDY } from '../data/partnerCase';
 import './Resources.css';
 
 export default function ResourcePage({ slug }) {
@@ -66,7 +65,7 @@ export default function ResourcePage({ slug }) {
                   </>}
                 </section>
               ))}
-              {slug === 'partenariat-artisans-btp' && <><PartnershipSheet /><section className="resource-section"><h2>Un exemple de partenariat BTP</h2><p>Retrouvez le détail des demandes qualifiées transmises à une entreprise tous corps d’état, travaillant notamment en couverture.</p><Link to={CASE_STUDY.path} className="text-link mt-4">Lire le retour d’expérience anonymisé <span aria-hidden="true">↗</span></Link></section></>}
+              {slug === 'partenariat-artisans-btp' && <PartnershipSheet />}
               <section id="questions" className="resource-section">
                 <h2>Vos questions, avant d’aller plus loin</h2>
                 <div className="resource-faq">{page.faq.map(item => <details key={item.q} className="faq-item group"><summary><span>{item.q}</span><span aria-hidden="true" className="text-violet-600 text-2xl group-open:rotate-45">+</span></summary><p>{item.a}</p></details>)}</div>

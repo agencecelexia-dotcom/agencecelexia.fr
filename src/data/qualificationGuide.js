@@ -49,7 +49,6 @@ export const QUALIFICATION_GUIDE = {
       title: 'Comment suivre les demandes sans confondre volume et résultat ?',
       paragraphs: [
         'Dans votre suivi, distinguez les demandes reçues, les particuliers contactés, les visites réalisées, les devis envoyés et les chantiers signés. Notez aussi les projets qui ne correspondent pas à votre activité et la raison de cet écart. Vous pourrez ainsi discuter de faits précis avec votre partenaire.',
-        'Le retour d’expérience publié par Celexia décrit 700 demandes qualifiées transmises sur quatre mois à une entreprise BTP anonymisée : 100 le premier mois puis 200 chacun des trois mois suivants. Ce volume ne désigne pas 700 chantiers signés. Aucun chiffre d’affaires, montant de devis ou résultat futur n’en est déduit.',
       ],
     },
     {
@@ -66,10 +65,10 @@ export const QUALIFICATION_GUIDE = {
     { q: 'Une demande qualifiée garantit-elle la signature du client ?', a: 'Non. Elle prépare votre prise de contact et votre étude du projet. Le particulier décide ensuite de donner suite ou non à votre proposition. Le nombre de demandes transmises doit être distingué du nombre de chantiers signés.' },
     { q: 'Qui fixe le montant du devis ?', a: 'L’entreprise artisanale fixe ses prix et établit son devis après étude du projet. Le budget renseigné lors de la qualification ne constitue pas un prix imposé à l’artisan.' },
   ],
-  sourceNote: 'La définition et les cinq vérifications décrivent la méthode Celexia. Le cas chiffré provient des données opérationnelles communiquées par l’équipe Celexia ; il ne constitue pas une moyenne du marché ni une promesse de volume.',
+  sourceNote: 'La définition et les cinq vérifications décrivent la méthode Celexia. Les conseils de suivi distinguent les demandes reçues, les devis et les chantiers signés ; ils sont à adapter à votre organisation.',
   sources: [
     { label: 'Le rôle de Celexia et la qualification des projets', path: '/apporteur-affaires-btp' },
-    { label: 'Le détail et les limites du cas des 700 demandes', path: '/retour-experience-partenaire-btp' },
+    { label: 'Organiser le suivi des demandes et des devis', path: '/guides/suivi-demandes-devis-artisan' },
     { label: 'L’équipe responsable de ces informations', path: '/about' },
   ],
   related: ['/apporteur-affaires-btp', '/partenariat-artisans-btp', '/guides/suivi-demandes-devis-artisan'],

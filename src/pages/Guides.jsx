@@ -4,7 +4,6 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { candidatureUrl, CTA_LABEL } from '../lib/links';
 import CTAButton from '../components/CTAButton';
 import ResourceCards from '../components/ResourceCards';
-import PartnerCaseLink from '../components/PartnerCaseLink';
 import './Resources.css';
 
 export default function Guides() {
@@ -29,7 +28,6 @@ export default function Guides() {
             <ResourceCards paths={group.paths} />
           </section>)}
         </div>
-        <div className="mt-16"><h2 className="section-title mb-8">Un partenariat, dans les faits.</h2><PartnerCaseLink /></div>
         <p className="mt-8 text-sm text-encre-600">Ces repères sont rédigés par <Link to="/about" className="text-violet-700 underline underline-offset-4">L’équipe Celexia</Link>, pour les entreprises de piscine, couverture, façade et isolation extérieure, et maçonnerie.</p>
       </div>
     </section>

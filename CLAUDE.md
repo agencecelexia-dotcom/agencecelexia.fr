@@ -1,7 +1,7 @@
 # agencecelexia.fr — site vitrine Agence Celexia
 
-> **SEO artisans — 7 novembre 2026 :** 17 pages indexables + `404.html` non indexable.
-> Les cinq ressources de `src/data/seoPages.js` et le hub `src/data/seoHub.js`
+> **SEO artisans — 8 novembre 2026 :** 19 pages indexables + `404.html` non indexable.
+> Les huit ressources de `src/data/seoPages.js` et le hub `src/data/seoHub.js`
 > alimentent les pages React et le pré-rendu. Aucune réécriture globale vers
 > l’accueil : les URL inconnues doivent répondre 404. Le graphe utilise
 > Organization, WebSite, WebPage, BreadcrumbList, Service et Article selon la page ;
@@ -9,10 +9,9 @@
 > Le mot « pourcentage » répond à l’intention de recherche demandée par le client,
 > mais aucun taux numérique n’est publié. Validation : `npm run check`.
 > Plan de suivi et configuration des comptes : [docs/seo-acquisition.md](docs/seo-acquisition.md).
-> Le cas de `src/data/partnerCase.js` reprend uniquement les volumes confirmés et
-> autorisés par le client : 100 demandes le premier mois puis 200 chacun des trois
-> mois suivants, soit 700 sur quatre mois. Entreprise anonymisée ; aucun montant de
-> devis, chiffre d’affaires, taux de conversion ou chantier signé ne doit en être déduit.
+> Le précédent cas partenaire a été retiré le 8 novembre à la demande du client.
+> Ne réutiliser ni son récit ni ses chiffres, y compris dans les métadonnées et
+> fichiers destinés aux moteurs ou aux IA. Aucun résultat chiffré ne doit être inventé.
 > Le guide `src/data/qualificationGuide.js` distingue demandes, devis et signatures.
 > `scripts/generate-llms.mjs` synchronise les fichiers documentaires à chaque build.
 > `npm run geo:audit` vérifie le HTTP public, sans mesurer une citation IA.

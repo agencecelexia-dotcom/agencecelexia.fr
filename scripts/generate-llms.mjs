@@ -5,7 +5,6 @@ import { resolve } from 'node:path';
 import { DEFINITION, ETAPES, FAQ_COMMUNE } from '../src/data/offre.js';
 import { SEO_PAGES } from '../src/data/seoPages.js';
 import { METIERS } from '../src/data/metiers.js';
-import { CASE_STUDY } from '../src/data/partnerCase.js';
 
 const SITE = 'https://agencecelexia.fr';
 const link = (label, path) => `[${label}](${new URL(path, SITE).href})`;
@@ -37,8 +36,6 @@ export function buildLlmsFiles() {
     `- ${link('Tous les guides', '/guides')}.`,
     ...pages.filter(page => page.kind === 'article').map(page => `- ${link(page.breadcrumbLabel, page.path)} : ${page.description}`),
     `- ${link('Fiche de préparation à imprimer', '/ressources/fiche-partenariat-artisan.html')} : activité, secteur, capacité et questions avant un échange.`,
-    '## Retour d’expérience',
-    `- ${link(CASE_STUDY.breadcrumbLabel, CASE_STUDY.path)} : ${CASE_STUDY.summary} ${CASE_STUDY.source} ${CASE_STUDY.limitation}`,
     '## Métiers accompagnés',
     ...Object.entries(METIERS).map(([slug, trade]) => `- ${link(trade.label, `/metiers/${slug}`)}.`),
     '## Informations légales',
@@ -51,7 +48,7 @@ export function buildLlmsFiles() {
   const full = [
     '# Agence Celexia — Contenu public détaillé',
     `> ${DEFINITION}`,
-    'Ces textes reprennent les contenus publics du site. Les pages canoniques liées ci-dessous portent les informations à jour ; les chiffres du cas partenaire décrivent une collaboration particulière.',
+    'Ces textes reprennent les contenus publics du site. Les pages canoniques liées ci-dessous portent les informations à jour.',
     '## Fonctionnement',
     ...ETAPES.map(step => `### ${step.titre}\n\n${step.desc}`),
     questions(FAQ_COMMUNE),
@@ -70,11 +67,6 @@ export function buildLlmsFiles() {
       `### ${trade.organisation.title}`, ...trade.organisation.paragraphs,
       questions([trade.faq, ...trade.questions]),
     ].join('\n\n')),
-    `## ${CASE_STUDY.h1}`, `Page : ${SITE}${CASE_STUDY.path}`,
-    `Auteur : ${CASE_STUDY.author}. Publication : ${CASE_STUDY.publishedAt}. Mise à jour : ${CASE_STUDY.updatedAt}.`,
-    CASE_STUDY.lead, CASE_STUDY.summary, CASE_STUDY.source,
-    CASE_STUDY.periods.map(period => `- ${period.label} : ${period.count} demandes qualifiées transmises`).join('\n'),
-    CASE_STUDY.calculation, sections(CASE_STUDY.sections), CASE_STUDY.limitation,
     '## Liens pratiques',
     `- ${link('Candidature', '/candidature')}`, `- ${link('Contact', '/contact')}`,
     `- ${link('Mentions légales', '/mentions-legales')}`, `- ${link('Confidentialité', '/politique-confidentialite')}`,

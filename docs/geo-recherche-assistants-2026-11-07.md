@@ -2,6 +2,8 @@
 
 Recherche réalisée le 7 novembre 2026. Sources officielles consultées et contrôles HTTP publics, sans connexion à un compte Claude ou Perplexity. Ce document ne mesure aucune citation effective de Celexia dans ces assistants.
 
+**Mise à jour du 8 novembre 2026 :** le précédent cas partenaire est retiré à la demande du propriétaire. Ne plus réutiliser ses chiffres, son récit ou sa présentation comme preuve. L’audit HTTP ci-dessous conserve un historique daté ; il ne décrit pas l’inventaire ou les résultats actuels du site.
+
 ## Ce que disent les documentations officielles
 
 ### Anthropic / Claude
@@ -20,12 +22,12 @@ Le programme éditeurs de Perplexity concerne des partenariats avec des médias 
 
 ## Audit HTTP public de Celexia
 
-Contrôles effectués sur le domaine public, en lecture seule, sans exécution JavaScript :
+Contrôles historiques effectués le 7 novembre 2026 sur le domaine public, en lecture seule, sans exécution JavaScript :
 
 | Élément | Observation |
 | --- | --- |
 | `/robots.txt` | HTTP 200 ; accès général autorisé ; règles explicites pour `Claude-SearchBot`, `Claude-User`, `PerplexityBot` et les robots OpenAI. |
-| `/sitemap.xml` | HTTP 200 ; XML lisible ; 16 URL à l’heure du contrôle, dont le retour d’expérience partenaire. |
+| `/sitemap.xml` | HTTP 200 ; XML lisible ; 16 URL à l’heure du contrôle. Cet inventaire historique précède le retrait du cas et les autres changements ; il ne représente pas le sitemap actuel. |
 | `/apporteur-affaires-btp` | HTTP 200 ; H1 présent dans le HTML initial ; canonical propre ; directives d’indexation ; graphe Organization, WebSite, WebPage, BreadcrumbList et Service. |
 | `/guides/commission-apporteur-affaires-btp` | HTTP 200 ; H1 présent dans le HTML initial ; canonical propre ; directives d’indexation ; graphe incluant Article. |
 | `/about` | HTTP 200 ; contenu présent sans JavaScript ; canonical propre ; AboutPage et identité d’organisation. |
@@ -34,7 +36,7 @@ Contrôles effectués sur le domaine public, en lecture seule, sans exécution J
 
 Ces dernières requêtes sont des tests depuis l’environnement d’audit, **pas des accès provenant des véritables plages IP de Claude ou Perplexity**. Elles excluent un blocage simple lié à ces noms d’agent lors du test ; elles ne prouvent ni une visite réelle, ni l’absence de restrictions portant sur d’autres IP, ni une indexation.
 
-`Perplexity-User` n’a pas de bloc dédié, mais bénéficie déjà de `User-agent: *` avec `Allow: /`. Ajouter un bloc explicite rendrait la politique plus lisible ; ce n’est pas la correction d’un blocage constaté.
+Au moment du contrôle, `Perplexity-User` n’avait pas de bloc dédié, mais bénéficiait déjà de `User-agent: *` avec `Allow: /`. L’ajout d’un bloc explicite était une amélioration de lisibilité, pas la correction d’un blocage constaté.
 
 Les permissions d’entraînement déjà présentes ne doivent pas être modifiées au seul motif de la visibilité commerciale. Les fonctions d’entraînement, d’indexation et de lecture à la demande sont distinctes.
 
@@ -43,7 +45,7 @@ Les permissions d’entraînement déjà présentes ne doivent pas être modifi�
 Le socle technique testé ne montre pas de blocage évident. Les efforts supplémentaires doivent surtout améliorer les informations que les moteurs pourront retrouver et utiliser.
 
 1. **Rendre les faits de l’entreprise faciles à vérifier.** Garder dans la page de présentation une description nette du rôle, des quatre métiers, de la zone couverte, de la qualification et de la répartition du travail. Ajouter les profils publics officiels seulement après confirmation de leur propriété et de leur actualité. Une mention `sameAs` n’est pas une preuve d’autorité à elle seule.
-2. **Documenter la provenance des preuves.** Le retour d’expérience publié doit rester clairement attribué à Celexia. Quand les informations sont disponibles, préciser la période, le périmètre et ce qui est compté. Une demande transmise ne doit pas devenir un chantier signé dans une synthèse. Ne pas ajouter d’avis, identité de client, métrique de résultat ou validation indépendante non fournis.
+2. **Documenter la provenance de futures preuves vérifiables.** Le cas retiré ne doit plus être utilisé. Avant toute nouvelle publication, réunir de nouveaux éléments vérifiables et autorisés, puis préciser leur provenance, leur période et leur périmètre. Ne pas ajouter d’avis, identité de client, métrique de résultat ou validation indépendante non établis.
 3. **Développer les réponses de métier.** Décrire les informations nécessaires pour étudier une réfection de toiture, une ITE, une extension ou une piscine, et les limites de la qualification avant l’étude technique de l’artisan. Ces différences concrètes sont plus utiles qu’une nouvelle série de pages presque identiques.
 4. **Maintenir une version cohérente des faits.** Les pages HTML, les métadonnées, les schémas et les fichiers llms doivent présenter le même modèle. Conserver les taux pour l’appel et ne pas réintroduire d’argument sur l’exclusivité des demandes.
 5. **Obtenir des mentions externes réelles.** Vérifier et actualiser les profils professionnels appartenant à Celexia, puis envisager des retours d’expérience avec de vrais partenaires et leur accord. Ne pas fabriquer des pages encyclopédiques, des avis ou des affiliations pour créer artificiellement une apparence d’autorité.

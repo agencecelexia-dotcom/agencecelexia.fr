@@ -2,6 +2,8 @@
 
 Relevé du 7 novembre 2026. Requêtes publiques utilisées : « apporteur affaires BTP pourcentage artisans », « partenariat artisans BTP apporteur affaires », puis recherche ciblée de l’article Obat. Les pages ci-dessous sont des concurrents éditoriaux observés dans les résultats consultés, pas un classement Google France mesuré. Certains vendent un autre service que Celexia.
 
+**Mise à jour du 8 novembre 2026 :** le précédent cas partenaire est retiré à la demande du propriétaire. Ne plus réutiliser ses chiffres, son récit ou sa présentation comme preuve. Les recommandations concernant d’éventuelles preuves futures exigent de nouveaux éléments vérifiables et autorisés. Les observations techniques ci-dessous décrivent le relevé historique, pas l’état actuel du site.
+
 Les pages Celexia comparées sont celles publiées le même jour : quatre ressources, le hub de guides, les quatre pages métiers et la présentation de l’équipe. Cette comparaison éditoriale repose sur les pages publiques. Une lecture séparée de Search Console a ensuite fourni un état de départ privé, sans comparaison historique exploitable. Aucun audit de backlinks ni mesure de citation dans une conversation ChatGPT ou Claude n’a été effectué.
 
 ## Ce que les pages concurrentes apportent
@@ -15,9 +17,9 @@ Les pages Celexia comparées sont celles publiées le même jour : quatre ressou
 
 ## Écart réel avec Celexia
 
-Les nouveaux guides Celexia possèdent déjà une réponse introductive, des titres structurés, des tableaux, un auteur collectif, des dates, des FAQ, un sommaire et des liens vers la candidature. Ajouter encore les mêmes blocs ne constitue pas le principal progrès.
+Lors du relevé initial, les guides Celexia possédaient déjà une réponse introductive, des titres structurés, des tableaux, un auteur collectif, des dates, des FAQ, un sommaire et des liens vers la candidature. Ajouter encore les mêmes blocs ne constituait pas le principal progrès.
 
-Les pages métiers restent surtout composées d’un périmètre de projets, d’un argumentaire partagé et d’une question propre au métier. Elles peuvent devenir plus utiles en précisant les informations nécessaires avant une visite et les questions que l’entreprise doit approfondir elle-même. Le site ne montre pas encore de retour d’expérience partenaire vérifiable, ni de présentation détaillée de Thomas et Antoine au-delà de leurs prénoms et de leur rôle.
+Les pages métiers étaient alors surtout composées d’un périmètre de projets, d’un argumentaire partagé et d’une question propre au métier. L’amélioration proposée consistait à préciser les informations nécessaires avant une visite et les questions que l’entreprise doit approfondir elle-même. Aucun retour d’expérience partenaire vérifié ni présentation détaillée de Thomas et Antoine au-delà de leurs prénoms et de leur rôle n’avaient été établis par cette comparaison.
 
 La requête « pourcentage » crée une attente de réponse chiffrée : plusieurs concurrents affichent un barème ou un exemple. Celexia a choisi de conserver les taux pour l’appel. Il faut respecter ce choix et enrichir les critères de comparaison, sans prétendre satisfaire exactement la même attente ni publier des taux sous couvert d’un exemple. Les recherches « apporteur d’affaires pour couvreur », « partenariat artisan maçon » ou « chantiers sans abonnement » peuvent mieux correspondre au recrutement recherché ; leur volume n’a pas été mesuré.
 
@@ -44,7 +46,7 @@ L’augmentation ne se déduit ni du nombre de pages ni d’un résultat isolé.
 - Quatre pages métiers approfondies : préparation technique, organisation, questions spécifiques et métadonnées naturelles ; retrait des fourchettes de budget non sourcées.
 - Fiche de préparation imprimable, sans collecte de données, liée depuis le partenariat et les métiers.
 - Comparaison qualitative des trois modèles dans le guide commission.
-- Retour d’expérience anonyme, à partir des seules données confirmées par le client : 100 demandes qualifiées le premier mois puis 200 par mois pendant trois mois, soit 700 sur quatre mois. Aucun montant de devis ni résultat commercial n’est publié ou déduit.
+- Le cas partenaire ajouté lors de cette étape a ensuite été retiré le 8 novembre à la demande du propriétaire. Il ne doit plus être utilisé comme contenu ou comme preuve.
 - Affichage initial renforcé : les animations ne masquent plus le contenu si le bundle ne charge pas.
 
-Le build livre 16 pages indexables. Ces réalisations ne constituent pas encore une mesure de gain SEO ou GEO.
+Le build de cette étape historique livrait 16 pages indexables. Ce nombre ne décrit pas l’inventaire actuel après les changements et le retrait du cas. Ces réalisations n’établissaient aucune mesure de gain SEO ou GEO.

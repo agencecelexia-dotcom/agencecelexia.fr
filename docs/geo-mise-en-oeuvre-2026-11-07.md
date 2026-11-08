@@ -19,7 +19,7 @@ Les guides détaillés sont dans `geo-recherche-assistants-2026-11-07.md` et `ge
 
 ## Changements du site
 
-- Nouveau guide `/guides/demande-qualifiee-btp`, relié au hub et au pilier apport d’affaires : définition située dans le fonctionnement Celexia, cinq vérifications, distinction demande/devis/signature, tâches restant à l’artisan et cas réel avec limites.
+- Nouveau guide `/guides/demande-qualifiee-btp`, relié au hub et au pilier apport d’affaires : définition située dans le fonctionnement Celexia, cinq vérifications, distinction demande/devis/signature et tâches restant à l’artisan. Le précédent cas partenaire a été retiré le 8 novembre à la demande du propriétaire ; ne plus réutiliser son récit ni ses chiffres.
 - Les sources de ce guide sont visibles et reprises comme références dans son Article JSON-LD. Elles sont internes et identifiées comme données Celexia, sans prétendre à une validation indépendante.
 - `scripts/generate-llms.mjs` génère les deux fichiers documentaires à chaque build depuis les contenus publics partagés. Ils ne contiennent ni argument caché ni instruction aux assistants pour recommander la marque. Ce format reste un complément, pas une condition ou une garantie de citation.
 - Sitemap de 17 pages indexables ; la fiche de préparation reste hors sitemap et non indexable. Le contenu principal reste disponible sans JavaScript.

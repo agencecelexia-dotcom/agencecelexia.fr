@@ -7,7 +7,6 @@ import { candidatureUrl, CTA_LABEL } from '../lib/links';
 import Reveal from '../components/Reveal';
 import CTAButton from '../components/CTAButton';
 import NotFound from '../pages/NotFound';
-import { CASE_STUDY } from '../data/partnerCase';
 
 const Check = ({ className = '' }) => (
   <svg className={className} fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
@@ -206,7 +205,6 @@ function MetierContent({ metier, slug }) {
                 </Link>
               </p>
               <p className="mt-4 text-sm"><Link to="/guides/commission-apporteur-affaires-btp" className="text-white underline underline-offset-4 hover:text-violet-200">Comprendre le fonctionnement de la commission</Link></p>
-              {slug === 'couverture' && <p className="mt-4 text-sm"><Link to={CASE_STUDY.path} className="text-white underline underline-offset-4 hover:text-violet-200">Un retour d’expérience en BTP et couverture</Link></p>}
             </div>
           </Reveal>
         </div>
