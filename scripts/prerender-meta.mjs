@@ -111,7 +111,7 @@ const metierRoutes = Object.entries(METIERS).map(([slug, metier]) => ({
   path: `/metiers/${slug}`,
   title: metier.seoTitle,
   description: metier.seoDescription,
-  updatedAt: DATE_MODIFIED,
+  updatedAt: metier.updatedAt || DATE_MODIFIED,
   serviceName: `Apport d’affaires pour ${metier.label.toLowerCase()}`,
   audience: metier.label,
 }));
@@ -214,7 +214,7 @@ function buildJsonLd(route) {
       datePublished: route.publishedAt,
       dateModified: route.updatedAt,
       isAccessibleForFree: true,
-      ...(route.sources && { citation: route.sources.map(source => `${SITE_URL}${source.path}`) }),
+      ...(route.sources && { citation: route.sources.map(source => new URL(source.path, SITE_URL).href) }),
     });
   }
   if (route.path === SEO_HUB.path) {

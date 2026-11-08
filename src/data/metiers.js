@@ -67,6 +67,7 @@ export const METIERS = {
   },
 
   couverture: {
+    updatedAt: '2026-11-08',
     label: 'Couverture',
     labelCourt: 'Couverture',
     color: '#5A6470',
