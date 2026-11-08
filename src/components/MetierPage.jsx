@@ -115,6 +115,7 @@ function MetierContent({ metier, slug }) {
                 <h3 className="mt-6 font-display text-2xl leading-tight tracking-tight text-violet-700">{metier.organisation.title}</h3>
                 {metier.organisation.paragraphs.map(paragraph => <p key={paragraph} className="mt-5 text-encre-700 leading-relaxed">{paragraph}</p>)}
                 <Link to="/partenariat-artisans-btp#fiche-preparation" className="text-link mt-6">Préparer mon échange <span aria-hidden="true">↗</span></Link>
+                {slug === 'couverture' && <p className="mt-5 text-sm"><Link to="/guides/choisir-apporteur-affaires-couvreur" className="text-violet-700 underline underline-offset-4">Couvreur : les questions à poser pour choisir un apporteur d’affaires</Link></p>}
               </div>
             </Reveal>
           </div>

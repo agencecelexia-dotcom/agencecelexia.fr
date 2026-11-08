@@ -52,6 +52,7 @@ export default function ResourcePage({ slug }) {
                 <section key={section.id} id={section.id} className="resource-section">
                   <h2>{section.title}</h2>
                   {section.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
+                  {section.links?.map(link => <p key={link.path} className="mt-5"><Link to={link.path} className="text-violet-700 underline underline-offset-4">{link.label}</Link></p>)}
                   {section.items && <ul>{section.items.map(item => <li key={item}>{item}</li>)}</ul>}
                   {section.table && <>
                     <p className="resource-table-hint sm:hidden">Faites défiler le tableau pour lire toutes les colonnes.</p>
@@ -78,7 +79,11 @@ export default function ResourcePage({ slug }) {
               {page.sources && <section id="sources" className="resource-section">
                 <h2>Sources et périmètre de ce guide</h2>
                 <p>{page.sourceNote}</p>
-                <ul>{page.sources.map(source => <li key={source.path}><Link to={source.path}>{source.label}</Link></li>)}</ul>
+                <ul>{page.sources.map(source => <li key={source.path}>
+                  {source.path.startsWith('https://')
+                    ? <a href={source.path} className="text-violet-700 underline underline-offset-4">{source.label}</a>
+                    : <Link to={source.path} className="text-violet-700 underline underline-offset-4">{source.label}</Link>}
+                </li>)}</ul>
               </section>}
             </div>
           </div>

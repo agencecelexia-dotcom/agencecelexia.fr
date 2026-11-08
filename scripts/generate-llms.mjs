@@ -8,11 +8,12 @@ import { METIERS } from '../src/data/metiers.js';
 import { CASE_STUDY } from '../src/data/partnerCase.js';
 
 const SITE = 'https://agencecelexia.fr';
-const link = (label, path) => `[${label}](${SITE}${path})`;
+const link = (label, path) => `[${label}](${new URL(path, SITE).href})`;
 const questions = (items) => items.map(({ q, a }) => `### ${q}\n\n${a}`).join('\n\n');
 const sections = (items) => items.map(section => [
   `### ${section.title}`,
   ...section.paragraphs,
+  ...(section.links ? section.links.map(({ label, path }) => link(label, path)) : []),
   ...(section.items ? [section.items.map(item => `- ${item}`).join('\n')] : []),
   ...(section.table ? [
     `| ${section.table.headers.join(' | ')} |\n| ${section.table.headers.map(() => '---').join(' | ')} |\n${section.table.rows.map(row => `| ${row.join(' | ')} |`).join('\n')}`,

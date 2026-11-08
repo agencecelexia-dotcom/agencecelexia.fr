@@ -72,7 +72,7 @@ export const QUALIFICATION_GUIDE = {
     { label: 'Le détail et les limites du cas des 700 demandes', path: '/retour-experience-partenaire-btp' },
     { label: 'L’équipe responsable de ces informations', path: '/about' },
   ],
-  related: ['/apporteur-affaires-btp', '/partenariat-artisans-btp', '/guides/commission-apporteur-affaires-btp'],
+  related: ['/apporteur-affaires-btp', '/partenariat-artisans-btp', '/guides/suivi-demandes-devis-artisan'],
   publishedAt: '2026-11-07',
-  updatedAt: '2026-11-07',
+  updatedAt: '2026-11-08',
 };

@@ -180,14 +180,27 @@ test('les résumés documentaires restent alignés avec les contenus réellement
 });
 
 test('les références Article sont des sources visibles et accessibles', () => {
-  const guide = SEO_PAGES['demande-qualifiee-btp'];
-  const html = pages.get(guide.path);
-  const article = schemas(html)[0]['@graph'].find(node => node['@type'] === 'Article');
-  assert.equal(article.isAccessibleForFree, true);
-  assert.deepEqual(article.citation, guide.sources.map(source => `${SITE}${source.path}`));
-  assert.ok(decode(html).includes(guide.sourceNote));
-  for (const source of guide.sources) {
-    assert.ok(html.includes(`href="${source.path}"`));
-    assert.ok(pages.has(source.path));
+  const full = read('dist/llms-full.txt');
+  for (const guide of Object.values(SEO_PAGES).filter(page => page.sources)) {
+    const html = pages.get(guide.path);
+    const article = schemas(html)[0]['@graph'].find(node => node['@type'] === 'Article');
+    assert.equal(article.isAccessibleForFree, true);
+    assert.deepEqual(article.citation, guide.sources.map(source => new URL(source.path, SITE).href));
+    assert.ok(decode(html).includes(guide.sourceNote));
+    for (const source of guide.sources) {
+      assert.ok(decode(html).includes(`href="${source.path}"`), `${guide.path} : source visible absente`);
+      assert.ok(full.includes(`(${new URL(source.path, SITE).href})`), `${guide.path} : source documentaire absente`);
+      if (source.path.startsWith('/')) assert.ok(pages.has(source.path), `${guide.path} : source interne absente`);
+      else assert.equal(new URL(source.path).protocol, 'https:', `${guide.path} : source externe HTTPS`);
+    }
+  }
+});
+
+test('les sommaires des guides mènent à leurs sections visibles', () => {
+  for (const guide of Object.values(SEO_PAGES)) {
+    const html = pages.get(guide.path);
+    for (const [, anchor] of html.matchAll(/href="#([^"]+)"/g)) {
+      assert.equal([...html.matchAll(/\bid="([^"]+)"/g)].filter(([, id]) => id === anchor).length, 1, `${guide.path} : ancre ${anchor} absente ou dupliquée`);
+    }
   }
 });

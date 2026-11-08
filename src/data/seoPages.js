@@ -1,8 +1,14 @@
 // Contenus éditoriaux publics : une source partagée par les pages et le pré-rendu.
 // Les modalités de rémunération se présentent au téléphone : aucun taux public.
 import { QUALIFICATION_GUIDE } from './qualificationGuide.js';
+import { PLATFORM_COMPARISON_GUIDE } from './platformComparisonGuide.js';
+import { ROOFING_PARTNER_GUIDE } from './roofingPartnerGuide.js';
+import { REQUEST_FOLLOWUP_GUIDE } from './requestFollowupGuide.js';
 
 export const SEO_PAGES = {
+  'plateforme-travaux-ou-apporteur-affaires': PLATFORM_COMPARISON_GUIDE,
+  'choisir-apporteur-affaires-couvreur': ROOFING_PARTNER_GUIDE,
+  'suivi-demandes-devis-artisan': REQUEST_FOLLOWUP_GUIDE,
   'demande-qualifiee-btp': QUALIFICATION_GUIDE,
   'apporteur-affaires-btp': {
     kind: 'service',
@@ -86,9 +92,9 @@ export const SEO_PAGES = {
         a: 'Oui. Indiquez le secteur dans lequel vous pouvez intervenir. La cohérence entre la localisation des projets et votre organisation fait partie des éléments étudiés par l’équipe Celexia.',
       },
     ],
-    related: ['/guides/demande-qualifiee-btp', '/partenariat-artisans-btp', '/guides/commission-apporteur-affaires-btp', '/guides/trouver-chantiers-artisans'],
+    related: ['/guides/demande-qualifiee-btp', '/partenariat-artisans-btp', '/guides/commission-apporteur-affaires-btp', '/guides/plateforme-travaux-ou-apporteur-affaires'],
     publishedAt: '2026-11-07',
-    updatedAt: '2026-11-07',
+    updatedAt: '2026-11-08',
   },
   'partenariat-artisans-btp': {
     kind: 'service',
@@ -167,9 +173,9 @@ export const SEO_PAGES = {
         a: 'Non. Présenter votre entreprise est gratuit. Le modèle Celexia ne comporte aucun frais d’entrée ni abonnement. Notre commission intervient uniquement lorsqu’un chantier apporté est signé et que vous avez reçu l’acompte.',
       },
     ],
-    related: ['/apporteur-affaires-btp', '/guides/trouver-chantiers-artisans', '/guides/commission-apporteur-affaires-btp'],
+    related: ['/apporteur-affaires-btp', '/guides/plateforme-travaux-ou-apporteur-affaires', '/guides/commission-apporteur-affaires-btp'],
     publishedAt: '2026-11-07',
-    updatedAt: '2026-11-07',
+    updatedAt: '2026-11-08',
   },
   'commission-apporteur-affaires-btp': {
     kind: 'article',
@@ -247,6 +253,7 @@ export const SEO_PAGES = {
       {
         id: 'comparer-modeles',
         title: 'Commission, achat de contact ou abonnement : comment comparer ?',
+        links: [{ label: 'Comparer les services de Travaux.com, Habitatpresto, hemea et Celexia', path: '/guides/plateforme-travaux-ou-apporteur-affaires' }],
         paragraphs: [
           'Commencez par identifier ce qui déclenche le paiement. Un contact reçu, une période de service et un chantier signé ne correspondent pas à la même étape de votre activité. Comparez ensuite le travail inclus et les informations disponibles avant votre prise de contact.',
           'Le tableau ci-dessous sert à préparer vos questions. Les offres au contact ou par abonnement varient selon le prestataire : vérifiez leur fonctionnement précis. Pour Celexia, la règle est connue : la commission intervient uniquement après signature du chantier et réception de votre acompte.',
@@ -275,9 +282,9 @@ export const SEO_PAGES = {
         a: 'Votre entreprise fixe ses prix et établit son devis. Vous échangez directement avec le particulier, réalisez l’étude technique et organisez les travaux.',
       },
     ],
-    related: ['/apporteur-affaires-btp', '/partenariat-artisans-btp', '/guides/trouver-chantiers-artisans'],
+    related: ['/apporteur-affaires-btp', '/partenariat-artisans-btp', '/guides/plateforme-travaux-ou-apporteur-affaires'],
     publishedAt: '2026-11-07',
-    updatedAt: '2026-11-07',
+    updatedAt: '2026-11-08',
   },
   'trouver-chantiers-artisans': {
     kind: 'article',
@@ -351,6 +358,7 @@ export const SEO_PAGES = {
       {
         id: 'suivi',
         title: 'Suivre une demande jusqu’à la décision du client',
+        links: [{ label: 'Organiser votre suivi des demandes et des devis, étape par étape', path: '/guides/suivi-demandes-devis-artisan' }],
         paragraphs: [
           'Conservez un suivi simple pour chaque projet : coordonnées, besoin, dernier échange, prochaine étape et personne responsable dans l’entreprise. Il doit vous permettre de retrouver le contexte sans recommencer toute la discussion.',
           'Après la visite, expliquez le périmètre de votre devis et identifiez les questions qui restent ouvertes. Le particulier a-t-il besoin de préciser un choix technique ou de revoir l’étendue des travaux ? Un suivi concret permet de distinguer une décision en attente d’un projet qui ne correspond plus à votre activité.',
@@ -381,9 +389,9 @@ export const SEO_PAGES = {
         a: 'Non. Celexia recherche et qualifie les projets. Votre entreprise réalise l’étude technique, chiffre les travaux et établit le devis. Vous conservez la relation avec le particulier.',
       },
     ],
-    related: ['/partenariat-artisans-btp', '/apporteur-affaires-btp', '/guides/commission-apporteur-affaires-btp'],
+    related: ['/partenariat-artisans-btp', '/guides/suivi-demandes-devis-artisan', '/guides/plateforme-travaux-ou-apporteur-affaires'],
     publishedAt: '2026-11-07',
-    updatedAt: '2026-11-07',
+    updatedAt: '2026-11-08',
   },
 };
 
