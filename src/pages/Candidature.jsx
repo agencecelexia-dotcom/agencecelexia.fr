@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
-import { INITIAL_APPLICATION, REVENUE_OPTIONS, STEP_FIELDS, TRADE_OPTIONS, submitApplication, validateApplication } from '../lib/candidature';
+import { INITIAL_APPLICATION, MAX_OTHER_TRADE_LENGTH, OTHER_TRADE, REVENUE_OPTIONS, STEP_FIELDS, TRADE_GROUPS, submitApplication, tradeLabels, validateApplication } from '../lib/candidature';
 import { createCandidatureTracker } from '../lib/analytics';
 import './Candidature.css';
 
@@ -63,10 +63,21 @@ export default function Candidature() {
     setSubmitError('');
   }
 
+  function toggleTrade(event) {
+    const { value, checked } = event.target;
+    analyticsRef.current.change('trades');
+    setValues((previous) => {
+      const trades = checked ? [...previous.trades, value] : previous.trades.filter((trade) => trade !== value);
+      return { ...previous, trades, otherTrade: trades.includes(OTHER_TRADE) ? previous.otherTrade : '' };
+    });
+    setErrors((previous) => ({ ...previous, trades: undefined, otherTrade: undefined }));
+    setSubmitError('');
+  }
+
   function showErrors(found) {
     setErrors(found);
     const first = Object.keys(found)[0];
-    requestAnimationFrame(() => document.getElementById(`application-${first}`)?.focus());
+    requestAnimationFrame(() => (first === 'trades' ? document.querySelector('.application-trades input') : document.getElementById(`application-${first}`))?.focus());
   }
 
   async function handleSubmit(event) {
@@ -124,7 +135,7 @@ export default function Candidature() {
     <select {...a11y} value={values[name]} onChange={change} required><option value="">Sélectionnez une réponse</option>{options.map((option) => <option key={option.value || option} value={option.value || option}>{option.label || option}</option>)}</select>
   }</Field>;
   const summaryGroups = [
-    [['Entreprise', values.company], ['Métier', TRADE_OPTIONS.find(({ value }) => value === values.trade)?.label], ['Zone d’intervention', values.area], ['Année de création', values.createdYear]],
+    [['Entreprise', values.company], ['Métiers', tradeLabels(values.trades, values.otherTrade).join(' · ')], ['Zone d’intervention', values.area], ['Année de création', values.createdYear]],
     [['Salariés', values.employees], ['Chiffre d’affaires annuel', values.revenue], ['Chantiers par mois', values.monthlyProjects], ['Chantiers supplémentaires possibles / mois', values.additionalProjects], ['Précisions', values.details || 'Non renseigné']],
     [['Contact', `${values.firstName} ${values.lastName}`], ['Fonction', values.role], ['Dans l’entreprise depuis', values.joinedYear], ['E-mail', values.email], ['Téléphone', values.phone]],
   ];
@@ -167,7 +178,16 @@ export default function Candidature() {
             <div className="application-fields">
               {step === 0 && <>
                 {input('company', 'Nom de l’entreprise', { autoComplete: 'organization', maxLength: 150, wide: true, placeholder: 'Le nom de votre entreprise' })}
-                {select('trade', 'Votre métier', TRADE_OPTIONS)}
+                <fieldset className="application-field application-field-wide application-trades" aria-describedby={['trades-hint', errors.trades && 'trades-error'].filter(Boolean).join(' ')}>
+                  <legend>Vos corps de métier<span aria-hidden="true"> *</span></legend>
+                  <p className="application-hint" id="trades-hint">Cochez tous les métiers que vous exercez : couverture, maçonnerie, ITE, plomberie…{values.trades.length > 0 && ` (${values.trades.length} sélectionné${values.trades.length > 1 ? 's' : ''})`}</p>
+                  {TRADE_GROUPS.map((group) => <div className="application-trade-group" key={group.title}>
+                    <p>{group.title}</p>
+                    <div>{group.options.map((option) => <label key={option.value} className="application-trade-option"><input type="checkbox" name="trades" value={option.value} checked={values.trades.includes(option.value)} onChange={toggleTrade} aria-invalid={errors.trades ? 'true' : undefined} /><span>{option.label}</span></label>)}</div>
+                  </div>)}
+                  {errors.trades && <p className="application-field-error" id="trades-error" role="alert">{errors.trades}</p>}
+                </fieldset>
+                {values.trades.includes(OTHER_TRADE) && input('otherTrade', 'Précisez votre autre métier', { maxLength: MAX_OTHER_TRADE_LENGTH, wide: true, placeholder: 'Ex. Ramonage, vitrerie, désenfumage…' })}
                 {input('createdYear', 'Année de création', { type: 'number', min: 1800, max: currentYear, step: 1, inputMode: 'numeric', placeholder: 'Ex. 2018' })}
                 {input('area', 'Zone d’intervention', { maxLength: 300, wide: true, placeholder: 'Ex. Lyon et 40 km autour, ou départements 69 et 01', hint: 'Villes, départements ou rayon dans lequel vous travaillez.' })}
               </>}

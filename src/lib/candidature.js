@@ -6,20 +6,78 @@ export const REVENUE_OPTIONS = [
   'Premier exercice en cours', 'À préciser lors de notre échange',
 ];
 
-export const TRADE_OPTIONS = [
-  ...Object.entries(METIERS).map(([value, trade]) => ({ value, label: trade.label })),
-  { value: 'autre', label: 'Autre métier du bâtiment' },
+// Les quatre métiers qui ont une page dédiée gardent leur identifiant historique (clés de METIERS).
+const label = (slug) => METIERS[slug].label;
+
+/** Corps de métier du bâtiment proposés dans le formulaire, par famille. */
+export const TRADE_GROUPS = [
+  { title: 'Gros œuvre et structure', options: [
+    { value: 'maconnerie', label: label('maconnerie') },
+    { value: 'terrassement-vrd', label: 'Terrassement et VRD' },
+    { value: 'demolition', label: 'Démolition et désamiantage' },
+    { value: 'charpente-bois', label: 'Charpente bois' },
+    { value: 'charpente-metallique', label: 'Charpente métallique' },
+    { value: 'ossature-bois', label: 'Construction ossature bois' },
+    { value: 'echafaudage', label: 'Échafaudage' },
+  ] },
+  { title: 'Toiture et enveloppe', options: [
+    { value: 'couverture', label: label('couverture') },
+    { value: 'zinguerie', label: 'Zinguerie' },
+    { value: 'etancheite', label: 'Étanchéité' },
+    { value: 'facade-ite', label: label('facade-ite') },
+    { value: 'isolation', label: 'Isolation (combles, murs, planchers)' },
+    { value: 'menuiserie-exterieure', label: 'Menuiseries extérieures (fenêtres, portes, volets)' },
+  ] },
+  { title: 'Second œuvre et finitions', options: [
+    { value: 'platrerie', label: 'Plâtrerie, plaque de plâtre, cloisons' },
+    { value: 'menuiserie-interieure', label: 'Menuiserie intérieure et agencement' },
+    { value: 'carrelage', label: 'Carrelage et faïence' },
+    { value: 'revetements-sols', label: 'Parquet et revêtements de sols' },
+    { value: 'peinture', label: 'Peinture et revêtements muraux' },
+    { value: 'serrurerie-metallerie', label: 'Serrurerie et métallerie' },
+    { value: 'renovation-interieure', label: 'Rénovation intérieure (salle de bain, cuisine)' },
+  ] },
+  { title: 'Plomberie, énergie et confort', options: [
+    { value: 'plomberie', label: 'Plomberie' },
+    { value: 'chauffage', label: 'Chauffage' },
+    { value: 'climatisation-ventilation', label: 'Climatisation et ventilation' },
+    { value: 'pompe-a-chaleur', label: 'Pompe à chaleur' },
+    { value: 'electricite', label: 'Électricité' },
+    { value: 'photovoltaique', label: 'Panneaux photovoltaïques' },
+    { value: 'assainissement', label: 'Assainissement' },
+  ] },
+  { title: 'Extérieur et ensemble', options: [
+    { value: 'constructeurs-piscines', label: label('constructeurs-piscines') },
+    { value: 'paysagiste', label: 'Aménagement extérieur et paysagisme' },
+    { value: 'cloture-portail', label: 'Clôtures et portails' },
+    { value: 'renovation-globale', label: 'Rénovation globale' },
+    { value: 'entreprise-generale', label: 'Entreprise générale, tous corps d’état' },
+    { value: 'autre', label: 'Autre métier du bâtiment' },
+  ] },
 ];
 
+export const TRADE_OPTIONS = TRADE_GROUPS.flatMap(({ options }) => options);
+export const OTHER_TRADE = 'autre';
+export const MAX_OTHER_TRADE_LENGTH = 150;
+
+/** Libellés lisibles des métiers choisis ; « Autre » est remplacé par la précision saisie. */
+export function tradeLabels(trades = [], otherTrade = '') {
+  return trades.map((value) => {
+    const found = TRADE_OPTIONS.find((option) => option.value === value);
+    if (!found) return undefined;
+    return value === OTHER_TRADE && otherTrade?.trim() ? `Autre : ${otherTrade.trim()}` : found.label;
+  }).filter(Boolean);
+}
+
 export const INITIAL_APPLICATION = {
-  company: '', trade: '', area: '', createdYear: '', employees: '', revenue: '',
+  company: '', trades: [], otherTrade: '', area: '', createdYear: '', employees: '', revenue: '',
   monthlyProjects: '', additionalProjects: '', details: '', firstName: '',
   lastName: '', role: '', joinedYear: '', email: '', phone: '', consent: false,
   websiteConfirmation: '',
 };
 
 export const STEP_FIELDS = [
-  ['company', 'trade', 'area', 'createdYear'],
+  ['company', 'trades', 'otherTrade', 'area', 'createdYear'],
   ['employees', 'revenue', 'monthlyProjects', 'additionalProjects', 'details'],
   ['firstName', 'lastName', 'role', 'joinedYear', 'email', 'phone'],
   ['consent'],
@@ -33,7 +91,16 @@ export function validateApplication(input, fields = Object.keys(INITIAL_APPLICAT
       errors[key] = `Renseignez ce champ (${max} caractères maximum).`;
     }
   }
-  if (fields.includes('trade') && !TRADE_OPTIONS.some(({ value }) => value === input.trade)) errors.trade = 'Sélectionnez votre métier.';
+  if (fields.includes('trades')) {
+    const { trades } = input;
+    if (!Array.isArray(trades) || !trades.length) errors.trades = 'Sélectionnez au moins un corps de métier.';
+    else if (new Set(trades).size !== trades.length || !trades.every((value) => TRADE_OPTIONS.some((option) => option.value === value))) errors.trades = 'Un des métiers sélectionnés n’est pas valide.';
+  }
+  if (fields.includes('otherTrade')) {
+    const needed = Array.isArray(input.trades) && input.trades.includes(OTHER_TRADE);
+    const text = typeof input.otherTrade === 'string' ? input.otherTrade : '';
+    if (text.length > MAX_OTHER_TRADE_LENGTH || (needed && !text.trim())) errors.otherTrade = `Précisez votre métier (${MAX_OTHER_TRADE_LENGTH} caractères maximum).`;
+  }
   if (fields.includes('revenue') && !REVENUE_OPTIONS.includes(input.revenue)) errors.revenue = 'Sélectionnez une fourchette.';
   for (const key of ['createdYear', 'joinedYear']) {
     if (!fields.includes(key)) continue;

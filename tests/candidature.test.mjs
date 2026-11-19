@@ -5,7 +5,7 @@ import { renderCandidatureEmail } from '../server/candidature-email.mjs';
 import { submitApplication, validateApplication } from '../src/lib/candidature.js';
 
 const values = {
-  company: 'Entreprise de test', trade: 'couverture', area: 'Lyon', createdYear: '2018',
+  company: 'Entreprise de test', trades: ['couverture', 'maconnerie', 'facade-ite'], otherTrade: '', area: 'Lyon', createdYear: '2018',
   employees: '0', revenue: '100 000 à 250 000 €', monthlyProjects: '3', additionalProjects: '2',
   details: '', firstName: 'Test', lastName: 'Exemple', role: 'Gérant', joinedYear: '2018',
   email: 'test@example.com', phone: '06 00 00 00 00', consent: true, websiteConfirmation: '',
@@ -111,7 +111,7 @@ test('n8n takes priority and receives the validated application with a fixed ema
   assert.equal(outbound.payload.source, 'contact');
   assert.equal(outbound.payload.email.to, 'agence.celexia@gmail.com');
   assert.equal(outbound.payload.email.replyTo, values.email);
-  assert.equal(outbound.payload.email.subject, `Candidature Celexia — ${values.company}`);
+  assert.equal(outbound.payload.email.subject, `Candidature Celexia — ${values.company} (Couverture, Maçonnerie +1)`);
   assert.match(outbound.payload.email.text, /Chiffre d’affaires annuel : 100 000 à 250 000 €/);
   assert.match(outbound.payload.email.text, /Capacité supplémentaire par mois : 2/);
   assert.match(outbound.payload.email.text, /Dans l’entreprise depuis : 2018/);
@@ -176,9 +176,10 @@ test('HTML email escapes every user-provided field and preserves message paragra
   const dangerous = `<script>alert("x")</script> & 'fin'`;
   const escaped = '&lt;script&gt;alert(&quot;x&quot;)&lt;/script&gt; &amp; &#39;fin&#39;';
   const application = Object.fromEntries(Object.keys(values).map((key) => [key, dangerous]));
+  application.trades = [dangerous];
   application.consent = true;
   application.details = `${dangerous}\nDeuxième ligne\r\n\r\nDernier paragraphe`;
-  const html = renderCandidatureEmail({ application, trade: dangerous, source: dangerous, reference: '0123456789abcdef', submissionDay: '2026-11-07' });
+  const html = renderCandidatureEmail({ application, trades: [dangerous], source: dangerous, reference: '0123456789abcdef', submissionDay: '2026-11-07' });
   assert.ok(!html.includes('<script>'));
   assert.ok(!html.includes(dangerous));
   assert.ok(html.split(escaped).length > 15, 'All dynamic text fields should contain HTML-escaped values');
@@ -191,7 +192,7 @@ test('HTML email escapes every user-provided field and preserves message paragra
 
 test('email links cannot inject HTML attributes or mail headers', () => {
   const email = `name?bcc=other@example.com`.replace('@example.com', `&subject="'><svg>+tag@example.com`);
-  const html = renderCandidatureEmail({ application: { ...values, email, phone: '+33 (0)6 12 34 56 78' }, trade: 'Couverture', source: 'contact', reference: 'a'.repeat(64), submissionDay: '2026-11-07' });
+  const html = renderCandidatureEmail({ application: { ...values, email, phone: '+33 (0)6 12 34 56 78' }, trades: ['Couverture', 'Maçonnerie'], source: 'contact', reference: 'a'.repeat(64), submissionDay: '2026-11-07' });
   const links = [...html.matchAll(/href="([^"]+)"/g)].map((match) => match[1]);
   const expectedAddress = 'mailto:name%3Fbcc%3Dother%26subject%3D%22%27%3E%3Csvg%3E%2Btag@example.com';
   assert.deepEqual(links, [expectedAddress, 'tel:+33612345678', expectedAddress]);
@@ -201,8 +202,8 @@ test('email links cannot inject HTML attributes or mail headers', () => {
 });
 
 test('HTML email includes all application data without an empty optional-message section', () => {
-  const html = renderCandidatureEmail({ application: values, trade: 'Couverture', source: 'page-contact', reference: 'a'.repeat(64), submissionDay: '2026-11-07' });
-  for (const value of ['Entreprise de test', 'Couverture', 'Lyon', '2018', '100 000 à 250 000 €', 'Test Exemple', 'Gérant', 'test@example.com', '06 00 00 00 00', 'page-contact']) assert.ok(html.includes(value));
+  const html = renderCandidatureEmail({ application: values, trades: ['Couverture', 'Maçonnerie'], source: 'page-contact', reference: 'a'.repeat(64), submissionDay: '2026-11-07' });
+  for (const value of ['Entreprise de test', 'Couverture', 'Maçonnerie', 'Lyon', '2018', '100 000 à 250 000 €', 'Test Exemple', 'Gérant', 'test@example.com', '06 00 00 00 00', 'page-contact']) assert.ok(html.includes(value));
   for (const label of ['Nombre de salariés', 'Chiffre d’affaires annuel', 'Chantiers réalisés', 'Chantiers supplémentaires', 'Dans l’entreprise depuis', 'Accord pour l’étude']) assert.ok(html.includes(label));
   assert.ok(!html.includes('Le mot du candidat'));
   assert.match(html, /max-width:640px/);
@@ -210,7 +211,7 @@ test('HTML email includes all application data without an empty optional-message
 });
 
 test('HTML rendering tolerates an isolated Unicode surrogate in an email address', () => {
-  const html = renderCandidatureEmail({ application: { ...values, email: 'test\ud800@example.com' }, trade: 'Couverture', source: 'contact', reference: 'a'.repeat(64), submissionDay: '2026-11-07' });
+  const html = renderCandidatureEmail({ application: { ...values, email: 'test\ud800@example.com' }, trades: ['Couverture', 'Maçonnerie'], source: 'contact', reference: 'a'.repeat(64), submissionDay: '2026-11-07' });
   assert.match(html, /href="mailto:test%EF%BF%BD@example.com"/);
 });
 
@@ -222,4 +223,36 @@ test('the browser rejects an HTTP 200 SPA fallback instead of displaying false s
 test('the browser only accepts the explicit API receipt', async (context) => {
   context.mock.method(globalThis, 'fetch', async () => new Response(JSON.stringify({ received: true, reference: 'test' }), { status: 200 }));
   assert.deepEqual(await submitApplication(values, 'test'), { received: true, reference: 'test' });
+});
+
+test('at least one trade is required and every trade must be a known option', () => {
+  for (const trades of [[], undefined, 'couverture', ['inconnu'], ['couverture', 'couverture']]) {
+    assert.ok(validateApplication({ ...values, trades }).trades, JSON.stringify(trades));
+  }
+  assert.deepEqual(validateApplication({ ...values, trades: ['plomberie', 'electricite', 'peinture', 'carrelage'] }), {});
+});
+
+test('the free-text trade is required only when "autre" is selected', () => {
+  assert.ok(validateApplication({ ...values, trades: ['couverture', 'autre'], otherTrade: ' ' }).otherTrade);
+  assert.deepEqual(validateApplication({ ...values, trades: ['couverture', 'autre'], otherTrade: 'Ramonage' }), {});
+});
+
+test('the email sent to Celexia lists every trade chosen by the applicant', async () => {
+  const sent = [];
+  const send = async (url, options) => {
+    sent.push(JSON.parse(options.body));
+    return new Response(JSON.stringify({ id: 'provider-test-id' }), { status: 200 });
+  };
+  const body = { ...values, trades: ['couverture', 'maconnerie', 'facade-ite', 'autre'], otherTrade: 'Ramonage' };
+  const result = await handleCandidature(request(body), { env, now, send });
+  assert.equal(result.body.received, true);
+  assert.match(sent[0].text, /Métiers : Couverture ; Maçonnerie ; Façade et isolation par l’extérieur ; Autre : Ramonage/);
+  for (const label of ['Couverture', 'Maçonnerie', 'Façade et isolation par l’extérieur', 'Autre : Ramonage']) assert.ok(sent[0].html.includes(label), label);
+  assert.match(sent[0].subject, /\(Couverture, Maçonnerie \+2\)/);
+});
+
+test('a submission without trade never reaches the email provider', async () => {
+  const result = await handleCandidature(request({ ...values, trades: [] }), { env, now, send: neverSend });
+  assert.equal(result.status, 422);
+  assert.ok(result.body.fields.trades);
 });
