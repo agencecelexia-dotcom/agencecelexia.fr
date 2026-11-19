@@ -29,6 +29,7 @@ Le serveur effectue un `POST` JSON avec les propriétés suivantes :
 
 - `reference` : SHA-256 complet, soit 64 caractères hexadécimaux, calculé à partir des réponses validées, de la provenance et du jour UTC.
 - `application` : champs validés du formulaire, sans le champ anti-robot ni les propriétés supplémentaires envoyées par le navigateur.
+  Les métiers sont dans `application.trades` (tableau d’identifiants, au moins un, obligatoire) et `application.otherTrade` (précision libre, obligatoire seulement si `autre` est coché). Le serveur les traduit en libellés dans l’objet, le texte et le HTML de l’e-mail ; le sujet devient `Candidature Celexia — Entreprise (Métier 1, Métier 2 +N)`. Le workflow n8n n’a pas à changer : il envoie `email.subject` et `email.html` tels quels.
 - `source` : provenance limitée à 100 caractères, sans caractères de contrôle.
 - `email` : `{ to, replyTo, subject, text, html }`, où `to` vaut toujours `agence.celexia@gmail.com`.
 

@@ -28,6 +28,16 @@
   .application-field-wide { @apply sm:col-span-2; }
   .application-field label { @apply block text-sm font-semibold text-encre-900 mb-2; }
   .application-field label > span { @apply text-violet-600; }
+  .application-trades { @apply border-0 p-0 m-0; }
+  .application-trades legend { @apply block text-sm font-semibold text-encre-900 mb-2 p-0; }
+  .application-trades legend > span { @apply text-violet-600; }
+  .application-trade-group { @apply mt-4; }
+  .application-trade-group > p { @apply text-xs font-semibold uppercase tracking-wider text-encre-600 mb-2; }
+  .application-trade-group > div { @apply grid gap-2 sm:grid-cols-2; }
+  .application-trades label.application-trade-option { @apply flex items-start gap-3 min-h-12 mb-0 px-4 py-3 rounded-xl border border-brume-200 bg-brume-50 text-sm font-medium text-encre-900 cursor-pointer; }
+  .application-trades label.application-trade-option:has(input:checked) { @apply bg-white border-violet-600; }
+  .application-trades label.application-trade-option:has(input:focus-visible) { @apply outline outline-2 outline-offset-2 outline-violet-600; }
+  .application-trades .application-trade-option input { @apply w-5 h-5 min-h-0 shrink-0 mt-0.5 p-0 accent-violet-600; }
   .application-hint { @apply text-xs text-encre-600 mb-2; }
   .application-field input, .application-field select, .application-field textarea { @apply block w-full min-h-12 rounded-xl border border-brume-200 bg-brume-50 text-encre-900 px-4 py-3.5 text-sm leading-normal; font-size: 16px; }
   .application-field input::placeholder, .application-field textarea::placeholder { @apply text-encre-600; opacity: .8; }

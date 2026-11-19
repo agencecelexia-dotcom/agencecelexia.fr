@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { INITIAL_APPLICATION, TRADE_OPTIONS, validateApplication } from '../src/lib/candidature.js';
+import { INITIAL_APPLICATION, OTHER_TRADE, tradeLabels, validateApplication } from '../src/lib/candidature.js';
 import { renderCandidatureEmail } from './candidature-email.mjs';
 
 const DESTINATION = 'agence.celexia@gmail.com';
@@ -26,6 +26,8 @@ export async function handleCandidature({ method, body, contentType = '', origin
   if (input.websiteConfirmation) return failure(400, 'La demande n’a pas pu être validée. Contactez-nous directement.');
 
   const values = Object.fromEntries(Object.keys(INITIAL_APPLICATION).filter((key) => key !== 'websiteConfirmation').map((key) => [key, typeof input[key] === 'string' ? input[key].trim() : input[key]]));
+  if (Array.isArray(values.trades)) values.trades = values.trades.filter((value) => typeof value === 'string');
+  if (typeof values.otherTrade !== 'string' || !Array.isArray(values.trades) || !values.trades.includes(OTHER_TRADE)) values.otherTrade = '';
   const fields = validateApplication(values, undefined, now.getUTCFullYear());
   if (Object.keys(fields).length) return failure(422, 'Vérifiez les informations indiquées dans le formulaire.', { fields });
   let webhookUrl;
@@ -40,14 +42,15 @@ export async function handleCandidature({ method, body, contentType = '', origin
   } else if (!env.RESEND_API_KEY || !env.CANDIDATURE_FROM_EMAIL) return unavailable();
 
   const source = typeof input.source === 'string' ? input.source.slice(0, 100).replace(/[\u0000-\u001f\u007f]/g, '') : 'site';
-  const trade = TRADE_OPTIONS.find(({ value }) => value === values.trade).label;
+  const trades = tradeLabels(values.trades, values.otherTrade);
+  const subjectTrades = trades.length > 2 ? `${trades.slice(0, 2).join(', ')} +${trades.length - 2}` : trades.join(', ');
   const submissionDay = now.toISOString().slice(0, 10);
   const applicationId = createHash('sha256').update(JSON.stringify(values) + source + submissionDay).digest('hex');
   const text = [
     'NOUVELLE CANDIDATURE ARTISAN — CELEXIA',
     '',
     'ENTREPRISE',
-    `Nom : ${values.company}`, `Métier : ${trade}`, `Zone : ${values.area}`, `Création : ${values.createdYear}`,
+    `Nom : ${values.company}`, `Métiers : ${trades.join(' ; ')}`, `Zone : ${values.area}`, `Création : ${values.createdYear}`,
     '', 'ACTIVITÉ',
     `Salariés : ${values.employees}`, `Chiffre d’affaires annuel : ${values.revenue}`,
     `Chantiers réalisés par mois : ${values.monthlyProjects}`,
@@ -64,9 +67,9 @@ export async function handleCandidature({ method, body, contentType = '', origin
   const email = {
     to: DESTINATION,
     replyTo: values.email,
-    subject: `Candidature Celexia — ${values.company.replace(/[\r\n]/g, ' ')}`,
+    subject: `Candidature Celexia — ${values.company.replace(/[\r\n]/g, ' ')} (${subjectTrades.replace(/[\r\n]/g, ' ')})`,
     text,
-    html: renderCandidatureEmail({ application: values, trade, source, reference: applicationId, submissionDay }),
+    html: renderCandidatureEmail({ application: values, trades, source, reference: applicationId, submissionDay }),
   };
 
   try {

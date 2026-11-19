@@ -21,7 +21,8 @@ function sectionTitle(number, title) {
 }
 
 /** The template accepts server-validated fields; all user-provided content is escaped again for HTML. */
-export function renderCandidatureEmail({ application, trade, source, reference, submissionDay }) {
+export function renderCandidatureEmail({ application, trades, source, reference, submissionDay }) {
+  const tradeList = Array.isArray(trades) ? trades : [trades];
   const dateLabel = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${submissionDay}T12:00:00Z`));
   const mailto = `mailto:${encodeAddress(application.email).replace('%40', '@')}`;
   const phone = String(application.phone);
@@ -55,7 +56,7 @@ export function renderCandidatureEmail({ application, trade, source, reference, 
   </style>
 </head>
 <body style="margin:0;padding:0;background-color:#F0EDF6;font-family:Arial,Helvetica,sans-serif;-webkit-text-size-adjust:100%;color:#2A2340;">
-  <div style="display:none;font-size:1px;line-height:1px;color:#F0EDF6;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">${escapeHtml(application.company)} · ${escapeHtml(trade)} — une nouvelle candidature à étudier.</div>
+  <div style="display:none;font-size:1px;line-height:1px;color:#F0EDF6;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">${escapeHtml(application.company)} · ${escapeHtml(tradeList.join(', '))} — une nouvelle candidature à étudier.</div>
   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#F0EDF6" style="width:100%;background-color:#F0EDF6;border-collapse:collapse;">
     <tr><td align="center" style="padding:32px 12px;">
       <!--[if mso]><table role="presentation" width="640" cellspacing="0" cellpadding="0" border="0"><tr><td><![endif]-->
@@ -71,7 +72,7 @@ export function renderCandidatureEmail({ application, trade, source, reference, 
             <tr><td bgcolor="#DDE7A3" style="padding:7px 11px;background-color:#DDE7A3;border-radius:5px;color:#1F0D3D;font-size:10px;line-height:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Nouvelle candidature</td></tr>
           </table>
           <h1 class="company-name" style="margin:18px 0 10px;color:#FFFFFF;font-size:38px;line-height:43px;font-weight:700;letter-spacing:-1.3px;word-break:break-word;overflow-wrap:anywhere;">${escapeHtml(application.company)}</h1>
-          <p style="margin:0;color:#CFB9FF;font-size:16px;line-height:24px;">${escapeHtml(trade)}</p>
+          <p style="margin:0;color:#CFB9FF;font-size:16px;line-height:24px;word-break:break-word;overflow-wrap:anywhere;">${tradeList.map(escapeHtml).join(' · ')}</p>
         </td></tr>
 
         <tr><td class="content-padding" style="padding:24px 32px;">
@@ -85,7 +86,7 @@ export function renderCandidatureEmail({ application, trade, source, reference, 
               ${sectionTitle('01', 'L’entreprise')}
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="table-layout:fixed;border-collapse:collapse;">
                 ${field('Entreprise', application.company)}
-                ${field('Métier', trade)}
+                ${field(tradeList.length > 1 ? `Métiers (${tradeList.length})` : 'Métier', tradeList.join(' · '))}
                 ${field('Zone d’intervention', application.area)}
                 ${field('Année de création', application.createdYear)}
               </table>
